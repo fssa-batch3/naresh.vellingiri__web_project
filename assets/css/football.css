@@ -20,7 +20,7 @@ ul{
     display: flex;
     margin-left: 25%;
     position: relative;
-    top: 3px;
+    top: 30px;
 }
 
 ul a{
@@ -61,7 +61,6 @@ ul a{
     overflow-x: scroll;
     margin-top: 100px;
     height:600px;
-    background-image: url('https://w0.peakpx.com/wallpaper/36/34/HD-wallpaper-black-leather-leather-texture-black-background.jpg'); 
     color: white;
     font-family: 'DM Mono', monospace;
     background-image: url(/bg4.jpg);
@@ -108,6 +107,8 @@ ul a{
     margin-left: 15%;
     margin-top: 10%;
     border-radius: 10px;
+    border: 2px solid black;
+
 }
 .name{
     color: black;
@@ -172,8 +173,6 @@ p{
     
     background-image: linear-gradient(to right,#adf7f2, #15aaff);
     border-radius: 10px; 
-    background:linear-gradient(to right,#adf7f2, #15aaff);
-    border-radius: 10px;
     padding: 10px;
     margin-bottom: -40px;
     padding-bottom: -40px;
@@ -192,5 +191,8 @@ p{
   background: linear-gradient(#7beb62,#17d453);
   margin-left: 100px;
   margin-top: 20px;
-border: 1px solid white;
+}
+
+.connect:hover{
+    cursor: pointer;
 }

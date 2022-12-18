@@ -11,7 +11,7 @@ body{
 }
 
 .container{
-    border: 1px solid black;
+    border: 1px solid rgb(241, 237, 237);
     width: 400px;
     height: 400px;
     text-align: center;
@@ -20,9 +20,12 @@ body{
     margin-top: 200px;
     margin-left: 550px;
 }
-
+img{
+    width: 50px;
+    margin-top: 20px;
+}
 .main-content p{
-    background: -webkit-linear-gradient(rgb(214, 142, 64), rgb(192, 76, 213));
+    background: -webkit-linear-gradient(rgb(249, 237, 3), rgb(242, 242, 243));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;

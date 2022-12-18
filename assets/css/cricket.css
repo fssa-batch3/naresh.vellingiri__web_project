@@ -179,16 +179,13 @@ p{
 }
 
 .front{
-    background-color:aliceblue;
     background:linear-gradient(#4568dc , #b06ab3);  
 }
 
 .back{
-     background:linear-gradient(#4568dc , #b06ab3);
     transform: rotateY(180deg);
     border-radius: 10px; 
     background:linear-gradient(#fafafc , #c6a2b9);
-    border-radius: 10px;
     padding: 10px;
     margin-bottom: -40px;
     padding-bottom: -40px;
@@ -204,6 +201,13 @@ p{
   margin-left: 90px;
   margin-top: 20px;
 
+}
+
+.connect:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: 1s;
+    border: white;
 }
 .c1{
     width: 70%;
