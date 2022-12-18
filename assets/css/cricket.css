@@ -149,10 +149,8 @@ p{
 .pp1container, .pp2container{
     display: flex;
     justify-content: space-around;
-    margin-bottom: 30px;
-   
+    margin-bottom: 30px; 
 }
-
 
 .p1, .p2{
     display: flex;

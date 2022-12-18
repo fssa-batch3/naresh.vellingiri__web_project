@@ -69,14 +69,20 @@ ul a{
     color: aqua;
     box-shadow: 1px 1px 10px aqua;
 }
+
+
 .container{
     display: flex;
     height: 100vh;
     flex-wrap: wrap;
     width: 1100px;
+    padding-top: 30px;
+    border-radius: 50px;
     justify-content: space-around;
     margin-left: 400px;
     margin-top: -200px;
+    background: linear-gradient(to right,#adf7f2, #67bff2);
+
 }
 .card{
     position: relative;
