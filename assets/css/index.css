@@ -170,8 +170,6 @@ ul a:active{
     background-color: #F8F9FA;
     text-align: center;
     box-sizing: border-box;
-    padding: 70px 0;
-
 }
 
 .service h5 {
@@ -184,23 +182,16 @@ ul a:active{
     font-size: 40px;
     font-weight: 600;
     padding-top: 10px;
-    font-size: 30px;
 
 }
 
 /* details service */
 .service .details {
-    width: 75%;
     display: flex;
     margin: 0 auto;
     padding-top: 60px;
-    display: flex;
     flex-direction: row;
-    width: 100%;
-    padding-top: 25px;
 }
-
-
 
 .details .info {
     padding: 0 15px 25px;
