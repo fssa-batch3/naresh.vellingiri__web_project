@@ -1,0 +1,71 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+
+body {
+  font-family: roboto, sans-serif;
+}
+
+.body{
+  background-image: url('../images/nike.jpg');
+  background-color: rgba(0, 0, 0, 0.22);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-page {
+  width: 360px;
+  padding: 8;
+  margin: auto;
+  margin-top: 200px;
+
+}
+.form {
+  position: relative;
+  z-index: 1;
+  bottom: 10px;
+  background: rgba(255,255,255, 0.2);
+  max-width: 360px;
+  height: 300px;
+  margin: auto  ;
+  padding:  50px 30px ;
+  text-align: center;
+  border-radius: 10px;
+  
+}
+.form input {
+  font-family: FontAwesome, "Roboto", sans-serif;
+  background:  rgba(255,255,255, 0.8);
+  width: 300px;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius:10px;
+  
+}
+.form button {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: .1em;
+  background: #17a589;
+  width: 100%;
+  border: 0;
+  border-radius:30px;
+  margin: 0px 0px 8px;
+  padding: 15px;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition:  0.3s;
+
+
+}
+.form button:hover,.form button:focus {
+  background: #148f77;
+  box-shadow: 0 5px 10px rgba(236, 167, 7, 0.9);
+  transform: translateY(-4px);
+}
+.form button:active {
+  transform: translateY(3px);
+}
+
