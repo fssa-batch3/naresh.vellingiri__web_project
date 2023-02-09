@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="user_name" placeholder="firstname"><br><br>
+        <input type="text" id="password" placeholder="lastname"><br><br>
+        <input type="email" id="email" placeholder="email"><br><br>
+        <input type="number" id="number" placeholder="Phone number"><br><br>
+        <input type="text" id="password" placeholder="lastname">
+
+        
+        <button type="submit" onclick="register()">REGISTER</button>
+
+    </form>
+
+    <script>
+
+       
+
+
+     
+  function register() {
+
+let user_name = document.getElementById("user_name").value
+let password = document.getElementById("password").value
+
+let user_data = {
+  "name":user_name,
+  "password":password
+}
+
+
+
+let arr;
+
+let _data = JSON.parse(localStorage.getItem("array"))
+
+let page_transfer;
+
+
+if(_data){
+arr=JSON.parse(localStorage.getItem("array"))
+page_transfer=1;
+
+}
+
+else{
+arr=[]
+}
+
+
+if(page_transfer=1){
+  window.location.href="../pages/login.html"
+}
+
+arr.push(user_data)
+
+localStorage.setItem("array",JSON.stringify(arr))
+
+
+}       
+    </script>
+</body>
+
+</html>

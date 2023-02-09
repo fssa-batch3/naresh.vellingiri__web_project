@@ -19,23 +19,58 @@
   <div class="form">
 
     <form>
-      <input type="text" placeholder="&#xf007;  username"  required>
+      <input type="text" id="name" placeholder="&#xf007;  username"  required>
       <input type="password" id="password" placeholder="&#xf023;  password" required>
       <i style="color:rgb(219, 171, 59) ;" class="fas fa-eye"></i> 
       <br>
       <br>
-      <a href="ranklist.html"> <button type="button">LOGIN</button></a>
-      <p></p>
+      <a href="#"> <button type="button" onclick="login()">LOGIN</button></a>
     </form>
 
 
-    <form class="login-form">
-     <a href="/pages/ranklist.html"><button type="button">SIGN UP</button></a> 
-    </form>
+  
 
   </div>
 </div>
 
 
+
+<script>
+
+function login() {
+            let name = document.getElementById("name").value
+            let password = document.getElementById("password").value
+            let arr = JSON.parse(localStorage.getItem("array"))
+
+          
+let res;
+            arr.find(element => {
+
+                if (element["name"] == name && element["password"]== password) {
+                    return res=1  ;
+                    
+                }
+                else {
+                    return res=0;
+                    
+                }
+            });
+
+
+     if(res==1){
+    let profile_name = name;
+    localStorage.setItem("profile_name", profile_name);
+    console.log(profile_name);
+    alert("Logged in")
+    window.location.href="../pages/userprofile.html"
+}
+
+
+else{
+    alert("none")
+}
+}
+
+</script>
 </body>
 </html>
