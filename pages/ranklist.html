@@ -147,7 +147,151 @@
 
 
               <tbody>
-                <tr>
+
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <script>
+
+    let player_ranklist_details = [
+      {
+        "player_rank": "1",
+        "player_image": "../assets/images/cricket/Arun.png",
+        "player_name": "Arun",
+        "player_district": "Vellore",
+        "player_email_id": "arun@gmail.com",
+        "player_span_class_name": "sports_cricket",
+        "player_span_class_name_views": "1120"
+      },
+      {
+
+        "player_rank": "2",
+        "player_image": "../assets/images/cricket/Arun.png",
+        "player_name": "Dinesh",
+        "player_district": "Vellore",
+        "player_email_id": "arun@gmail.com",
+        "player_span_class_name": "sports_cricket",
+        "player_span_class_name_views": "1120"
+
+      }
+    ]
+
+    let tr;
+
+    let td_1_rank;
+
+    let td_2;
+    let td_2_client;
+    let td_2_image;
+    let td_2_client_info;
+    let td_2_h4;
+
+    let td_3_district;
+
+    let td_4_email;
+
+    let td_5_icons;
+    let td_5_span;
+
+    let td_6;
+    let td_6_actions;
+    let td_6_span1;
+    let td_6_span2;
+
+    let i;
+    for (i = 0; i < player_ranklist_details.length; i++) {
+
+      let tbody = document.querySelector("tbody")
+
+      tr = document.createElement("tr");
+      tbody.append(tr);
+
+      td_1_rank = document.createElement("td")
+      td_2 = document.createElement("td")
+      td_3_district = document.createElement("td")
+      td_4_email = document.createElement("td")
+      td_5_icons = document.createElement("td")
+      td_6 = document.createElement("td")
+
+      tr.appendChild(td_1_rank)
+      tr.appendChild(td_2)
+      tr.appendChild(td_3_district)
+      tr.appendChild(td_4_email)
+      tr.appendChild(td_5_icons)
+      tr.appendChild(td_6)
+
+    
+
+      td_1_rank.innerText = player_ranklist_details[i]['player_rank'];
+
+      td_2_client=document.createElement("div")
+      td_2_client.setAttribute("class","client")
+      td_2.append(td_2_client);
+
+      td_2_image=document.createElement("img")
+      td_2_image.setAttribute("src",player_ranklist_details[i]["player_image"])
+      td_2_client.append(td_2_image);
+
+      td_2_client_info=document.createElement("div")
+      td_2_client_info.setAttribute("class","client_info")
+      td_2_client.append(td_2_client_info);
+
+      
+      td_2_h4=document.createElement("h4")
+      td_2_h4.innerText= player_ranklist_details[i]["player_name"]
+      td_2_client_info.append(td_2_h4);
+
+      td_3_district.innerText = player_ranklist_details[i]['player_district'];
+
+      td_4_email.innerText = player_ranklist_details[i]['player_email_id'];
+
+      td_5_span = document.createElement("span")
+      td_5_span.setAttribute("class","material-symbols-outlined")
+      td_5_span.innerText=player_ranklist_details[i]["player_span_class_name"]
+      td_5_icons.append(td_5_span);
+
+      td_6_actions=document.createElement("div")
+      td_6_actions.setAttribute("class","actions")
+      td_6.append(td_6_actions);                                                                                 
+
+      td_6_span1=document.createElement("span");
+      td_6_span1.setAttribute("class","las la-eye")
+      td_6_actions.append(td_6_span1);
+
+      td_6_span2=document.createElement("span");
+      td_6_span2.setAttribute("class","las la-e")
+      td_6_span2.innerText=player_ranklist_details[i]["player_span_class_name_views"]
+      td_6_actions.append(td_6_span2);
+
+console.log(td_6)
+
+
+
+
+
+
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>
+
+<!-- <tr>
 
                   <td>#1</td>
 
@@ -156,7 +300,6 @@
                       <img src="../assets/images/cricket/Arun.png" alt="">
                       <div class="client-info">
                         <h4>ARUN</h4>
-                        <small></small>
                       </div>
                     </div>
                   </td>
@@ -186,11 +329,9 @@
                   </td>
 
 
-                </tr>
+                </tr> -->
 
-
-              
-          <!-- <tr>
+<!-- <tr>
             <td>#1</td>
             <td>
               <div class="client">
@@ -340,19 +481,3 @@
               </div>
             </td>
           </tr> -->
-
-
-          </tbody>
-          </table>
-        </div>
-
-      </div>
-
-  </div>
-
-  </main>
-
-  </div>
-</body>
-
-</html>
