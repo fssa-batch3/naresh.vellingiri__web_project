@@ -1,73 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../assets/css/register.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <form>
-        <input type="text" id="user_name" placeholder="firstname"><br><br>
-        <input type="text" id="password" placeholder="lastname"><br><br>
-        <input type="email" id="email" placeholder="email"><br><br>
-        <input type="number" id="number" placeholder="Phone number"><br><br>
-        <input type="text" id="password" placeholder="lastname">
-
-        
-        <button type="submit" onclick="register()">REGISTER</button>
-
-    </form>
-
-    <script>
-
-       
+  <div class="container">
+    <div class="title">Registration</div>
 
 
-     
-  function register() {
+    <div class="content">
 
-let user_name = document.getElementById("user_name").value
-let password = document.getElementById("password").value
-
-let user_data = {
-  "name":user_name,
-  "password":password
-}
+      <form id="form">
 
 
-
-let arr;
-
-let _data = JSON.parse(localStorage.getItem("array"))
-
-let page_transfer;
-
-
-if(_data){
-arr=JSON.parse(localStorage.getItem("array"))
-page_transfer=1;
-
-}
-
-else{
-arr=[]
-}
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" id="first_name" placeholder="Enter your name" pattern="[A-Za-z]{0,32}" required>
+          </div>
 
 
-if(page_transfer=1){
-  window.location.href="../pages/login.html"
-}
-
-arr.push(user_data)
-
-localStorage.setItem("array",JSON.stringify(arr))
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" id="last_name" placeholder="Enter your username" pattern="[A-Za-z]{0,32}" required>
+          </div>
 
 
-}       
-    </script>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" id="email" placeholder="Enter your email"
+              pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+          </div>
+
+
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" id="phone_number" placeholder="Enter your number" required>
+          </div>
+
+
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" id="password" placeholder="Enter your password"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$" required>
+          </div>
+
+
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" id="confirm_password" placeholder="Confirm your password"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$" required>
+          </div>
+
+
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+              <span class="dot one"></span>
+              <span class="gender">Male</span>
+            </label>
+            <label for="dot-2">
+              <span class="dot two"></span>
+              <span class="gender">Female</span>
+            </label>
+            <label for="dot-3">
+              <span class="dot three"></span>
+              <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+  <script>
+
+
+    function register() {
+
+      // getting values from user
+
+      const first_name = document.getElementById("first_name").value
+      const last_name = document.getElementById("last_name").value
+      const email = document.getElementById("email").value
+      const phone_number = document.getElementById("phone_number").value
+      const password = document.getElementById("password").value
+      const confirm_password = document.getElementById("confirm_password").value
+
+
+      //  initiating arr and objects
+
+      let user;
+      let res;
+
+
+      user = JSON.parse(localStorage.getItem("array")) ?? [];
+
+
+    if(password==confirm_password){
+
+      if (user == "") {
+
+        let user_data = {
+          "first_name": first_name,
+          "last_name": last_name,
+          "email": email,
+          "password": password
+        }
+
+
+        user.push(user_data)
+
+        localStorage.setItem("array", JSON.stringify(user))
+
+        window.location.href = "login.html"
+
+
+      }
+
+
+
+
+      else {
+        let check = JSON.parse(localStorage.getItem("array"))
+
+
+        check.find(e => {
+          if (e["email"] == email) {
+            return res = 1
+          }
+        })
+
+
+        if (res == 1) {
+          alert("email already taken")
+        }
+        else {
+          let user_data = {
+            "first_name": first_name,
+            "last_name": last_name,
+            "email": email,
+            "password": password
+          }
+
+
+          user.push(user_data)
+
+          localStorage.setItem("array", JSON.stringify(user))
+
+          window.location.href = "login.html"
+        }
+      }
+    }
+
+    else{
+    alert("password is not matched")
+  }
+
+  }
+ 
+
+
+    const form = document.getElementById("form");
+
+    form.addEventListener("submit", e => {
+
+      e.preventDefault();
+
+      register()
+
+    })
+
+  </script>
+
 </body>
 
 </html>

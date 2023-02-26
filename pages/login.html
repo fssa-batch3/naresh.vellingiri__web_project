@@ -1,76 +1,104 @@
-
 <!DOCTYPE HTML>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="../assets/css/login.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 </head>
 
 <body class="body">
-	
-             
-<div class="login-page">
 
 
-  <div class="form">
-
-    <form>
-      <input type="text" id="name" placeholder="&#xf007;  username"  required>
-      <input type="password" id="password" placeholder="&#xf023;  password" required>
-      <i style="color:rgb(219, 171, 59) ;" class="fas fa-eye"></i> 
-      <br>
-      <br>
-      <a href="#"> <button type="button" onclick="login()">LOGIN</button></a>
-    </form>
+  <div class="login-page">
 
 
-  
+    <div class="form" >
 
+      <form id="form">
+        <input type="email" id="email" placeholder="&#xf007;  email" required>
+        <input type="password" id="password" placeholder="&#xf023;  password" required>
+        <i style="color:rgb(219, 171, 59) ;" class="fas fa-eye" onclick="password_eye()"></i>
+        <br>
+        <br>
+        <a href="#"> <button>LOGIN</button></a>
+      </form>
+
+
+
+
+    </div>
   </div>
-</div>
 
 
 
-<script>
+  <script>
 
-function login() {
-            let name = document.getElementById("name").value
-            let password = document.getElementById("password").value
-            let arr = JSON.parse(localStorage.getItem("array"))
+    function password_eye(){
+      let password = document.getElementById("password").value
 
-          
-let res;
-            arr.find(element => {
+         let click=0;
 
-                if (element["name"] == name && element["password"]== password) {
-                    return res=1  ;
-                    
-                }
-                else {
-                    return res=0;
-                    
-                }
-            });
+         if (click==0){
+              password.innerHTML="laksdjfklasjf"
+              ret
+         }
+    }
+
+    function login() {
 
 
-     if(res==1){
-    let profile_name = name;
-    localStorage.setItem("profile_name", profile_name);
-    console.log(profile_name);
-    alert("Logged in")
-    window.location.href="../pages/userprofile.html"
-}
+      let email = document.getElementById("email").value
+      let password = document.getElementById("password").value
 
 
-else{
-    alert("none")
-}
-}
+      let arr = JSON.parse(localStorage.getItem("array"))
 
-</script>
+
+      let res;
+      arr.find(element => {
+
+        if (element["email"] == email && element["password"] == password) {
+          return res = 1;
+
+        }
+        else {
+          return res = 0;
+
+        }
+      });
+
+
+      if (res == 1) {
+        let login_email = email;
+        localStorage.setItem("profile_name",login_email);
+        
+
+        alert("Logged in")
+        window.location.href = "userprofile.html"
+      }
+
+
+      else {
+        alert("email id and password are not matched")
+      }
+    }
+
+    let form=document.getElementById("form");
+
+    form.addEventListener("submit",e=>{
+       e.preventDefault();
+       login()
+    })
+
+
+
+
+  </script>
 </body>
+
 </html>
