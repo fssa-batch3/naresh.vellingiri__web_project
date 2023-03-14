@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
   <title>Sports to rural</title>
   <link rel="stylesheet" href="../assets/css/profile.css">
+  <link rel="stylesheet" href="../assets/css/all_style.css">
+
   <link rel="stylesheet"
     href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
@@ -41,13 +43,13 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="../pages/achievers.html">
               <span class="las la-clipboard-list"></span>
               <small>ACHIEVERS</small>
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="../pages/sponsers.html">
               <span class="las la-shopping-cart"></span>
               <small>SPONSERS</small>
             </a>
@@ -208,43 +210,44 @@
   </div>
 
     <script>
-      let profile_list
-       = [
-                {
-                  "name" : "naresh",
-                  "image" :  "../assets/images/cricket/Arun.png",
-                  "heading":[82, 83, 84, 85],
-                  "country":['ind','ind1','ind2','ind3'],
-                  "matches":[82, 83, 84, 85],
-                  "runs":[82, 83, 84, 85]
 
-                },
-                {
-                  "name" : "isac",
-                  "image" :  "../assets/images/cricket/Arun.png",
-                  "heading":[82, 83, 84, 85],
-                  "country":['ind','ind1','ind2','ind3'],
-                  "matches":[82, 83, 84, 85],
-                  "runs":[82, 83, 84, 85]
+      let user =JSON.parse(localStorage.getItem("array"))
+      // let profile_list
+      //  = [
+      //           {
+      //             "name" : "naresh",
+      //             "image" :  "../assets/images/cricket/Arun.png",
+      //             "heading":[82, 83, 84, 85],
+      //             "country":['ind','ind1','ind2','ind3'],
+      //             "matches":[82, 83, 84, 85],
+      //             "runs":[82, 83, 84, 85]
 
-
-                },
-                {
-                  "name" : "nithilan",
-                  "image" :  "../assets/images/cricket/Arun.png",
-                  "heading":[82, 83, 84, 85],
-                  "country":['ind','ind1','ind2','ind3'],                  
-                  "matches":[82, 83, 84, 85],
-                  "runs":[82, 83, 84, 85]
+      //           },
+      //           {
+      //             "name" : "isac",
+      //             "image" :  "../assets/images/cricket/Arun.png",
+      //             "heading":[82, 83, 84, 85],
+      //             "country":['ind','ind1','ind2','ind3'],
+      //             "matches":[82, 83, 84, 85],
+      //             "runs":[82, 83, 84, 85]
 
 
-                }
-      ]
+      //           },
+      //           {
+      //             "name" : "nithilan",
+      //             "image" :  "../assets/images/cricket/Arun.png",
+      //             "heading":[82, 83, 84, 85],
+      //             "country":['ind','ind1','ind2','ind3'],                  
+      //             "matches":[82, 83, 84, 85],
+      //             "runs":[82, 83, 84, 85]
 
-      console.log(profile_list);
 
+      //           }
+      // ]
+
+console.log(user)
      let i;
-     for(i=0; i<profile_list.length; i++){
+     for(i=0; i<user.length; i++){
 
 
       let container = document.createElement("div");
@@ -265,12 +268,12 @@
 
       let img = document.createElement("img");
       img.setAttribute("class","c1");
-      img.setAttribute("src", profile_list[i]["image"]);
+      img.setAttribute("src", user[1]["first_name"]);
       front.append(img);
 
       let name = document.createElement("p");
       name.setAttribute("class","name");
-      name.innerText = profile_list[i]["name"];
+      name.innerText = user[1]["first_name"];
       front.append(name);
 
       // -----------------back----------------
@@ -324,11 +327,11 @@
 
 
       heading_two= document.createElement("h2")
-      heading_two.innerText = profile_list[i]["heading"][j];
+      heading_two.innerText =user[i]["first_name"];
       pp1.append(heading_two)
 
       heading_three = document.createElement("h3")
-      heading_three.innerText = profile_list[i]["country"][j];
+      heading_three.innerText = user[i]["password"];
       pp1.append(heading_three)
 
       }

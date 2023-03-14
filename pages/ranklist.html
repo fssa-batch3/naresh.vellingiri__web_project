@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
   <title>Sports to rural</title>
-  <link rel="stylesheet" href="../assets/css/ranklist.css">
+  <link rel="stylesheet" href="../assets/css/sponser.css">
+  <link rel="stylesheet" href="../assets/css/all_style.css">
+
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet"
@@ -49,13 +51,13 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="../pages/sponsers.html">
               <span class="las la-shopping-cart"></span>
               <small>SPONSERS</small>
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="../pages/news.html">
               <span class="las la-tasks"></span>
               <small>NEWS</small>
             </a>
@@ -81,12 +83,12 @@
 
           <div class="notify-icon">
             <span class="las la-envelope"></span>
-            <span class="notify">4</span>
+            <span class="notify">0</span>
           </div>
 
           <div class="notify-icon">
             <span class="las la-bell"></span>
-            <span class="notify">3</span>
+            <span class="notify" id="notify">0</span>
           </div>
 
           <div class="user">
@@ -104,7 +106,7 @@
         <h1>Top Players</h1>
       </div>
 
-      <div class="page-content">
+      <div class="page-content" id="page_content">
 
 
 
@@ -122,10 +124,10 @@
             <div class="browse">
               <input type="search" placeholder="Search" class="record-search">
               <select>
-                <option>CATEOGORIES</option>
-                <option>CATEOGORIES</option>
-                <option>CATEOGORIES</option>
-                <option>CATEOGORIES</option>
+                <option>Sports</option>
+                <option>Cricket</option>
+                <option>Football</option>
+                <option>Hockey</option>
               </select>
             </div>
           </div>
@@ -138,10 +140,11 @@
                 <tr>
                   <th>#</th>
                   <th><span class="las la-sort"></span> PLAYER</th>
+                  <th><span class="las la-sort"></span> AGE</th>
                   <th><span class="las la-sort"></span> DISTRICT</th>
                   <th><span class="las la-sort"></span> E-mail</th>
                   <th><span class="las la-sort"></span> TYPE</th>
-                  <th><span class="las la-sort"></span> VIEWS</th>
+
                 </tr>
               </thead>
 
@@ -151,41 +154,36 @@
 
               </tbody>
             </table>
-          </div>
 
+
+
+
+
+          </div>
         </div>
 
       </div>
 
+  </div>
+  <div class="popup" id="popup">
+    <p id="Refer_name">Enter your views about ${}
+      <span id="cross_mark">
+        &#10060;</span>
+    </p>
+
+    <textarea placeholder="Add your description here..." name="description" id="description" cols="50"
+      rows="10"></textarea><br>
+    <button class="request" id="send">Send</button>
+
+
     </main>
+
 
   </div>
 
 
   <script>
 
-    let player_ranklist_details = [
-      {
-        "player_rank": "1",
-        "player_image": "../assets/images/cricket/Arun.png",
-        "player_name": "Arun",
-        "player_district": "Vellore",
-        "player_email_id": "arun@gmail.com",
-        "player_span_class_name": "sports_cricket",
-        "player_span_class_name_views": "1120"
-      },
-      {
-
-        "player_rank": "2",
-        "player_image": "../assets/images/cricket/Arun.png",
-        "player_name": "Dinesh",
-        "player_district": "Vellore",
-        "player_email_id": "arun@gmail.com",
-        "player_span_class_name": "sports_cricket",
-        "player_span_class_name_views": "1120"
-
-      }
-    ]
 
     let tr;
 
@@ -209,8 +207,14 @@
     let td_6_span1;
     let td_6_span2;
 
+    let details = JSON.parse(localStorage.getItem("array"))
+
+    let user_profile_list = JSON.parse(localStorage.getItem("user_full_details"))
+
+
     let i;
-    for (i = 0; i < player_ranklist_details.length; i++) {
+
+    for (i = 0; i < details.length; i++) {
 
       let tbody = document.querySelector("tbody")
 
@@ -219,6 +223,7 @@
 
       td_1_rank = document.createElement("td")
       td_2 = document.createElement("td")
+      td_age = document.createElement("td")
       td_3_district = document.createElement("td")
       td_4_email = document.createElement("td")
       td_5_icons = document.createElement("td")
@@ -226,63 +231,120 @@
 
       tr.appendChild(td_1_rank)
       tr.appendChild(td_2)
+      tr.appendChild(td_age)
       tr.appendChild(td_3_district)
       tr.appendChild(td_4_email)
       tr.appendChild(td_5_icons)
       tr.appendChild(td_6)
 
-    
 
-      td_1_rank.innerText = player_ranklist_details[i]['player_rank'];
 
-      td_2_client=document.createElement("div")
-      td_2_client.setAttribute("class","client")
+      td_1_rank.innerText = [i + 1];
+
+      td_2_client = document.createElement("div")
+      td_2_client.setAttribute("class", "client")
       td_2.append(td_2_client);
 
-      td_2_image=document.createElement("img")
-      td_2_image.setAttribute("src",player_ranklist_details[i]["player_image"])
+      td_2_image = document.createElement("img")
+      td_2_image.setAttribute("src", details[i]["player_image"])
       td_2_client.append(td_2_image);
 
-      td_2_client_info=document.createElement("div")
-      td_2_client_info.setAttribute("class","client_info")
+      td_2_client_info = document.createElement("div")
+      td_2_client_info.setAttribute("class", "client_info")
       td_2_client.append(td_2_client_info);
 
-      
-      td_2_h4=document.createElement("h4")
-      td_2_h4.innerText= player_ranklist_details[i]["player_name"]
+
+      td_2_h4 = document.createElement("a")
+      td_2_h4.setAttribute("href", "profile_detail.html")
+      td_2_h4.innerText = details[i]["first_name"]
       td_2_client_info.append(td_2_h4);
 
-      td_3_district.innerText = player_ranklist_details[i]['player_district'];
+      td_age.innerText = details[i]["age"]
 
-      td_4_email.innerText = player_ranklist_details[i]['player_email_id'];
+      td_3_district.innerText = "vellore";
+
+      td_4_email.innerText = details[i]["email"];
 
       td_5_span = document.createElement("span")
-      td_5_span.setAttribute("class","material-symbols-outlined")
-      td_5_span.innerText=player_ranklist_details[i]["player_span_class_name"]
+      td_5_span.setAttribute("class", "las la-e")
+
+      td_5_span.innerText = "football";
       td_5_icons.append(td_5_span);
 
-      td_6_actions=document.createElement("div")
-      td_6_actions.setAttribute("class","actions")
-      td_6.append(td_6_actions);                                                                                 
+      // td_6_actions = document.createElement("button")
+      // td_6_actions.setAttribute("class", "request")
+      // td_6_actions.setAttribute("id", "request")
+      // td_6_actions.innerText = "Request"
+      // td_6.append(td_6_actions)
+      // console.log(td_6_actions)
 
-      td_6_span1=document.createElement("span");
-      td_6_span1.setAttribute("class","las la-eye")
-      td_6_actions.append(td_6_span1);
-
-      td_6_span2=document.createElement("span");
-      td_6_span2.setAttribute("class","las la-e")
-      td_6_span2.innerText=player_ranklist_details[i]["player_span_class_name_views"]
-      td_6_actions.append(td_6_span2);
-
-console.log(td_6)
+     
+    }
 
 
 
+    // click function for request button
 
 
+    let page_content=document.getElementById("page_content")
+    let button_request = document.querySelectorAll("#request")
+    let popup = document.getElementById("popup")
+
+
+    popup.style.display="none";
+
+    // toggle function for sending request to the players
+    function toggle() {
+      if (popup.style.display === "none") {
+        popup.style.display = "block"
+      }
+    }
+
+
+    // looping for each request button
+
+    for (let i = 0; i < 2; i++) {
+
+
+      button_request[i].addEventListener("click", e => {
+        page_content.style.filter="blur(1.5px)"
+        page_content.style.color="rgb(215, 27, 27))"
+        toggle()
+      })
 
     }
 
+// function for cross button
+
+
+cross_mark.addEventListener("click",e=>{
+  popup.style.display="none"
+  page_content.style.filter="none"
+})
+
+
+let notify_number= document.getElementById("notify")
+
+let send = document.getElementById("send")
+
+let count=0;
+send.addEventListener("click",e=>{
+
+  ++count;
+  popup.style.display="none";
+  page_content.style.filter="none"
+  notify_number.innerText = count
+
+  let textarea=document.getElementById("description");
+  const notify_arr = JSON.parse(localStorage.getItem("notification"))?JSON.parse(localStorage.getItem("notification")):[]
+  
+notify_arr.push({
+  "textarea":textarea.value.trim()
+})
+
+localStorage.setItem("notification",JSON.stringify(notify_arr))
+
+})
 
 
 
@@ -291,11 +353,43 @@ console.log(td_6)
 
 </html>
 
+
+<!-- // let _details_1 = [
+//   {
+//     "player_rank": "1",
+//     "player_image": "../assets/images/cricket/Arun.png",
+//     "player_name": "Arun",
+//     "player_district": "Vellore",
+//     "player_email_id": "arun@gmail.com",
+
+//   },
+//   {
+
+//     "player_rank": "2",
+//     "player_image": "../assets/images/cricket/Arun.png",
+//     "player_name": "Dinesh",
+//     "player_district": "Vellore",
+//     "player_email_id": "arun@gmail.com",
+//     "player_span_class_name": "sports_cricket",
+//     "player_span_class_name_views": "1120"
+
+//   }
+// ] -->
+
+<!-- // td_6_span1 = document.createElement("span");
+// td_6_span1.setAttribute("class", "las la-eye")
+// td_6_actions.append(td_6_span1);
+
+// td_6_span2 = document.createElement("span");
+// td_6_span2.setAttribute("class", "las la-e")
+// td_6_span2.innerText = details[i]["player_span_class_name_views"]
+// td_6_actions.append(td_6_span2); -->
+
 <!-- <tr>
 
-                  <td>#1</td>
+                  <td 1>#1</td>
 
-                  <td>
+                  <td 2>
                     <div class="client">
                       <img src="../assets/images/cricket/Arun.png" alt="">
                       <div class="client-info">
@@ -305,23 +399,23 @@ console.log(td_6)
                   </td>
 
 
-                  <td>
+                  <td 3>
                     VELLORE
                   </td>
 
 
-                  <td>
+                  <td 4>
                     arun@gmail.com
                   </td>
 
-                  <td>
+                  <td 5>
                     <span class="material-symbols-outlined">
                       sports_cricket
                     </span>
                   </td>
 
 
-                  <td>
+                  <td 6>
                     <div class="actions">
                       <span class="las la-eye"></span>
                       <span class="las la-e">1120</span>

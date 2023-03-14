@@ -32,28 +32,31 @@
 
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text" id="email" placeholder="Enter your email"
+            <input type="text" id="email" placeholder="Enter your email" title="Please input a valid email"
               pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
           </div>
 
 
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="text" id="phone_number" placeholder="Enter your number" required>
+            <input type="text" id="phone_number" placeholder="Enter your number"
+              title="please enter a valid phone number" required>
           </div>
 
 
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="text" id="password" placeholder="Enter your password"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$" required>
+            <input type="text" id="password" placeholder="Enter your password" title="Uppercase letters: A-Z.
+            Lowercase letters: a-z.
+            Numbers: 0-9.
+            Symbols: ~`!@#$%^&*()_-+={[}]|\:;" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$" required>
           </div>
 
 
           <div class="input-box">
             <span class="details">Confirm Password</span>
             <input type="text" id="confirm_password" placeholder="Confirm your password"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$" required>
+              title="please correct the match password" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$" required>
           </div>
 
 
@@ -79,7 +82,7 @@
           </div>
         </div>
         <div class="button">
-          <input type="submit" value="Register">
+          <button type="submit" id="btn_register">Register</button>
         </div>
       </form>
     </div>
@@ -88,6 +91,16 @@
 
 
   <script>
+
+    const form = document.getElementById("form");
+
+    form.addEventListener("submit", e => {
+
+      e.preventDefault();
+
+      register()
+
+    })
 
 
     function register() {
@@ -99,7 +112,6 @@
       const email = document.getElementById("email").value
       const phone_number = document.getElementById("phone_number").value
       const password = document.getElementById("password").value
-      const confirm_password = document.getElementById("confirm_password").value
 
 
       //  initiating arr and objects
@@ -111,45 +123,10 @@
       user = JSON.parse(localStorage.getItem("array")) ?? [];
 
 
-    if(password==confirm_password){
+      if (password == confirm_password) {
 
-      if (user == "") {
+        if (user == "") {
 
-        let user_data = {
-          "first_name": first_name,
-          "last_name": last_name,
-          "email": email,
-          "password": password
-        }
-
-
-        user.push(user_data)
-
-        localStorage.setItem("array", JSON.stringify(user))
-
-        window.location.href = "login.html"
-
-
-      }
-
-
-
-
-      else {
-        let check = JSON.parse(localStorage.getItem("array"))
-
-
-        check.find(e => {
-          if (e["email"] == email) {
-            return res = 1
-          }
-        })
-
-
-        if (res == 1) {
-          alert("email already taken")
-        }
-        else {
           let user_data = {
             "first_name": first_name,
             "last_name": last_name,
@@ -158,32 +135,54 @@
           }
 
 
-          user.push(user_data)
+          user.push(user_data);
 
-          localStorage.setItem("array", JSON.stringify(user))
+          localStorage.setItem("array", JSON.stringify(user));
 
-          window.location.href = "login.html"
+          window.location.href = "login.html";
+
+
+        }
+
+        else {
+          let check = JSON.parse(localStorage.getItem("array"))
+
+          check.find(e => {
+            if (e["email"] == email) {
+              return res = 1
+            }
+          })
+
+
+          if (res == 1) {
+            alert("email already taken")
+          }
+          
+          else {
+            let user_data = {
+              "first_name": first_name,
+              "last_name": last_name,
+              "email": email,
+              "password": password
+            }
+
+            user.push(user_data)
+
+            localStorage.setItem("array", JSON.stringify(user))
+            window.location.href = "login.html"
+          }
         }
       }
+
+      else {
+        alert("password is not matched")
+      }
+
     }
 
-    else{
-    alert("password is not matched")
-  }
-
-  }
- 
 
 
-    const form = document.getElementById("form");
 
-    form.addEventListener("submit", e => {
-
-      e.preventDefault();
-
-      register()
-
-    })
 
   </script>
 

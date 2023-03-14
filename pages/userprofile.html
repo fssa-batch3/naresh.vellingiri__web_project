@@ -1,5 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS User Profile Card</title>
+    <link rel="stylesheet" href="../assets/css/userprofile.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="left">
+            <img src="../assets/images/index/index_profile_image.png" alt="user" width="80%">
+
+            <input type="file">
+        </div>
+
+
+        <div class="right">
+            <div class="info">
+                <h3>USER PROFILE</h3>
+                <div class="info_data">
+
+                    <div class="data">
+                        <h4>First_name</h4>
+                        <input type="text" id="first_name" disabled>
+                    </div>
+
+                    <div class="data">
+                        <h4>Last_name</h4>
+                        <input type="text" id="last_name" disabled>
+                    </div>
+                    <div class="data">
+                        <h4>Age</h4>
+                        <input type="text" id="age" >
+                    </div>
+                    <div class="data">
+                        <h4>Email</h4>
+                        <input type="text" id="email" disabled>
+                    </div>
+
+
+                    <div class="data">
+                        <h4>District</h4>
+                        <input type="text" id="district" required>
+                    </div><br><br>
+
+
+                    <div class="data">
+                        <h4>Sports_type</h4>
+                        <input type="text" id="sports_type" required>
+                    </div><br><br>
+
+                    <div class="data">
+                        <h4>10th_mark_sheet</h4>
+                        <input type="file" id="10th_mark_sheet" required>
+                    </div><br><br>
+                    <div class="data">
+                        <h4>12th_mark_sheet</h4>
+                        <input type="file" id="12th_mark_sheet" required>
+                    </div><br><br>
+                    <div class="data">
+                        <h4>sports_certificate</h4>
+                        <input type="file" id="sports_certificate" required>
+                    </div>
+                </div>
+            </div>
+
+         
+
+            <div class="social_media">
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+
+
+
+
+            <button id="btn_1">edit</button>
+            <button id="delete" class="delete_btn">delete</button>
+
+
+        </div>
+    </div>
+
+    <script>
+        let user = JSON.parse(localStorage.getItem("array"))
+
+        let login = localStorage.getItem("login_email")
+
+
+
+        let first_name = document.getElementById("first_name");
+        let last_name = document.getElementById("last_name");
+        let email = document.getElementById("email");
+        let age = document.getElementById("age");
+
+        let district = document.getElementById("district")
+        let sports_type = document.getElementById("sports_type")
+        let Tenth_mark_sheet = document.getElementById("10th_mark_sheet").value
+        let twelfth_mark_sheet = document.getElementById("10th_mark_sheet").value
+        let sports_certificate = document.getElementById("sports_certificate").value
+
+
+        let user_full_details = JSON.parse(localStorage.getItem("array"));
+
+
+        // this code is for getting first_name , last_name and email value by comparing the login page and register page
+        let res;
+
+        user_full_details.find(e => {
+            if (e["email"] == login) {
+
+                first_name.value = e["first_name"]
+                last_name.value = e["last_name"]
+                email.value = e["email"]
+
+                res = e;
+            }
+        });
+
+
+
+        let btn_1 = document.getElementById("btn_1")
+        let btn_2 = document.getElementById("btn_2")
+        let btn_3 = document.getElementById("btn_3")
+
+        let toggle;
+
+        toggle = 0;
+
+        btn_1.addEventListener("click", e => {
+
+            // email validation for user detail---------
+
+
+            if (toggle == 0) {
+
+                first_name.removeAttribute("disabled", "")
+                last_name.removeAttribute("disabled", "")
+                btn_1.innerText = "save";
+                toggle = 1
+
+            }
+
+            else {
+                btn_1.innerText = "edit";
+                toggle = 0;
+
+                let res1;
+                let res2;
+
+
+                user_full_details.find(e => {
+                    if (e["email"] == email.value) {
+                        // return res1 = 1;
+                        // res2=user_full_details;
+
+                        if (district.value == "") {
+                            alert("please fill the district");
+
+                        }
+                        else if (sports_type.value == "") {
+
+                            alert("please fill 123456543245 sports_type");
+
+                        }
+
+                        else {
+                                e["first_name"] = first_name.value,
+                                e["last_name"] = last_name.value,
+                                e["age"]         =age.value
+                                e["district"] = district.value,
+                                e["sports_type"] = sports_type.value
+
+                            localStorage.setItem("array", JSON.stringify(user_full_details));
+
+                            window.location.href = "ranklist.html"
+
+                        }
+
+
+
+                    }
+
+                })
+
+                // if (res1 == 1) {
+
+                //     if (district.value == "") {
+                //         alert("please fill the district");
+
+                //     }
+                //     else if (sports_type.value == "") {
+
+                //         alert("please fill 123456543245 sports_type");
+
+                //     }
+
+                //     // else if(res1 == 1 ){
+                //     //     alert("email id has already taken");
+                //     //     alert("please register")
+                //     //     window.location.href="register.html"
+                //     // }
+
+
+                //     else {
+
+                //         // let user_profile_data = {
+                //         //     "first_name": first_name.value,
+                //         //     "last_name": last_name.value,
+                //         //     "email": email.value,
+                //         //     "district": district.value,
+                //         //     "sports_type": sports_type.value
+                //         // }
+
+
+                //         res2["first_name"] = first_name.value,
+                //             res2["last_name"] = last_name.value,
+                //             res2["district"] = district.value,
+                //             res2["sports_type"] = sports_type.value
+
+                //         alert("1")
+
+
+
+                //         // user_full_details.push(user_profile_data);
+
+                //         localStorage.setItem("array", JSON.stringify(user_full_details));
+
+                //         // window.location.href = "ranklist.html"
+
+
+
+                //     }
+                // }
+            }
+
+        })
+
+
+
+        // Delete function
+
+        const delete_btn = document.querySelector("#delete")
+        const login_email = localStorage.getItem("login_email");
+        delete_btn.addEventListener("click", function () {
+
+
+            let erase = delete login_email
+
+            localStorage.setItem("login_email", erase)
+
+            alert("Are you sure want to exit?")
+
+            window.location.href = "login.html"
+
+
+
+        })
+
+
+        // else {
+        //     alert("email id has already taken")
+        // }
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
+
+<!-- // let user_profile_data = {
+    //     "first_name": first_name.value,
+    //     "last_name": last_name.value,
+    //     "email": email.value,
+    //     "district": district,
+
+    // }
+
+
+    // user_full_details.push(user_profile_data);
+
+    // localStorage.setItem("user_full_details", JSON.stringify(user_full_details));
+
+// let obj = {
+
+//     "first_name":  first_name.value ,
+//     "last_name": last_name.value,
+//     "email": email.value,
+//     "district": district.value
+
+// }
+// user.push(obj)
+
+// localStorage.setItem("array", JSON.stringify(user))
+
+
+
+
+
+
+
+
+
+
+// btn_2.addEventListener("click", e => {
+
+//     let obj = {
+
+//         "first_name": res["first_name"] = first_name.value,
+//         "last_name": res["last_name"] = last_name.value,
+//         "email": res["email"] = email.value,
+//         "district": district
+
+//     }
+
+//     user.push(obj)
+
+//     localStorage.setItem("array", JSON.stringify(user))
+// }) -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,8 +373,8 @@ function login(){
             return true;
         }
         }
-        )
-        // else {
+        ) -->
+<!-- // else {
         //     alert("Profile Failure");
         //     return false;
         // }
@@ -63,13 +394,4 @@ function login(){
 
 //             return true;
 //         }
-//     )
-
-     
-
-
-
-
-   </script>
-</body>
-</html>
+//     ) -->

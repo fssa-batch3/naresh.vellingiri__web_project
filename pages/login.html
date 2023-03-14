@@ -17,15 +17,17 @@
   <div class="login-page">
 
 
-    <div class="form" >
+    <div class="form">
 
       <form id="form">
         <input type="email" id="email" placeholder="&#xf007;  email" required>
         <input type="password" id="password" placeholder="&#xf023;  password" required>
-        <i style="color:rgb(219, 171, 59) ;" class="fas fa-eye" onclick="password_eye()"></i>
+        <i style="color:#cbd8d0 ;" id="password_eye" class="fas fa-eye-slash" ></i>
         <br>
         <br>
         <a href="#"> <button>LOGIN</button></a>
+
+        <a href="register.html"></a>
       </form>
 
 
@@ -33,26 +35,37 @@
 
     </div>
   </div>
-
-
-
   <script>
 
-    function password_eye(){
-      let password = document.getElementById("password").value
 
-         let click=0;
 
-         if (click==0){
-              password.innerHTML="laksdjfklasjf"
-              ret
-         }
-    }
+// Code for function eye------
+
+     let password_eye = document.getElementById("password_eye")
+
+      let password = document.getElementById("password")
+
+      password_eye.addEventListener("click", e => {
+
+        const type = password.getAttribute("type") === "password" ? "text" : "password";
+
+        password.setAttribute("type", type);
+
+        const password_slash = password_eye.getAttribute("class") === "fas fa-eye-slash" ? "fas fa-eye" : "fas fa-eye-slash";
+
+        password_eye.setAttribute("class",password_slash)
+
+      })
+
+       
+//  Function for checking the user login which got from the user_registration page
+    
 
     function login() {
 
 
       let email = document.getElementById("email").value
+
       let password = document.getElementById("password").value
 
 
@@ -64,6 +77,7 @@
 
         if (element["email"] == email && element["password"] == password) {
           return res = 1;
+          localStorage.setItem("profile", JSON.stringify(element))
 
         }
         else {
@@ -75,8 +89,8 @@
 
       if (res == 1) {
         let login_email = email;
-        localStorage.setItem("profile_name",login_email);
-        
+        localStorage.setItem("login_email", login_email);
+
 
         alert("Logged in")
         window.location.href = "userprofile.html"
@@ -88,11 +102,14 @@
       }
     }
 
-    let form=document.getElementById("form");
 
-    form.addEventListener("submit",e=>{
-       e.preventDefault();
-       login()
+    // just getting the form selection
+
+    let form = document.getElementById("form");
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      login()
     })
 
 

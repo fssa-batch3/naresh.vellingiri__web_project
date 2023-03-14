@@ -100,9 +100,15 @@ form .input-box span.details{
  form input[type="radio"]{
    display: none;
  }
- form .button{
-   height: 45px;
-   margin: 35px 0
+ form .button #btn_register{
+   height: 30px;
+   width: 70px;
+   margin: 40px 0;
+   color: #fff;
+   background: linear-gradient(135deg, #71b7e6, #9b59b6);
+   border: none;
+   border-radius: 5px;
+   margin-left: 260px;
  }
  form .button input{
    height: 100%;
