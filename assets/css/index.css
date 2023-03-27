@@ -1,642 +1,480 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
 
-::-webkit-scrollbar {
-    display: none;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+
+  font-family: var(--primary-font-family);
+
 }
 
-
-.section1 {
-    width: 100%;
-    height: 100vh;
-    background-image: url('https://w0.peakpx.com/wallpaper/36/34/HD-wallpaper-black-leather-leather-texture-black-background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+:root {
+  --primary-color: #01bfbd;
+  --primary-hover-color: #039b9a;
+  --green-color: #039695;
+  --primary-color-rgb: 1, 191, 189;
+  --primary-font-family: "Source Sans Pro", sans-serif;
+  --rboto-font-family: "Roboto", sans-serif;
+  --payment-sip-color: #039695;
 }
 
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 40px 10%;
+  background-color: #fff;
+  height: 65px;
+  box-shadow: 0 8px 6px -6px rgb(155, 148, 148);
 
-/* nav {
-    width: 100%;
-    height: 86px;
-    background-color: rgba(15, 14, 14, 0.3);
-    border-radius: 5px;
+}
+
+.logo {
+  margin-right: auto;
+}
+
+header a #span_logo_text {
+  text-decoration: none;
+  font-size: 30px;
+  color: red;
+
+}
+
+header a img {
+  width: 60px;
+  border-radius: 50%;
+  border: 1px solid rgb(208, 206, 206);
+
+}
+
+header .cta{
+  text-decoration: none;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+
+}
+
+.nav__links a,
+.cta,
+.overlay__content a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav__links li {
+  padding: 0px 20px;
+  margin-top: 20px;
+
+}
+
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+  color: #777a7b;
+  font-size: 17px;
+
+}
+
+.nav__links li a:hover {
+  color: var(--primary-color);
+
+}
+
+.cta {
+  margin-left: 20px;
+  padding: 9px 25px;
+  background-color: #fff;
+  color: var(--primary-color);
+  border-color: rgba(0, 136, 169, 1);
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.cta:hover {
+  background-color: rgba(235, 238, 240, 0.8);
+}
+
+/* Mobile Nav */
+
+/* .menu {
+    display: none;
+  } */
+
+/* .overlay {
+    height: 100%;
+    width: 0;
     position: fixed;
+    z-index: 1;
+    left: 0;
     top: 0;
-}
+    background-color: #24252a;
+    overflow-x: hidden;
+    transition: all 0.5s ease 0s;
+  } */
 
-ul {
-    color: white;
+/* .overlay--active {
+    width: 100%;
+  } */
+
+/* .overlay__content {
     display: flex;
-    margin-left: 30%;
-    margin-top: 20px;
-    height: -300px;
-    list-style: none;
-    width: 30px;
-}
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .overlay a {
+    padding: 15px;
+    font-size: 36px;
+    display: block;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .overlay a:hover,
+  .overlay a:focus {
+    color: #0088a9;
+  }
+  .overlay .close {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    color: #edf0f1;
+    cursor: pointer;
+  } */
 
-li{
-    margin-left: 50px;
-    font-weight: bold;
-    font-family: cursive;
-    font-size: 20px;
-}
 
-ul li a {
-    text-decoration: none;
-    list-style: none;
-    color: white;
-    font-size: 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+/* <!------------------------- Intro banner section Section----------------------------------------> */
 
- ul a:hover{
-    transform: scale(1.3);
-    border: 1px solid rgb(254, 249, 249);
-    box-shadow: 2px 2px 1px aqua;
-    border-radius: 20px;
-} 
-
-ul a:active{
-    transform: scale(1.3);
-    border: 1px solid rgb(254, 249, 249);
-    box-shadow: 2px 2px 10px rgb(231, 28, 122);
-} */
 
 
 .title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 80px;
-    color: transparent;
-    background-image: linear-gradient(white, white);
-    background-repeat: no-repeat;
-    -webkit-background-clip: text;
-    background-position: -800px;
-    animation: backcolor 7s both  1 ;
+  position: absolute;
+  width: 420px;
+  margin-left: 100px;
+  margin-top: 80px;
+  font-size: 140px;
+  color: transparent;
+  background-image: linear-gradient(white, white);
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-position: -800px;
+  animation: backcolor 7s both  1 ;
 }
 
 @keyframes backcolor {
-    100% {
-        background-position: 0;
-    }
-
-}
-.button{
-    width: 60%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    position: relative;
-    top: 550px;
-    left: 300px;
-}
-
-.login {
-    /* margin-top: 500px;
-    margin-left: 500px; */
-    width: 200px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    color: rgb(242, 245, 244);
-    font-weight: bold;
-    font-size: 28px;
-    cursor: pointer;
-    border: 1px solid rgb(179, 173, 173);
-}
-
-.register {
-    /* margin-top: 500px;
-    margin-left: 100px; */
-    width: 200px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    color: rgb(244, 246, 245);
-    border: 1px solid rgb(179, 173, 173);
-    font-weight: bold;
-    font-size: 28px;
-    cursor: pointer;
-}
-
-.login:hover,
-.register:hover {
-    transform: scale(1.1);
-    border: 1px solid rgb(254, 249, 249);
-    box-shadow: 2px 2px 12px aqua;
-    color: black;
-}
-
-/* .players {
-    margin-left: 100px;
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
-///////////////////////////////////////////////
-
-.players1 {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 30px;
-    border: 1px solid rgb(54, 214, 229);
-    width: 95%;
-    border-radius: 20px;
-    background-color: rgb(196, 188, 188);
-    box-shadow: 1px 1px 10px aqua;
-}
-
-
-.players1 img {
-    width: 600px;
-    height: 400px;
-    border-radius: 15px;
-}
-
-
-.players1 p {
-    width: 500px;
-    font-size: 23px;
-    font-family: cursive;
-    font-weight: bold;
-} */
-
-/*********************************************** services**************************** */
-
-.service {
-    width: 100%;
-    padding: 100px 0;
-    background-color: #F8F9FA;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.service h5 {
-    color: rgb(1, 99, 1);
-    letter-spacing: 2px;
-    font-weight: 600;
-}
-
-.service h1 {
-    font-size: 40px;
-    font-weight: 600;
-    padding-top: 10px;
+  100% {
+      background-position: 0;
+  }
 
 }
 
-/* details service */
-.service .details {
-    display: flex;
-    margin: 0 auto;
-    padding-top: 60px;
-    flex-direction: row;
+.main_banner_content {
+    background-color: #28b0b0;
+    background-attachment: fixed;
+  height: 689px;
+  border: 2px solid rgb(228, 223, 223);
+  margin-top: 5px;
 }
 
-.details .info {
-    padding: 0 15px 25px;
+.main_banner_content .heading_left {
+  margin-left: 830px;
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 500px;
 }
 
-.details .info .logo {
-    padding: 34px;
-    width: 45px;
-    margin: 0 auto;
-    background-color: rgb(1, 161, 1);
-    border-radius: 500px;
-    color: white;
-    font-size: 30px;
-   
+.main_banner_content .heading_left .heading {
+  color: #fff;
+  font-size: 23px;
+  font-family: var(--rboto-font-family);
 }
 
-.details .info #head {
-    padding: 20px 0 10px;
-    color: black;
-    font-weight: 500;
+.main_banner_content .heading_left .sub_heading {
+  color: #fff;
+  width: 400px;
+  font-size: 23px;
+  font-family: var(--rboto-font-family);
 }
 
-
-
-/* *********************************contact************************************* */
-.contact {
-    width: 100%;
-    box-sizing: border-box;
-    background-color: transparent;
-    padding: 125px 0;
-    background-image: url('https://w0.peakpx.com/wallpaper/36/34/HD-wallpaper-black-leather-leather-texture-black-background.jpg');
+.main_banner_content .heading_left .border_color {
+  border: 2px solid #FEC003;
+  margin-top: 5px;
 }
 
-.contact h1 {
-    color: white;
-    text-align: center;
+.main_banner_content .heading_left .funding_news {
+  color: #fff;
+  font-family: var(--rboto-font-family);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 5px;
 }
 
-.contactcontanner {
-    width: 70%;
-    margin: 0 auto;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
+.funding_news img {
+  width: 130px;
+  height: 130px;
+  border-radius: 10px;
+  border: 1px solid white;
 }
 
-.contactcontanner .contanner {
-    width: 30%;
-}
-
-.contactcontanner .contanner .heading {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    border: 2px solid white;
-    margin-bottom: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, .07);
-}
-
-.heading .icon {
-    padding: 0 0 0 20px;
-    font-size: 20px;
-    color: rgb(3, 180, 3);
-}
-
-.heading .info {
-    width: 70%;
-    margin: 25px auto;
-    color: white;
-}
-
-.heading .info #contactinfo {
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: 500;
-}
-
-/* message form */
-.messageform {
-    width: 70%;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, .07);
-    margin-left: 20px;
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
-.messageform .form {
-    width: 80%;
-    margin: 50px auto;
-}
-
-.messageform input,
-.messageform #inputbox {
-    width: 100%;
-    color: white;
-    box-sizing: border-box;
-    padding: 10px;
-    margin-top: 10px;
-    border: 2px solid white;
-    outline: none;
-    background-color: transparent;
-}
-
-.messageform button {
-    padding: 10px 50px;
-    margin-top: 20px;
-    font-size: 14px;
-    color: white;
-    letter-spacing: 1px;
-    background: linear-gradient(to right, transparent 50%, rgb(3, 180, 3) 50%);
-    background-size: 200%;
-    background-position: left;
-    border: 2px solid white;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.messageform button:hover {
-    background-position: right;
-}
-
-/* ***********************************footer************************************* */
-
-
-
-
-.footer-distributed {
-    background: #666;
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-    box-sizing: border-box;
-    width: 100%;
-    font: bold 16px sans-serif;
-    padding: 55px 50px;
-}
-
-.footer-distributed .footer-left,
-.footer-distributed .footer-center,
-.footer-distributed .footer-right {
-    display: inline-block;
-}
-
-/* Footer left */
-
-.footer-distributed .footer-left {
-    width: 40%;
-}
-
-/* The company logo */
-
-.footer-distributed h3 {
-    color: #ffffff;
-    font: normal 36px 'Open Sans', cursive;
-    margin: 0;
-}
-
-.footer-distributed h3 span {
-    color: lightseagreen;
-}
-
-/* Footer links */
-
-.footer-distributed .footer-links {
-    color: #ffffff;
-    margin: 20px 0 12px;
-    padding: 0;
-}
-
-.footer-distributed .footer-links a {
-    display: inline-block;
-    line-height: 1.8;
-    font-weight: 400;
-    text-decoration: none;
-    color: inherit;
-}
-
-.footer-distributed .footer-company-name {
-    color: #222;
-    font-size: 14px;
-    font-weight: normal;
-    margin: 0;
-}
-
-/* Footer Center */
-
-.footer-distributed .footer-center {
-    width: 35%;
-}
-
-.footer-distributed .footer-center i {
-    background-color: #33383b;
-    color: #ffffff;
-    font-size: 25px;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 42px;
-    margin: 10px 15px;
-}
-
-.footer-distributed .footer-center i.fa-envelope {
-    font-size: 17px;
-    line-height: 38px;
-}
-
-.footer-distributed .footer-center p {
-    display: inline-block;
-    color: #ffffff;
-    font-weight: 400;
-    margin: 0;
-}
-
-.footer-distributed .footer-center p span {
-    display: block;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 2;
-}
-
-.footer-distributed .footer-center p a {
-    color: lightseagreen;
-    text-decoration: none;
-    
-}
-
-.footer-distributed .footer-links a:before {
-    content: "|";
-    font-weight: 300;
-    font-size: 20px;
-    left: 0;
-    color: #fff;
-    display: inline-block;
-    padding-right: 5px;
-}
-
-.footer-distributed .footer-links .link-1:before {
-    content: none;
-}
-
-/* Footer Right */
-
-.footer-distributed .footer-right {
-    width: 20%;
-}
-
-.footer-distributed .footer-company-about {
-    line-height: 20px;
-    color: #92999f;
-    font-size: 13px;
-    font-weight: normal;
-    margin: 0;
-}
-
-.footer-distributed .footer-company-about span {
-    display: block;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.footer-distributed .footer-icons {
-    margin-top: 25px;
-}
-
-.footer-distributed .footer-icons a {
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-    background-color: #33383b;
-    border-radius: 2px;
-    font-size: 20px;
-    color: #ffffff;
-    text-align: center;
-    line-height: 35px;
-    margin-right: 3px;
-    margin-bottom: 5px;
-} 
-@media only screen and (max-width:760px){
-    .section1{
-        width: 100%;
-    }
-    .button{
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        left: 40%;
-    }
-    .login, .register{
-        padding: 10px;
-        width: 70%;
-    }
-     .login{
-       color: orange;
-       position: absolute;
-       right: 250px;
-    }
-    .register{
-        color: orange;
-        position: absolute;
-        left: 24%;
-     } 
-
-
-    /* .players1{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-    }
-    .players1 img{
-        width:100%;
-        height: 280%;
-    }
-    .players1 p{
-        width: 100%;
-    } */
-
-    .service, .contact, .footer-distributed{
-        width: 100%;
-    }
-
-    .service .details{
-        display: flex;
-        flex-direction: column;
-    }
-    .contactcontanner{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .contactcontanner .contanner, .messageform {
-        width: 100%;
-    }
-
-    .footer-distributed{
-        display: flex;
-        flex-direction: column;
-       
-    }
-
-     .footer-icons{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        justify-content: center;
-        align-items: center;
-    }
-    
-
-
+.main_banner_content .heading_left .funding_news h1 {
+  font-size: 14px;
+  width: 300px;
 }
 
 
-@media only screen and (max-width:400px){
-    .section1{
-        width: 100%;
-    }
-    .login, .register{
-        padding: 10px;
-        width: 70%;
-    }
-    .login{
-       color: orange;
-       position: absolute;
-       right: 220px;
-    }
-    .register{
-        color: orange;
-        position: absolute;
-        left: 24%;
-     }
+/* //------------------------- About sports funding ----------------------------------------> */
 
-/* 
-    .players1{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-    }
-    .players1 img{
-        width:100%;
-        height: 280%;
-    }
-    .players1 p{
-        width: 100%;
-    } */
 
-    .service, .contact, .footer-distributed{
-        width: 100%;
-    }
-
-    .service .details{
-        display: flex;
-        flex-direction: column;
-    }
-    .contactcontanner{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .contactcontanner .contanner, .messageform {
-        width: 100%;
-    }
-    .footer-center, .footer-right{
-        display: none;
-    }
-
-    .footer-distributed{
-        display: flex;
-        flex-direction: column;
-
-    }
-
-    .footer-right, .footer-center{
-        visibility: hidden;
-    }
-    .footer-distributed .footer-icons a {
-        display: inline-block;
-        width: 35px;
-        height: 35px;
-        cursor: pointer;
-        background-color: #33383b;
-        border-radius: 2px;
-        font-size: 20px;
-        color: #ffffff;
-        text-align: center;
-        line-height: 35px;
-        margin-right: 3px;
-        margin-bottom: 5px;
-    }
-       
- 
-    
-
+.sports_funding_intro {
+  margin-left: 230px;
+  background-color: #F5F5F5;
+  border: 1px solid rgb(219, 211, 211);
+  margin-top: 100px;
+  width: 1000px;
+  border-radius: 5px;
 
 }
+
+#start_funding{
+  box-shadow: 0 8px 6px -6px rgb(155, 148, 148);
+
+}
+
+.sports_funding_intro .mb-0 {
+  margin-left: 100px;
+  padding: 10px;
+  color: rgb(30, 30, 31);
+  font-size: 50px;
+}
+
+.sports_funding_intro .border_color_block {
+  border: 2px solid #bd23b3;
+  margin: 15px;
+  margin-left: 430px;
+  text-align: center;
+  width: 150px;
+
+}
+
+.sports_funding_intro .mb-1 {
+  color: #999;
+  padding: 10px;
+}
+
+/* <!-------------------------About brief----------------------------------------> */
+
+.half-half-image-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  background-color: #F5F5F5;
+
+}
+
+.specific_1 {
+  width: 1200px;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  margin: 30px;
+}
+
+.specific_1_about {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 560px;
+}
+
+.specific_1_about h6 {
+  position: relative;
+  bottom: 50px;
+  color: #999;
+}
+
+.specific_1_img img {
+  width: 400px;
+  height: 400px;
+}
+
+/* <!------------------------- questions----------------------------------------> */
+
+#fund_questions_div{
+  background-color: #fff;
+  border: none;
+}
+#fund_questions{
+   margin-left: 220px;
+}
+/* <!-------------------------explain questions----------------------------------------> */
+
+
+.explain_boxes_div_main{
+  margin-top: 100px;
+}
+.explain_boxes_div{
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+  background-color: #F5F5F5;
+}
+.explain_box{
+ width: 230px;
+ background-color: #F5F5F5;
+ padding: 13px;
+ height: 250px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ gap: 20px;
+ box-shadow: 0 2px 11px 1px #e0dde0;
+ border-radius: 10px;
+ border: 1px solid rgb(21, 21, 21);
+
+}
+
+.explain_box:hover{
+  cursor: pointer;
+  background-color: #fff;
+  transform: scaleY(1.05);
+  transition: 0.3s;
+}
+.explain_box_img{
+  width: 150px;
+  background-color: var(--green-color);
+  border-radius: 5px;
+  border: 1px solid rgb(21, 21, 21);
+}
+
+.border_color_explain_box{
+  border: 2px solid #FEC003;
+  margin-top: 5px;
+  width: 40px;
+  margin-left: 2px;
+}
+#explain_spans{
+   font-size: 20px;
+   font-family: var(--rboto-font-family);
+   font-weight: bold;
+}
+
+/* <!-------------------------why athelets need money----------------------------------------> */
+
+.why_athelets_need_main_div{
+  background-color: #FFFBED;
+  margin-bottom: 30px;
+  padding: 80px;
+}
+#athlets_need{
+  margin-right: 230px;
+  background-color: #fff;
+  border: none;
+  background-color: #FFFBED;
+}
+#fund_questions{
+  font-size: 40px;
+  margin-right: 200px;
+
+}
+#fund_questions_border{
+  margin-left: 350px;
+}
+
+.row[why_athelets_need_main_div_explains]{
+  background-color: #FFFBED;
+  flex-wrap: wrap;
+  padding: 40px;
+
+}
+
+.first_font{
+  margin-left: 300px;
+  margin-bottom:20px ;
+}
+.text-heading{
+  color: #444;
+  font-size: 17px;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-left: 130px;
+  width: 60%;
+}
+
+.text-desc{
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: rgba(0,0,0,.5);
+  margin: 10px auto;
+  width: 70%;
+}
+/* <!------------------------- footer ----------------------------------------> */
+
+
+.footer{
+  background-color: #2b5958 ;
+  padding: 50px;
+}
+.row[last]{
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  color: #FFFBED;
+}
+
+
+.row[last] img{
+  border-radius: 50%;
+  width: 60px;
+  margin-bottom: 20px;
+}
+
+.share-icons{
+  border-top: 2px solid #2b5958;
+ font-size: 30px;
+ color: #fff;
+}
+
+.special_icons{
+  color:white ;
+  margin: 20px auto;
+}
+
+span[last]{
+  font-size: 14px;
+  color: #77cac8;
+}
+
+.reach-out{
+  margin-bottom: 30px;
+}
+.last_para{
+  text-align: center;
+  color: #fff;
+  padding: 15px;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 20px;
+  border-top: 2px solid #3a9391;
+}
+
+

@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/login and register/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+</head>
+
+<body class="body">
+
+
+  <div class="login-page">
+
+
+    <div class="form">
+
+      <form id="form">
+        <input type="email" id="email" placeholder="&#xf007;  email" >
+        <input type="password" id="password" placeholder="&#xf023;  password" >
+        <i style="color:#17a589 ;" id="password_eye" class="fas fa-eye-slash" ></i>
+        <br>
+        <br>
+        <a href="register.html"> <button>LOGIN</button></a>
+
+      </form>
+
+      <a href="../players/ranklist.html" id="account_creation"><button>Create an account</button> </a>
+
+
+
+    </div>
+  </div>
+  <script>
+
+
+
+// // Code for function eye------
+
+//      let password_eye = document.getElementById("password_eye")
+
+//       let password = document.getElementById("password")
+
+//       password_eye.addEventListener("click", e => {
+
+//         const type = password.getAttribute("type") === "password" ? "text" : "password";
+
+//         password.setAttribute("type", type);
+
+//         const password_slash = password_eye.getAttribute("class") === "fas fa-eye-slash" ? "fas fa-eye" : "fas fa-eye-slash";
+
+//         password_eye.setAttribute("class",password_slash)
+
+//       })
+
+       
+// //  Function for checking the user login which got from the user_registration page
+    
+
+//     function login() {
+
+
+//       let email = document.getElementById("email").value
+
+//       let password = document.getElementById("password").value
+
+
+//       let arr = JSON.parse(localStorage.getItem("array"))
+
+
+//       let res;
+//       arr.find(element => {
+
+//         if (element["email"] == email && element["password"] == password) {
+//           return res = 1;
+//           localStorage.setItem("profile", JSON.stringify(element))
+
+//         }
+//         else {
+//           return res = 0;
+
+//         }
+//       });
+
+
+//       if (res == 1) {
+//         let login_email = email;
+//         localStorage.setItem("login_email", login_email);
+
+
+//         alert("Logged in")
+//         window.location.href = "../players/ranklist.html"
+//       }
+
+
+//       else {
+//         alert("email id and password are not matched")
+//       }
+//     }
+
+
+//     // just getting the form selection
+
+//     let form = document.getElementById("form");
+
+//     form.addEventListener("submit", e => {
+//       e.preventDefault();
+//       login()
+//     })
+
+
+
+
+  </script>
+</body>
+
+</html>

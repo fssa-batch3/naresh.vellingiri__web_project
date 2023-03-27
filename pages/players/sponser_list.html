@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Sports to rural</title>
+    <link rel="stylesheet" href="../../assets/css/sponser_list.css">
+    <link rel="stylesheet" href="../../assets/css/all_style.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+
+<body>
+    <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="side-header">
+            <h3>S<span>2R</span></h3>
+        </div>
+
+        <div class="side-content">
+
+
+            <div class="side-menu">
+                <ul>
+                    <li>
+                        <a href="../players/ranklist.html">
+                            <span class="las la-home"></span>
+                            <small>RANKLIST</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../players/profile.html">
+                            <span class="las la-user-alt"></span>
+                            <small>PROFILES</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../players/districts.html" >
+                            <span class="las la-envelope"></span>
+                            <small>DISTRICTS</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../players/achievers.html">
+                            <span class="las la-clipboard-list"></span>
+                            <small>ACHIEVERS</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="active">
+                            <span class="las la-shopping-cart"></span>
+                            <small>SPONSERS LIST</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../players/news.html">
+                            <span class="las la-tasks"></span>
+                            <small>NEWS</small>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+
+        <header>
+            <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+
+                <div class="header-menu">
+                    <label for="">
+                        <span class="las la-search"></span>
+                    </label>
+
+                    <div class="notify-icon">
+                        <span class="las la-envelope"></span>
+                        <span class="notify">4</span>
+                    </div>
+
+                    <div class="notify-icon">
+                        <span class="las la-bell"></span>
+                        <span class="notify">3</span>
+                    </div>
+
+                    <div class="user">
+                        <div class="bg-img" style="background-image: url(img/1.jpeg)"></div>
+
+                        <span class="las la-power-off"></span>
+                        <span>Logout</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <main>
+
+            <div class="page-header">
+                <h1>Sponser_list</h1>
+            </div>
+
+
+            <div class="page_content">
+
+            </div>
+
+
+        </main>
+    </div>
+
+    <script>
+
+let check = JSON.parse(localStorage.getItem("sponsers"))
+
+
+let main= document.getElementsByTagName("main")[0]
+let page_content= document.getElementsByClassName("page_content")[0]
+console.log(page_content)
+
+for (let i = 0; i < check.length; i++) {
+    
+
+        // create the card element
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        // create the image element and add it to the card
+        const imgDiv = document.createElement("div");
+        imgDiv.classList.add("img");
+        const img = document.createElement("img");
+        img.src ="../../assets/images/sponser_list/sponser_1.jpg";
+        imgDiv.appendChild(img);
+        card.appendChild(imgDiv);
+
+        // create the infos element and add it to the card
+        const infos = document.createElement("div");
+        infos.classList.add("infos");
+
+        // create the name element and add it to the infos
+        const nameDiv = document.createElement("div");
+        nameDiv.classList.add("name");
+
+
+        const nameH2 = document.createElement("h2");
+        nameH2.textContent = check[i]["name"];
+
+        const nameH4 = document.createElement("h4");
+        nameH4.textContent = "@dharun";
+
+
+        nameDiv.appendChild(nameH2);
+        nameDiv.appendChild(nameH4);
+        infos.appendChild(nameDiv);
+
+        // create the text element and add it to the infos
+        const textP = document.createElement("p");
+        textP.classList.add("text");
+        textP.textContent = "We are sponsered 1000+ sports players to give support for their life.";
+        infos.appendChild(textP);
+
+        // create the stats element and add it to the infos
+        const statsUl = document.createElement("ul");
+        statsUl.classList.add("stats");
+
+        // create the views stat element and add it to the stats
+        const viewsLi = document.createElement("li");
+        const viewsH3 = document.createElement("h3");
+
+        viewsH3.textContent = "15K";
+
+        const viewsH4 = document.createElement("h4");
+        viewsH4.textContent = "Views";
+        viewsLi.appendChild(viewsH3);
+        viewsLi.appendChild(viewsH4);
+        statsUl.appendChild(viewsLi);
+
+        // create the projects stat element and add it to the stats
+        const projectsLi = document.createElement("li");
+        const projectsH3 = document.createElement("h3");
+        projectsH3.textContent = "82";
+        const projectsH4 = document.createElement("h4");
+        projectsH4.textContent = "Sponsered";
+        projectsLi.appendChild(projectsH3);
+        projectsLi.appendChild(projectsH4);
+        statsUl.appendChild(projectsLi);
+
+        // create the followers stat element and add it to the stats
+        const followersLi = document.createElement("li");
+        const followersH3 = document.createElement("h3");
+        followersH3.textContent = "2k";
+        const followersH4 = document.createElement("h4");
+        followersH4.textContent = "Followers";
+        followersLi.appendChild(followersH3);
+        followersLi.appendChild(followersH4);
+        statsUl.appendChild(followersLi);
+
+        infos.appendChild(statsUl);
+
+        // create the links element and add it to the infos
+        const linksDiv = document.createElement("div");
+        linksDiv.classList.add("links");
+
+        const followBtn = document.createElement("button");
+        followBtn.classList.add("follow");
+        followBtn.textContent = "Follow";
+        
+        const viewBtn = document.createElement("button");
+        viewBtn.classList.add("view");
+        viewBtn.textContent = "Message";
+        linksDiv.appendChild(followBtn);
+        linksDiv.appendChild(viewBtn);
+        infos.appendChild(linksDiv);
+
+        card.appendChild(infos);
+
+        // append the card to the document body or another parent element
+        main.append(card);
+
+}
+
+    </script>
+</body>

@@ -1,0 +1,24 @@
+{
+  "name": "naresh.vellingiri__web_project",
+  "version": "1.0.0",
+  "description": "My project is about to support the rural sports players to move forward and make them sponsered in their respective fields.\r Problem statement: https://docs.google.com/document/d/1XoiQFivpBtAY0hvU_6xjGZW9y2UKpK8S8LtXQ7_jJJQ/edit",
+  "main": "checking.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fssa-batch3/naresh.vellingiri__web_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fssa-batch3/naresh.vellingiri__web_project/issues"
+  },
+  "homepage": "https://github.com/fssa-batch3/naresh.vellingiri__web_project#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "husky": "^8.0.3"
+  }
+}
