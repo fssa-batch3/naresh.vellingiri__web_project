@@ -7,12 +7,12 @@
   <title>Profile_page</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
   <link rel="stylesheet" href="../../assets/css/index.css">
   <link rel="stylesheet" href="../../assets/css/profile/profile_all_style.css">
-  <link rel="stylesheet" href="../../assets/css/profile/ranklist.css">
+  <link rel="stylesheet" href="../../assets/css/profile/profile_detail.css">
 
 
   <link rel="stylesheet"
@@ -33,9 +33,9 @@
         <li><a href="../fundraiser_page/fundraiser.html">Fundraiser</a></li>
       </ul>
     </nav>
-    <a class="cta" href="pages/login and register/register.html">Register</a>
+    <a class="cta" href="../login and register/register.html">Register</a>
 
-    <a class="cta" href="pages/login and register/login.html">Login</a>
+    <a class="cta" href="../login and register/login.html">Login</a>
 
   </header>
 
@@ -93,7 +93,7 @@
     </div>
   </div>
 
-  <div class="main-content"> 
+  <div class="main-content">
 
     <main>
 
@@ -108,12 +108,12 @@
 
             <div class="col-md-6">
               <label for="first_name">First Name</label>
-             <input type="text" class="form-control" placeholder="First name">
+              <input type="text" id="first_name" class="form-control" placeholder="First name">
             </div>
             <div class="col-md-6">
               <label for="last_name">Last Name</label>
 
-              <input type="text" class="form-control" placeholder="Last name">
+              <input type="text" id="last_name" class="form-control" placeholder="Last name">
             </div>
             <div class="col-md-6">
               <label for="first_name">profile image</label>
@@ -121,13 +121,14 @@
               <input type="file" class="form-control" placeholder="profile image">
             </div>
             <div class="col-md-6">
-              <label for="last_name">email</label>
+              <label for="last_name" >email</label>
 
-              <input type="text" class="form-control" placeholder="email">
-            </div> <div class="col-md-6">
+              <input type="email" id="email" class="form-control" placeholder="email" disabled>
+            </div>
+            <div class="col-md-6">
               <label for="first_name">Address</Address></label>
 
-              <input type="text" class="form-control" placeholder="address">
+              <input type="text" id="address" class="form-control" placeholder="address">
             </div>
             <div class="col-md-6">
               <label for="last_name">Telephone no.</label>
@@ -139,20 +140,87 @@
               <label for="last_name">Date of Birth</label>
 
               <input type="date" class="form-control" placeholder="mm--dd--yy">
-              
+
             </div>
             <div class="col-md-6">
               <label for="last_name">facebook link</label>
 
               <input type="text" class="form-control" placeholder="paste your url">
-              
+
             </div>
 
-            <button class="button_form">Save changes</button>
+            <button class="button_form " id="save_change_button">Save changes</button>
+            <button class="button_form " id="del_button">Delete</button>
+
+
+            <a href=""></a>
           </div>
         </form>
       </div>
-    </main></div> 
+    </main>
+  </div>
+
+<script>
+
+
+let user_data= JSON.parse(localStorage.getItem("array"))
+
+
+let login_email=localStorage.getItem("login_email")
+
+let first_name = document.getElementById("first_name")
+let last_name = document.getElementById("last_name")
+let email = document.getElementById("email")
+let address = document.getElementById("address")
+
+
+
+
+
+let res;
+
+user_data.find(
+  e=>{
+    if(e["email"]== login_email){
+      return res=e;
+
+    }
+  }
+)
+
+
+first_name.value=res["first_name"]
+last_name.value=res["last_name"]
+email.value=res["email"]
+
+// ------------------------------update---------------------
+let save_change_button=document.getElementById("save_change_button")
+
+save_change_button.addEventListener("click",e=>{
+  e.preventDefault()
+  res["first_name"]=first_name.value
+  res["last_name"]=last_name.value
+  res["email"]=email.value
+  res["address"]=address.value
+
+  localStorage.setItem("array", JSON.stringify(user_data))
+})
+
+
+// ------------------------------delete---------------------
+let delete_button=document.getElementById("del_button")
+
+delete_button.addEventListener("click",e=>{
+  e.preventDefault()
+  localStorage.removeItem("login_email") 
+  window.location.href="../../index.html"
+})
+
+
+</script>
+</body>
+
+</html>
   <!-- 
     <header>
       <div class="header-content">
@@ -383,9 +451,7 @@
 
 
   </script> -->
-</body>
 
-</html>
 
 
 <!-- // let _details_1 = [

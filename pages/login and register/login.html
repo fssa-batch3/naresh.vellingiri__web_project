@@ -30,7 +30,7 @@
 
       </form>
 
-      <a href="../players/ranklist.html" id="account_creation"><button>Create an account</button> </a>
+      <a href="register.html" id="account_creation"><button>Create an account</button> </a>
 
 
 
@@ -40,78 +40,77 @@
 
 
 
-// // Code for function eye------
+// Code for function eye------
 
-//      let password_eye = document.getElementById("password_eye")
+     let password_eye = document.getElementById("password_eye")
 
-//       let password = document.getElementById("password")
+      let password = document.getElementById("password")
 
-//       password_eye.addEventListener("click", e => {
+      password_eye.addEventListener("click", e => {
 
-//         const type = password.getAttribute("type") === "password" ? "text" : "password";
+        const type = password.getAttribute("type") === "password" ? "text" : "password";
 
-//         password.setAttribute("type", type);
+        password.setAttribute("type", type);
 
-//         const password_slash = password_eye.getAttribute("class") === "fas fa-eye-slash" ? "fas fa-eye" : "fas fa-eye-slash";
+        const password_slash = password_eye.getAttribute("class") === "fas fa-eye-slash" ? "fas fa-eye" : "fas fa-eye-slash";
 
-//         password_eye.setAttribute("class",password_slash)
+        password_eye.setAttribute("class",password_slash)
 
-//       })
+      })
 
        
 // //  Function for checking the user login which got from the user_registration page
     
 
-//     function login() {
+    function login() {
 
 
-//       let email = document.getElementById("email").value
+      let email = document.getElementById("email").value
 
-//       let password = document.getElementById("password").value
-
-
-//       let arr = JSON.parse(localStorage.getItem("array"))
+      let password = document.getElementById("password").value
 
 
-//       let res;
-//       arr.find(element => {
-
-//         if (element["email"] == email && element["password"] == password) {
-//           return res = 1;
-//           localStorage.setItem("profile", JSON.stringify(element))
-
-//         }
-//         else {
-//           return res = 0;
-
-//         }
-//       });
+      let arr = JSON.parse(localStorage.getItem("array"))
 
 
-//       if (res == 1) {
-//         let login_email = email;
-//         localStorage.setItem("login_email", login_email);
+      let res;
+      arr.find(element => {
+
+        if ((element["email"] == email) && (element["password"] == password)) {
+          return res = 1;
+        }
+        else {
+          return res = 0;
+        }
+      });
 
 
-//         alert("Logged in")
-//         window.location.href = "../players/ranklist.html"
-//       }
+      if (res == 1) {
+        
+        let login_email = email;
+
+        localStorage.setItem("login_email", login_email);
 
 
-//       else {
-//         alert("email id and password are not matched")
-//       }
-//     }
+        alert("Logged in")
+        window.location.href = "../players/ranklist.html"
+      }
 
 
-//     // just getting the form selection
+      else {
+        alert("email id and password are not matched")
+      }
+    }
 
-//     let form = document.getElementById("form");
 
-//     form.addEventListener("submit", e => {
-//       e.preventDefault();
-//       login()
-//     })
+    // just getting the form selection
+
+    let form = document.getElementById("form");
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      login()
+    })
 
 
 

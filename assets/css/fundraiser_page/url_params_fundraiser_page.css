@@ -1,0 +1,116 @@
+#headline{
+    font-weight: 600;
+}
+.container{
+    display: flex;
+    margin-top: 30px;
+}
+#headline{
+    text-align: center;
+}
+#kidsimg{
+    width: 800px;
+    border-radius: 5px;
+}
+#share{
+    border: none;
+    padding: 10px;
+    color: #01bfbd;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 6px rgba(0,0,0,.2);
+    margin-top: 30px;
+    margin-left: 550px;
+}
+.details button{
+    border: none;
+    padding: 10px;
+    background-color: white;
+    margin-left: 20px;
+    font-size: 18px;
+}
+.details button:hover{
+    color: #01bfbd;
+    border-bottom: solid #01bfbd;
+}
+#aboutheading{
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+}
+#aboutpara{
+    margin-top: 20px;
+}
+.right_container{
+    margin-left: 40px;
+}
+#contribute,#fbshare{
+    border: none;
+    padding:12px;
+    height: 50px;
+    width: 300px;
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    background-color: #01bfbd;
+    border-radius: 6px;
+    
+}
+#contribute:hover{
+    box-shadow: 0 4px 8px rgba(1,191,189,.3);
+}
+
+.banking{
+    display: flex;
+    gap: 10px;
+}
+.banking button{
+    font-size: 12px;
+    background-color: white;
+    color: #B3B3B3;
+    border: thin #B3B3B3;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-top: 30px;
+    padding: 8px;
+    
+}
+#fbshare{
+    margin-top: 50px;
+    background-color: rgb(59, 89, 152);
+}
+#fbsharetext{
+    margin-top: 10px;
+    color: rgb(59, 89, 152);
+}
+#amt{
+    font-size: 28px;
+}
+.suporters{
+    display: flex;
+    font-size: 20px;
+}
+#suporters1{
+    margin-right: 40px;
+}
+.sponsercard{
+    background-color: white;
+    box-shadow: 0 6px 40px 0 rgba(0,0,0,.1);
+    border-radius: 10px;
+    margin-top: 30px;
+    display: flex;
+    padding: 20px;
+}
+#profileicon{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: 0 6px 40px 0 rgba(0,0,0,.1);
+}
+.campaigner{
+    margin-left: 40px;
+}
+#sponsername{
+    color: #007de1;
+    font-weight: 600;
+    margin-top: -10px;
+}
