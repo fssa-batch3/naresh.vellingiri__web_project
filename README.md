@@ -11,6 +11,9 @@ Wireframe: https://drive.google.com/file/d/1LVJib9uyIkz04C6nQqOTIgeGGaMny71A/vie
 
 LIVESERVER: https://naresh031020000.github.io/Project100/
 
+# FEATURES PROGRESS
+
+
 - [x] User Registeration page completed.
 - [x] login  page completed.
 - [x] user profile update completed.
