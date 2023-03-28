@@ -19,7 +19,7 @@ LIVESERVER: https://naresh031020000.github.io/Project100/
 ### Create an account
 - Scenario 1: Successfully create an account
     - Steps:
-        1.click the register button.
+        1. click the register button.
         2. Navigate to the registration page.
         3. Enter the required information such as name, email, phone number and password.
         4. Click the "Register" button.
