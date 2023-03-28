@@ -1,4 +1,4 @@
-# sportstorural
+# Sportstorural
 
 My project is about to support the rural sports players to move forward and make them sponsered in their respective fields.
 Problem statement: https://docs.google.com/document/d/1XoiQFivpBtAY0hvU_6xjGZW9y2UKpK8S8LtXQ7_jJJQ/edit
