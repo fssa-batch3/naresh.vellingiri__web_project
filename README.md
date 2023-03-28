@@ -12,13 +12,13 @@ Wireframe: https://drive.google.com/file/d/1LVJib9uyIkz04C6nQqOTIgeGGaMny71A/vie
 LIVESERVER: https://naresh031020000.github.io/Project100/
 
 - [x] User Registeration page completed.
-- [x]login  page completed.
-- [x]user profile update completed.
-- [x]User profile save completed.
--[x] User profile delete completed.
-- [x]fundraiser listing page delete completed.
+- [x] login  page completed.
+- [x] user profile update completed.
+- [x] User profile save completed.
+- [x] User profile delete completed.
+- [x] fundraiser listing page delete completed.
 - [ ] fundraiser url params yet to complete.
-- []  donation page --- yet to complete
+- [ ]  donation page --- yet to complete
 
 # Sports To Rural
 
