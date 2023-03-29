@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../../assets/css/index.css">
   <link rel="stylesheet" href="../../assets/css/profile/profile_all_style.css">
   <link rel="stylesheet" href="../../assets/css/profile/profile_detail.css">
+  <link rel="stylesheet" href="../../assets/css/notify.css">
 
 
   <link rel="stylesheet"
@@ -38,10 +39,6 @@
     <a class="cta" href="../login and register/login.html">Login</a>
 
   </header>
-
-
-
-
 
 
 
@@ -108,20 +105,21 @@
 
             <div class="col-md-6">
               <label for="first_name">First Name</label>
-              <input type="text" id="first_name" class="form-control" placeholder="First name">
+              <input type="text" id="first_name" class="form-control" placeholder="First name" disabled>
             </div>
+
             <div class="col-md-6">
               <label for="last_name">Last Name</label>
-
-              <input type="text" id="last_name" class="form-control" placeholder="Last name">
+              <input type="text" id="last_name" class="form-control" placeholder="Last name" disabled>
             </div>
+
             <div class="col-md-6">
               <label for="first_name">profile image</label>
 
               <input type="file" class="form-control" placeholder="profile image">
             </div>
             <div class="col-md-6">
-              <label for="last_name" >email</label>
+              <label for="last_name">email</label>
 
               <input type="email" id="email" class="form-control" placeholder="email" disabled>
             </div>
@@ -149,79 +147,105 @@
 
             </div>
 
-            <button class="button_form " id="save_change_button">Save changes</button>
-            <button class="button_form " id="del_button">Delete</button>
+
+            <div form class="container">
+              <button class="button_form " id="edit_button">Edit</button>
+
+              <button class="button_form " id="save_change_button">Save changes</button>
+              <button class="button_form " id="del_button">Delete</button>
+            </div>
 
 
-            <a href=""></a>
+
+
           </div>
         </form>
       </div>
     </main>
   </div>
-
-<script>
-
-
-let user_data= JSON.parse(localStorage.getItem("array"))
+  <script src="../../assets/JS/notify.js"></script>
+  <script>
 
 
-let login_email=localStorage.getItem("login_email")
-
-let first_name = document.getElementById("first_name")
-let last_name = document.getElementById("last_name")
-let email = document.getElementById("email")
-let address = document.getElementById("address")
+    let user_data = JSON.parse(localStorage.getItem("array"))
 
 
+    let login_email = localStorage.getItem("login_email")
+
+    let first_name = document.getElementById("first_name")
+    let last_name = document.getElementById("last_name")
+    let email = document.getElementById("email")
+    let address = document.getElementById("address")
 
 
 
-let res;
-
-user_data.find(
-  e=>{
-    if(e["email"]== login_email){
-      return res=e;
-
-    }
-  }
-)
 
 
-first_name.value=res["first_name"]
-last_name.value=res["last_name"]
-email.value=res["email"]
+    let res;
 
-// ------------------------------update---------------------
-let save_change_button=document.getElementById("save_change_button")
+    user_data.find(
+      e => {
+        if (e["email"] == login_email) {
+          return res = e;
 
-save_change_button.addEventListener("click",e=>{
-  e.preventDefault()
-  res["first_name"]=first_name.value
-  res["last_name"]=last_name.value
-  res["email"]=email.value
-  res["address"]=address.value
-
-  localStorage.setItem("array", JSON.stringify(user_data))
-})
+        }
+      }
+    )
 
 
-// ------------------------------delete---------------------
-let delete_button=document.getElementById("del_button")
-
-delete_button.addEventListener("click",e=>{
-  e.preventDefault()
-  localStorage.removeItem("login_email") 
-  window.location.href="../../index.html"
-})
+    first_name.value = res["first_name"]
+    last_name.value = res["last_name"]
+    email.value = res["email"]
 
 
-</script>
+
+    // ------------------------------edit---------------------
+    let edit_button = document.getElementById("edit_button")
+
+    edit_button.addEventListener("click", e => {
+
+      e.preventDefault()
+
+      first_name.removeAttribute("disabled", "")
+      last_name.removeAttribute("disabled", "")
+
+    })
+
+
+
+
+
+    // ------------------------------update---------------------
+    let save_change_button = document.getElementById("save_change_button")
+
+    save_change_button.addEventListener("click", e => {
+      e.preventDefault()
+      res["first_name"] = first_name.value
+      res["last_name"] = last_name.value
+      res["email"] = email.value
+      res["address"] = address.value
+
+      Notify.success("Profile Updated");
+
+      localStorage.setItem("array", JSON.stringify(user_data))
+    })
+
+
+    // ------------------------------delete---------------------
+    let delete_button = document.getElementById("del_button")
+
+    delete_button.addEventListener("click", e => {
+      e.preventDefault()
+      localStorage.removeItem("login_email")
+      window.location.href = "../../index.html"
+    })
+
+
+  </script>
 </body>
 
 </html>
-  <!-- 
+<!-- 
     <header>
       <div class="header-content">
         <label for="menu-toggle">
@@ -252,7 +276,7 @@ delete_button.addEventListener("click",e=>{
 
 
 
-  <!-- <div class="records table-responsive">
+<!-- <div class="records table-responsive">
 
           <div class="record-header">
             <div class="add">
@@ -278,7 +302,7 @@ delete_button.addEventListener("click",e=>{
             <table width="100%">
 
                table head -->
-  <!-- <thead>
+<!-- <thead>
                 <tr>
                   <th>#</th>
                   <th><span class="las la-sort"></span> PLAYER</th>
@@ -296,7 +320,7 @@ delete_button.addEventListener("click",e=>{
               </tbody>
             </table> -->
 
-  <!-- <div class="notification_show" id="notification_show">
+<!-- <div class="notification_show" id="notification_show">
 
               <p class="message" id="message">Notifications</p>
 
@@ -323,7 +347,7 @@ delete_button.addEventListener("click",e=>{
 
 
 
-  <!-- 
+<!-- 
   <script>
 
 

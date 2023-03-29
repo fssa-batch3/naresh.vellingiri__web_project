@@ -1,0 +1,31 @@
+.container[form_creation_fundraiser]{
+    border: 2px solid rgb(207, 203, 203);
+    width: 40%;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.add_fundraiser_btn{
+    background-color: #15c4c4;
+    color: white;
+    border: none;
+    border-radius:10px ;
+    padding: 10px;
+    margin-left: 260px;
+    margin-top: 20px;
+
+}
+
+.form-control{
+    border: none;
+    border-bottom:1px solid #d0d6d6
+}
+
+input::placeholder{
+    margin-left: 100px;
+}
+
+select{
+    border: 1px solid red;
+}
