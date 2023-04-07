@@ -123,10 +123,12 @@ for(let i=0; i<10; i++){
 
         // create the main container element
 
+   
+
+
         
 const cardDiv = document.createElement('div');
 cardDiv.classList.add('card');
-
 // create the image element
 const imageDiv = document.createElement('div');
 imageDiv.classList.add('image-splayers');
@@ -170,15 +172,24 @@ fundIcon.classList.add('fa-solid', 'fa-indian-rupee-sign');
 fundRs.appendChild(fundIcon);
 
 const fundAmount = document.createElement('span');
-fundAmount.innerHTML = '<b style="color:black";>16,0000</b>';
+fundAmount.innerHTML = '<b style="color:#8a8a92";>16,000</b>';
 fundAmount.style.fontSize="20px"
 fundAmount.style.marginRight="10px"
 
 fundRs.appendChild(fundAmount);
 
 const fundRaised = document.createElement('span');
-fundRaised.textContent = 'raised';
+fundRaised.textContent = 'raised of';
 fundRs.appendChild(fundRaised);
+
+const initial_fundRaised = document.createElement('div');
+initial_fundRaised.innerHTML = '<b style="color:black";>1,00,000</b>';
+initial_fundRaised.style.fontSize="20px"
+initial_fundRaised.style.marginLeft="5px"
+
+fundRs.appendChild(initial_fundRaised);
+
+
 
 // create the range element
 const rangeDiv = document.createElement('div');
@@ -222,6 +233,10 @@ cardDiv.appendChild(supportsLastDateOfFund);
 
 // add the main container element to the document body
 detail_fund_raisers.append(cardDiv)
+
+cardDiv.addEventListener("click",function () {
+    window.location.href = "url_params_fundraiser_page.html"
+})
 }
 
     </script>

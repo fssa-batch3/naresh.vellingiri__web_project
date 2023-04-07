@@ -33,14 +33,37 @@
     color: #01bfbd;
     border-bottom: solid #01bfbd;
 }
-#aboutheading{
+
+.about_content, .certificates, .images{
+    border: 1px solid rgb(217, 210, 210);
+    padding: 10px;
+    margin: 30px;
+    border-radius: 5px;
+}
+#aboutheading, #certificates_heading{
     text-align: center;
     font-size: 26px;
     font-weight: 600;
 }
-#aboutpara{
+#aboutpara,  #certificates_heading{
     margin-top: 20px;
 }
+
+.contain_players_certificate_image, .contain_players_achievements_image{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+.contain_players_certificate_image img,.contain_players_achievements_image img{
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+
+}
+
+
 .right_container{
     margin-left: 40px;
 }

@@ -32,7 +32,7 @@
             <ul class="nav__links">
                 <li><a href="../../index.html">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="../fundraiser_page/fundraiser.html">Fundraiser</a></li>
+                <li><a href="../fundraiser_page/browse_fundraiser.html">Fundraiser</a></li>
             </ul>
         </nav>
         <a class="cta" href="../login and register/register.html">Register</a>
@@ -53,13 +53,13 @@
             <div class="side-menu">
                 <ul>
                     <li>
-                        <a href="../players/ranklist.html" class="active">
+                        <a href="../profile/profile_detail.html">
                             <span class="las la-home"></span>
                             <small>PROFILE</small>
                         </a>
                     </li>
                     <li>
-                        <a href="../players/profile.html">
+                        <a href="#"  class="active">
                             <span class="las la-user-alt"></span>
                             <small>RAISE FUND</small>
                         </a>
@@ -89,8 +89,10 @@
         </div>
     </div>
 
+    <!-- form creation -->
 
-    <div form_creation_fundraiser class="container">
+
+    <div form_creation_fundraiser class="container" id="form_creation_fundraiser">
         <h3 class="text-center">Raise you funds for future players</h3>
 
         <form>
@@ -98,8 +100,8 @@
 
                 <label for=""></label>
 
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="How much do you want to raise fund ?">
+                <input type="number" class="form-control" id="minimum_amount"
+                    placeholder="How much do you want to raise fund ?...">
                 <small id="" class="form-text text-muted">You have to raise minimum Rs.2000.</small>
 
             </div>
@@ -108,7 +110,7 @@
 
                 <label for=""></label>
 
-                <input type="text" class="form-control" id="" aria-describedby="emailHelp"
+                <input type="text" class="form-control" id="relationship" aria-describedby="emailHelp"
                     placeholder="The sports person is my ...">
                 <small id="" class="form-text text-muted">Tell about who needs this fund.</small>
 
@@ -116,28 +118,31 @@
 
 
             <div class="input-group">
-                <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                <div class="input-group-append">
-                
-                  
-                  <select name="" id="">
-                    <option value="">Select</option>
-                    <option value="">10th</option>
-                    <option value="">12th</option>
-                    <option value="">degree</option>
+                <input type="text" class="form-control" id="selection" placeholder="Educational_qulaification...">
 
-                  </select>
+                <div class="input-group-append">
+
+
+                    <select name="" id="selected_option">
+                        <option>Select</option>
+                        <option value="tenth">10th</option>
+                        <option value="twelth">12th</option>
+                        <option value="degree">degree</option>
+
+                    </select>
 
                 </div>
-              </div>
+
+            </div>
+            <small id="" class="form-text text-muted">Enter your Educational qualification</small>
+
 
 
             <div class="form-group">
 
                 <label for=""></label>
 
-                <input type="Text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Add you image">
+                <input type="text" class="form-control" id="Employment_status" placeholder="Employment status...">
                 <small id="" class="form-text text-muted">Current work</small>
 
             </div>
@@ -145,36 +150,275 @@
 
                 <label for=""></label>
 
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="How much do you want to raise fund ?">
-                <small id="" class="form-text text-muted">You have to raise minimum Rs.2000.</small>
+                <input type="text" class="form-control" id="sports_type" placeholder=" Sports Type...">
+                <small id="" class="form-text text-muted">Enter your sports type</small>
 
             </div>
             <div class="form-group">
 
                 <label for=""></label>
 
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="How much do you want to raise fund ?">
-                <small id="" class="form-text text-muted">You have to raise minimum Rs.2000.</small>
+                <input type="text" class="form-control" id="city_name" 
+                    placeholder="City">
+                <small id="" class="form-text text-muted">Enter Your City Name</small>
 
             </div>
 
 
-            <button class="add_fundraiser_btn ">Add Fundraiser</button>
+            <button class="add_fundraiser_btn " id="next_button">Next</button>
+    </div>
+
+    <!-- ----------------------------specific _details_form_creation------------------------------- -->
+
+    <div form_creation_fundraiser_specific_details class="container" id="form_creation_fundraiser_specific_details">
+        <h3 class="text-center">Player Details</h3>
+
+        <form>
+            <div class="form-group">
+
+                <label for=""></label>
+
+                <input type="text" class="form-control" id="player_name">
+                <small id="" class="form-text text-muted">Enter Your Name</small>
+
+            </div>
+
+            <div class="form-group ">
+
+                <label for=""></label>
+
+                <input type="number" class="form-control" id="age" aria-describedby="emailHelp"
+>
+                <small id="" class="form-text text-muted">Enter Your Age</small>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for=""></label>
+
+                <input type="url" class="form-control" id="image_url">
+                <small id="" class="form-text text-muted">Enter your image url</small>
+
+            </div>
+            <div class="form-group">
+
+                <label for=""></label>
+
+                <input type="text" class="form-control" id="Title" >
+                <small id="" class="form-text text-muted">Enter your title</small>
+
+            </div>
+            <div class="form-group">
+
+                <label for=""></label>
+
+                <input type="date" class="form-control" id="days_left">
+                <small id="" class="form-text text-muted">Minimum days to get the amount you need.</small>
+
+            </div>
+
+
+            <button class="add_fundraiser_btn " id="next_button_2">Next</button>
+    </div>
+
+
+        <!-- ----------------------------form for certificates and bio------------------------------- -->
+
+
+    <div form_creation_fundraiser_specific_details class="container" id="form_creation_fundraiser_specific_details">
+        <h3 class="text-center">Player Details</h3>
+
+        <form>
+            <div class="form-group">
+
+                <label for=""></label>
+
+                <input type="text" class="form-control" id="player_name">
+                <small id="" class="form-text text-muted">Enter player Name</small>
+
+            </div>
+
+            <div class="form-group ">
+
+                <label for=""></label>
+
+                <input type="number" class="form-control" id="player_age" aria-describedby="emailHelp"
+>
+                <small id="" class="form-text text-muted">Enter player Age</small>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for=""></label>
+
+                <input type="url" class="form-control" id="player_image_url">
+                <small id="" class="form-text text-muted">Enter player image url</small>
+
+            </div>
+            <div class="form-group">
+
+                <label for=""></label>
+
+                <input type="text" class="form-control" id="player_title" placeholder="Enter Player title">
+                <small id="" class="form-text text-muted">Title should be very important</small>
+
+            </div>
+            <div class="form-group">
+
+                <label for=""></label>
+
+                <input type="date" class="form-control" id="days_left">
+                <small id="" class="form-text text-muted">Minimum days to get the amount you need.</small>
+
+            </div>
+
+
+            <button class="add_fundraiser_btn " id="next_button_2">Next</button>
     </div>
 
 
 
 
+    <script>
+
+
+        let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list")) ?? []
+
+        let certificate_list = JSON.parse(localStorage.getItem("certificate_list")) ?? []
+
+
+        // --------------------------------inputs for next_button_1------------------------------------------------------
+
+        let minimum_amount = document.getElementById("minimum_amount");
+        let relationship = document.getElementById("relationship");
+        let selection = document.getElementById("selection");
+        let Employment_status = document.getElementById("Employment_status");
+        let sports_type= document.getElementById("sports_type");
+        let city_name = document.getElementById("city_name");
+
+        // -------------------------------------inputs for next_button_2--------------------------------------------------------------------
+
+        let player_name = document.getElementById("player_name");
+        let player_age = document.getElementById("player_age");
+        let player_image_url = document.getElementById("player_image_url");
+        let player_title = document.getElementById("player_title");
+        let days_left = document.getElementById("days_left");
+
+
+        //event listener forselecting option
+        let selected_option = document.getElementById("selected_option")
+
+
+        selected_option.addEventListener("change", e => {
+
+            let selected_value = selected_option.value;
+            selection.value = selected_value;
+
+        })
+
+        // function for next button
+
+        let next_button = document.getElementById("next_button");
+
+        let form_creation_fundraiser = document.getElementById("form_creation_fundraiser")
+        let form_creation_fundraiser_specific_details = document.getElementById("form_creation_fundraiser_specific_details")
+
+        next_button.addEventListener("click", e => {
+            e.preventDefault();
+
+            form_creation_fundraiser.style.display="none"
+            form_creation_fundraiser_specific_details.style.display="block"
+
+            // window.location.href = "../profile/your_fundraiser_page.html"
+        })
+
+        // function for next_button_2
+
+        let next_button_2 = document.getElementById("next_button_2");
+
+
+
+        next_button_2.addEventListener("click", e => {
+            e.preventDefault();
+
+            let fundraiser_form = {
+                
+                emerging_player_id:"",
+                minimum_amount: minimum_amount.value.trim(),
+                relationship:relationship.value.trim(),
+                selection: selection.value.trim(),
+                Employment_status:Employment_status.value.trim(),
+                city_name:city_name.value.trim(),
+                player_name:player_name.value,
+                player_age:player_age.value,
+                player_image_url:player_image_url.value,
+                player_title:player_title.value,
+                days_left:days_left.value,
+
+            }
+
+            fundraiser_list.push(fundraiser_form);
+            localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
+
+
+
+            let certificate_obj={
+                certificate_number:"111",
+                certificate_image_url:"111"
+
+
+            }
+
+            certificate_list.push(certificate_obj);
+
+            localStorage.setItem("certificate_list", JSON.stringify(certificate_list));
+
+
+        })
 
 
 
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
 </body>
 

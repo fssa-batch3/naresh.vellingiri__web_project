@@ -26,7 +26,7 @@
             <ul class="nav__links">
                 <li><a href="../../index.html">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Fundraiser</a></li>
+                <li><a href="../fundraiser_page/browse_fundraiser.html">Fundraiser</a></li>
 
             </ul>
         </nav>
@@ -41,19 +41,62 @@
 
     <h1 id="headline">Help To Provide EQUIPMENTS For The SPORTS Kids!</h1>
     <div class="container">
+
         <div class="left_container">
-            <img src="sponserkids.jpg" alt="Kids Images" id="kidsimg">
+            <img src="../../assets/images/fundraiser_images/fundraiser_running.jpg" alt="Kids Images" id="kidsimg">
             <button id="share"><i class="fa fa-share-alt"></i> Share This Fundraisers</button>
+
+
             <div class="details">
-                <button><i class="fa fa-globe"></i> About</button>
-                <button><i class="fa fa-edit"></i> Update</button>
-                <button><i class='fa fa-comment'></i> Comments</button>
+                <button class="fa fa-globe" id="about_navbar"><i></i> About</button>
+                <button id="certificates_navbar"><i class="fa fa-edit"></i> Certificates</button>
+                <button id="images_navbar"><i class='fa fa-comment'></i> Images</button>
             </div>
+
+
             <hr>
-            <h3 id="aboutheading">About The Fundraisers</h3>
-            <p id="aboutpara">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum nobis maiores hic
-                dolor. Consequatur, odio. Necessitatibus, voluptates.
-                Laudantium enim corporis quod accusantium et optio consequuntur, dolore alias quasi architecto vel.</p>
+
+
+            <div class="about_content" id="about_content">
+
+                <h3 id="aboutheading">About The Fundraisers</h3>
+                <p id="aboutpara">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum nobis maiores hic
+                    dolor. Consequatur, odio. Necessitatibus, voluptates.
+                    Laudantium enim corporis quod accusantium et optio consequuntur, dolore alias quasi architecto vel.
+                </p>
+            </div>
+
+
+            <div class="certificates">
+
+                <h3 id="certificates_heading">Certificates</h3>
+
+                <div class="contain_players_certificate_image">
+                    <img src="../../assets/images/Certificate/Certificate_running.jpg" alt="">
+                    <img src="../../assets/images/Certificate/Certificate_running.jpg" alt="">
+                    <img src="../../assets/images/Certificate/Certificate_running.jpg" alt="">
+                    <img src="../../assets/images/Certificate/Certificate_running.jpg" alt="">
+                    <img src="../../assets/images/Certificate/Certificate_running.jpg" alt="">
+
+                </div>
+            </div>
+
+
+            <div class="images">
+
+                <h3 id="images_playing">Achievement Images</h3>
+                <div class="contain_players_achievements_image">
+                    <img src="../../assets/images/Certificate/running_medal_images.jfif" alt="">
+                    <img src="../../assets/images/Certificate/running_medal_images.jfif" alt="">
+                    <img src="../../assets/images/Certificate/running_medal_images.jfif" alt="">
+                    <img src="../../assets/images/Certificate/running_medal_images.jfif" alt="">
+                    <img src="../../assets/images/Certificate/running_medal_images.jfif" alt="">
+
+
+                </div>
+
+            </div>
+
         </div>
 
         <div class="right_container">
@@ -65,7 +108,7 @@
                 <button>Direct Bank <br> Transfer</button>
             </div>
             <div class="share">
-                <button id="fbshare"><i class="fa fa-facebook-f"></i> Spread The Word</button>
+                <button id="fbshare"><i class="fa fa-facebook-f"></i> Spread The Sports</button>
                 <p id="fbsharetext"><i>Every Social Media Share Can Bring ₹5000</i></p>
             </div>
             <h3 id="amt">₹ 16,67,002</h3>
@@ -91,6 +134,26 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+
+        // scroll function for about section
+
+
+        let about_btn = document.getElementById("about_navbar")
+
+        about_btn.addEventListener("click", e => {
+            window.scrollBy(0, 400)
+        })
+        // scroll function for certificate section
+        let certificates_btn = document.getElementById("certificates_navbar")
+
+        certificates_btn.addEventListener("click", e => {
+            window.scrollBy(0, 800)
+        })
+
+    </script>
 </body>
 
 </html>

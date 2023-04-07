@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Profile_page</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="../../assets/css/index.css">
+    <link rel="stylesheet" href="../../assets/css/profile/profile_all_style.css">
+
+    <link rel="stylesheet" href="../../assets/css/fundraiser_page/form_creation_fundraiser.css">
+    <link rel="stylesheet" href="../../assets/css/fundraiser_page/browse_fundraiser.css">
+        <link rel="stylesheet" href="../../assets/css/profile/your_fundraiser.css">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+
+<body>
+
+
+    <header class="header_main">
+        <a class="logo" href="/"><img src="../../assets/images/index_images/logo_main.png" alt="logo"></a>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="../fundraiser_page/fundraiser.html">Fundraiser</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="../login and register/register.html">Register</a>
+
+        <a class="cta" href="../login and register/login.html">Login</a>
+
+    </header>
+
+
+    <div class="sidebar">
+        <div class="side-header">
+            <h3>S<span>2R</span></h3>
+        </div>
+
+        <div class="side-content">
+
+
+            <div class="side-menu">
+                <ul>
+                    <li>
+                        <a href="../players/ranklist.html" class="active">
+                            <span class="las la-home"></span>
+                            <small>PROFILE</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../fundraiser_page/form_creation_fundraiser.html">
+                            <span class="las la-user-alt"></span>
+                            <small>RAISE FUND</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../players/districts.html">
+                            <span class="las la-envelope"></span>
+                            <small>DONATIONS</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../players/achievers.html">
+                            <span class="las la-clipboard-list"></span>
+                            <small>FUNDRAISERS</small>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../players/news.html">
+                            <span class="las la-tasks"></span>
+                            <small>ABOUT</small>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+
+        <main>
+
+            <div class="page-header">
+                <h1>Profile</h1>
+            </div>
+
+            <div class="page-content" id="page_content">
+                <div class="details-fund-raiser" id="detail_fund_raisers">
+
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <script>
+
+        let detail_fund_raisers = document.getElementById("detail_fund_raisers")
+        let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list"))
+
+
+
+
+
+
+            // create the main container element
+
+
+            for (let i = 0; i < fundraiser_list.length; i++) {
+
+
+                const cardDiv = document.createElement('div');
+                cardDiv.classList.add('card');
+                // create the image element
+                const imageDiv = document.createElement('div');
+                imageDiv.classList.add('image-splayers');
+
+                const image = document.createElement('img');
+                image.setAttribute('src', '../../assets/images/fundraiser_images/fundraiser_running.jpg');
+                image.classList.add('player-img');
+
+                imageDiv.appendChild(image);
+
+                // create the description element
+                const description = document.createElement('p');
+                description.textContent = 'Help them for their upcoming career';
+                description.classList.add('description');
+
+                // create the name element
+                const nameDiv = document.createElement('div');
+                nameDiv.classList.add('name');
+
+                const publisherImgDiv = document.createElement('div');
+                publisherImgDiv.classList.add('publisher-img');
+
+                const publisherImg = document.createElement('img');
+                publisherImg.setAttribute('src', '../../assets/images/fundraiser_images/fundraiser_running.jpg');
+
+                publisherImgDiv.appendChild(publisherImg);
+
+                const name = document.createElement('p');
+                name.textContent = 'by karthik vishnu';
+
+                nameDiv.appendChild(publisherImgDiv);
+                nameDiv.appendChild(name);
+
+                // create the fund amount element
+                const fundRs = document.createElement('p');
+                fundRs.classList.add('fund-rs');
+
+                const fundIcon = document.createElement('i');
+                fundIcon.classList.add('fa-solid', 'fa-indian-rupee-sign');
+
+                fundRs.appendChild(fundIcon);
+
+                const fundAmount = document.createElement('span');
+                fundAmount.innerHTML = '<b style="color:black";></b>';
+                fundAmount.style.fontSize = "20px"
+                fundAmount.style.marginRight = "10px"
+
+                fundRs.appendChild(fundAmount);
+
+                const fundRaised = document.createElement('span');
+                fundRaised.textContent = 'raised';
+                fundRs.appendChild(fundRaised);
+
+                // create the range element
+                const rangeDiv = document.createElement('div');
+                rangeDiv.classList.add('range');
+
+                const rangeValue = document.createElement('div');
+                rangeValue.classList.add('range_value');
+                rangeDiv.appendChild(rangeValue);
+
+                // create the last donation date element
+                const lastDateOfFund = document.createElement('p');
+                lastDateOfFund.textContent = 'Last Donation 10 days ago';
+                lastDateOfFund.classList.add('last-date-of-fund');
+
+                // create the supporters and days left element
+                const supportsLastDateOfFund = document.createElement('div');
+                supportsLastDateOfFund.classList.add('supports-last-date-of-fund');
+
+                const daysLeft = document.createElement('p');
+                const daysLeftSpan = document.createElement('span');
+                daysLeftSpan.textContent = fundraiser_list[i]["selection"];
+                daysLeft.appendChild(daysLeftSpan);
+                daysLeft.appendChild(document.createTextNode(' Days left'));
+                supportsLastDateOfFund.appendChild(daysLeft);
+
+                const supporters = document.createElement('p');
+                const supportersSpan = document.createElement('span');
+                supportersSpan.textContent = '112';
+                supporters.appendChild(supportersSpan);
+                supporters.appendChild(document.createTextNode(' Supporters'));
+                supportsLastDateOfFund.appendChild(supporters);
+
+                // add all elements to the main container element
+                cardDiv.appendChild(imageDiv);
+                cardDiv.appendChild(description);
+                cardDiv.appendChild(nameDiv);
+                cardDiv.appendChild(fundRs);
+                cardDiv.appendChild(rangeDiv);
+                cardDiv.appendChild(lastDateOfFund);
+                cardDiv.appendChild(supportsLastDateOfFund);
+
+                // add the main container element to the document body
+                detail_fund_raisers.append(cardDiv)
+
+                cardDiv.addEventListener("click", function () {
+                    window.location.href = "url_params_fundraiser_page.html"
+                })
+            }
+        
+
+
+    </script>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

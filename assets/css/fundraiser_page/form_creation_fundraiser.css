@@ -1,24 +1,34 @@
+
+.header_main{
+    position: fixed;
+    z-index: 1000;
+    top: 0px;
+    width: 100%;
+}
+
 .container[form_creation_fundraiser]{
     border: 2px solid rgb(207, 203, 203);
     width: 40%;
     padding: 30px;
     border-radius: 10px;
-    margin-top: 50px;
+    margin-top: 130px;
+    display: block;
 }
 
 .add_fundraiser_btn{
-    background-color: #15c4c4;
+    background-color: #0ea8a8;
     color: white;
     border: none;
     border-radius:10px ;
     padding: 10px;
-    margin-left: 260px;
+    margin-left: 220px;
     margin-top: 20px;
+    font-size: 20px;
+    width: 70px;
 
 }
 
 .form-control{
-    border: none;
     border-bottom:1px solid #d0d6d6
 }
 
@@ -27,5 +37,16 @@ input::placeholder{
 }
 
 select{
-    border: 1px solid red;
+    border: 1px solid rgb(137, 130, 130);
+}
+
+/* next form for person details */
+
+.container[form_creation_fundraiser_specific_details]{
+    border: 2px solid rgb(207, 203, 203);
+    width: 40%;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 130px;
+    display: none;
 }

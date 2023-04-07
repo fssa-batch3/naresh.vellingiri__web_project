@@ -1,4 +1,10 @@
 
+.header_main{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border: 1px solid red;
+}
 
 
 
@@ -63,6 +69,8 @@ input{
     justify-content: center;
     margin-top: 50px;
 }
+
+
 
 
 
