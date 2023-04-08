@@ -40,9 +40,10 @@
 
 
     <h1 id="headline">Help To Provide EQUIPMENTS For The SPORTS Kids!</h1>
-    <div class="container">
 
-        <div class="left_container">
+    <div class="container" id="main_container">
+
+        <!-- <div class="left_container">
             <img src="../../assets/images/fundraiser_images/fundraiser_running.jpg" alt="Kids Images" id="kidsimg">
             <button id="share"><i class="fa fa-share-alt"></i> Share This Fundraisers</button>
 
@@ -97,9 +98,9 @@
 
             </div>
 
-        </div>
+        </div> -->
 
-        <div class="right_container">
+        <!-- <div class="right_container">
             <button id="contribute"><i class="fa fa-heart"></i> CONTRIBUTE NOW</button>
             <div class="banking">
                 <button>All Credit & <br> Debit Cards</button>
@@ -132,14 +133,280 @@
                     <p id="sponsername">NARESH</p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
 
     <script>
 
-        // scroll function for about section
+// script for url params
 
+let main_container = document.getElementById("main_container")
+
+
+
+// Create left container div
+const leftContainer = document.createElement("div");
+leftContainer.classList.add("left_container");
+
+// Create kids image
+const kidsImg = document.createElement("img");
+kidsImg.src = "../../assets/images/fundraiser_images/fundraiser_running.jpg";
+kidsImg.alt = "Kids Images";
+kidsImg.id = "kidsimg";
+leftContainer.appendChild(kidsImg);
+
+// Create share button
+const shareBtn = document.createElement("button");
+shareBtn.id = "share";
+const shareIcon = document.createElement("i");
+shareIcon.classList.add("fa", "fa-share-alt");
+shareBtn.appendChild(shareIcon);
+shareBtn.innerHTML += " Share This Fundraisers";
+leftContainer.appendChild(shareBtn);
+
+// Create details div
+const detailsDiv = document.createElement("div");
+detailsDiv.classList.add("details");
+
+// Create about button
+const aboutBtn = document.createElement("button");
+aboutBtn.id = "about_navbar";
+aboutBtn.classList.add("fa", "fa-globe");
+aboutBtn.innerHTML += "<i></i> About";
+detailsDiv.appendChild(aboutBtn);
+
+// Create certificates button
+const certificatesBtn = document.createElement("button");
+certificatesBtn.id = "certificates_navbar";
+certificatesBtn.innerHTML += "<i class='fa fa-edit'></i> Certificates";
+detailsDiv.appendChild(certificatesBtn);
+
+// Create images button
+const imagesBtn = document.createElement("button");
+imagesBtn.id = "images_navbar";
+imagesBtn.innerHTML += "<i class='fa fa-comment'></i> Images";
+detailsDiv.appendChild(imagesBtn);
+
+leftContainer.appendChild(detailsDiv);
+
+// Create horizontal rule
+const hr = document.createElement("hr");
+leftContainer.appendChild(hr);
+
+// Create about content div
+const aboutContentDiv = document.createElement("div");
+aboutContentDiv.classList.add("about_content");
+aboutContentDiv.id = "about_content";
+
+const aboutHeading = document.createElement("h3");
+aboutHeading.id = "aboutheading";
+aboutHeading.innerHTML = "About The Fundraisers";
+aboutContentDiv.appendChild(aboutHeading);
+
+const aboutPara = document.createElement("p");
+aboutPara.id = "aboutpara";
+aboutPara.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum nobis maiores hic dolor. Consequatur, odio. Necessitatibus, voluptates. Laudantium enim corporis quod accusantium et optio consequuntur, dolore alias quasi architecto vel.";
+aboutContentDiv.appendChild(aboutPara);
+
+leftContainer.appendChild(aboutContentDiv);
+
+// Create certificates div
+const certificatesDiv = document.createElement("div");
+certificatesDiv.classList.add("certificates");
+
+const certificatesHeading = document.createElement("h3");
+certificatesHeading.id = "certificates_heading";
+certificatesHeading.innerHTML = "Certificates";
+certificatesDiv.appendChild(certificatesHeading);
+
+const containPlayersCertificateImageDiv = document.createElement("div");
+containPlayersCertificateImageDiv.classList.add("contain_players_certificate_image");
+
+for (let i = 0; i < 5; i++) {
+  const certificateImg = document.createElement("img");
+  certificateImg.src = "../../assets/images/Certificate/Certificate_running.jpg";
+  certificateImg.alt = "";
+  containPlayersCertificateImageDiv.appendChild(certificateImg);
+}
+
+certificatesDiv.appendChild(containPlayersCertificateImageDiv);
+
+leftContainer.appendChild(certificatesDiv);
+
+// Create achievemnts images div
+const imagesDiv = document.createElement("div");
+imagesDiv.classList.add("images");
+
+const imagesPlayingHeading = document.createElement("h3");
+imagesPlayingHeading.id = "images_playing";
+imagesPlayingHeading.innerHTML = "Achievement Images";
+imagesDiv.appendChild(imagesPlayingHeading);
+
+const containPlayersAchievementsImageDiv = document.createElement("div");
+containPlayersAchievementsImageDiv.classList.add("contain_players_achievements_image")
+
+
+for (let i = 0; i < 5; i++) {
+  const achievementImg = document.createElement("img");
+  achievementImg.src = "../../assets/images/Certificate/running_medal_images.jfif";
+  achievementImg.alt = "";
+  containPlayersAchievementsImageDiv.appendChild(achievementImg);
+}
+
+imagesDiv.appendChild(containPlayersAchievementsImageDiv)
+
+leftContainer.appendChild(imagesDiv)
+
+// add the whole container to the main_container
+main_container.appendChild(leftContainer)
+
+
+
+
+
+
+
+
+
+
+// ---------------------------------right container-------------------------
+// create a div element with class 'right_container'
+const rightContainer = document.createElement('div');
+rightContainer.classList.add('right_container');
+
+// create a button element with id 'contribute'
+const contributeButton = document.createElement('button');
+contributeButton.setAttribute('id', 'contribute');
+contributeButton.innerHTML = '<i class="fa fa-heart"></i> CONTRIBUTE NOW';
+rightContainer.appendChild(contributeButton);
+
+// create a div element with class 'banking' and four child button elements
+const bankingDiv = document.createElement('div');
+bankingDiv.classList.add('banking');
+
+const creditDebitButton = document.createElement('button');
+creditDebitButton.innerHTML = 'All Credit &amp; <br> Debit Cards';
+bankingDiv.appendChild(creditDebitButton);
+
+const netbankingButton = document.createElement('button');
+netbankingButton.setAttribute('id', 'netbanking');
+netbankingButton.innerHTML = 'Net <br> Banking';
+bankingDiv.appendChild(netbankingButton);
+
+const paytmButton = document.createElement('button');
+paytmButton.innerHTML = 'Paytm &amp; <br> UPI';
+bankingDiv.appendChild(paytmButton);
+
+const directBankButton = document.createElement('button');
+directBankButton.innerHTML = 'Direct Bank <br> Transfer';
+bankingDiv.appendChild(directBankButton);
+
+rightContainer.appendChild(bankingDiv);
+
+// create a div element with class 'share' and two child elements
+const shareDiv = document.createElement('div');
+shareDiv.classList.add('share');
+
+const fbShareButton = document.createElement('button');
+fbShareButton.setAttribute('id', 'fbshare');
+fbShareButton.innerHTML = '<i class="fa fa-facebook-f"></i> Spread The Sports';
+shareDiv.appendChild(fbShareButton);
+
+const fbShareText = document.createElement('p');
+fbShareText.setAttribute('id', 'fbsharetext');
+fbShareText.innerHTML = '<i>Every Social Media Share Can Bring ₹5000</i>';
+shareDiv.appendChild(fbShareText);
+
+rightContainer.appendChild(shareDiv);
+
+// create a h3 element with id 'amt' and a p element with text content
+const amtHeading = document.createElement('h3');
+amtHeading.setAttribute('id', 'amt');
+amtHeading.textContent = '₹ 16,67,002';
+rightContainer.appendChild(amtHeading);
+
+const goalText = document.createElement('p');
+goalText.innerHTML = 'raised of <bold>₹ 18,00,000 </bold>goal';
+rightContainer.appendChild(goalText);
+
+// create a div element with class 'supporterbar', two child elements and a progress bar
+const supporterBarDiv = document.createElement('div');
+supporterBarDiv.classList.add('supporterbar');
+
+const progressBarDiv = document.createElement('div');
+progressBarDiv.classList.add('progress');
+
+const progressBar = document.createElement('div');
+progressBar.classList.add('progress-bar');
+progressBar.setAttribute('role', 'progressbar');
+progressBar.setAttribute('aria-valuenow', '70');
+progressBar.setAttribute('aria-valuemin', '0');
+progressBar.setAttribute('aria-valuemax', '100');
+progressBar.style.width = '70%';
+
+const progressBarSpan = document.createElement('span');
+progressBarSpan.classList.add('sr-only');
+progressBarSpan.textContent = '70% Complete';
+progressBar.appendChild(progressBarSpan);
+
+progressBarDiv.appendChild(progressBar);
+supporterBarDiv.appendChild(progressBarDiv);
+
+// create a div element with class 'supporters'
+
+const supportersDiv = document.createElement('div');
+supportersDiv.classList.add('suporters');
+
+const supporters1Text = document.createElement('p');
+supporters1Text.setAttribute('id', 'suporters1');
+supporters1Text.textContent = '734 supporters';
+supportersDiv.appendChild(supporters1Text)
+
+const daysLeftText = document.createElement('p');
+daysLeftText.textContent = '40 days left';
+supportersDiv.appendChild(daysLeftText);
+
+supporterBarDiv.appendChild(supportersDiv);
+rightContainer.appendChild(supporterBarDiv);
+
+// create a div element with class 'sponsercard' and two child elements
+const sponsorCardDiv = document.createElement('div');
+sponsorCardDiv.classList.add('sponsercard');
+
+const profileIcon = document.createElement('img');
+profileIcon.setAttribute('src', 'ketoo.jpeg');
+profileIcon.setAttribute('alt', 'image_broken');
+profileIcon.setAttribute('id', 'profileicon');
+sponsorCardDiv.appendChild(profileIcon);
+
+const campaignerDiv = document.createElement('div');
+campaignerDiv.classList.add('campaigner');
+
+const campaignerText1 = document.createElement('p');
+campaignerText1.textContent = 'Campaigner';
+campaignerDiv.appendChild(campaignerText1);
+
+const sponserName = document.createElement('p');
+sponserName.setAttribute('id', 'sponsername');
+sponserName.textContent = 'NARESH';
+campaignerDiv.appendChild(sponserName);
+
+sponsorCardDiv.appendChild(campaignerDiv);
+rightContainer.appendChild(sponsorCardDiv);
+
+// add the whole container to the main_container
+main_container.appendChild(rightContainer)
+
+
+
+
+
+
+
+
+
+        // scroll function for about section
 
         let about_btn = document.getElementById("about_navbar")
 

@@ -165,6 +165,7 @@
             </div>
 
 
+        </form>
             <button class="add_fundraiser_btn " id="next_button">Next</button>
     </div>
 
@@ -179,7 +180,7 @@
                 <label for=""></label>
 
                 <input type="text" class="form-control" id="player_name">
-                <small id="" class="form-text text-muted">Enter Your Name</small>
+                <small id="" class="form-text text-muted">Enter player Name</small>
 
             </div>
 
@@ -189,7 +190,7 @@
 
                 <input type="number" class="form-control" id="age" aria-describedby="emailHelp"
 >
-                <small id="" class="form-text text-muted">Enter Your Age</small>
+                <small id="" class="form-text text-muted">Enter player Age</small>
 
             </div>
 
@@ -199,7 +200,7 @@
                 <label for=""></label>
 
                 <input type="url" class="form-control" id="image_url">
-                <small id="" class="form-text text-muted">Enter your image url</small>
+                <small id="" class="form-text text-muted">Enter player image url</small>
 
             </div>
             <div class="form-group">
@@ -207,7 +208,7 @@
                 <label for=""></label>
 
                 <input type="text" class="form-control" id="Title" >
-                <small id="" class="form-text text-muted">Enter your title</small>
+                <small id="" class="form-text text-muted">Enter player title</small>
 
             </div>
             <div class="form-group">
@@ -278,7 +279,44 @@
 
 
             <button class="add_fundraiser_btn " id="next_button_2">Next</button>
+            <button class="add_fundraiser_btn " id="back_button_2">Back</button>
+
+
     </div>
+
+    <!-- form for text area and certificates -->
+
+    <div form_creation_fundraiser_specific_details class="container" id="form_creation_fundraiser_specific_details">
+        <h3 class="text-center">Player Details</h3>
+
+        <form>
+            <div class="form-group">
+
+                <label for=""></label>
+
+                <input type="text" class="form-control" id="Add_bio">
+                <small id="" class="form-text text-muted">bio...</small>
+
+            </div>
+
+            <div class="form-group ">
+
+                <label for=""></label>
+
+                <input type="number" class="form-control" id="player_age">
+                <small id="" class="form-text text-muted">Certificate_number</small>
+
+            </div>
+
+            <div class="form-group ">
+
+                <label for=""></label>
+
+                <input type="number" class="form-control" id="player_age">
+                <small id="" class="form-text text-muted">Certificate Image url</small>
+
+            </div>
+        </form>
 
 
 
@@ -336,7 +374,7 @@
             // window.location.href = "../profile/your_fundraiser_page.html"
         })
 
-        // function for next_button_2
+        //--------------------------------- function for next_button_2----------------------------------------
 
         let next_button_2 = document.getElementById("next_button_2");
 
@@ -352,12 +390,13 @@
                 relationship:relationship.value.trim(),
                 selection: selection.value.trim(),
                 Employment_status:Employment_status.value.trim(),
+                sports_type:sports_type.value.trim(),
                 city_name:city_name.value.trim(),
-                player_name:player_name.value,
-                player_age:player_age.value,
-                player_image_url:player_image_url.value,
-                player_title:player_title.value,
-                days_left:days_left.value,
+                player_name:player_name.value.trim(),
+                player_age:player_age.value.trim(),
+                player_image_url:player_image_url.value.trim(),
+                player_title:player_title.value.trim(),
+                days_left:days_left.value.trim(),
 
             }
 
@@ -380,7 +419,17 @@
 
         })
 
+                //--------------------------------- function for back_button_2----------------------------------------
 
+
+            let back_button_2 = document.getElementById("back_button_2")
+
+            back_button_2.addEventListener("click", e=>{
+                e.preventDefault()
+
+                form_creation_fundraiser.style.display="block"
+            form_creation_fundraiser_specific_details.style.display="none"
+            })
 
 
 
