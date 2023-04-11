@@ -61,6 +61,8 @@
 
     // //  Function for checking the user login which got from the user_registration page
 
+   
+    
 
     function login() {
 
@@ -74,13 +76,20 @@
 
 
       let res;
+
+      let user_id;
+
       arr.find(element => {
 
         if ((element["email"] == email) && (element["password"] == password)) {
-          return res = 1;
+
+         user_id=element["user_id"];
+         res = 1;
+
+          return true;
         }
         else {
-          return res = 0;
+          return false;
         }
       });
 
@@ -89,7 +98,19 @@
 
         let login_email = email;
 
-        localStorage.setItem("login_email", login_email);
+        let user_obj =[
+
+        {
+          "login_email":login_email,
+          "user_id": user_id
+        }
+
+        ]
+
+        console.log(user_obj)
+       
+
+        localStorage.setItem("login_status", JSON.stringify(user_obj));
 
 
         alert("Logged in")

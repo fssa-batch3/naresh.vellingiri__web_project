@@ -41,20 +41,26 @@
     <div class="Whole-content">
 
         <div class="sidebar-categories">
-            <h3>categories</h3>
-            <hr>
-            <p>All categories</p>
-            <p>Foot ball</p>
-            <p>Hockey</p>
-            <p>Cricket</p>
-            <p>Volley Ball</p>
-            <p>Kabadi</p>
-            <p>Hand Ball</p>
-            <p>Tennis</p>
-            <p>Badmiton</p>
-            <p>Athletics</p>
-            <p>Others</p>
-            <hr>
+            <div class="sidebar-categories-position">
+                <h3>categories </h3>
+
+                <hr>
+                <p>Foot ball</p>
+                <p>Hockey</p>
+                <p>Cricket</p>
+                <p>Volley Ball</p>
+                <p>Kabadi</p>
+                <p>Hand Ball</p>
+                <p>Tennis</p>
+                <p>Badmiton</p>
+                <p>Athletics</p>
+                <p>Others</p>
+                <hr>
+                
+            </div>          
+
+          
+
             <button id="btn"> Start a fund raiser </button>
         </div>
 
@@ -115,20 +121,24 @@
 
     <script>
 
+
+
+let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list"))
+
+console.log(fundraiser_list)
+
 let detail_fund_raisers =document.getElementById("detail_fund_raisers")
 
 
-for(let i=0; i<10; i++){
 
 
-        // create the main container element
-
-   
+for(let i=0; i < fundraiser_list.length; i++){
 
 
-        
+ // create the main container element   
 const cardDiv = document.createElement('div');
 cardDiv.classList.add('card');
+
 // create the image element
 const imageDiv = document.createElement('div');
 imageDiv.classList.add('image-splayers');
@@ -157,7 +167,8 @@ publisherImg.setAttribute('src', '../../assets/images/fundraiser_images/fundrais
 publisherImgDiv.appendChild(publisherImg);
 
 const name = document.createElement('p');
-name.textContent = 'by karthik vishnu';
+name.classList.add('beneficiary_name')
+name.textContent = 'karthik vishnu';
 
 nameDiv.appendChild(publisherImgDiv);
 nameDiv.appendChild(name);
@@ -231,12 +242,19 @@ cardDiv.appendChild(rangeDiv);
 cardDiv.appendChild(lastDateOfFund);
 cardDiv.appendChild(supportsLastDateOfFund);
 
-// add the main container element to the document body
-detail_fund_raisers.append(cardDiv)
+const cardAnchor = document.createElement('a');
+cardAnchor.href = 'url_params_fundraiser_page.html';
+cardAnchor.appendChild(cardDiv);
 
-cardDiv.addEventListener("click",function () {
-    window.location.href = "url_params_fundraiser_page.html"
-})
+console.log(cardAnchor)
+
+
+// add the main container element to the document body
+detail_fund_raisers.appendChild(cardAnchor)
+
+// cardDiv.addEventListener("click",function () {
+//     window.location.href = "url_params_fundraiser_page.html"
+// })
 }
 
     </script>

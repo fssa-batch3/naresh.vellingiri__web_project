@@ -35,15 +35,15 @@
 
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text" id="email" placeholder="Enter your email" title="Please input a valid email"
-              pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+            <input type="email" id="email" placeholder="Enter your email" title="Please input a valid email"
+             required>
           </div>
 
 
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="text" id="phone_number" placeholder="Enter your number"
-              title="please enter a valid phone number" required>
+            <input type="tel" id="phone_number" placeholder="Enter your number"
+              title="please enter a valid phone number" required minlength="10" maxlength="10">
           </div>
 
 
@@ -51,39 +51,20 @@
             <span class="details">Password</span>
             <input type="text" id="password" placeholder="Enter your password" title="Uppercase letters: A-Z.
             Lowercase letters: a-z.
-            Numbers: 0-9.
-            Symbols: ~`!@#$%^&*()_-+={[}]|\:;" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$" required>
+            Numbers: 0-9."  pattern="[A-Za-z0-9]{8,16}" minlength="8" maxlength="16" required>
           </div>
 
 
           <div class="input-box">
             <span class="details">Confirm Password</span>
             <input type="text" id="confirm_password" placeholder="Confirm your password"
-              title="please correct the match password" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$" required>
+              title="please correct the match password" pattern="[A-Za-z0-9]{8,16}" minlength="8" maxlength="16"
+              required>
           </div>
 
 
         </div>
-        <div class="gender-details">
-          <input type="radio" name="gender" id="dot-1">
-          <input type="radio" name="gender" id="dot-2">
-          <input type="radio" name="gender" id="dot-3">
-          <span class="gender-title">Gender</span>
-          <div class="category">
-            <label for="dot-1">
-              <span class="dot one"></span>
-              <span class="gender">Male</span>
-            </label>
-            <label for="dot-2">
-              <span class="dot two"></span>
-              <span class="gender">Female</span>
-            </label>
-            <label for="dot-3">
-              <span class="dot three"></span>
-              <span class="gender">Prefer not to say</span>
-            </label>
-          </div>
-        </div>
+       
         <div class="button">
           <button type="submit" id="btn_register">Register</button>
         </div>
@@ -97,6 +78,8 @@
   <script>
 
     const form = document.getElementById("form");
+
+
 
     form.addEventListener("submit", e => {
 
@@ -119,6 +102,9 @@
       const confirm_password = document.getElementById("confirm_password").value
 
 
+      const user_id  =   Math.floor(Math.random()*300)
+
+       console.log(user_id)
 
       //  initiating arr and objects
 
@@ -134,6 +120,7 @@
         if (user == "") {
 
           let user_data = {
+            "user_id":user_id,
             "first_name": first_name,
             "last_name": last_name,
             "email": email,
@@ -166,6 +153,7 @@
           
           else {
             let user_data = {
+              "user_id":user_id,
               "first_name": first_name,
               "last_name": last_name,
               "email": email,

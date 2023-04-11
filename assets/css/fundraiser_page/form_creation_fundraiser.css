@@ -24,8 +24,13 @@
     margin-left: 220px;
     margin-top: 20px;
     font-size: 20px;
-    width: 70px;
+    width: 100px;
 
+}
+#add_certificates{
+    width: 200px;
+    margin-right: 240px;
+    display: block;
 }
 
 .form-control{
@@ -40,13 +45,28 @@ select{
     border: 1px solid rgb(137, 130, 130);
 }
 
-/* next form for person details */
-
-.container[form_creation_fundraiser_specific_details]{
-    border: 2px solid rgb(207, 203, 203);
-    width: 40%;
-    padding: 30px;
-    border-radius: 10px;
-    margin-top: 130px;
+#certificate_whole_div{
     display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+
+
+ }
+
+ .background_blur{
+    transition:0.2s;
+    -webkit-filter: blur(15px);
+    filter: blur(2px);
+    background-color: #2c2b2b;
+ }
+
+.certificate_heading_div{
+    display: flex;
+    justify-content: space-between;
 }
+
+
+

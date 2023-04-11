@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="../../assets/css/fundraiser_page/form_creation_fundraiser.css">
     <link rel="stylesheet" href="../../assets/css/fundraiser_page/browse_fundraiser.css">
-        <link rel="stylesheet" href="../../assets/css/profile/your_fundraiser.css">
+    <link rel="stylesheet" href="../../assets/css/profile/your_fundraiser.css">
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -71,7 +71,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../players/achievers.html">
+                        <a href="../your_fundraiser_page.html">
                             <span class="las la-clipboard-list"></span>
                             <small>FUNDRAISERS</small>
                         </a>
@@ -117,115 +117,131 @@
 
 
 
-            // create the main container element
+        // create the main container element
 
 
-            for (let i = 0; i < fundraiser_list.length; i++) {
+        for (let i = 0; i < fundraiser_list.length; i++) {
 
 
-                const cardDiv = document.createElement('div');
-                cardDiv.classList.add('card');
-                // create the image element
-                const imageDiv = document.createElement('div');
-                imageDiv.classList.add('image-splayers');
 
-                const image = document.createElement('img');
-                image.setAttribute('src', '../../assets/images/fundraiser_images/fundraiser_running.jpg');
-                image.classList.add('player-img');
+            const cardDiv = document.createElement('div');
+            cardDiv.classList.add('card');
+            // create the image element
+            const imageDiv = document.createElement('div');
+            imageDiv.classList.add('image-splayers');
 
-                imageDiv.appendChild(image);
+            const image = document.createElement('img');
+            image.setAttribute('src', '../../assets/images/fundraiser_images/fundraiser_running.jpg');
+            image.classList.add('player-img');
 
-                // create the description element
-                const description = document.createElement('p');
-                description.textContent = 'Help them for their upcoming career';
-                description.classList.add('description');
+            imageDiv.appendChild(image);
 
-                // create the name element
-                const nameDiv = document.createElement('div');
-                nameDiv.classList.add('name');
+            // create the description element
+            const description = document.createElement('p');
+            description.textContent = 'Help them for their upcoming career';
+            description.classList.add('description');
 
-                const publisherImgDiv = document.createElement('div');
-                publisherImgDiv.classList.add('publisher-img');
+            // create the name element
+            const nameDiv = document.createElement('div');
+            nameDiv.classList.add('name');
 
-                const publisherImg = document.createElement('img');
-                publisherImg.setAttribute('src', '../../assets/images/fundraiser_images/fundraiser_running.jpg');
+            const publisherImgDiv = document.createElement('div');
+            publisherImgDiv.classList.add('publisher-img');
 
-                publisherImgDiv.appendChild(publisherImg);
+            const publisherImg = document.createElement('img');
+            publisherImg.setAttribute('src', '../../assets/images/fundraiser_images/fundraiser_running.jpg');
 
-                const name = document.createElement('p');
-                name.textContent = 'by karthik vishnu';
+            publisherImgDiv.appendChild(publisherImg);
 
-                nameDiv.appendChild(publisherImgDiv);
-                nameDiv.appendChild(name);
+            const name = document.createElement('p');
+            name.classList.add('beneficiary_name')
+            name.textContent = 'karthik vishnu';
 
-                // create the fund amount element
-                const fundRs = document.createElement('p');
-                fundRs.classList.add('fund-rs');
+            nameDiv.appendChild(publisherImgDiv);
+            nameDiv.appendChild(name);
 
-                const fundIcon = document.createElement('i');
-                fundIcon.classList.add('fa-solid', 'fa-indian-rupee-sign');
+            // create the fund amount element
+            const fundRs = document.createElement('p');
+            fundRs.classList.add('fund-rs');
 
-                fundRs.appendChild(fundIcon);
+            const fundIcon = document.createElement('i');
+            fundIcon.classList.add('fa-solid', 'fa-indian-rupee-sign');
 
-                const fundAmount = document.createElement('span');
-                fundAmount.innerHTML = '<b style="color:black";></b>';
-                fundAmount.style.fontSize = "20px"
-                fundAmount.style.marginRight = "10px"
+            fundRs.appendChild(fundIcon);
 
-                fundRs.appendChild(fundAmount);
+            const fundAmount = document.createElement('span');
+            fundAmount.innerHTML = '<b style="color:#8a8a92";>16,000</b>';
+            fundAmount.style.fontSize = "20px"
+            fundAmount.style.marginRight = "10px"
 
-                const fundRaised = document.createElement('span');
-                fundRaised.textContent = 'raised';
-                fundRs.appendChild(fundRaised);
+            fundRs.appendChild(fundAmount);
 
-                // create the range element
-                const rangeDiv = document.createElement('div');
-                rangeDiv.classList.add('range');
+            const fundRaised = document.createElement('span');
+            fundRaised.textContent = 'raised of';
+            fundRs.appendChild(fundRaised);
 
-                const rangeValue = document.createElement('div');
-                rangeValue.classList.add('range_value');
-                rangeDiv.appendChild(rangeValue);
+            const initial_fundRaised = document.createElement('div');
+            initial_fundRaised.innerHTML = '<b style="color:black";>1,00,000</b>';
+            initial_fundRaised.style.fontSize = "20px"
+            initial_fundRaised.style.marginLeft = "5px"
 
-                // create the last donation date element
-                const lastDateOfFund = document.createElement('p');
-                lastDateOfFund.textContent = 'Last Donation 10 days ago';
-                lastDateOfFund.classList.add('last-date-of-fund');
+            fundRs.appendChild(initial_fundRaised);
 
-                // create the supporters and days left element
-                const supportsLastDateOfFund = document.createElement('div');
-                supportsLastDateOfFund.classList.add('supports-last-date-of-fund');
 
-                const daysLeft = document.createElement('p');
-                const daysLeftSpan = document.createElement('span');
-                daysLeftSpan.textContent = fundraiser_list[i]["selection"];
-                daysLeft.appendChild(daysLeftSpan);
-                daysLeft.appendChild(document.createTextNode(' Days left'));
-                supportsLastDateOfFund.appendChild(daysLeft);
 
-                const supporters = document.createElement('p');
-                const supportersSpan = document.createElement('span');
-                supportersSpan.textContent = '112';
-                supporters.appendChild(supportersSpan);
-                supporters.appendChild(document.createTextNode(' Supporters'));
-                supportsLastDateOfFund.appendChild(supporters);
+            // create the range element
+            const rangeDiv = document.createElement('div');
+            rangeDiv.classList.add('range');
 
-                // add all elements to the main container element
-                cardDiv.appendChild(imageDiv);
-                cardDiv.appendChild(description);
-                cardDiv.appendChild(nameDiv);
-                cardDiv.appendChild(fundRs);
-                cardDiv.appendChild(rangeDiv);
-                cardDiv.appendChild(lastDateOfFund);
-                cardDiv.appendChild(supportsLastDateOfFund);
+            const rangeValue = document.createElement('div');
+            rangeValue.classList.add('range_value');
+            rangeDiv.appendChild(rangeValue);
 
-                // add the main container element to the document body
-                detail_fund_raisers.append(cardDiv)
+            // create the last donation date element
+            const lastDateOfFund = document.createElement('p');
+            lastDateOfFund.textContent = 'Last Donation 10 days ago';
+            lastDateOfFund.classList.add('last-date-of-fund');
 
-                cardDiv.addEventListener("click", function () {
-                    window.location.href = "url_params_fundraiser_page.html"
-                })
-            }
-        
+            // create the supporters and days left element
+            const supportsLastDateOfFund = document.createElement('div');
+            supportsLastDateOfFund.classList.add('supports-last-date-of-fund');
+
+            const daysLeft = document.createElement('p');
+            const daysLeftSpan = document.createElement('span');
+            daysLeftSpan.textContent = '20';
+            daysLeft.appendChild(daysLeftSpan);
+            daysLeft.appendChild(document.createTextNode(' Days left'));
+            supportsLastDateOfFund.appendChild(daysLeft);
+
+            const supporters = document.createElement('p');
+            const supportersSpan = document.createElement('span');
+            supportersSpan.textContent = '112';
+            supporters.appendChild(supportersSpan);
+            supporters.appendChild(document.createTextNode(' Supporters'));
+            supportsLastDateOfFund.appendChild(supporters);
+
+            // add all elements to the main container element
+            cardDiv.appendChild(imageDiv);
+            cardDiv.appendChild(description);
+            cardDiv.appendChild(nameDiv);
+            cardDiv.appendChild(fundRs);
+            cardDiv.appendChild(rangeDiv);
+            cardDiv.appendChild(lastDateOfFund);
+            cardDiv.appendChild(supportsLastDateOfFund);
+
+            const cardAnchor = document.createElement('a');
+            cardAnchor.href = 'url_params_fundraiser_page.html';
+            cardAnchor.appendChild(cardDiv);
+
+            console.log(cardAnchor)
+
+
+            // add the main container element to the document body
+            detail_fund_raisers.appendChild(cardAnchor)
+
+            
+        }
+
 
 
     </script>
