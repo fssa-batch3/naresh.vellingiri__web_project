@@ -1,6 +1,18 @@
+let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list"));
 
-const headline = document.createElement("h1");
-headline.textContent = "Help To Provide EQUIPMENTS For The SPORTS Kids!";
+const url = window.location.search;
+const urlparams = new URLSearchParams(url);
+const emer_id = urlparams.get("emer_id");
+
+
+fundraiser_list.find(function (obj){
+
+  if(obj["emerging_player_id"] == emer_id){
+
+    
+
+    const headline = document.createElement("h1");
+  headline.textContent = obj.player_title;
 headline.id = "headline";
 
 // Then you can append the element to its parent container
@@ -19,7 +31,7 @@ leftContainer.classList.add("left_container");
 
 // Create kids image
 const kidsImg = document.createElement("img");
-kidsImg.src = "../../assets/images/fundraiser_images/fundraiser_running.jpg";
+kidsImg.src = obj.player_image_url;
 kidsImg.alt = "Kids Images";
 kidsImg.id = "kidsimg";
 leftContainer.appendChild(kidsImg);
@@ -74,7 +86,7 @@ aboutContentDiv.appendChild(aboutHeading);
 
 const aboutPara = document.createElement("p");
 aboutPara.id = "aboutpara";
-aboutPara.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum nobis maiores hic dolor. Consequatur, odio. Necessitatibus, voluptates. Laudantium enim corporis quod accusantium et optio consequuntur, dolore alias quasi architecto vel.";
+aboutPara.innerHTML = "Hi this is naresh";
 aboutContentDiv.appendChild(aboutPara);
 
 leftContainer.appendChild(aboutContentDiv);
@@ -91,9 +103,12 @@ certificatesDiv.appendChild(certificatesHeading);
 const containPlayersCertificateImageDiv = document.createElement("div");
 containPlayersCertificateImageDiv.classList.add("contain_players_certificate_image");
 
-for (let i = 0; i < 5; i++) {
-  const certificateImg = document.createElement("img");
-  certificateImg.src = "../../assets/images/Certificate/Certificate_running.jpg";
+let cert_arr = obj.certificate_arr;
+
+for (let i = 0; i < cert_arr.length; i++) {
+
+  let certificateImg = document.createElement("img");
+  certificateImg.src = cert_arr[i]["cer_img"];
   certificateImg.alt = "";
   containPlayersCertificateImageDiv.appendChild(certificateImg);
 }
@@ -102,39 +117,32 @@ certificatesDiv.appendChild(containPlayersCertificateImageDiv);
 
 leftContainer.appendChild(certificatesDiv);
 
-// Create achievemnts images div
-const imagesDiv = document.createElement("div");
-imagesDiv.classList.add("images");
+// // Create achievemnts images div
+// const imagesDiv = document.createElement("div");
+// imagesDiv.classList.add("images");
 
-const imagesPlayingHeading = document.createElement("h3");
-imagesPlayingHeading.id = "images_playing";
-imagesPlayingHeading.innerHTML = "Achievement Images";
-imagesDiv.appendChild(imagesPlayingHeading);
+// const imagesPlayingHeading = document.createElement("h3");
+// imagesPlayingHeading.id = "images_playing";
+// imagesPlayingHeading.innerHTML = "Achievement Images";
+// imagesDiv.appendChild(imagesPlayingHeading);
 
-const containPlayersAchievementsImageDiv = document.createElement("div");
-containPlayersAchievementsImageDiv.classList.add("contain_players_achievements_image")
+// const containPlayersAchievementsImageDiv = document.createElement("div");
+// containPlayersAchievementsImageDiv.classList.add("contain_players_achievements_image")
 
 
-for (let i = 0; i < 5; i++) {
-  const achievementImg = document.createElement("img");
-  achievementImg.src = "../../assets/images/Certificate/running_medal_images.jfif";
-  achievementImg.alt = "";
-  containPlayersAchievementsImageDiv.appendChild(achievementImg);
-}
+// for (let i = 0; i < 5; i++) {
+//   const achievementImg = document.createElement("img");
+//   achievementImg.src = "../../assets/images/Certificate/running_medal_images.jfif";
+//   achievementImg.alt = "";
+//   containPlayersAchievementsImageDiv.appendChild(achievementImg);
+// }
 
-imagesDiv.appendChild(containPlayersAchievementsImageDiv)
+// imagesDiv.appendChild(containPlayersAchievementsImageDiv)
 
-leftContainer.appendChild(imagesDiv)
+// leftContainer.appendChild(imagesDiv)
 
 // add the whole container to the main_container
 main_container.appendChild(leftContainer)
-
-
-
-
-
-
-
 
 
 
@@ -265,6 +273,9 @@ rightContainer.appendChild(sponsorCardDiv);
 main_container.appendChild(rightContainer)
 
 
+  
+  }
+})
 
 
 
@@ -272,16 +283,24 @@ main_container.appendChild(rightContainer)
 
 
 
-        // scroll function for about section
 
-        let about_btn = document.getElementById("about_navbar")
 
-        about_btn.addEventListener("click", e => {
-            window.scrollBy(0, 400)
-        })
-        // scroll function for certificate section
-        let certificates_btn = document.getElementById("certificates_navbar")
 
-        certificates_btn.addEventListener("click", e => {
-            window.scrollBy(0, 800)
-        })
+
+
+
+
+
+        // // scroll function for about section
+
+        // let about_btn = document.getElementById("about_navbar")
+
+        // about_btn.addEventListener("click", e => {
+        //     window.scrollBy(0, 400)
+        // })
+        // // scroll function for certificate section
+        // let certificates_btn = document.getElementById("certificates_navbar")
+
+        // certificates_btn.addEventListener("click", e => {
+        //     window.scrollBy(0, 800)
+        // })

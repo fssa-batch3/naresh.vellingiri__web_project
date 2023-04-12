@@ -101,7 +101,7 @@
 
 
 
-        <form>
+        <form id="raise_fund">
             <h3 class="text-center">Raise your funds for future players</h3>
 
             <div class="form-group">
@@ -235,6 +235,41 @@
 
             <p class="btn btn-primary text-center" id="Add_certificates">+ Certificates</p> 
 
+            <div class="display_cer_list">
+
+                <!-- <div class="cer_item">
+                    <p>Certificate 1</p>
+                    <img src="../../assets/images/Certificate/Certificate_running.jpg" alt="">
+                </div>
+
+                <div class="cer_item">
+                    <p>Certificate 1</p>
+                    <img src="../../assets/images/Certificate/Certificate_running.jpg" alt="">
+                </div>
+
+
+                <div class="cer_item">
+                    <p>Certificate 1</p>
+                    <img src="../../assets/images/Certificate/Certificate_running.jpg" alt="">
+                </div>
+
+                <div class="cer_item">
+                    <p>Certificate 1</p>
+                    <img src="../../assets/images/Certificate/Certificate_running.jpg" alt="">
+                </div>
+
+                <div class="cer_item">
+                    <p>Certificate 1</p>
+                    <img src="../../assets/images/Certificate/Certificate_running.jpg" alt="">
+                </div>
+
+                <div class="cer_item">
+                    <p>Certificate 1</p>
+                    <img src="../../assets/images/Certificate/Certificate_running.jpg" alt="">
+                </div> -->
+
+            </div>
+
             <button class="add_fundraiser_btn " id="next_button">submit </button>
 
         </form>
@@ -246,7 +281,7 @@
 
     <div form_creation_fundraiser class=" container certificate_whole_div" id="certificate_whole_div">
 
-        <form>
+        <form id="cer_form">
 
             <div class="certificate_heading_div">
                 <h3 class="text-center">Certificate Details </h3>
@@ -259,7 +294,7 @@
 
                 <label for=""></label>
 
-                <input type="text" class="form-control" id="certificate_number" required>
+                <input type="url" class="form-control"  id="certificate_image_url"  required title="please enter valid ceritifcate image url">
                 <small id="certificate_image_url" class="form-text text-muted">certificate_image_url...</small>
 
 
@@ -269,12 +304,12 @@
 
                 <label for=""></label>
 
-                <input type="number" class="form-control" id="certificate_image_url" required>
+                <input type="text" class="form-control" id="certificate_number" required pattern="[0-9]{8-16}" title="please enter valid certificate number" maxlength="16" minlength="8">
                 <small id="" class="form-text text-muted">Certificate_number</small>
 
             </div>
 
-            <button class="add_fundraiser_btn " id="add_button">Add </button>
+            <button type="submit" class="add_fundraiser_btn " id="add_button">Add </button>
 
 
         </form>

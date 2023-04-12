@@ -110,9 +110,17 @@
     <script>
 
         let detail_fund_raisers = document.getElementById("detail_fund_raisers")
-        let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list"))
+        let fundraiser = JSON.parse(localStorage.getItem("fundraiser_list"))
+        let login_status = JSON.parse(localStorage.getItem("login_status"))
 
-
+        let fundraiser_list = fundraiser.filter(function (obj){
+            if(login_status[0]["user_id"]===obj["raiser_user_id"]){
+                return true;
+            }
+            else{
+                return false;
+            }
+        })
 
 
 
@@ -155,7 +163,7 @@
 
             const name = document.createElement('p');
             name.classList.add('beneficiary_name')
-            name.textContent = 'karthik vishnu';
+            name.textContent = fundraiser_list[i]["player_name"];
 
             nameDiv.appendChild(publisherImgDiv);
             nameDiv.appendChild(name);
@@ -229,11 +237,11 @@
             cardDiv.appendChild(lastDateOfFund);
             cardDiv.appendChild(supportsLastDateOfFund);
 
-            const cardAnchor = document.createElement('a');
-            cardAnchor.href = 'url_params_fundraiser_page.html';
-            cardAnchor.appendChild(cardDiv);
+            let href_link = "../fundraiser_page/url_params_fundraiser_page.html?emer_id=" + fundraiser_list[i]["emerging_player_id"];
 
-            console.log(cardAnchor)
+            let cardAnchor = document.createElement('a');
+            cardAnchor.href = href_link;
+            cardAnchor.appendChild(cardDiv);
 
 
             // add the main container element to the document body

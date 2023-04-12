@@ -115,6 +115,7 @@
              
 
             </div>
+
         </div>
     </div>
 
@@ -242,8 +243,11 @@ cardDiv.appendChild(rangeDiv);
 cardDiv.appendChild(lastDateOfFund);
 cardDiv.appendChild(supportsLastDateOfFund);
 
+let href_link = "../fundraiser_page/url_params_fundraiser_page.html?emer_id=" + fundraiser_list[i]["emerging_player_id"];
+
+
 const cardAnchor = document.createElement('a');
-cardAnchor.href = 'url_params_fundraiser_page.html';
+cardAnchor.href = href_link;
 cardAnchor.appendChild(cardDiv);
 
 console.log(cardAnchor)

@@ -1,3 +1,30 @@
+// logic to find the user find the user arr;
+
+let user_arr = JSON.parse(localStorage.getItem("array"));
+
+let user_email = JSON.parse(localStorage.getItem("login_status"));
+
+let user_id;
+
+user_arr.find(function (obj) {
+
+    if (user_email[0]["login_email"] == obj["email"]) {
+
+        user_id = obj.user_id;
+    }
+
+    return user_id;
+
+});
+
+window.onload = removeitems();
+
+function removeitems() {
+
+    localStorage.removeItem("certificate_list");
+}
+
+
 
 let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list")) ?? []
 
@@ -28,35 +55,9 @@ let days_left = document.getElementById("days_left");
 
 
 // function for next button
-let next_button = document.getElementById("next_button");
+let raise_fund = document.getElementById("raise_fund");
 let form_creation_fundraiser = document.getElementById("form_creation_fundraiser")
 let form_creation_fundraiser_specific_details = document.getElementById("form_creation_fundraiser_specific_details")
-
-next_button.addEventListener("click", e => {
-    e.preventDefault()
-
-    let fundraiser_form = {
-
-        "emerging_player_id": "",
-        "minimum_amount": minimum_amount.value.trim(),
-        "selected_option": selected_option.value,
-        "selected_option1": selected_option1.value,
-        "Employment_status": Employment_status.value.trim(),
-        "sports_type": sports_type.value.trim(),
-        "city_name": city_name.value.trim(),
-        "player_name": player_name.value.trim(),
-        "player_age": player_age.value.trim(),
-        "player_image_url": player_image_url.value.trim(),
-        "player_title": player_title.value.trim(),
-        "days_left": days_left.value.trim(),
-
-    }
-
-    fundraiser_list.push(fundraiser_form);
-    localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
-
-
-});
 
 
 
@@ -78,6 +79,129 @@ let cross_mark = document.getElementById("cross_mark")
 cross_mark.addEventListener("click", e => {
     certificate_whole_div.style.display = "none"
     $("#form_creation_fundraiser").removeClass("background_blur")
-
-
 })
+//--------------------------------- function for cross mark----------------------------------------
+
+let certificate_image_url = document.getElementById("certificate_image_url")
+let cerficate_number = document.getElementById("certificate_number")
+
+
+
+
+let cer_form = document.getElementById("cer_form");
+
+let cer_append_div = document.querySelector(".display_cer_list");
+
+let cer_output = "";
+
+
+cer_form.addEventListener("submit", e => {
+
+    e.preventDefault();
+
+    let cer_img_url = certificate_image_url.value.trim();
+    let cer_num = cerficate_number.value.trim();
+
+    if ((cer_img_url != "") && (cer_num != "")) {
+
+        let cer_obj = {
+            "cer_img": cer_img_url,
+            "cer_num": cer_num,
+            "cer_id": certificate_list.length*2+2+1
+        }
+
+        certificate_list.push(cer_obj);
+
+        localStorage.setItem("certificate_list", JSON.stringify(certificate_list));
+
+        certificate_whole_div.style.display = "none";
+        $("#form_creation_fundraiser").removeClass("background_blur");
+
+        cer_form.reset();
+
+        displaycer();
+
+    }
+
+    else {
+
+        alert("Please enter valid detials");
+
+    }
+
+});
+
+function displaycer() {
+
+    cer_output = "";
+
+    let count = 0;
+
+    certificate_list.forEach((item, index) => {
+
+        ++count;
+
+        cer_output += ` <div class="cer_item">
+        <div class="items_cert"><p>Certificate ${count}<p> <span onclick="deletecer(${index})">&#128465</span></div>
+        <img src="${item.cer_img}" alt="Certificate number"${item.cer_num}>
+    </div>`
+
+        cer_append_div.innerHTML = cer_output
+    });
+
+}
+
+
+
+function deletecer(index) {
+
+    certificate_list.splice(index, 1);
+
+    localStorage.setItem("certificate_list", JSON.stringify(certificate_list));
+
+    alert("deleted succes");
+
+    displaycer();
+
+
+
+}
+
+
+raise_fund.addEventListener("submit", e => {
+    e.preventDefault()
+
+    let fundraiser_form = {
+
+        "emerging_player_id": fundraiser_list.length,
+        "raiser_user_id" : user_id,
+        "minimum_amount": minimum_amount.value.trim(),
+        "selected_option": selected_option.value,
+        "selected_option1": selected_option1.value,
+        "Employment_status": Employment_status.value.trim(),
+        "sports_type": sports_type.value.trim(),
+        "city_name": city_name.value.trim(),
+        "player_name": player_name.value.trim(),
+        "player_age": player_age.value.trim(),
+        "player_image_url": player_image_url.value.trim(),
+        "player_title": player_title.value.trim(),
+        "days_left": days_left.value.trim(),
+        "certificate_arr": certificate_list
+
+    }
+
+    fundraiser_list.push(fundraiser_form);
+
+    localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
+
+    alert("Hi");
+
+    location.reload();
+
+});
+
+
+
+
+
+
