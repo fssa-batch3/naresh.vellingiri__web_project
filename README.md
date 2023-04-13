@@ -11,7 +11,8 @@ Wireframe: https://drive.google.com/file/d/1LVJib9uyIkz04C6nQqOTIgeGGaMny71A/vie
 
 LIVESERVER: https://naresh031020000.github.io/Project100/
 
-<<<<<<< HEAD
+Netlify link:https://deploy-preview-1--sports-to-rural.netlify.app/
+
 
 =======
 # FEATURES PROGRESS
@@ -61,4 +62,3 @@ LIVESERVER: https://naresh031020000.github.io/Project100/
         The user profile gets updated.
         
         
->>>>>>> 5f552a2a180d8d06b2655b296e7c3029c3b639e2
