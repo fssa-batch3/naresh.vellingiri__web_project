@@ -5,275 +5,275 @@ const urlparams = new URLSearchParams(url);
 const emer_id = urlparams.get("emer_id");
 
 
-fundraiser_list.find(function (obj){
+fundraiser_list.find(function (obj) {
 
-  if(obj["emerging_player_id"] == emer_id){
+  if (obj["emerging_player_id"] == emer_id) {
 
-    
+
 
     const headline = document.createElement("h1");
-  headline.textContent = obj.player_title;
-headline.id = "headline";
+    headline.textContent = obj.player_title;
+    headline.id = "headline";
 
-// Then you can append the element to its parent container
-let main_title = document.getElementById("main_title")
-main_title.append(headline)
+    // Then you can append the element to its parent container
+    let main_title = document.getElementById("main_title")
+    main_title.append(headline)
 
 
 
-let main_container = document.getElementById("main_container")
+    let main_container = document.getElementById("main_container")
 
 
 
-// Create left container div
-const leftContainer = document.createElement("div");
-leftContainer.classList.add("left_container");
+    // Create left container div
+    const leftContainer = document.createElement("div");
+    leftContainer.classList.add("left_container");
 
-// Create kids image
-const kidsImg = document.createElement("img");
-kidsImg.src = obj.player_image_url;
-kidsImg.alt = "Kids Images";
-kidsImg.id = "kidsimg";
-leftContainer.appendChild(kidsImg);
+    // Create kids image
+    const kidsImg = document.createElement("img");
+    kidsImg.src = obj.player_image_url;
+    kidsImg.alt = "Kids Images";
+    kidsImg.id = "kidsimg";
+    leftContainer.appendChild(kidsImg);
 
-// Create share button
-const shareBtn = document.createElement("button");
-shareBtn.id = "share";
-const shareIcon = document.createElement("i");
-shareIcon.classList.add("fa", "fa-share-alt");
-shareBtn.appendChild(shareIcon);
-shareBtn.innerHTML += " Share This Fundraisers";
-leftContainer.appendChild(shareBtn);
+    // Create share button
+    const shareBtn = document.createElement("button");
+    shareBtn.id = "share";
+    const shareIcon = document.createElement("i");
+    shareIcon.classList.add("fa", "fa-share-alt");
+    shareBtn.appendChild(shareIcon);
+    shareBtn.innerHTML += " Share This Fundraisers";
+    leftContainer.appendChild(shareBtn);
 
-// Create details div
-const detailsDiv = document.createElement("div");
-detailsDiv.classList.add("details");
+    // Create details div
+    const detailsDiv = document.createElement("div");
+    detailsDiv.classList.add("details");
 
-// Create about button
-const aboutBtn = document.createElement("button");
-aboutBtn.id = "about_navbar";
-aboutBtn.classList.add("fa", "fa-globe");
-aboutBtn.innerHTML += "<i></i> About";
-detailsDiv.appendChild(aboutBtn);
+    // Create about button
+    const aboutBtn = document.createElement("button");
+    aboutBtn.id = "about_navbar";
+    aboutBtn.classList.add("fa", "fa-globe");
+    aboutBtn.innerHTML += "<i></i> About";
+    detailsDiv.appendChild(aboutBtn);
 
-// Create certificates button
-const certificatesBtn = document.createElement("button");
-certificatesBtn.id = "certificates_navbar";
-certificatesBtn.innerHTML += "<i class='fa fa-edit'></i> Certificates";
-detailsDiv.appendChild(certificatesBtn);
+    // Create certificates button
+    const certificatesBtn = document.createElement("button");
+    certificatesBtn.id = "certificates_navbar";
+    certificatesBtn.innerHTML += "<i class='fa fa-edit'></i> Certificates";
+    detailsDiv.appendChild(certificatesBtn);
 
-// Create images button
-const imagesBtn = document.createElement("button");
-imagesBtn.id = "images_navbar";
-imagesBtn.innerHTML += "<i class='fa fa-comment'></i> Images";
-detailsDiv.appendChild(imagesBtn);
+    // Create images button
+    const imagesBtn = document.createElement("button");
+    imagesBtn.id = "images_navbar";
+    imagesBtn.innerHTML += "<i class='fa fa-comment'></i> Images";
+    detailsDiv.appendChild(imagesBtn);
 
-leftContainer.appendChild(detailsDiv);
+    leftContainer.appendChild(detailsDiv);
 
-// Create horizontal rule
-const hr = document.createElement("hr");
-leftContainer.appendChild(hr);
+    // Create horizontal rule
+    const hr = document.createElement("hr");
+    leftContainer.appendChild(hr);
 
-// Create about content div
-const aboutContentDiv = document.createElement("div");
-aboutContentDiv.classList.add("about_content");
-aboutContentDiv.id = "about_content";
+    // Create about content div
+    const aboutContentDiv = document.createElement("div");
+    aboutContentDiv.classList.add("about_content");
+    aboutContentDiv.id = "about_content";
 
-const aboutHeading = document.createElement("h3");
-aboutHeading.id = "aboutheading";
-aboutHeading.innerHTML = "About The Fundraisers";
-aboutContentDiv.appendChild(aboutHeading);
+    const aboutHeading = document.createElement("h3");
+    aboutHeading.id = "aboutheading";
+    aboutHeading.innerHTML = "About The Fundraisers";
+    aboutContentDiv.appendChild(aboutHeading);
 
-const aboutPara = document.createElement("p");
-aboutPara.id = "aboutpara";
-aboutPara.innerHTML = "Hi this is naresh";
-aboutContentDiv.appendChild(aboutPara);
+    const aboutPara = document.createElement("p");
+    aboutPara.id = "aboutpara";
+    aboutPara.innerHTML = "Hi this is naresh";
+    aboutContentDiv.appendChild(aboutPara);
 
-leftContainer.appendChild(aboutContentDiv);
+    leftContainer.appendChild(aboutContentDiv);
 
-// Create certificates div
-const certificatesDiv = document.createElement("div");
-certificatesDiv.classList.add("certificates");
+    // Create certificates div
+    const certificatesDiv = document.createElement("div");
+    certificatesDiv.classList.add("certificates");
 
-const certificatesHeading = document.createElement("h3");
-certificatesHeading.id = "certificates_heading";
-certificatesHeading.innerHTML = "Certificates";
-certificatesDiv.appendChild(certificatesHeading);
+    const certificatesHeading = document.createElement("h3");
+    certificatesHeading.id = "certificates_heading";
+    certificatesHeading.innerHTML = "Certificates";
+    certificatesDiv.appendChild(certificatesHeading);
 
-const containPlayersCertificateImageDiv = document.createElement("div");
-containPlayersCertificateImageDiv.classList.add("contain_players_certificate_image");
+    const containPlayersCertificateImageDiv = document.createElement("div");
+    containPlayersCertificateImageDiv.classList.add("contain_players_certificate_image");
 
-let cert_arr = obj.certificate_arr;
+    let cert_arr = obj.certificate_arr;
 
-for (let i = 0; i < cert_arr.length; i++) {
+    for (let i = 0; i < cert_arr.length; i++) {
 
-  let certificateImg = document.createElement("img");
-  certificateImg.src = cert_arr[i]["cer_img"];
-  certificateImg.alt = "";
-  containPlayersCertificateImageDiv.appendChild(certificateImg);
-}
+      let certificateImg = document.createElement("img");
+      certificateImg.src = cert_arr[i]["cer_img"];
+      certificateImg.alt = "";
+      containPlayersCertificateImageDiv.appendChild(certificateImg);
+    }
 
-certificatesDiv.appendChild(containPlayersCertificateImageDiv);
+    certificatesDiv.appendChild(containPlayersCertificateImageDiv);
 
-leftContainer.appendChild(certificatesDiv);
+    leftContainer.appendChild(certificatesDiv);
 
-// // Create achievemnts images div
-// const imagesDiv = document.createElement("div");
-// imagesDiv.classList.add("images");
+    // // Create achievemnts images div
+    // const imagesDiv = document.createElement("div");
+    // imagesDiv.classList.add("images");
 
-// const imagesPlayingHeading = document.createElement("h3");
-// imagesPlayingHeading.id = "images_playing";
-// imagesPlayingHeading.innerHTML = "Achievement Images";
-// imagesDiv.appendChild(imagesPlayingHeading);
+    // const imagesPlayingHeading = document.createElement("h3");
+    // imagesPlayingHeading.id = "images_playing";
+    // imagesPlayingHeading.innerHTML = "Achievement Images";
+    // imagesDiv.appendChild(imagesPlayingHeading);
 
-// const containPlayersAchievementsImageDiv = document.createElement("div");
-// containPlayersAchievementsImageDiv.classList.add("contain_players_achievements_image")
+    // const containPlayersAchievementsImageDiv = document.createElement("div");
+    // containPlayersAchievementsImageDiv.classList.add("contain_players_achievements_image")
 
 
-// for (let i = 0; i < 5; i++) {
-//   const achievementImg = document.createElement("img");
-//   achievementImg.src = "../../assets/images/Certificate/running_medal_images.jfif";
-//   achievementImg.alt = "";
-//   containPlayersAchievementsImageDiv.appendChild(achievementImg);
-// }
+    // for (let i = 0; i < 5; i++) {
+    //   const achievementImg = document.createElement("img");
+    //   achievementImg.src = "../../assets/images/Certificate/running_medal_images.jfif";
+    //   achievementImg.alt = "";
+    //   containPlayersAchievementsImageDiv.appendChild(achievementImg);
+    // }
 
-// imagesDiv.appendChild(containPlayersAchievementsImageDiv)
+    // imagesDiv.appendChild(containPlayersAchievementsImageDiv)
 
-// leftContainer.appendChild(imagesDiv)
+    // leftContainer.appendChild(imagesDiv)
 
-// add the whole container to the main_container
-main_container.appendChild(leftContainer)
+    // add the whole container to the main_container
+    main_container.appendChild(leftContainer)
 
 
 
-// ---------------------------------right container-------------------------
-// create a div element with class 'right_container'
-const rightContainer = document.createElement('div');
-rightContainer.classList.add('right_container');
+    // ---------------------------------right container-------------------------
+    // create a div element with class 'right_container'
+    const rightContainer = document.createElement('div');
+    rightContainer.classList.add('right_container');
 
-// create a button element with id 'contribute'
-const contributeButton = document.createElement('button');
-contributeButton.setAttribute('id', 'contribute');
-contributeButton.innerHTML = '<i class="fa fa-heart"></i> CONTRIBUTE NOW';
-rightContainer.appendChild(contributeButton);
+    // create a button element with id 'contribute'
+    const contributeButton = document.createElement('button');
+    contributeButton.setAttribute('id', 'contribute');
+    contributeButton.innerHTML = '<i class="fa fa-heart"></i> CONTRIBUTE NOW';
+    rightContainer.appendChild(contributeButton);
 
-// create a div element with class 'banking' and four child button elements
-const bankingDiv = document.createElement('div');
-bankingDiv.classList.add('banking');
+    // create a div element with class 'banking' and four child button elements
+    const bankingDiv = document.createElement('div');
+    bankingDiv.classList.add('banking');
 
-const creditDebitButton = document.createElement('button');
-creditDebitButton.innerHTML = 'All Credit &amp; <br> Debit Cards';
-bankingDiv.appendChild(creditDebitButton);
+    const creditDebitButton = document.createElement('button');
+    creditDebitButton.innerHTML = 'All Credit &amp; <br> Debit Cards';
+    bankingDiv.appendChild(creditDebitButton);
 
-const netbankingButton = document.createElement('button');
-netbankingButton.setAttribute('id', 'netbanking');
-netbankingButton.innerHTML = 'Net <br> Banking';
-bankingDiv.appendChild(netbankingButton);
+    const netbankingButton = document.createElement('button');
+    netbankingButton.setAttribute('id', 'netbanking');
+    netbankingButton.innerHTML = 'Net <br> Banking';
+    bankingDiv.appendChild(netbankingButton);
 
-const paytmButton = document.createElement('button');
-paytmButton.innerHTML = 'Paytm &amp; <br> UPI';
-bankingDiv.appendChild(paytmButton);
+    const paytmButton = document.createElement('button');
+    paytmButton.innerHTML = 'Paytm &amp; <br> UPI';
+    bankingDiv.appendChild(paytmButton);
 
-const directBankButton = document.createElement('button');
-directBankButton.innerHTML = 'Direct Bank <br> Transfer';
-bankingDiv.appendChild(directBankButton);
+    const directBankButton = document.createElement('button');
+    directBankButton.innerHTML = 'Direct Bank <br> Transfer';
+    bankingDiv.appendChild(directBankButton);
 
-rightContainer.appendChild(bankingDiv);
+    rightContainer.appendChild(bankingDiv);
 
-// create a div element with class 'share' and two child elements
-const shareDiv = document.createElement('div');
-shareDiv.classList.add('share');
+    // create a div element with class 'share' and two child elements
+    const shareDiv = document.createElement('div');
+    shareDiv.classList.add('share');
 
-const fbShareButton = document.createElement('button');
-fbShareButton.setAttribute('id', 'fbshare');
-fbShareButton.innerHTML = '<i class="fa fa-facebook-f"></i> Spread The Sports';
-shareDiv.appendChild(fbShareButton);
+    const fbShareButton = document.createElement('button');
+    fbShareButton.setAttribute('id', 'fbshare');
+    fbShareButton.innerHTML = '<i class="fa fa-facebook-f"></i> Spread The Sports';
+    shareDiv.appendChild(fbShareButton);
 
-const fbShareText = document.createElement('p');
-fbShareText.setAttribute('id', 'fbsharetext');
-fbShareText.innerHTML = '<i>Every Social Media Share Can Bring ₹5000</i>';
-shareDiv.appendChild(fbShareText);
+    const fbShareText = document.createElement('p');
+    fbShareText.setAttribute('id', 'fbsharetext');
+    fbShareText.innerHTML = '<i>Every Social Media Share Can Bring ₹5000</i>';
+    shareDiv.appendChild(fbShareText);
 
-rightContainer.appendChild(shareDiv);
+    rightContainer.appendChild(shareDiv);
 
-// create a h3 element with id 'amt' and a p element with text content
-const amtHeading = document.createElement('h3');
-amtHeading.setAttribute('id', 'amt');
-amtHeading.textContent = '₹ 16,67,002';
-rightContainer.appendChild(amtHeading);
+    // create a h3 element with id 'amt' and a p element with text content
+    const amtHeading = document.createElement('h3');
+    amtHeading.setAttribute('id', 'amt');
+    amtHeading.textContent = '₹ 16,67,002';
+    rightContainer.appendChild(amtHeading);
 
-const goalText = document.createElement('p');
-goalText.innerHTML = 'raised of <bold>₹ 18,00,000 </bold>goal';
-rightContainer.appendChild(goalText);
+    const goalText = document.createElement('p');
+    goalText.innerHTML = 'raised of <bold>₹ 18,00,000 </bold>goal';
+    rightContainer.appendChild(goalText);
 
-// create a div element with class 'supporterbar', two child elements and a progress bar
-const supporterBarDiv = document.createElement('div');
-supporterBarDiv.classList.add('supporterbar');
+    // create a div element with class 'supporterbar', two child elements and a progress bar
+    const supporterBarDiv = document.createElement('div');
+    supporterBarDiv.classList.add('supporterbar');
 
-const progressBarDiv = document.createElement('div');
-progressBarDiv.classList.add('progress');
+    const progressBarDiv = document.createElement('div');
+    progressBarDiv.classList.add('progress');
 
-const progressBar = document.createElement('div');
-progressBar.classList.add('progress-bar');
-progressBar.style.width = '20%';
-progressBar.style.backgroundColor = '#039b9a';
+    const progressBar = document.createElement('div');
+    progressBar.classList.add('progress-bar');
+    progressBar.style.width = '20%';
+    progressBar.style.backgroundColor = '#039b9a';
 
 
-const progressBarSpan = document.createElement('span');
-progressBarSpan.classList.add('sr-only');
-progressBarSpan.textContent = '70% Complete';
-progressBar.appendChild(progressBarSpan);
+    const progressBarSpan = document.createElement('span');
+    progressBarSpan.classList.add('sr-only');
+    progressBarSpan.textContent = '70% Complete';
+    progressBar.appendChild(progressBarSpan);
 
-progressBarDiv.appendChild(progressBar);
-supporterBarDiv.appendChild(progressBarDiv);
+    progressBarDiv.appendChild(progressBar);
+    supporterBarDiv.appendChild(progressBarDiv);
 
-// create a div element with class 'supporters'
+    // create a div element with class 'supporters'
 
-const supportersDiv = document.createElement('div');
-supportersDiv.classList.add('suporters');
+    const supportersDiv = document.createElement('div');
+    supportersDiv.classList.add('suporters');
 
-const supporters1Text = document.createElement('p');
-supporters1Text.setAttribute('id', 'suporters1');
-supporters1Text.textContent = '734 supporters';
-supportersDiv.appendChild(supporters1Text)
+    const supporters1Text = document.createElement('p');
+    supporters1Text.setAttribute('id', 'suporters1');
+    supporters1Text.textContent = '734 supporters';
+    supportersDiv.appendChild(supporters1Text)
 
-const daysLeftText = document.createElement('p');
-daysLeftText.textContent = '40 days left';
-supportersDiv.appendChild(daysLeftText);
+    const daysLeftText = document.createElement('p');
+    daysLeftText.textContent = '40 days left';
+    supportersDiv.appendChild(daysLeftText);
 
-supporterBarDiv.appendChild(supportersDiv);
-rightContainer.appendChild(supporterBarDiv);
+    supporterBarDiv.appendChild(supportersDiv);
+    rightContainer.appendChild(supporterBarDiv);
 
-// create a div element with class 'sponsercard' and two child elements
-const sponsorCardDiv = document.createElement('div');
-sponsorCardDiv.classList.add('sponsercard');
+    // create a div element with class 'sponsercard' and two child elements
+    const sponsorCardDiv = document.createElement('div');
+    sponsorCardDiv.classList.add('sponsercard');
 
-const profileIcon = document.createElement('img');
-profileIcon.setAttribute('src', 'ketoo.jpeg');
-profileIcon.setAttribute('alt', 'image_broken');
-profileIcon.setAttribute('id', 'profileicon');
-sponsorCardDiv.appendChild(profileIcon);
+    const profileIcon = document.createElement('img');
+    profileIcon.setAttribute('src', 'ketoo.jpeg');
+    profileIcon.setAttribute('alt', 'image_broken');
+    profileIcon.setAttribute('id', 'profileicon');
+    sponsorCardDiv.appendChild(profileIcon);
 
-const campaignerDiv = document.createElement('div');
-campaignerDiv.classList.add('campaigner');
+    const campaignerDiv = document.createElement('div');
+    campaignerDiv.classList.add('campaigner');
 
-const campaignerText1 = document.createElement('p');
-campaignerText1.textContent = 'Campaigner';
-campaignerDiv.appendChild(campaignerText1);
+    const campaignerText1 = document.createElement('p');
+    campaignerText1.textContent = 'Campaigner';
+    campaignerDiv.appendChild(campaignerText1);
 
-const sponserName = document.createElement('p');
-sponserName.setAttribute('id', 'sponsername');
-sponserName.textContent = 'NARESH';
-campaignerDiv.appendChild(sponserName);
+    const sponserName = document.createElement('p');
+    sponserName.setAttribute('id', 'sponsername');
+    sponserName.textContent = 'NARESH';
+    campaignerDiv.appendChild(sponserName);
 
-sponsorCardDiv.appendChild(campaignerDiv);
-rightContainer.appendChild(sponsorCardDiv);
+    sponsorCardDiv.appendChild(campaignerDiv);
+    rightContainer.appendChild(sponsorCardDiv);
 
-// add the whole container to the main_container
-main_container.appendChild(rightContainer)
+    // add the whole container to the main_container
+    main_container.appendChild(rightContainer)
 
 
-  
+
   }
 })
 
