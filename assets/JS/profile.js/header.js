@@ -18,7 +18,7 @@ if(login_status1!==false){
     header_main.append(My_account)
 
   My_account.addEventListener("click",e=>{
-    window.location.href="../../pages/profile/profile_detail.html"
+    window.location.href="../../../naresh.vellingiri__web_project/pages/profile/profile_detail.html"
   })
 
 }

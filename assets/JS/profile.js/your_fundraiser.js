@@ -20,7 +20,6 @@ let fundraiser_list = fundraiser.filter(function (obj){
 for (let i = 0; i < fundraiser_list.length; i++) {
 
 
-
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('card');
     // create the image element
@@ -28,7 +27,7 @@ for (let i = 0; i < fundraiser_list.length; i++) {
     imageDiv.classList.add('image-splayers');
 
     const image = document.createElement('img');
-    image.setAttribute('src', '../../assets/images/fundraiser_images/fundraiser_running.jpg');
+    image.setAttribute('src', fundraiser_list[i].player_image_url);
     image.classList.add('player-img');
 
     imageDiv.appendChild(image);

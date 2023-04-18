@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../../assets/css/login and register/register.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
   <div class="container">
-    
+
     <div class="title">Registration</div>
 
 
@@ -35,8 +35,7 @@
 
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="email" id="email" placeholder="Enter your email" title="Please input a valid email"
-             required>
+            <input type="email" id="email" placeholder="Enter your email" title="Please input a valid email" required>
           </div>
 
 
@@ -49,22 +48,23 @@
 
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="text" id="password" placeholder="Enter your password" title="Uppercase letters: A-Z.
+            <input type="text" id="password" placeholder="Enter your password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+              title="Uppercase letters: A-Z.
             Lowercase letters: a-z.
-            Numbers: 0-9."  pattern="[A-Za-z0-9]{8,16}" minlength="8" maxlength="16" required>
+            . Special: !@#$%^&*()" required>
           </div>
 
 
           <div class="input-box">
             <span class="details">Confirm Password</span>
             <input type="text" id="confirm_password" placeholder="Confirm your password"
-              title="please correct the match password" pattern="[A-Za-z0-9]{8,16}" minlength="8" maxlength="16"
+              title="please correct the match password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
               required>
           </div>
 
 
         </div>
-       
+
         <div class="button">
           <button type="submit" id="btn_register">Register</button>
         </div>
@@ -102,9 +102,9 @@
       const confirm_password = document.getElementById("confirm_password").value
 
 
-      const user_id  =   Math.floor(Math.random()*300)
+      const user_id = Math.floor(Math.random() * 300)
 
-       console.log(user_id)
+      console.log(user_id)
 
       //  initiating arr and objects
 
@@ -120,7 +120,7 @@
         if (user == "") {
 
           let user_data = {
-            "user_id":user_id,
+            "user_id": user_id,
             "first_name": first_name,
             "last_name": last_name,
             "email": email,
@@ -150,10 +150,10 @@
           if (res == 1) {
             alert("email already taken")
           }
-          
+
           else {
             let user_data = {
-              "user_id":user_id,
+              "user_id": user_id,
               "first_name": first_name,
               "last_name": last_name,
               "email": email,
