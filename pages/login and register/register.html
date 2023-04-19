@@ -48,7 +48,7 @@
 
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="text" id="password" placeholder="Enter your password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+            <input type="password" id="password" placeholder="Enter your password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
               title="Uppercase letters: A-Z.
             Lowercase letters: a-z.
             . Special: !@#$%^&*()" required>
@@ -57,7 +57,7 @@
 
           <div class="input-box">
             <span class="details">Confirm Password</span>
-            <input type="text" id="confirm_password" placeholder="Confirm your password"
+            <input type="password" id="confirm_password" placeholder="Confirm your password"
               title="please correct the match password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
               required>
           </div>
@@ -124,6 +124,7 @@
             "first_name": first_name,
             "last_name": last_name,
             "email": email,
+            "phone_number":phone_number,
             "password": password
           }
 
@@ -157,6 +158,7 @@
               "first_name": first_name,
               "last_name": last_name,
               "email": email,
+              "phone_number":phone_number,
               "password": password
             }
 

@@ -26,7 +26,7 @@ function list_raiser(array = []) {
 
         // create the description element
         const description = document.createElement('p');
-        description.textContent =item.player_title;
+        description.textContent = item.player_title;
         description.classList.add('description');
 
         // create the name element
@@ -139,16 +139,17 @@ let filter_array = [];
 let checkboxes = document.querySelectorAll("input[type=checkbox][name=filter_by_cat]");
 
 checkboxes.forEach(function (checkbox) {
-
     checkbox.addEventListener('click', function () {
 
-        filter_array = [];
+        if (checkbox.checked) {
 
-        let convert_array = Array.from(checkboxes);
+            filter_array = [];
 
-        let checked_input = convert_array.filter(i => i.checked);
+            let convert_array = Array.from(checkboxes);
 
-        let map_input = checked_input.map(i => i.value);
+            let checked_input = convert_array.filter(i => i.checked);
+
+            let map_input = checked_input.map(i => i.value);
 
 
 
@@ -165,15 +166,59 @@ checkboxes.forEach(function (checkbox) {
                         list_raiser(filter_array);
 
                     }
+
                 });
 
 
             });
-            
+        }
+        else {
+            list_raiser(fundraiser_list);
+
+        }
+
     });
+
+
+
+
+
 });
 
 
 list_raiser(fundraiser_list);
+
+
+let total_array = [];
+let after_checked_arr = [];
+
+//search
+const searchBar = document.getElementById("searchbar");
+
+
+searchBar.addEventListener("input", (e) => {
+
+    let searchQuery = searchBar.value.toLowerCase();
+
+    if ((filter_array.length) === 0) {
+
+        total_array = fundraiser_list.filter((item) => {
+            return item.player_name.toLowerCase().includes(searchQuery)
+        });
+
+        list_raiser(total_array);
+    }
+
+    else if((filter_array.length) > 0){
+
+        after_checked_arr = filter_array.filter((item) => {
+            return item.player_name.toLowerCase().includes(searchQuery)
+        })
+
+        list_raiser(after_checked_arr);;
+    }
+
+
+});
 
 
