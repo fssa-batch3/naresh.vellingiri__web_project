@@ -143,3 +143,179 @@
     font-weight: 600;
     margin-top: -10px;
 }
+
+.deposit_form, .withdraw_form{
+    width: 43%;
+    /* height: 65vh; */
+    position: fixed;
+    top: 170px;
+    left: 480px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    font-weight: 450;
+    font-size: 15px;
+}
+.deposit_form h2,.withdraw_form h2{
+    font-weight: 550;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.deposit_form h2 img,.withdraw_form h2 img{
+    width: 50px;
+    margin: 0px 10px;
+}
+
+#cross_mark{
+    margin-left: 200px;
+}
+.hr{
+    margin: 15px 0px 20px 0px;
+}
+.deposit_form input,.withdraw_form input{
+    border: solid grey;
+    border-width:  0px 0px 1px 0px;
+    margin: 20px 30px;
+}
+.deposit_form input:focus,.withdraw_form input:focus{
+    outline: none;
+}
+.step1,.step3{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.deposit_form p{
+    font-weight: 500;
+    color: #42464A;
+}
+.deposit_form p span,.withdraw_form p span{
+    padding: 7px 15px;
+    font-weight: 800;
+    background-color: #01bfbd;
+    border-radius: 50%;
+    color: white;
+    margin:0px 15px 0px 15px ;
+}
+.step2 p span{
+    padding: 7px 15px;
+}
+.step1 input, .step3 input {
+    padding:5px 10px;
+    width: 230px;
+    font-size: 18px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.step2_list{
+    margin: 30px 0px 0px 0px ;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.step2_list div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 5px;
+    color: rgb(73, 73, 73);
+    font-weight: 500;
+}
+.step2_list div:hover{
+    background-color:rgb(244, 244, 244);
+    cursor: pointer;
+}
+.step2_list div img{
+    width: 50px;
+}
+.step3 span{
+    padding: 7px 15px ;
+    border: none;
+    background-color: #01bfbd;
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.send_request .sent{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.send_request .sent h3{
+    font-size: 12px;
+    font-weight: 300;
+    color: #2FA042;
+    margin-left: 15px;
+}
+.send_request img{
+    width: 30px;
+    height: 30px;
+}
+.send_request_otp{
+    font-weight: 500;
+    color: #42464A;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.send_request_otp input{
+    padding: 5px 10px;
+    font-size: 16px;
+}
+.send_request_otp img{
+    width: 30px;
+    margin-right: 10px;
+}
+.buttons{
+    margin: 25px 0px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.buttons a,.buttons button{
+    padding: 7px 20px;
+    margin: 0px 5px;
+    font-weight: 600;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+#back{
+    background-color: #01bfbd;
+}
+#done,#withdraw_money{
+    background-color:#2db644;
+    display: flex;
+    align-items: center;
+}
+.withdraw_form p:nth-of-type(1){
+    display: inline;
+}
+#withdraw_wallet_balance{
+    display: inline;
+    font-weight: 600;
+    font-size: 18px;
+    color: #42464A;
+}
+.view {
+    display:block;
+    transition: 1s;
+}.view {
+    display:block !important;
+    transition: 1s;
+}
+.not_view{
+    display: none;
+}

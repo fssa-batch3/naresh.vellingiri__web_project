@@ -26,7 +26,7 @@
             <ul class="nav__links">
                 <li><a href="../../index.html">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Fundraiser</a></li>
+                <li><a href="../fundraiser_page/browse_fundraiser.html">Fundraiser</a></li>
 
             </ul>
         </nav>
@@ -44,10 +44,68 @@
     </div>
 
 
-    <div class="container" id="main_container">
+    <div class="container" id="main_container"></div>
+
+    <form class="deposit_form" id="contribute_form">
+        <h2>Donate Money
+             <img src="../../assets/images/fundraiser_images/payment_images/donate_image.png" alt="img"> 
+             <span id="cross_mark"> &#10060;</span>
+        </h2>
+        <hr class="hr">
+        <div class="step1">
+            <p><span>1</span>Enter the amount</p>
+            <input type="number" id="deposit_amount" placeholder="0" required>
+        </div>
+        <div class="step2">
+            <p><span>2</span>Select the payment method</p>
+            <div class="step2_list">
+                <!-- <div class="card">
+                    <img src="../images/card.png" alt="img">
+                    Card
+                </div>
+                <div class="netbanking">
+                    <img src="../images/netbanking.jpg" alt="img">
+                    Netbanking
+                </div> -->
+                <div class="gpay">
+                    <img src="../../assets/images/fundraiser_images/payment_images/gpay.png" alt="img">
+                    Gpay
+                </div>
+                <div class="phonepe">
+                    <img src="../../assets/images/fundraiser_images/payment_images/phonepe.png" alt="img">
+                    Phonepe
+                </div>
+                <div class="paytm">
+                    <img src="../../assets/images/fundraiser_images/payment_images/paytm.png" alt="img">
+                    Paytm
+                </div>
+            </div>
+        </div>
+        <div class="step3">
+            <p><span>3</span>Enter your Upi ID</p>
+            <input type="email" placeholder="ex.name@okhdfcbank" required id="upiid"> <span
+                id="send_request">Send</span>
+        </div>
+        <div class="send_request not_view">
+            <div class="sent">
+                <h3>Request has been sent successfully!</h3>
+                <img src="../images/icons/tick_icon.jpg" alt="img">
+            </div>
+        </div>
+        <div class="step4">
+            <p><span>4</span>Accept the payment request sent to the Upi Id</p>
+        </div>
+        <div class="buttons">
+            <button type="submit" id="done">Done &#10003;</button>
+            <a href="wallet.html" id="back">Back</a>
+        </div>
+    </form>
+
 
     
-    </div>
+
+
+
 
     <script src="../../assets/JS/profile.js/header.js"></script>
 

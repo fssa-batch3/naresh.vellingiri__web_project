@@ -9,8 +9,6 @@ fundraiser_list.find(function (obj) {
 
   if (obj["emerging_player_id"] == emer_id) {
 
-
-
     const headline = document.createElement("h1");
     headline.textContent = obj.player_title;
     headline.id = "headline";
@@ -277,6 +275,25 @@ fundraiser_list.find(function (obj) {
   }
 })
 
+
+//--------------------------------- function for add certificate button----------------------------------------
+let contribute_form = document.getElementById("contribute_form")
+
+let contribute_btn = document.getElementById("contribute")
+
+
+contribute_btn.addEventListener("click", e => {
+    contribute_form.style.display = "block"
+})
+
+//--------------------------------- function for cross mark----------------------------------------
+
+let cross_mark = document.getElementById("cross_mark")
+
+cross_mark.addEventListener("click", e => {
+    contribute_form.style.display = "none"
+    // $("#form_creation_fundraiser").removeClass("background_blur")
+})
 
 
 

@@ -127,9 +127,6 @@ function list_raiser(array = []) {
         // add the main container element to the document body
         detail_fund_raisers.appendChild(cardAnchor)
 
-        // cardDiv.addEventListener("click",function () {
-        //     window.location.href = "url_params_fundraiser_page.html"
-        // })
 
     });
 
