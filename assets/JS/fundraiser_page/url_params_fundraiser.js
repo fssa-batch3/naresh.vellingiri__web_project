@@ -1,5 +1,10 @@
 let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list"));
 
+let login_status=JSON.parse(localStorage.getItem("login_status"))
+
+let user_id=login_status[0]["user_id"]
+console.log(user_id);
+
 const url = window.location.search;
 const urlparams = new URLSearchParams(url);
 const emer_id = urlparams.get("emer_id");
@@ -197,11 +202,11 @@ fundraiser_list.find(function (obj) {
     // create a h3 element with id 'amt' and a p element with text content
     const amtHeading = document.createElement('h3');
     amtHeading.setAttribute('id', 'amt');
-    amtHeading.textContent = '₹ 16,67,002';
+    amtHeading.textContent = 0;
     rightContainer.appendChild(amtHeading);
 
     const goalText = document.createElement('p');
-    goalText.innerHTML = 'raised of <bold>₹ 18,00,000 </bold>goal';
+    goalText.innerHTML = `raised of  <strong>${obj.minimum_amount}</strong> goal`;
     rightContainer.appendChild(goalText);
 
     // create a div element with class 'supporterbar', two child elements and a progress bar
@@ -296,11 +301,36 @@ cross_mark.addEventListener("click", e => {
 })
 
 
+// function for donation
+
+
+let donation_list = JSON.parse(localStorage.getItem("donation_list")) ?? []
+
+let send_btn = document.getElementById("send_request")
 
 
 
 
+send_btn.addEventListener("click", e=>{
+ e.preventDefault()
 
+//  let user_id=login_status[0]["user_id"]
+// console.log(user_id)
+
+let donation_amount = document.getElementById("deposit_amount").value
+
+ let donation_obj ={
+      "donation_amount":donation_amount,
+      "user_id":user_id,
+
+ }
+
+ donation_list.push(donation_obj)
+
+ localStorage.setItem("donation_list", JSON.stringify(donation_list))
+
+}
+  )
 
 
 

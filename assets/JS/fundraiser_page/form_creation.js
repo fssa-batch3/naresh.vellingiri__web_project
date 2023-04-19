@@ -115,6 +115,7 @@ cer_form.addEventListener("submit", e => {
         localStorage.setItem("certificate_list", JSON.stringify(certificate_list));
 
         certificate_whole_div.style.display = "none";
+
         $("#form_creation_fundraiser").removeClass("background_blur");
 
         cer_form.reset();
@@ -193,8 +194,6 @@ raise_fund.addEventListener("submit", e => {
     fundraiser_list.push(fundraiser_form);
 
     localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
-
-    alert("Hi");
 
     location.reload();
 

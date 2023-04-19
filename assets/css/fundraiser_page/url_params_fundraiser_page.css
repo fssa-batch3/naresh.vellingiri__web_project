@@ -236,7 +236,7 @@ input::-webkit-inner-spin-button {
 .step2_list div img{
     width: 50px;
 }
-.step3 span{
+.buttons span{
     padding: 7px 15px ;
     border: none;
     background-color: #01bfbd;
