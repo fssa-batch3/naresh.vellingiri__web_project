@@ -7,7 +7,13 @@ let header_main = document.querySelector(".header_main")
 
 let login_status1 = JSON.parse(localStorage.getItem("login_status"))
 
-if(login_status1!==false){
+
+if(login_status1==null){
+  register.style.display="block"
+  login.style.display="block"
+}
+
+else if(login_status1!==false){
     register.style.display="none"
     login.style.display="none"
 
@@ -22,6 +28,7 @@ if(login_status1!==false){
   })
 
 }
+
 else{
     register.style.display="block"
     login.style.display="block"

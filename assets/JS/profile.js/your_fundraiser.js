@@ -1,6 +1,6 @@
 let detail_fund_raisers = document.getElementById("detail_fund_raisers")
-let fundraiser = JSON.parse(localStorage.getfundraiser_list[i]("fundraiser_list"))
-let login_status = JSON.parse(localStorage.getfundraiser_list[i]("login_status"))
+let fundraiser = JSON.parse(localStorage.getItem("fundraiser_list"))
+let login_status = JSON.parse(localStorage.getItem("login_status"))
 
 let fundraiser_list = fundraiser.filter(function (obj){
     if(login_status[0]["user_id"]===obj["raiser_user_id"]){
