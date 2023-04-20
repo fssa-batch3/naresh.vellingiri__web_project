@@ -1,8 +1,8 @@
 let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list"));
 
-let login_status=JSON.parse(localStorage.getItem("login_status"))
+let login_status = JSON.parse(localStorage.getItem("login_status"))
 
-let user_id=login_status[0]["user_id"]
+let user_id = login_status[0]["user_id"]
 console.log(user_id);
 
 const url = window.location.search;
@@ -288,7 +288,7 @@ let contribute_btn = document.getElementById("contribute")
 
 
 contribute_btn.addEventListener("click", e => {
-    contribute_form.style.display = "block"
+  contribute_form.style.display = "block"
 })
 
 //--------------------------------- function for cross mark----------------------------------------
@@ -296,45 +296,54 @@ contribute_btn.addEventListener("click", e => {
 let cross_mark = document.getElementById("cross_mark")
 
 cross_mark.addEventListener("click", e => {
-    contribute_form.style.display = "none"
-    // $("#form_creation_fundraiser").removeClass("background_blur")
+  contribute_form.style.display = "none"
+  // $("#form_creation_fundraiser").removeClass("background_blur")
 })
 
 
 // function for donation
 
 
-let donation_list = JSON.parse(localStorage.getItem("donation_list")) ?? []
 
-let send_btn = document.getElementById("send_request")
-
+let send_btn = document.getElementById("send_request");
 
 
 
-send_btn.addEventListener("click", e=>{
- e.preventDefault()
 
-//  let user_id=login_status[0]["user_id"]
-// console.log(user_id)
+send_btn.addEventListener("click", e => {
+  e.preventDefault();
 
-let donation_amount = document.getElementById("deposit_amount").value
+  let donation_amount = document.getElementById("deposit_amount").value
 
- let donation_obj ={
-      "donation_amount":donation_amount,
-      "user_id":user_id,
+ 
 
- }
+  fundraiser_list.find(function (obj) {
 
- donation_list.push(donation_obj)
+    
 
- localStorage.setItem("donation_list", JSON.stringify(donation_list))
+    if (emer_id == obj.emerging_player_id) {
+
+      let donar_array = obj.donar_list ?? [];
+
+      let donation_obj = {
+        "donation_amount": donation_amount,
+        "user_id": user_id,
+    
+      }
+
+      obj.donar_list = donar_array;
+
+      donar_array.push(donation_obj);
+
+      alert("hi");
+
+      localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
+
+    }
+  });
 
 }
-  )
-
-
-
-
+)
 
 
 
