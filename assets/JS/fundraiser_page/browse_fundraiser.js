@@ -3,12 +3,17 @@ let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list"))
 
 let detail_fund_raisers = document.getElementById("detail_fund_raisers");
 
+let array=[]
 
-function list_raiser(array = []) {
+
+function list_raiser(array) {
 
     document.querySelector(".details-fund-raiser").innerHTML = "";
 
     array.forEach((item) => {
+
+        let number = Number(item.minimum_amount);
+
 
         // create the main container element   
         const cardDiv = document.createElement('div');
@@ -58,7 +63,13 @@ function list_raiser(array = []) {
         fundRs.appendChild(fundIcon);
 
         const fundAmount = document.createElement('span');
-        fundAmount.innerHTML = '<b style="color:#8a8a92";>16,000</b>';
+        fundAmount.innerHTML = fundAmount.innerHTML+ `<b style="color:#8a8a92";> 
+           ${number.toLocaleString('en-IN', {
+            maximumFractionDigits: 0,
+            style: 'currency',
+            currency: 'INR'
+        })
+            }</b>`;
         fundAmount.style.fontSize = "20px"
         fundAmount.style.marginRight = "10px"
 
@@ -68,8 +79,17 @@ function list_raiser(array = []) {
         fundRaised.textContent = 'raised of';
         fundRs.appendChild(fundRaised);
 
+
+
         const initial_fundRaised = document.createElement('div');
-        initial_fundRaised.innerHTML = `<b style="color:black";>${item.minimum_amount}</b>`;
+        initial_fundRaised.innerHTML = `<b style="color:black";>
+        ${number.toLocaleString('en-IN', {
+            maximumFractionDigits:0,
+            style: 'currency',
+            currency: 'INR'
+        })
+            }
+        </b>`;
         initial_fundRaised.style.fontSize = "20px"
         initial_fundRaised.style.marginLeft = "5px"
 
@@ -138,32 +158,43 @@ let filter_array = [];
 
 let checkboxes = document.querySelectorAll("input[type=checkbox][name=filter_by_cat]");
 
+
 checkboxes.forEach(function (checkbox) {
     checkbox.addEventListener('click', function () {
+        console.log(checkbox)
 
         if (checkbox.checked) {
 
             filter_array = [];
 
+
             let convert_array = Array.from(checkboxes);
 
             let checked_input = convert_array.filter(i => i.checked);
+            console.log(checked_input)
 
             let map_input = checked_input.map(i => i.value);
+            console.log(map_input)
 
 
 
             map_input.forEach(item => {
 
+
+
                 fundraiser_list.filter(function (obj) {
 
+
                     let sports_type = obj.sports_type.toLowerCase();
+
+
 
                     if (item === sports_type) {
 
                         filter_array.push(obj);
 
                         list_raiser(filter_array);
+
 
                     }
 
@@ -174,6 +205,7 @@ checkboxes.forEach(function (checkbox) {
         }
         else {
             list_raiser(fundraiser_list);
+
 
         }
 
@@ -187,6 +219,7 @@ checkboxes.forEach(function (checkbox) {
 
 
 list_raiser(fundraiser_list);
+
 
 
 let total_array = [];
@@ -209,7 +242,7 @@ searchBar.addEventListener("input", (e) => {
         list_raiser(total_array);
     }
 
-    else if((filter_array.length) > 0){
+    else if ((filter_array.length) > 0) {
 
         after_checked_arr = filter_array.filter((item) => {
             return item.player_name.toLowerCase().includes(searchQuery)

@@ -39,7 +39,6 @@
     z-index: 100;
     background: var(--color-dark);
     transition: left 300ms;
-
 }
 
 .side-header {

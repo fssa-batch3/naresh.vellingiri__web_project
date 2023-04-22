@@ -12,6 +12,11 @@ const emer_id = urlparams.get("emer_id");
 
 fundraiser_list.find(function (obj) {
 
+  let number = Number(obj.minimum_amount);
+
+  console.log(number)
+
+
   if (obj["emerging_player_id"] == emer_id) {
 
     const headline = document.createElement("h1");
@@ -202,11 +207,24 @@ fundraiser_list.find(function (obj) {
     // create a h3 element with id 'amt' and a p element with text content
     const amtHeading = document.createElement('h3');
     amtHeading.setAttribute('id', 'amt');
-    amtHeading.textContent = 0;
+    amtHeading.innerHTML = `<b style="color:black";>
+    ${number.toLocaleString('en-IN', {
+        maximumFractionDigits:0,
+        style: 'currency',
+        currency: 'INR'
+    })
+        }
+    </b>`
     rightContainer.appendChild(amtHeading);
 
     const goalText = document.createElement('p');
-    goalText.innerHTML = `raised of  <strong>${obj.minimum_amount}</strong> goal`;
+    goalText.innerHTML = `raised of  <strong>
+    ${number.toLocaleString('en-IN', {
+      maximumFractionDigits:0,
+      style: 'currency',
+      currency: 'INR'
+  })
+      }</strong> goal`;
     rightContainer.appendChild(goalText);
 
     // create a div element with class 'supporterbar', two child elements and a progress bar
