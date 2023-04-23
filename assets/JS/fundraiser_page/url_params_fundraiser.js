@@ -3,21 +3,22 @@ let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list"));
 let login_status = JSON.parse(localStorage.getItem("login_status"))
 
 let user_id = login_status[0]["user_id"]
-console.log(user_id);
 
 const url = window.location.search;
 const urlparams = new URLSearchParams(url);
 const emer_id = urlparams.get("emer_id");
 
+console.log(emer_id)
+
+let get_obj;
 
 fundraiser_list.find(function (obj) {
 
   let number = Number(obj.minimum_amount);
 
-  console.log(number)
-
 
   if (obj["emerging_player_id"] == emer_id) {
+
 
     const headline = document.createElement("h1");
     headline.textContent = obj.player_title;
@@ -207,23 +208,28 @@ fundraiser_list.find(function (obj) {
     // create a h3 element with id 'amt' and a p element with text content
     const amtHeading = document.createElement('h3');
     amtHeading.setAttribute('id', 'amt');
-    amtHeading.innerHTML = `<b style="color:black";>
-    ${number.toLocaleString('en-IN', {
-        maximumFractionDigits:0,
-        style: 'currency',
-        currency: 'INR'
-    })
-        }
-    </b>`
+    amtHeading.innerHTML = `<b style="color:black";>${obj.total_raised_value.toLocaleString('en-IN', {
+      maximumFractionDigits: 0,
+      style: 'currency',
+      currency: 'INR'
+    })}</b>`
+    // ${number.toLocaleString('en-IN', {
+    //     maximumFractionDigits:0,
+    //     style: 'currency',
+    //     currency: 'INR'
+    // })
+    //     }
+    // </b>`
+
     rightContainer.appendChild(amtHeading);
 
     const goalText = document.createElement('p');
     goalText.innerHTML = `raised of  <strong>
     ${number.toLocaleString('en-IN', {
-      maximumFractionDigits:0,
+      maximumFractionDigits: 0,
       style: 'currency',
       currency: 'INR'
-  })
+    })
       }</strong> goal`;
     rightContainer.appendChild(goalText);
 
@@ -270,7 +276,7 @@ fundraiser_list.find(function (obj) {
     sponsorCardDiv.classList.add('sponsercard');
 
     const profileIcon = document.createElement('img');
-    profileIcon.setAttribute('src', 'ketoo.jpeg');
+    profileIcon.setAttribute('src', '');
     profileIcon.setAttribute('alt', 'image_broken');
     profileIcon.setAttribute('id', 'profileicon');
     sponsorCardDiv.appendChild(profileIcon);
@@ -294,9 +300,12 @@ fundraiser_list.find(function (obj) {
     main_container.appendChild(rightContainer)
 
 
+    return get_obj = obj;
 
   }
+
 })
+console.log(get_obj)
 
 
 //--------------------------------- function for add certificate button----------------------------------------
@@ -324,45 +333,61 @@ cross_mark.addEventListener("click", e => {
 
 
 let send_btn = document.getElementById("send_request");
+// let form_submit=document.getElementById("contribute_form");
 
 
 
 
 send_btn.addEventListener("click", e => {
-  e.preventDefault();
 
-  let donation_amount = document.getElementById("deposit_amount").value
+  let donation_amount = Number(document.getElementById("deposit_amount").value.trim())
+  console.log(typeof donation_amount)
+  get_obj.total_raised_value = Number(get_obj.total_raised_value)
 
- 
+  get_obj.total_raised_value += donation_amount
 
-  fundraiser_list.find(function (obj) {
+  console.log(get_obj.total_raised_value);
 
-    
 
-    if (emer_id == obj.emerging_player_id) {
 
-      let donar_array = obj.donar_list ?? [];
+  if (user_id == get_obj.raiser_user_id) {
+    alert("you can't fund raise yourself")
+  }
 
-      let donation_obj = {
-        "donation_amount": donation_amount,
-        "user_id": user_id,
-    
+  else {
+    fundraiser_list.find(function (obj) {
+
+      if (emer_id == obj.emerging_player_id) {
+
+        let donar_array = obj.donar_list ?? [];
+
+        let donation_obj = {
+          "donation_amount": donation_amount,
+          "user_id": user_id,
+          "raiser_user_id":get_obj.raiser_user_id
+        }
+        // "total_raised_amount";donation_amount,
+
+        obj.donar_list = donar_array;
+
+        donar_array.push(donation_obj);
+
+        localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
+
+        contribute_form.style.display = "none"
+
+
+
+        setInterval(function () {
+          location.reload()
+        }, 100)
       }
 
-      obj.donar_list = donar_array;
 
-      donar_array.push(donation_obj);
+    });
+  }
 
-      alert("hi");
-
-      localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
-
-    }
-  });
-
-}
-)
-
+})
 
 
         // // scroll function for about section

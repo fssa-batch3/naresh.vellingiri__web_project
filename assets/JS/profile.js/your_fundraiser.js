@@ -23,8 +23,8 @@ for (let i = 0; i < fundraiser_list.length; i++) {
 
 
     const detailsFundRaiserFlex = document.createElement('div');
-detailsFundRaiserFlex.className = 'details-fund-raiser_flex';
-detailsFundRaiserFlex.id = 'detail_fund_raisers_flex';
+    detailsFundRaiserFlex.className = 'details-fund-raiser_flex';
+    detailsFundRaiserFlex.id = 'detail_fund_raisers_flex';
 
 const card = document.createElement('div');
 card.className = 'card';
@@ -53,9 +53,9 @@ name.appendChild(publisherImg);
 name.appendChild(p1);
 
 let number =Number(fundraiser_list[i].minimum_amount) ;
-console.log( number)
+// console.log( number)
 
-console.log(typeof number)
+// console.log(typeof number)
 
 const fundRs = document.createElement('p');
 fundRs.className = 'fund-rs';
@@ -176,6 +176,10 @@ detailsFundRaiserFlex.appendChild(notificationShow)
 
 detail_fund_raisers.append(detailsFundRaiserFlex)
 
+
+// let req_date = new Date()
+// req_date.slice(0,8)
+// console.log(req_date)
 
 
 

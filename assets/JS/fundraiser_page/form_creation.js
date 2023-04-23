@@ -187,6 +187,7 @@ raise_fund.addEventListener("submit", e => {
         "player_image_url": player_image_url.value.trim(),
         "player_title": player_title.value.trim(),
         "days_left": days_left.value.trim(),
+        "total_raised_value":0,
         "certificate_arr": certificate_list
 
     }
