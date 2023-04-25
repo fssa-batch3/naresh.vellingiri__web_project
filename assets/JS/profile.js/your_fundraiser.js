@@ -2,15 +2,30 @@
 
 let fundraiser = JSON.parse(localStorage.getItem("fundraiser_list"))
 let login_status = JSON.parse(localStorage.getItem("login_status"))
+let array = JSON.parse(localStorage.getItem("array"))
+
+
+
+let name_obj;
+array.find(function(obj){
+    if(login_status[0]["user_id"]==obj["user_id"]){
+     return name_obj = obj
+    }
+})
+
+
 
 let fundraiser_list = fundraiser.filter(function (obj){
     if(login_status[0]["user_id"]===obj["raiser_user_id"]){
-        return true;
+       
+        return obj;
     }
     else{
         return false;
     }
 })
+
+
 
 
 let detail_fund_raisers = document.getElementById("detail_fund_raisers")
@@ -21,13 +36,17 @@ let detail_fund_raisers_flex = document.getElementById("detail_fund_raisers_flex
 
 for (let i = 0; i < fundraiser_list.length; i++) {
 
+const detailsFundRaiserFlex = document.createElement('div');
+detailsFundRaiserFlex.className = 'details-fund-raiser_flex';
+detailsFundRaiserFlex.id = 'detail_fund_raisers_flex';
 
-    const detailsFundRaiserFlex = document.createElement('div');
-    detailsFundRaiserFlex.className = 'details-fund-raiser_flex';
-    detailsFundRaiserFlex.id = 'detail_fund_raisers_flex';
 
+const card_anchor = document.createElement("a")
+card_anchor.setAttribute("src", "")
 const card = document.createElement('div');
 card.className = 'card';
+
+
 
 const imagePlayers = document.createElement('div');
 imagePlayers.className = 'image-splayers';
@@ -52,7 +71,8 @@ p1.textContent = fundraiser_list[i].player_name;
 name.appendChild(publisherImg);
 name.appendChild(p1);
 
-let number =Number(fundraiser_list[i].minimum_amount) ;
+let number =Number(fundraiser_list[i].total_raised_value) ;
+let minimum_amount =Number(fundraiser_list[i].minimum_amount) ;
 // console.log( number)
 
 // console.log(typeof number)
@@ -76,8 +96,8 @@ fundRs.appendChild(fundRaised);
 
 
 const initial_fundRaised = document.createElement('div');
-initial_fundRaised.innerHTML = `<b style="color:black";>
-${number.toLocaleString('en-IN', {
+initial_fundRaised.innerHTML = `<b class="initial_fundRaised" style="color:black";>
+${(minimum_amount).toLocaleString('en-IN', {
     maximumFractionDigits:0,
     style: 'currency',
     currency: 'INR'
@@ -97,13 +117,21 @@ lastDateOfFund.textContent = 'Last Donation 10 days ago';
 
 const supportsLastDateOfFund = document.createElement('div');
 supportsLastDateOfFund.className = 'supports-last-date-of-fund';
+
+
 const p2 = document.createElement('p');
+
+
 const span1 = document.createElement('span');
 span1.textContent = '20';
 p2.appendChild(span1);
 p2.innerHTML += ' Days left';
+
+
 const p3 = document.createElement('p');
+
 const span2 = document.createElement('span');
+
 span2.textContent = '112';
 p3.appendChild(span2);
 p3.textContent += ' Supporters';
@@ -114,6 +142,7 @@ card.appendChild(imagePlayers);
 card.appendChild(description);
 card.appendChild(name);
 card.appendChild(fundRs);
+card.appendChild(initial_fundRaised)
 card.appendChild(range);
 card.appendChild(lastDateOfFund);
 card.appendChild(supportsLastDateOfFund);
@@ -134,34 +163,65 @@ notifyContainingDiv.className = 'notify_containing_div';
 notifyContainingDiv.id = 'notify_containing_div';
 
 
+let donar_list = fundraiser_list[i].donar_list;
 
-for(let i=0; i<fundraiser_list.length; i++){
-    const main = document.createElement('div');
-    main.className = 'main';
-    
-    const specificNotificationDiv = document.createElement('div');
-    specificNotificationDiv.className = 'specific_notification_div';
-    
-    const notificationImg = document.createElement('img');
-    notificationImg.className = 'notification_img';
-    notificationImg.src = fundraiser_list[i]["player_image_url"];
-    notificationImg.alt = '';
-    
-    const messageRecieveDiv = document.createElement('div');
-    messageRecieveDiv.className = 'message_recieve_div';
-    
-    const messageRecieve = document.createElement('p');
-    messageRecieve.className = 'message_recieve';
-    messageRecieve.textContent = 'Hi you recieved donation of Rs.100 from Naresh.';
-    
-    messageRecieveDiv.appendChild(messageRecieve);
-    specificNotificationDiv.appendChild(notificationImg)
-    specificNotificationDiv.appendChild(messageRecieveDiv)
-    
-    main.appendChild(specificNotificationDiv)
-    
-    notifyContainingDiv.appendChild(main)
+
+if(donar_list !=null){
+
+
+donar_list.forEach((item) => {
+
+            console.log(item)
+    array.find(function(arr_data){
+
+
+        if(arr_data.user_id == item.user_id){
+
+            console.log(arr_data);
+           
+const main = document.createElement('div');
+main.className = 'main';
+
+const specificNotificationDiv = document.createElement('div');
+specificNotificationDiv.className = 'specific_notification_div';
+
+const notificationImg = document.createElement('img');
+notificationImg.className = 'notification_img';
+notificationImg.src = arr_data.proile_image;
+notificationImg.alt = '';
+
+const messageRecieveDiv = document.createElement('div');
+messageRecieveDiv.className = 'message_recieve_div';
+
+const messageRecieve = document.createElement('p');
+messageRecieve.className = 'message_recieve';
+messageRecieve.textContent = `${arr_data.first_name} has donated you ₹${item.donation_amount}`;
+
+messageRecieveDiv.appendChild(messageRecieve);
+specificNotificationDiv.appendChild(notificationImg)
+specificNotificationDiv.appendChild(messageRecieveDiv)
+
+main.appendChild(specificNotificationDiv)
+
+notifyContainingDiv.appendChild(main)
+
+        
+        }
+    })
+
+});
+
 }
+
+else {
+
+    notifyContainingDiv.innerHTML = `<h1>No donares</h1>`
+}
+
+
+// for(let i=0; i<10; i++){
+    
+// }
 
 
 notificationShow.appendChild(message)
@@ -177,13 +237,19 @@ detailsFundRaiserFlex.appendChild(notificationShow)
 detail_fund_raisers.append(detailsFundRaiserFlex)
 
 
+}
+
+
+
+
+
+
 // let req_date = new Date()
 // req_date.slice(0,8)
 // console.log(req_date)
 
 
 
-    
 //         // create the main container element   
 //         const cardDiv = document.createElement('div');
 //         cardDiv.classList.add('card');
@@ -306,9 +372,6 @@ detail_fund_raisers.append(detailsFundRaiserFlex)
 
 
 
-
-
-
 // // create notification_show div
 // const notificationShowDiv = document.createElement('div');
 // notificationShowDiv.classList.add('notification_show');
@@ -367,15 +430,6 @@ detail_fund_raisers.append(detailsFundRaiserFlex)
 // detail_fund_raisers_flex.appendChild(notificationShowDiv)
 
 // detail_fund_raisers.append(detail_fund_raisers_flex)
-
-
-    
-}
-
-
-
-
-
 
 
 

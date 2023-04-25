@@ -13,6 +13,8 @@ function list_raiser(array) {
     array.forEach((item) => {
 
         let number = Number(item.minimum_amount);
+        let total_raised_amount = Number(item.total_raised_value);
+
 
 
         // create the main container element   
@@ -64,7 +66,7 @@ function list_raiser(array) {
 
         const fundAmount = document.createElement('span');
         fundAmount.innerHTML = fundAmount.innerHTML+ `<b style="color:#8a8a92";> 
-           ${number.toLocaleString('en-IN', {
+           ${total_raised_amount.toLocaleString('en-IN', {
             maximumFractionDigits: 0,
             style: 'currency',
             currency: 'INR'
@@ -205,7 +207,6 @@ checkboxes.forEach(function (checkbox) {
         }
         else {
             list_raiser(fundraiser_list);
-
 
         }
 

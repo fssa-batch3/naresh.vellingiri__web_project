@@ -1,5 +1,8 @@
 let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list"));
 
+let array = JSON.parse(localStorage.getItem("array"))
+console.log(array)
+
 let login_status = JSON.parse(localStorage.getItem("login_status"))
 
 let user_id = login_status[0]["user_id"]
@@ -8,7 +11,6 @@ const url = window.location.search;
 const urlparams = new URLSearchParams(url);
 const emer_id = urlparams.get("emer_id");
 
-console.log(emer_id)
 
 let get_obj;
 
@@ -261,7 +263,6 @@ fundraiser_list.find(function (obj) {
 
     const supporters1Text = document.createElement('p');
     supporters1Text.setAttribute('id', 'suporters1');
-    supporters1Text.textContent = '734 supporters';
     supportersDiv.appendChild(supporters1Text)
 
     const daysLeftText = document.createElement('p');
@@ -305,7 +306,6 @@ fundraiser_list.find(function (obj) {
   }
 
 })
-console.log(get_obj)
 
 
 //--------------------------------- function for add certificate button----------------------------------------
@@ -341,7 +341,7 @@ let send_btn = document.getElementById("send_request");
 send_btn.addEventListener("click", e => {
 
   let donation_amount = Number(document.getElementById("deposit_amount").value.trim())
-  console.log(typeof donation_amount)
+
   get_obj.total_raised_value = Number(get_obj.total_raised_value)
 
   get_obj.total_raised_value += donation_amount
@@ -364,7 +364,8 @@ send_btn.addEventListener("click", e => {
         let donation_obj = {
           "donation_amount": donation_amount,
           "user_id": user_id,
-          "raiser_user_id":get_obj.raiser_user_id
+          "raiser_user_id": get_obj.raiser_user_id,
+
         }
         // "total_raised_amount";donation_amount,
 
@@ -375,19 +376,31 @@ send_btn.addEventListener("click", e => {
         localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
 
         contribute_form.style.display = "none"
-
-
-
-        setInterval(function () {
-          location.reload()
-        }, 100)
+        console.log(get_obj["donar_list"]);
       }
-
-
+      // setInterval(function () {
+      //   location.reload()
+      // }, 100)
     });
   }
 
 })
+
+fundraiser_list.find(function(obj){
+
+  if(obj.emerging_player_id == emer_id){
+
+    let find_donar = obj.donar_list;
+
+    document.getElementById("suporters1").innerHTML = find_donar.length + " Supporters";
+
+  }
+})
+
+
+
+
+
 
 
         // // scroll function for about section

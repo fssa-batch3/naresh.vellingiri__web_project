@@ -7,6 +7,7 @@ let login_status = JSON.parse(localStorage.getItem("login_status"))
 let first_name = document.getElementById("first_name")
 let last_name = document.getElementById("last_name")
 let email = document.getElementById("email")
+let profile_image = document.getElementById("profile_image")
 let address = document.getElementById("address")
 let phone_number = document.getElementById("number")
 let dob = document.getElementById("dob")
@@ -31,6 +32,7 @@ if ((res["address"] != null) && (res["phone_number"] != null) && (res["dob"] != 
 
   address.value = res["address"];
   phone_number.value = res["phone_number"];
+  profile_image.value= res["profile_image"];
   dob.value = res["dob"];
   url1.value = res["url1"];
 
@@ -64,7 +66,7 @@ save_change_button.addEventListener("click", e => {
   res["phone_number"] = phone_number.value
   res["dob"] = dob.value
   res["url1"] = url1.value
-
+  res["proile_image"]=profile_image.value
 
   Notify.success("Profile Updated");
 
