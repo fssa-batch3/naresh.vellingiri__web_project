@@ -59,8 +59,8 @@ console.log(donar_names_array);
 
 
 for (let i = 0; i < donar_list_array.length; i++) {
-    let rs = donar_list_array[i]["donation_amount"]
 
+    let rs = donar_list_array[i]["donation_amount"]
 
 
     let table_tr = document.createElement("tr");

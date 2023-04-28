@@ -6,10 +6,9 @@ let array = JSON.parse(localStorage.getItem("array"))
 
 
 
-let name_obj;
 array.find(function(obj){
     if(login_status[0]["user_id"]==obj["user_id"]){
-     return name_obj = obj
+      name_obj = obj
     }
 })
 
@@ -40,11 +39,19 @@ const detailsFundRaiserFlex = document.createElement('div');
 detailsFundRaiserFlex.className = 'details-fund-raiser_flex';
 detailsFundRaiserFlex.id = 'detail_fund_raisers_flex';
 
+const card_main_div = document.createElement("div")
+card_main_div.setAttribute("class","card_main_div")
+card_main_div.style.border = "2px solid black"
+detailsFundRaiserFlex.append(card_main_div)
 
-const card_anchor = document.createElement("a")
-card_anchor.setAttribute("src", "")
+// const card_anchor = document.createElement("a")
+// card_anchor.setAttribute("src", "")
+// card_main_div.append(card_anchor)
+
 const card = document.createElement('div');
 card.className = 'card';
+
+
 
 
 
@@ -147,6 +154,13 @@ card.appendChild(range);
 card.appendChild(lastDateOfFund);
 card.appendChild(supportsLastDateOfFund);
 
+card_main_div.append(card)
+
+const btn = document.createElement("btn")
+btn.setAttribute("id","edit_btn")
+btn.innerText = "Edit"
+card_main_div.append(btn)
+
 const notificationShow = document.createElement('div');
 notificationShow.className = 'notification_show';
 notificationShow.id = 'notification_show';
@@ -187,7 +201,7 @@ specificNotificationDiv.className = 'specific_notification_div';
 
 const notificationImg = document.createElement('img');
 notificationImg.className = 'notification_img';
-notificationImg.src = arr_data.proile_image;
+notificationImg.src = arr_data["proile_image"];
 notificationImg.alt = '';
 
 const messageRecieveDiv = document.createElement('div');
@@ -230,7 +244,7 @@ notificationShow.appendChild(notifyContainingDiv)
 
 
 
-detailsFundRaiserFlex.appendChild(card)
+// detailsFundRaiserFlex.appendChild(card)
 detailsFundRaiserFlex.appendChild(notificationShow)
 
 
