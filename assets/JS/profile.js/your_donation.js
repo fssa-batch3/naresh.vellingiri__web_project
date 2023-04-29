@@ -71,7 +71,7 @@ for (let i = 0; i < donar_list_array.length; i++) {
 
     let pro_email_name_td = document.createElement("td");
     let pro_email_name_p = document.createElement("p");
-    pro_email_name_p.innerText = donar_names_array[i]["first_name"];
+    pro_email_name_p.innerText = donar_names_array[i]["sports_type"];
     pro_email_name_td.append(pro_email_name_p);
     table_tr.appendChild(pro_email_name_td);
 
@@ -102,35 +102,6 @@ for (let i = 0; i < donar_list_array.length; i++) {
     table_tr.appendChild(donated_amount_td)
 
 
-
-
-    // let td_pro_detail = document.createElement("td");
-    // table_tr.appendChild(td_pro_detail);
-
-    // // let td_pro_div = document.createElement("div");
-    // // td_pro_div.setAttribute("class", "show-order-items");
-    // // td_pro_detail.appendChild(td_pro_div);
-
-
-
-
-
-    // // let pro_weight = document.createElement("p");
-    // // pro_weight.innerHTML = `Qty: ${donar_list_array[i]["first_name"]}`;
-    // // td_pro_div.appendChild(pro_weight);
-
-    // let unit_price_td = document.createElement("td");
-    // unit_price_td.innerHTML = `₹${donar_names[i]["first_name"]}`;
-    // table_tr.appendChild(unit_price_td);
-
-    // let qty_td = document.createElement("td");
-    // qty_td.innerHTML = `${donar_names[i]["first_name"]}`;
-    // table_tr.append(qty_td);
-
-    // let td_subtotal = document.createElement("td");
-    // td_subtotal.setAttribute("class", "place-item-money")
-    // td_subtotal.innerHTML = `₹${donar_names[i]["first_name"]}`;
-    // table_tr.appendChild(td_subtotal);
 
     document.querySelector(".body_table").append(table_tr);
 

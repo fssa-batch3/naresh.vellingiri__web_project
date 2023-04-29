@@ -14,6 +14,8 @@
     margin: 20px;
 }
 
+
+
 .card{
     margin-top: 70px;
 }
@@ -63,14 +65,7 @@ hr{
     width: 50px;
     height: 50px;
 }
-/* input{
-    padding: 9px;
-    border-radius: 5px;
-    margin: 30px;
-    border:2px solid rgb(190, 181, 181);
-    width: 40%;
-    margin-left: 140px;
-} */
+
 
 
 
@@ -107,12 +102,16 @@ hr{
 /* form css */
 
 .container[form_creation_fundraiser]{
-    border: 2px solid rgb(207, 203, 203);
+    position: relative;
+    border: 2px solid rgb(240, 26, 26);
     width: 40%;
     padding: 30px;
     border-radius: 10px;
     margin-top: 130px;
     display: block;
+}
+#form_creation_fundraiser{
+    /* display: none; */
 }
 
 .add_fundraiser_btn{
@@ -148,7 +147,6 @@ select{
 #certificate_whole_div{
     display: none;
     position: absolute;
-    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;

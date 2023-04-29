@@ -130,7 +130,7 @@
 
             </div>
 
-            <div class="form-group center">
+            <!-- <div class="form-group center">
 
                 <label for=""></label>
 
@@ -165,9 +165,9 @@
 
             </div>
             <small id="" class="form-text text-muted">Enter your Educational qualification</small>
+ -->
 
-
-
+<!-- 
             <div class="form-group">
 
                 <label for=""></label>
@@ -192,10 +192,10 @@
                 <input type="text" class="form-control" id="city_name" placeholder="City" required>
                 <small id="" class="form-text text-muted">Enter Your City Name</small>
 
-            </div>
+            </div> -->
             <!-- --------------------------------------------------PLAYER DETAILS------------------------------------------------------------- -->
 
-            <div class="form-group">
+            <!-- <div class="form-group">
 
                 <label for=""></label>
 
@@ -221,15 +221,15 @@
                 <input type="url" class="form-control" id="player_image_url" required>
                 <small id="" class="form-text text-muted">Enter player image url</small>
 
-            </div>
-            <div class="form-group">
+            </div> -->
+            <!-- <div class="form-group">
 
                 <label for=""></label>
 
                 <input type="text" class="form-control" id="player_title" required>
                 <small id="" class="form-text text-muted">Enter player title</small>
 
-            </div>
+            </div> -->
             <div class="form-group">
 
                 <label for=""></label>
@@ -256,17 +256,49 @@
 
             </div>
 
-            <button class="add_fundraiser_btn " id="next_button">submit </button>
+            <button class="add_fundraiser_btn " id="next_button">Update</button>
 
         </form>
     </div>
 
 
-    <script>
+    <div form_creation_fundraiser class=" container certificate_whole_div" id="certificate_whole_div">
+
+        <form id="cer_form">
+
+            <div class="certificate_heading_div">
+                <h3 class="text-center">Certificate Details </h3>
+            <span id="cross_mark_1"> &#10060;</span>
+            </div>
+            
 
 
+            <div class="form-group  ">
 
-    </script>
+                <label for=""></label>
+
+                <input type="url" class="form-control"  id="certificate_image_url"  required title="please enter valid ceritifcate image url">
+                <small id="certificate_image_url" class="form-text text-muted">certificate_image_url...</small>
+
+
+            </div>
+
+            <div class="form-group ">
+
+                <label for=""></label>
+
+                <input type="text" class="form-control" id="certificate_number" required pattern="[0-9]{8-16}" title="please enter valid certificate number" maxlength="16" minlength="8">
+                <small id="" class="form-text text-muted">Certificate_number</small>
+
+            </div>
+
+            <button type="submit" class="add_fundraiser_btn " id="add_button">Add </button>
+
+
+        </form>
+
+    </div>
+
 
     <script src="../../assets/JS/profile.js/header.js"></script>
 

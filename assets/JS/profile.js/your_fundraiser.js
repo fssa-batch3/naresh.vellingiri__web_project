@@ -5,6 +5,16 @@ let login_status = JSON.parse(localStorage.getItem("login_status"))
 let array = JSON.parse(localStorage.getItem("array"))
 
 
+window.onload = removeitem();
+
+
+
+function removeitem(){
+
+    localStorage.removeItem("copy_player");
+}
+
+
 
 array.find(function(obj){
     if(login_status[0]["user_id"]==obj["user_id"]){
@@ -33,7 +43,9 @@ let detail_fund_raisers_flex = document.getElementById("detail_fund_raisers_flex
 // create the main container element
 
 
-for (let i = 0; i < fundraiser_list.length; i++) {
+function show_list(){
+
+fundraiser_list.forEach((item,index)=>{
 
 const detailsFundRaiserFlex = document.createElement('div');
 detailsFundRaiserFlex.className = 'details-fund-raiser_flex';
@@ -44,42 +56,38 @@ card_main_div.setAttribute("class","card_main_div")
 card_main_div.style.border = "2px solid black"
 detailsFundRaiserFlex.append(card_main_div)
 
-// const card_anchor = document.createElement("a")
-// card_anchor.setAttribute("src", "")
-// card_main_div.append(card_anchor)
+
 
 const card = document.createElement('div');
 card.className = 'card';
 
 
 
-
-
 const imagePlayers = document.createElement('div');
 imagePlayers.className = 'image-splayers';
 const playerImg = document.createElement('img');
-playerImg.src = fundraiser_list[i]["player_image_url"]
+playerImg.src = item["player_image_url"]
 playerImg.className = 'player-img';
 imagePlayers.appendChild(playerImg);
 
 const description = document.createElement('p');
 description.className = 'description';
-description.textContent = fundraiser_list[i].player_title;
+description.textContent = item.player_title;
 
 const name = document.createElement('div');
 name.className = 'name';
 const publisherImg = document.createElement('div');
 publisherImg.className = 'publisher-img';
 const publisherImgImg = document.createElement('img');
-publisherImgImg.src =fundraiser_list[i]["player_image_url"]
+publisherImgImg.src =item["player_image_url"]
 publisherImg.appendChild(publisherImgImg);
 const p1 = document.createElement('p');
-p1.textContent = fundraiser_list[i].player_name;
+p1.textContent = item.player_name;
 name.appendChild(publisherImg);
 name.appendChild(p1);
 
-let number =Number(fundraiser_list[i].total_raised_value) ;
-let minimum_amount =Number(fundraiser_list[i].minimum_amount) ;
+let number =Number(item.total_raised_value) ;
+let minimum_amount =Number(item.minimum_amount) ;
 // console.log( number)
 
 // console.log(typeof number)
@@ -158,8 +166,17 @@ card_main_div.append(card)
 
 const btn = document.createElement("button")
 btn.setAttribute("id","edit_btn_form_creation_fundraiser")
+btn.setAttribute("onclick", `editemerginplayer(${item.emerging_player_id})`)
 btn.innerText = "Edit"
 card_main_div.append(btn)
+
+const delete_btn = document.createElement("button")
+delete_btn.setAttribute("id","edit_btn_form_creation_fundraiser")
+delete_btn.setAttribute("onclick", `deleteemerplayer(${index})`)
+delete_btn.innerText = "Delete"
+card_main_div.append(delete_btn)
+
+
 
 const notificationShow = document.createElement('div');
 notificationShow.className = 'notification_show';
@@ -177,7 +194,7 @@ notifyContainingDiv.className = 'notify_containing_div';
 notifyContainingDiv.id = 'notify_containing_div';
 
 
-let donar_list = fundraiser_list[i].donar_list;
+let donar_list = item.donar_list;
 
 
 if(donar_list !=null){
@@ -233,10 +250,6 @@ else {
 }
 
 
-// for(let i=0; i<10; i++){
-    
-// }
-
 
 notificationShow.appendChild(message)
 notificationShow.appendChild(hr)
@@ -251,19 +264,228 @@ detailsFundRaiserFlex.appendChild(notificationShow)
 detail_fund_raisers.append(detailsFundRaiserFlex)
 
 
-}
+btn.addEventListener('click', function(e){
 
-let form_creation_fundraiser=document.getElementById("form_creation_fundraiser")
-let cross_mark = document.getElementById("cross_mark")
-
-let edit_btn_form_creation_fundraiser=document.getElementById("edit_btn_form_creation_fundraiser")
-
-
-edit_btn_form_creation_fundraiser.addEventListener("click", e=>{
     form_creation_fundraiser.style.display = "block"
+})
+
 
 })
+
+}
+
+let form_creation_fundraiser1=document.getElementById("form_creation_fundraiser1")
+let cross_mark = document.getElementById("cross_mark")
 
 cross_mark.addEventListener("click", e => {
   form_creation_fundraiser.style.display = "none"
 })
+
+
+let raise_fund = document.getElementById("raise_fund");
+let form_creation_fundraiser = document.getElementById("form_creation_fundraiser")
+let form_creation_fundraiser_specific_details = document.getElementById("form_creation_fundraiser_specific_details")
+
+let minimum_amount = document.getElementById("minimum_amount");
+let days_left = document.getElementById("days_left");
+let show_bio = document.getElementById("Add_bio");
+let certificate_button = document.getElementById("Add_certificates")
+let certificate_whole_div = document.getElementById("certificate_whole_div");
+
+let cert_form = document.getElementById("cer_form");
+let certificate_image_url = document.getElementById("certificate_image_url")
+let cerficate_number = document.getElementById("certificate_number")
+
+
+
+
+let cer_append_div = document.querySelector(".display_cer_list");
+
+let cer_output = "";
+
+
+
+function deleteemerplayer(index){
+
+    fundraiser_list.splice(index,1);
+
+    detail_fund_raisers.innerHTML = "";
+
+    alert("deleted");
+
+    localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
+
+    show_list();
+
+}
+
+function editemerginplayer(id){
+
+    fundraiser_list.find(function(obj){
+
+        if(id == obj.emerging_player_id){
+
+
+            let copy_player = obj;
+
+            localStorage.setItem("copy_player", JSON.stringify(copy_player));
+
+            minimum_amount.value = copy_player.minimum_amount;
+            days_left.value = copy_player.days_left;
+            show_bio.value = copy_player.player_title;
+
+
+            displaycer();
+
+            
+        }
+    })
+}
+
+function displaycer() {
+
+    let get_copy = JSON.parse(localStorage.getItem("copy_player"));
+
+    let get_cer = get_copy.certificate_arr;
+
+    cer_output = "";
+
+    let count = 0;
+
+    get_cer.forEach((item, index) => {
+
+        ++count;
+
+        cer_output += ` <div class="cer_item">
+        <div class="items_cert"><p>Certificate ${count}<p> <span onclick="deletecer(${index})">&#128465</span></div>
+        <img src="${item.cer_img}" alt="Certificate number"${item.cer_num}>
+    </div>`
+
+        cer_append_div.innerHTML = cer_output
+    });
+
+}
+
+
+function deletecer(index) {
+
+    let get_copy = JSON.parse(localStorage.getItem("copy_player"));
+
+    let get_cer = get_copy.certificate_arr;
+
+
+    get_cer.splice(index, 1);
+
+    localStorage.setItem("copy_player", JSON.stringify(get_copy));
+
+    alert("deleted succes");
+
+    displaycer();
+
+}
+
+
+cert_form.addEventListener("submit", function(e){
+
+    let get_copy_data = JSON.parse(localStorage.getItem("copy_player"));
+
+    let get_cer = get_copy_data.certificate_arr;
+
+    e.preventDefault();
+
+    let cer_img_url = certificate_image_url.value.trim();
+    let cer_num = cerficate_number.value.trim();
+
+    if ((cer_img_url != "") && (cer_num != "")) {
+
+        let cer_obj = {
+            "cer_img": cer_img_url,
+            "cer_num": cer_num,
+            "cer_id": get_cer.length*2+2+1
+        }
+
+
+       get_cer.push(cer_obj);
+
+        localStorage.setItem("copy_player", JSON.stringify(get_copy_data));
+
+        certificate_whole_div.style.display = "none";
+
+        $("#form_creation_fundraiser").removeClass("background_blur");
+
+        cert_form.reset();
+
+       displaycer();
+
+    }
+
+    else {
+
+        alert("Please enter valid detials");
+
+    }
+
+})
+
+
+raise_fund.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let get_copy = JSON.parse(localStorage.getItem("copy_player"));
+
+    let get_amount = minimum_amount.value;
+    let get_days = days_left.value;
+    let get_bio = show_bio.value;
+
+
+    fundraiser_list.find(function(obj){
+
+        if(obj.emerging_player_id == get_copy.emerging_player_id){
+
+            obj.minimum_amount = get_amount;
+            obj.days_left = get_days;
+            obj.player_title = get_bio;
+
+            obj.certificate_arr = get_copy.certificate_arr;
+
+            alert("updated");
+
+            localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
+
+            detail_fund_raisers.innerHTML = ""
+
+            cer_append_div.innerHTML = "";
+
+            raise_fund.reset();
+
+            localStorage.removeItem("copy_player");
+
+            show_list();
+        }
+    })
+
+
+})
+
+//--------------------------------- function for add certificate button----------------------------------------
+
+
+
+
+certificate_button.addEventListener("click", e => {
+    certificate_whole_div.style.display = "block"
+    $("#form_creation_fundraiser").addClass("background_blur")
+})
+
+//--------------------------------- function for cross mark----------------------------------------
+
+let cross_mark_1 = document.getElementById("cross_mark_1")
+
+cross_mark_1.addEventListener("click", e => {
+    certificate_whole_div.style.display = "none"
+    $("#form_creation_fundraiser").removeClass("background_blur")
+})
+
+
+show_list();
