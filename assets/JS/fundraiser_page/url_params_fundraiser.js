@@ -222,6 +222,8 @@ fundraiser_list.find(function (obj) {
     // })
     //     }
     // </b>`
+   
+
 
     rightContainer.appendChild(amtHeading);
 
@@ -399,7 +401,14 @@ fundraiser_list.find(function(obj){
 
     let find_donar = obj.donar_list;
 
-    document.getElementById("suporters1").innerHTML = find_donar.length + " Supporters";
+    if(find_donar !=undefined){
+      document.getElementById("suporters1").innerHTML = find_donar.length + " Supporters";
+
+    }
+    else{
+      document.getElementById("suporters1").innerHTML = 0 + " Supporters";
+
+    }
 
   }
 })

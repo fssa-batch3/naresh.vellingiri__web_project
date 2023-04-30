@@ -111,7 +111,7 @@ hr{
     display: block;
 }
 #form_creation_fundraiser{
-    /* display: none; */
+    display: none;
 }
 
 .add_fundraiser_btn{

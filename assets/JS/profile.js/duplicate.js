@@ -1,3 +1,5 @@
+
+
 let fundraiser = JSON.parse(localStorage.getItem("fundraiser_list"))
 let login_status = JSON.parse(localStorage.getItem("login_status"))
 let array = JSON.parse(localStorage.getItem("array"))
@@ -22,7 +24,6 @@ array.find(function (obj) {
 
 
 
-
 let fundraiser_list = fundraiser.filter(function (obj) {
     if (login_status[0]["user_id"] === obj["raiser_user_id"]) {
 
@@ -44,24 +45,9 @@ let detail_fund_raisers_flex = document.getElementById("detail_fund_raisers_flex
 
 function show_list() {
 
-
-    let fundraiser_list_one = fundraiser.filter(function (obj) {
-
-        if (login_status[0]["user_id"] === obj["raiser_user_id"]) {
-
-            return "1";
-        }
-        else {
-            return false;
-        }
-    })
-
-    console.log(fundraiser_list_one);
-
-    fundraiser_list_one.forEach((item, index) => {
+    fundraiser_list.forEach((item, index) => {
 
         const detailsFundRaiserFlex = document.createElement('div');
-
         detailsFundRaiserFlex.className = 'details-fund-raiser_flex';
         detailsFundRaiserFlex.id = 'detail_fund_raisers_flex';
 
@@ -70,9 +56,7 @@ function show_list() {
         card_main_div.style.border = "2px solid black"
         detailsFundRaiserFlex.append(card_main_div)
 
-        // const card_anchor = document.createElement("a")
-        // card_anchor.setAttribute("src", "")
-        // card_main_div.append(card_anchor)
+
 
         const card = document.createElement('div');
         card.className = 'card';
@@ -82,7 +66,6 @@ function show_list() {
         const imagePlayers = document.createElement('div');
         imagePlayers.className = 'image-splayers';
         const playerImg = document.createElement('img');
-        playerImg.setAttribute("data-keyword",item.emerging_player_id)
         playerImg.src = item["player_image_url"]
         playerImg.className = 'player-img';
         imagePlayers.appendChild(playerImg);
@@ -105,9 +88,6 @@ function show_list() {
 
         let number = Number(item.total_raised_value);
         let minimum_amount = Number(item.minimum_amount);
-
-        let dived_value = minimum_amount / number;
-
         // console.log( number)
 
         // console.log(typeof number)
@@ -132,20 +112,22 @@ function show_list() {
 
         const initial_fundRaised = document.createElement('div');
         initial_fundRaised.innerHTML = `<b class="initial_fundRaised" style="color:black";>
-${(minimum_amount).toLocaleString('en-IN', {
-            maximumFractionDigits: 0,
-            style: 'currency',
-            currency: 'INR'
-        })
-            }
-</b>`;
+                                        ${(minimum_amount).toLocaleString('en-IN', {
+                                                    maximumFractionDigits: 0,
+                                                    style: 'currency',
+                                                    currency: 'INR'
+                                                })
+                                                    }
+                                        </b>`;
+
+
+                                        console.log(number);
+console.log(initial_fundRaised);
 
         const range = document.createElement('div');
         range.className = 'range';
-
         const rangeValue = document.createElement('div');
         rangeValue.className = 'range_value';
-        rangeValue.style.width = dived_value + "%"
         range.appendChild(rangeValue);
 
         const lastDateOfFund = document.createElement('p');
@@ -193,9 +175,8 @@ ${(minimum_amount).toLocaleString('en-IN', {
         card_main_div.append(btn)
 
         const delete_btn = document.createElement("button")
-        delete_btn.setAttribute("class","edit_btn_form_creation_fundraiser")
         delete_btn.setAttribute("id", "edit_btn_form_creation_fundraiser")
-        delete_btn.setAttribute("onclick", `deleteemerplayer(${item.emerging_player_id})`)
+        delete_btn.setAttribute("onclick", `deleteemerplayer(${index})`)
         delete_btn.innerText = "Delete"
         card_main_div.append(delete_btn)
 
@@ -269,7 +250,7 @@ ${(minimum_amount).toLocaleString('en-IN', {
 
         else {
 
-            notifyContainingDiv.innerHTML = `<h1>No donares</h1>`
+            notifyContainingDiv.innerHTML = `<h1>Wait For Your Donars</h1>`
         }
 
 
@@ -296,6 +277,8 @@ ${(minimum_amount).toLocaleString('en-IN', {
     })
 
 }
+
+
 
 let form_creation_fundraiser1 = document.getElementById("form_creation_fundraiser1")
 let cross_mark = document.getElementById("cross_mark")
@@ -327,29 +310,20 @@ let cer_append_div = document.querySelector(".display_cer_list");
 let cer_output = "";
 
 
-function deleteemerplayer(id){
 
-    for(let i=0; i < fundraiser.length; i++){
+function deleteemerplayer(index) {
 
-        if(fundraiser[i].emerging_player_id == id){
+    fundraiser_list.splice(index, 1);
 
-            fundraiser.splice(i,1);
+    detail_fund_raisers.innerHTML = "";
 
-            alert("deleted");
+    alert("deleted");
 
-            detail_fund_raisers.innerHTML = " ";
+    localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
 
-            localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser));
-            
-            show_list();
-
-            break;
-        }
-    }
+    show_list();
 
 }
-
-
 
 function editemerginplayer(id) {
 
@@ -404,6 +378,7 @@ function deletecer(index) {
     let get_copy = JSON.parse(localStorage.getItem("copy_player"));
 
     let get_cer = get_copy.certificate_arr;
+
 
     get_cer.splice(index, 1);
 
@@ -520,34 +495,3 @@ cross_mark_1.addEventListener("click", e => {
 
 
 show_list();
-
-// let raised_value = document.querySelectorAll(".fund-rs")
-// console.log(raised_value);
-// for(let i = 0; i < raised_value.length;i++){
-
-// }
-
-// let delete_btn = document.querySelectorAll(".edit_btn_form_creation_fundraiser")
-// let whole_div = document.querySelectorAll(".details-fund-raiser_flex")
-// console.log(whole_div);
-// let images = document.querySelectorAll(".player-img")
-// let fund_arr = JSON.parse(localStorage.getItem("fundraiser_list"))
-// for(let i = 0; i < delete_btn.length;i++){
-//     delete_btn[i].addEventListener("click",function () {
-        
-//        let id = images[i].dataset.keyword
-//        whole_div[i].remove();
-//        let fund = fund_arr.filter(function (obj) {
-//         if (id === obj["emerging_player_id"]+"") {
-//             return false
-//         }
-//         else{
-//             return true
-//         }
-//        })
-
-       
-//        localStorage.setItem("fundraiser_list",JSON.stringify(fund))
-        
-//     })
-// }

@@ -138,7 +138,9 @@ function list_raiser(array) {
         cardDiv.appendChild(supportsLastDateOfFund);
 
         let href_link = "../fundraiser_page/url_params_fundraiser_page.html?emer_id=" + item["emerging_player_id"];
+ 
 
+        console.log(href_link);
 
         const cardAnchor = document.createElement('a');
         cardAnchor.href = href_link;
