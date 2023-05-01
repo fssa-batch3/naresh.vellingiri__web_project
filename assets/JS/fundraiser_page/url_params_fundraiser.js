@@ -384,16 +384,18 @@ send_btn.addEventListener("click", e => {
       //   location.reload()
       // }, 100)
     });
-  }
-  let amt = document.getElementById("amt")
-  amt.innerHTML= `<b style="color:black";>${get_obj.total_raised_value.toLocaleString('en-IN', {
-    maximumFractionDigits: 0,
-    style: 'currency',
-    currency: 'INR'
-  })}</b>`
-  
 
-  swal("hi")
+    let amt = document.getElementById("amt")
+    amt.innerHTML= `<b style="color:black";>${get_obj.total_raised_value.toLocaleString('en-IN', {
+      maximumFractionDigits: 0,
+      style: 'currency',
+      currency: 'INR'
+    })}</b>`
+    
+  
+    swal("hi")
+  }
+ 
 
 })
 
