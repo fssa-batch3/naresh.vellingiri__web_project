@@ -3,7 +3,9 @@ let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list"))
 
 let detail_fund_raisers = document.getElementById("detail_fund_raisers");
 
-let array=[]
+let array = []
+
+
 
 
 function list_raiser(array) {
@@ -65,7 +67,7 @@ function list_raiser(array) {
         fundRs.appendChild(fundIcon);
 
         const fundAmount = document.createElement('span');
-        fundAmount.innerHTML = fundAmount.innerHTML+ `<b style="color:#8a8a92";> 
+        fundAmount.innerHTML = fundAmount.innerHTML + `<b style="color:#8a8a92";> 
            ${total_raised_amount.toLocaleString('en-IN', {
             maximumFractionDigits: 0,
             style: 'currency',
@@ -86,7 +88,7 @@ function list_raiser(array) {
         const initial_fundRaised = document.createElement('div');
         initial_fundRaised.innerHTML = `<b style="color:black";>
         ${number.toLocaleString('en-IN', {
-            maximumFractionDigits:0,
+            maximumFractionDigits: 0,
             style: 'currency',
             currency: 'INR'
         })
@@ -138,9 +140,9 @@ function list_raiser(array) {
         cardDiv.appendChild(supportsLastDateOfFund);
 
         let href_link = "../fundraiser_page/url_params_fundraiser_page.html?emer_id=" + item["emerging_player_id"];
- 
 
-        console.log(href_link);
+
+        // console.log(href_link);
 
         const cardAnchor = document.createElement('a');
         cardAnchor.href = href_link;
@@ -155,17 +157,27 @@ function list_raiser(array) {
     });
 
 
+
 }
 
-let filter_array = [];
+
+
+let filter_array;
+let data;
+
 
 
 let checkboxes = document.querySelectorAll("input[type=checkbox][name=filter_by_cat]");
+console.log(checkboxes);
 
+list_raiser(fundraiser_list);
 
 checkboxes.forEach(function (checkbox) {
-    checkbox.addEventListener('click', function () {
-        console.log(checkbox)
+    checkbox.addEventListener('click', function (e) {
+        let map_input;
+
+        
+        // list_raiser(fundraiser_list);
 
         if (checkbox.checked) {
 
@@ -175,40 +187,58 @@ checkboxes.forEach(function (checkbox) {
             let convert_array = Array.from(checkboxes);
 
             let checked_input = convert_array.filter(i => i.checked);
-            console.log(checked_input)
 
-            let map_input = checked_input.map(i => i.value);
-            console.log(map_input)
-
+            map_input = checked_input.map(i => i.value);
 
 
             map_input.forEach(item => {
 
-
-
                 fundraiser_list.filter(function (obj) {
 
 
-                    let sports_type = obj.sports_type.toLowerCase();
-
-
+                    sports_type = obj.sports_type.toLowerCase();
 
                     if (item === sports_type) {
-
                         filter_array.push(obj);
 
                         list_raiser(filter_array);
 
 
                     }
+                    // else if(item === null){
+                    //     list_raiser(fundraiser_list)
+                    // }
+
 
                 });
 
 
             });
         }
-        else {
-            list_raiser(fundraiser_list);
+        else{
+            // console.log(e.target.value)
+            
+            if(filter_array ==null){
+                
+          list_raiser(fundraiser_list)
+
+                
+            }
+            else{
+
+                      let uncheck;
+                filter_array.find((el)=>{
+                    if(el["sports_type"]==e.target.value){
+                        return uncheck=el
+                    }
+                })
+                let curr=filter_array.indexOf(uncheck)
+                filter_array.splice(curr,1)
+                console.log(filter_array)
+                list_raiser(filter_array)
+                // list_raiser(fundraiser_list);
+                console.log(filter_array)
+            }
 
         }
 
@@ -221,8 +251,44 @@ checkboxes.forEach(function (checkbox) {
 });
 
 
-list_raiser(fundraiser_list);
 
+
+
+
+// let total_div = document.querySelectorAll(".card");
+// console.log(total_div);
+
+// // if (checkboxes.checked) {
+
+// checkboxes.forEach(e => {
+
+//     e.addEventListener("click", (check) => {
+
+//         console.log(check.value);
+
+
+//         fundraiser_list.filter(function (obj) {
+
+
+//             let sports_type = obj.sports_type.toLowerCase();
+
+//             if (check.value === sports_type) {
+
+
+
+
+
+//             }
+
+//         });
+
+//     })
+
+// })
+
+
+
+// }
 
 
 let total_array = [];

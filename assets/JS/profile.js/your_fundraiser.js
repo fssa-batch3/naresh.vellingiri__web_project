@@ -67,7 +67,7 @@ function show_list() {
 
         const card_main_div = document.createElement("div")
         card_main_div.setAttribute("class", "card_main_div")
-        card_main_div.style.border = "2px solid black"
+        // card_main_div.style.border = "2px solid black"
         detailsFundRaiserFlex.append(card_main_div)
 
         // const card_anchor = document.createElement("a")
@@ -106,7 +106,7 @@ function show_list() {
         let number = Number(item.total_raised_value);
         let minimum_amount = Number(item.minimum_amount);
 
-        let dived_value = minimum_amount / number;
+        let dived_value = number / minimum_amount;
 
         // console.log( number)
 
@@ -187,14 +187,15 @@ ${(minimum_amount).toLocaleString('en-IN', {
         card_main_div.append(card)
 
         const btn = document.createElement("button")
+        btn.setAttribute("class", "edit_btn_form_creation_fundraiser")
         btn.setAttribute("id", "edit_btn_form_creation_fundraiser")
         btn.setAttribute("onclick", `editemerginplayer(${item.emerging_player_id})`)
         btn.innerText = "Edit"
         card_main_div.append(btn)
 
         const delete_btn = document.createElement("button")
-        delete_btn.setAttribute("class","edit_btn_form_creation_fundraiser")
-        delete_btn.setAttribute("id", "edit_btn_form_creation_fundraiser")
+        delete_btn.setAttribute("class","delete_btn_form_creation_fundraiser")
+        delete_btn.setAttribute("id", "delete_btn_form_creation_fundraiser")
         delete_btn.setAttribute("onclick", `deleteemerplayer(${item.emerging_player_id})`)
         delete_btn.innerText = "Delete"
         card_main_div.append(delete_btn)
