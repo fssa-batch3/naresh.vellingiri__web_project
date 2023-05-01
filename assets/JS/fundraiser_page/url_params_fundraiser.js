@@ -393,6 +393,8 @@ send_btn.addEventListener("click", e => {
   })}</b>`
   
 
+  swal("hi")
+
 })
 
 fundraiser_list.find(function(obj){
