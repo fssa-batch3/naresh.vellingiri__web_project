@@ -393,7 +393,7 @@ send_btn.addEventListener("click", e => {
     })}</b>`
     
   
-    swal("hi")
+    swal("Thanks for your donation")
   }
  
 
