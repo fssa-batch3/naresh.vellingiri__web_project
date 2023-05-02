@@ -1,5 +1,7 @@
 let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list"));
 
+console.log(fundraiser_list);
+
 let array = JSON.parse(localStorage.getItem("array"))
 console.log(array)
 
@@ -95,10 +97,19 @@ fundraiser_list.find(function (obj) {
     aboutHeading.innerHTML = "About The Fundraisers";
     aboutContentDiv.appendChild(aboutHeading);
 
+
+
+
     const aboutPara = document.createElement("p");
     aboutPara.id = "aboutpara";
     aboutPara.innerHTML = "Hi this is naresh";
     aboutContentDiv.appendChild(aboutPara);
+
+    let update_button = document.createElement("button")
+    update_button.class = "update_button"
+    update_button.id="update_button"
+    update_button.innerText="Ask for update"
+    aboutContentDiv.appendChild(update_button)
 
     leftContainer.appendChild(aboutContentDiv);
 

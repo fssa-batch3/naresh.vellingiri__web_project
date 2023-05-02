@@ -118,7 +118,7 @@ function list_raiser(array) {
 
         const daysLeft = document.createElement('p');
         const daysLeftSpan = document.createElement('span');
-        daysLeftSpan.textContent = '20';
+        daysLeftSpan.textContent = Math.floor(Math.random() * 100);
         daysLeft.appendChild(daysLeftSpan);
         daysLeft.appendChild(document.createTextNode(' Days left'));
         supportsLastDateOfFund.appendChild(daysLeft);
@@ -172,11 +172,11 @@ console.log(checkboxes);
 
 list_raiser(fundraiser_list);
 
-checkboxes.forEach(function (checkbox) {
+checkboxes.forEach((checkbox, index) => {
     checkbox.addEventListener('click', function (e) {
         let map_input;
 
-        
+
         // list_raiser(fundraiser_list);
 
         if (checkbox.checked) {
@@ -190,8 +190,8 @@ checkboxes.forEach(function (checkbox) {
 
             map_input = checked_input.map(i => i.value);
 
-
             map_input.forEach(item => {
+
 
                 fundraiser_list.filter(function (obj) {
 
@@ -203,42 +203,41 @@ checkboxes.forEach(function (checkbox) {
 
                         list_raiser(filter_array);
 
-
                     }
-                    // else if(item === null){
-                    //     list_raiser(fundraiser_list)
-                    // }
-
 
                 });
 
 
             });
+
+
         }
-        else{
-            // console.log(e.target.value)
-            
-            if(filter_array ==null){
-                
-          list_raiser(fundraiser_list)
-
-                
+        else {
+            if (filter_array == null) {
+                list_raiser(fundraiser_list)
             }
-            else{
+            else {
 
-                      let uncheck;
-                filter_array.find((el)=>{
-                    if(el["sports_type"]==e.target.value){
-                        return uncheck=el
+                let uncheck;
+                filter_array.find((el) => {
+                    if (el["sports_type"] == e.target.value) {
+                        return uncheck = el
                     }
                 })
-                let curr=filter_array.indexOf(uncheck)
-                filter_array.splice(curr,1)
-                console.log(filter_array)
-                list_raiser(filter_array)
-                // list_raiser(fundraiser_list);
-                console.log(filter_array)
+                let curr = filter_array.indexOf(uncheck)
+                filter_array.splice(curr, 1)
+                if (filter_array.length > 0) {
+                    list_raiser(filter_array)
+                }
+                else {
+                    // location.reload()
+                    list_raiser(fundraiser_list)
+
+                }
+
+
             }
+
 
         }
 
@@ -251,44 +250,6 @@ checkboxes.forEach(function (checkbox) {
 });
 
 
-
-
-
-
-// let total_div = document.querySelectorAll(".card");
-// console.log(total_div);
-
-// // if (checkboxes.checked) {
-
-// checkboxes.forEach(e => {
-
-//     e.addEventListener("click", (check) => {
-
-//         console.log(check.value);
-
-
-//         fundraiser_list.filter(function (obj) {
-
-
-//             let sports_type = obj.sports_type.toLowerCase();
-
-//             if (check.value === sports_type) {
-
-
-
-
-
-//             }
-
-//         });
-
-//     })
-
-// })
-
-
-
-// }
 
 
 let total_array = [];

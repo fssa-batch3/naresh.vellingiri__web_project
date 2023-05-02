@@ -39,11 +39,15 @@ table tbody td {
 
 
 tr  img {
-    width: 200px;
+    width: 100px;
     height: 100px;
     margin-right: .5rem;
+    position: relative;
+    left: 50px;
     margin: 20px;
     vertical-align: middle;
+    border-radius: 10px;
+
 }
 
 table,

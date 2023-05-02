@@ -71,7 +71,7 @@ for (let i = 0; i < donar_list_array.length; i++) {
 
     let pro_email_name_td = document.createElement("td");
     let pro_email_name_p = document.createElement("p");
-    pro_email_name_p.innerText = donated_fundraiser_user[i]["sports_type"];
+    pro_email_name_p.innerText = donated_fundraiser_user[i]["raiser_user_id"];
     pro_email_name_td.append(pro_email_name_p);
     table_tr.appendChild(pro_email_name_td);
 
