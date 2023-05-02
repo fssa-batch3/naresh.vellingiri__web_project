@@ -3,6 +3,8 @@ if(JSON.parse(localStorage.getItem("fundraiser_list"))){
 }
 else{
 
+    let fundraiser_list=
+
     [
 
         {"emerging_player_id":0,
