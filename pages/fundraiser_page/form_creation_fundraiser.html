@@ -103,29 +103,35 @@
 
 
         <form id="raise_fund">
+
             <h3 class="text-center">Raise your funds for future players</h3>
+
 
             <div class="form-group">
 
+
                 <label for=""></label>
+                <small id="" class="form-text text-muted">You have to raise minimum Rs.2000.</small>
+
 
                 <input type="text" class="form-control" id="minimum_amount"
                     placeholder="How much do you want to raise fund ?..." pattern="[0-9]{4,10}" required
                     title="You can raise minimum Rs.2000" minlength="4" maxlength="10">
-                <small id="" class="form-text text-muted">You have to raise minimum Rs.2000.</small>
 
             </div>
 
             <div class="form-group center">
 
+
                 <label for=""></label>
+                <small id="" class="form-text text-muted">Tell about who needs this fund.</small>
 
                 <div class="input-group">
                     <div class="input-group-append">
                         <select name="" id="selected_option">
                             <option value="myself">Myself</option>
-                            <option value="student">Student</option>
-                            <option value="Professional">Professional</option>
+                            <option value="student">Friend</option>
+                            <option value="Professional">Relative</option>
                             <option value="Others">others</option>
 
                         </select>
@@ -133,12 +139,14 @@
                     </div>
 
                 </div>
-                <small id="" class="form-text text-muted">Tell about who needs this fund.</small>
 
             </div>
 
 
+
             <div class="input-group">
+                <small id="" class="form-text text-muted">Enter your Educational qualification</small>
+
                 <div class="input-group-append">
                     <select name="" id="selected_option1">
                         <option value="tenth">10th</option>
@@ -150,89 +158,113 @@
                 </div>
 
             </div>
-            <small id="" class="form-text text-muted">Enter your Educational qualification</small>
-
 
 
             <div class="form-group">
 
                 <label for=""></label>
-
-                <input type="text" class="form-control" id="Employment_status" placeholder="Employment status..."
-                    title="dfghfg" required>
                 <small id="" class="form-text text-muted">Current work</small>
 
+
+                <input type="text" class="form-control" id="Employment_status" placeholder="Employment status..."
+                    title="" required>
+
+            </div>
+            <div class="input-group">
+
+                <small id="" class="form-text text-muted">Enter Your sports type</small>
+
+                <div class="input-group-append">
+                    <select name="" id="selected_option_sports_type">
+                        <option value="Football">Football</option>
+                        <option value="Cricket">Cricket</option>
+                        <option value="Kabadi">Kabadi</option>
+                        <option value="Volley">Volley</option>
+                        <option value="Badminton">Badminton</option>
+                        <option value="Others">Others</option>
+
+                    </select>
+
+                </div>
+
+
             </div>
             <div class="form-group">
 
-                <label for=""></label>
-
-                <input type="text" class="form-control" id="sports_type" placeholder=" Sports Type..." required>
-                <small id="" class="form-text text-muted">Enter your sports type</small>
-
-            </div>
-            <div class="form-group">
 
                 <label for=""></label>
+                <small id="" class="form-text text-muted">Enter Your City Name</small>
+
 
                 <input type="text" class="form-control" id="city_name" placeholder="City" required>
-                <small id="" class="form-text text-muted">Enter Your City Name</small>
 
             </div>
             <!-- --------------------------------------------------PLAYER DETAILS------------------------------------------------------------- -->
 
             <div class="form-group">
 
+
                 <label for=""></label>
+                <small id="" class="form-text text-muted">Enter player Name</small>
 
                 <input type="text" class="form-control" id="player_name" required>
-                <small id="" class="form-text text-muted">Enter player Name</small>
 
             </div>
 
             <div class="form-group ">
 
-                <label for=""></label>
 
-                <input type="number" class="form-control" id="player_age" required>
+                <label for=""></label>
                 <small id="" class="form-text text-muted">Enter player Age</small>
 
+
+                <input type="number" class="form-control" id="player_age" required>
+
             </div>
 
 
             <div class="form-group">
 
-                <label for=""></label>
 
-                <input type="url" class="form-control" id="player_image_url" required>
+                <label for=""></label>
                 <small id="" class="form-text text-muted">Enter player image url</small>
 
+
+                <input type="url" class="form-control" id="player_image_url" required>
+
             </div>
             <div class="form-group">
 
-                <label for=""></label>
 
-                <input type="text" class="form-control" id="player_title" required>
+                <label for=""></label>
                 <small id="" class="form-text text-muted">Enter player title</small>
 
+
+                <input type="text" class="form-control" id="player_title" required>
+
             </div>
             <div class="form-group">
 
-                <label for=""></label>
 
-                <input type="date" class="form-control" id="days_left" required>
+                <label for=""></label>
                 <small id="" class="form-text text-muted">Minimum days to get the amount you need.</small>
 
+
+                <input type="date" class="form-control" id="days_left" required>
+
             </div>
 
             <div class="form-group">
 
+
                 <label for=""></label>
+                <small id="" class="form-text text-muted">Add Bio</small>
+
 
                 <input type="text" class="form-control" id="Add_bio">
-                <small id="" class="form-text text-muted">bio...</small>
 
             </div>
+
 
             <p class="btn btn-primary text-center" id="Add_certificates">+ Certificates</p> 
 

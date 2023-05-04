@@ -35,6 +35,22 @@ let fundraiser_list = fundraiser.filter(function (obj) {
 
 
 
+function days_calculation(new_date,current_date){
+    current_date = new Date();
+
+ let next_date = new Date(new_date);
+   
+   diff = Math.abs(((next_date.getTime()))-(current_date.getTime()))
+   d=(diff/(1000*3600*24).toFixed(2))
+   let a =d.toFixed(0)
+
+   return a
+}
+
+days_calculation("05/20/2023")
+
+
+
 
 let detail_fund_raisers = document.getElementById("detail_fund_raisers")
 let detail_fund_raisers_flex = document.getElementById("detail_fund_raisers_flex")
@@ -56,7 +72,6 @@ function show_list() {
         }
     })
 
-    console.log(fundraiser_list_one);
 
     fundraiser_list_one.forEach((item, index) => {
 
@@ -106,7 +121,10 @@ function show_list() {
         let number = Number(item.total_raised_value);
         let minimum_amount = Number(item.minimum_amount);
 
-        let dived_value = number / minimum_amount;
+        let dived_value = (number/minimum_amount)*100;
+
+
+
 
         // console.log( number)
 
@@ -158,11 +176,14 @@ ${(minimum_amount).toLocaleString('en-IN', {
 
         const p2 = document.createElement('p');
 
+        let total_days_left=days_calculation(item.days_left)
 
         const span1 = document.createElement('span');
-        span1.textContent = '20';
+        span1.textContent = total_days_left;
         p2.appendChild(span1);
         p2.innerHTML += ' Days left';
+
+        localStorage.setItem("date",total_days_left)
 
 
         const p3 = document.createElement('p');
@@ -226,13 +247,11 @@ ${(minimum_amount).toLocaleString('en-IN', {
 
             donar_list.forEach((item) => {
 
-                console.log(item)
                 array.find(function (arr_data) {
 
 
                     if (arr_data.user_id == item.user_id) {
 
-                        console.log(arr_data);
 
                         const main = document.createElement('div');
                         main.className = 'main';
@@ -365,10 +384,15 @@ function editemerginplayer(id) {
 
             minimum_amount.value = copy_player.minimum_amount;
             days_left.value = copy_player.days_left;
-            show_bio.value = copy_player.player_title;
+            show_bio.value = copy_player.update_bio;
 
 
-            displaycer();
+
+            console.log( minimum_amount.value);
+            console.log(days_left.value);
+            console.log(show_bio.value);
+
+            displaycer();  //question to ask
 
 
         }
@@ -477,7 +501,7 @@ raise_fund.addEventListener("submit", function (e) {
 
             obj.minimum_amount = get_amount;
             obj.days_left = get_days;
-            obj.player_title = get_bio;
+            obj.update_bio = get_bio;
 
             obj.certificate_arr = get_copy.certificate_arr;
 
@@ -485,7 +509,7 @@ raise_fund.addEventListener("submit", function (e) {
 
             localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
 
-            detail_fund_raisers.innerHTML = ""
+            // detail_fund_raisers.innerHTML = ""
 
             cer_append_div.innerHTML = "";
 
@@ -493,7 +517,7 @@ raise_fund.addEventListener("submit", function (e) {
 
             localStorage.removeItem("copy_player");
 
-            show_list();
+            show_list();  //question to ask
         }
     })
 

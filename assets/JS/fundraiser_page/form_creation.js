@@ -35,9 +35,9 @@ let certificate_list = JSON.parse(localStorage.getItem("certificate_list")) ?? [
 
 let minimum_amount = document.getElementById("minimum_amount");
 let selected_option = document.getElementById("selected_option");
-let selected_option1 = document.getElementById("selected_option1")
+let selected_option1 = document.getElementById("selected_option1");
 let Employment_status = document.getElementById("Employment_status");
-let sports_type = document.getElementById("sports_type");
+let sports_type = document.getElementById("selected_option_sports_type");
 let city_name = document.getElementById("city_name");
 
 // -------------------------------------inputs for next_button_2--------------------------------------------------------------------
@@ -48,10 +48,9 @@ let player_image_url = document.getElementById("player_image_url");
 let player_title = document.getElementById("player_title");
 let days_left = document.getElementById("days_left");
 
+let update_bio = document.getElementById("Add_bio")
+
 // -------------------------------------inputs for certificates--------------------------------------------------------------------
-
-
-
 
 
 // function for next button
@@ -180,7 +179,7 @@ raise_fund.addEventListener("submit", e => {
         "selected_option": selected_option.value,
         "selected_option1": selected_option1.value,
         "Employment_status": Employment_status.value.trim(),
-        "sports_type": sports_type.value.trim(),
+        "sports_type":sports_type.value.trim(),
         "city_name": city_name.value.trim(),
         "player_name": player_name.value.trim(),
         "player_age": player_age.value.trim(),
@@ -188,7 +187,8 @@ raise_fund.addEventListener("submit", e => {
         "player_title": player_title.value.trim(),
         "days_left": days_left.value.trim(),
         "total_raised_value":0,
-        "certificate_arr": certificate_list
+        "certificate_arr": certificate_list,
+        "update_bio": update_bio.value
 
     }
 

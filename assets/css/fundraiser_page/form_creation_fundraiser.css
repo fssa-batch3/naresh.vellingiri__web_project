@@ -27,6 +27,14 @@
     width: 100px;
 
 }
+
+.text-muted{
+    position: relative;
+    /* top: 5px; */
+    font-weight: bold;
+    color: #2c2b2b;
+
+}
 #add_certificates{
     width: 200px;
     margin-right: 240px;
@@ -42,8 +50,21 @@ input::placeholder{
 }
 
 select{
-    border: 1px solid rgb(137, 130, 130);
+    display: block;
+    width: 530px;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
 
 #certificate_whole_div{
     display: none;
@@ -73,7 +94,7 @@ select{
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
-    border: 1px solid red;
+    border: 1px solid rgb(122, 118, 118);
 }
 
 .container .display_cer_list .cer_item{

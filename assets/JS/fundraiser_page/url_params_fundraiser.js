@@ -14,11 +14,25 @@ const urlparams = new URLSearchParams(url);
 const emer_id = urlparams.get("emer_id");
 
 
+function days_calculation(new_date,current_date){
+  current_date = new Date();
+
+let next_date = new Date(new_date);
+ 
+ diff = Math.abs(((next_date.getTime()))-(current_date.getTime()))
+ d=(diff/(1000*3600*24).toFixed(2))
+ let a =d.toFixed(0)
+
+ return a
+}
+
+days_calculation("05/20/2023")
+
+
 let get_obj;
 
 fundraiser_list.find(function (obj) {
 
-  let number = Number(obj.minimum_amount);
 
 
   if (obj["emerging_player_id"] == emer_id) {
@@ -102,14 +116,14 @@ fundraiser_list.find(function (obj) {
 
     const aboutPara = document.createElement("p");
     aboutPara.id = "aboutpara";
-    aboutPara.innerHTML = "Hi this is naresh";
+    aboutPara.innerHTML =obj.update_bio;
     aboutContentDiv.appendChild(aboutPara);
 
-    let update_button = document.createElement("button")
-    update_button.class = "update_button"
-    update_button.id="update_button"
-    update_button.innerText="Ask for update"
-    aboutContentDiv.appendChild(update_button)
+    // let update_button = document.createElement("button")
+    // update_button.class = "update_button"
+    // update_button.id="update_button"
+    // update_button.innerText="Ask for update"
+    // aboutContentDiv.appendChild(update_button)
 
     leftContainer.appendChild(aboutContentDiv);
 
@@ -167,6 +181,11 @@ fundraiser_list.find(function (obj) {
     main_container.appendChild(leftContainer)
 
 
+    let number = Number(obj.minimum_amount);
+    let total_raised_value=Number(obj.total_raised_value);
+
+    let divided_value = (total_raised_value/number)*100
+
 
     // ---------------------------------right container-------------------------
     // create a div element with class 'right_container'
@@ -218,6 +237,7 @@ fundraiser_list.find(function (obj) {
 
     rightContainer.appendChild(shareDiv);
 
+
     // create a h3 element with id 'amt' and a p element with text content
     const amtHeading = document.createElement('h3');
     amtHeading.setAttribute('id', 'amt');
@@ -257,7 +277,7 @@ fundraiser_list.find(function (obj) {
 
     const progressBar = document.createElement('div');
     progressBar.classList.add('progress-bar');
-    progressBar.style.width = '20%';
+    progressBar.style.width = divided_value+"%";
     progressBar.style.backgroundColor = '#039b9a';
 
 
@@ -279,7 +299,7 @@ fundraiser_list.find(function (obj) {
     supportersDiv.appendChild(supporters1Text)
 
     const daysLeftText = document.createElement('p');
-    daysLeftText.textContent = '40 days left';
+    daysLeftText.textContent = days_calculation(obj.days_left)+" days left";
     supportersDiv.appendChild(daysLeftText);
 
     supporterBarDiv.appendChild(supportersDiv);

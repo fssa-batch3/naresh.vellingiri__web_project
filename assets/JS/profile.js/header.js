@@ -44,6 +44,5 @@ else{
     login.style.display="block"
 }
 
-console.log(("1"));
 
 

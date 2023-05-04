@@ -7,16 +7,33 @@ let array = []
 
 
 
+function days_calculation(new_date,current_date){
+    current_date = new Date();
+
+ let next_date = new Date(new_date);
+   
+   diff = Math.abs(((next_date.getTime()))-(current_date.getTime()))
+   d=(diff/(1000*3600*24).toFixed(2))
+   let a =d.toFixed(0)
+   console.log(a);
+
+   return a
+}
+
+days_calculation(fundraiser_list[3]["days_left"]);
+
+
+
+
+
+
+
 
 function list_raiser(array) {
 
     document.querySelector(".details-fund-raiser").innerHTML = "";
 
     array.forEach((item) => {
-
-        let number = Number(item.minimum_amount);
-        let total_raised_amount = Number(item.total_raised_value);
-
 
 
         // create the main container element   
@@ -66,6 +83,11 @@ function list_raiser(array) {
 
         fundRs.appendChild(fundIcon);
 
+        // function for minimum raised value calculation
+        let number = Number(item.minimum_amount);
+        let total_raised_amount = Number(item.total_raised_value);
+        let divided_value= (total_raised_amount/number)*100
+
         const fundAmount = document.createElement('span');
         fundAmount.innerHTML = fundAmount.innerHTML + `<b style="color:#8a8a92";> 
            ${total_raised_amount.toLocaleString('en-IN', {
@@ -103,8 +125,11 @@ function list_raiser(array) {
         const rangeDiv = document.createElement('div');
         rangeDiv.classList.add('range');
 
+
+
         const rangeValue = document.createElement('div');
         rangeValue.classList.add('range_value');
+        rangeValue.style.width=divided_value+"%"
         rangeDiv.appendChild(rangeValue);
 
         // create the last donation date element
@@ -116,9 +141,11 @@ function list_raiser(array) {
         const supportsLastDateOfFund = document.createElement('div');
         supportsLastDateOfFund.classList.add('supports-last-date-of-fund');
 
+      
+
         const daysLeft = document.createElement('p');
         const daysLeftSpan = document.createElement('span');
-        daysLeftSpan.textContent = Math.floor(Math.random() * 100);
+        daysLeftSpan.textContent = days_calculation(item.days_left);
         daysLeft.appendChild(daysLeftSpan);
         daysLeft.appendChild(document.createTextNode(' Days left'));
         supportsLastDateOfFund.appendChild(daysLeft);
@@ -168,12 +195,14 @@ let data;
 
 
 let checkboxes = document.querySelectorAll("input[type=checkbox][name=filter_by_cat]");
-console.log(checkboxes);
 
 list_raiser(fundraiser_list);
 
 checkboxes.forEach((checkbox, index) => {
     checkbox.addEventListener('click', function (e) {
+
+        console.log(e.target);
+
         let map_input;
 
 
