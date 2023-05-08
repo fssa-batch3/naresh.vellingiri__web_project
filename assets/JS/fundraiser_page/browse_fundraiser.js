@@ -20,7 +20,7 @@ function days_calculation(new_date,current_date){
    return a
 }
 
-days_calculation(fundraiser_list[3]["days_left"]);
+// days_calculation(fundraiser_list[3]["days_left"]);
 
 
 

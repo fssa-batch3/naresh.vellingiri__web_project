@@ -171,6 +171,8 @@ function deletecer(index) {
 raise_fund.addEventListener("submit", e => {
     e.preventDefault()
 
+
+
     let fundraiser_form = {
 
         "emerging_player_id": fundraiser_list.length,
@@ -196,7 +198,21 @@ raise_fund.addEventListener("submit", e => {
 
     localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
 
-    location.reload();
+    
+
+    Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "nareshfreshworks@gmail.com",
+        Password : "FE0DC2C5150B25AA5C7CE8D41EB366B451DB",
+        To : 'nareshdev03@gmail.com',
+        From : "nareshfreshworks@gmail.com",
+        Subject : "sucess",
+        Body : "Its working"
+    }).then(
+      message => alert(message)
+    );    
+
+    // location.reload();
 
 });
 

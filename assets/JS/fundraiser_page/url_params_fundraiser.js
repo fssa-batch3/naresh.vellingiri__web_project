@@ -1,11 +1,12 @@
 let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list"));
 
-console.log(fundraiser_list);
+// console.log(fundraiser_list);
 
 let array = JSON.parse(localStorage.getItem("array"))
-console.log(array)
+// console.log(array)
 
 let login_status = JSON.parse(localStorage.getItem("login_status"))
+console.log(login_status[0]["login_email"])
 
 let user_id = login_status[0]["user_id"]
 
@@ -38,6 +39,7 @@ fundraiser_list.find(function (obj) {
   if (obj["emerging_player_id"] == emer_id) {
 
 
+
     const headline = document.createElement("h1");
     headline.textContent = obj.player_title;
     headline.id = "headline";
@@ -65,11 +67,11 @@ fundraiser_list.find(function (obj) {
 
     // Create share button
     const shareBtn = document.createElement("button");
-    shareBtn.id = "share";
+    shareBtn.id = "ask_for_update";
     const shareIcon = document.createElement("i");
     shareIcon.classList.add("fa", "fa-share-alt");
     shareBtn.appendChild(shareIcon);
-    shareBtn.innerHTML += " Share This Fundraisers";
+    shareBtn.innerHTML += "Ask for update";
     leftContainer.appendChild(shareBtn);
 
     // Create details div
@@ -181,10 +183,10 @@ fundraiser_list.find(function (obj) {
     main_container.appendChild(leftContainer)
 
 
+
     let number = Number(obj.minimum_amount);
     let total_raised_value=Number(obj.total_raised_value);
-
-    let divided_value = (total_raised_value/number)*100
+  
 
 
     // ---------------------------------right container-------------------------
@@ -274,11 +276,12 @@ fundraiser_list.find(function (obj) {
 
     const progressBarDiv = document.createElement('div');
     progressBarDiv.classList.add('progress');
+    progressBarDiv.style.backgroundColor="rgba(1,191,189,.3)"
 
     const progressBar = document.createElement('div');
     progressBar.classList.add('progress-bar');
-    progressBar.style.width = divided_value+"%";
-    progressBar.style.backgroundColor = '#039b9a';
+    // progressBar.style.width += divided_value+"%";
+    // progressBar.style.backgroundColor = '#01bfbd';
 
 
     const progressBarSpan = document.createElement('span');
@@ -339,6 +342,29 @@ fundraiser_list.find(function (obj) {
   }
 
 })
+
+function amount_calc(){
+  console.log(get_obj,"uyf");
+
+
+  let number = Number(get_obj.minimum_amount);
+  let total_raised_value=Number(get_obj.total_raised_value);
+  
+  let divided_value = (total_raised_value/number)*100
+
+
+  let progressBar = document.querySelector(".progress-bar")
+  progressBar.style.width = `${divided_value}%`;
+  progressBar.style.backgroundColor = '#01bfbd';
+  console.log(progressBar,"lll");
+
+  console.log(divided_value,"pppp");
+
+}
+
+ amount_calc()
+
+
 
 
 //--------------------------------- function for add certificate button----------------------------------------
@@ -424,7 +450,11 @@ send_btn.addEventListener("click", e => {
     })}</b>`
     
   
+    amount_calc()
+
+
     swal("Thanks for your donation")
+
   }
  
 
@@ -448,6 +478,45 @@ fundraiser_list.find(function(obj){
   }
 })
 
+
+console.log(get_obj["raiser_user_id"])
+
+let mail_details;
+
+array.find(function (obj){
+  if(obj.user_id==get_obj["raiser_user_id"]){
+    console.log("1")
+
+    mail_details=obj
+
+  }
+})
+
+
+
+console.log(mail_details["email"])
+
+// console.log(login_status["login_email"]);
+
+let ask_for_update = document.getElementById("ask_for_update")
+
+ask_for_update.addEventListener("click",e=>{
+
+  Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "nareshfreshworks@gmail.com",
+    Password : "FE0DC2C5150B25AA5C7CE8D41EB366B451DB",
+    To : mail_details["email"],
+    From : "nareshfreshworks@gmail.com",
+    Subject : "sucess",
+    Body :`you are requested for your update from ${login_status[0]["login_email"]}.<br>
+             Thank you.`
+  }).then(
+  message => swal("Your request has been sent")
+  );  })
+
+
+ 
 
 
 

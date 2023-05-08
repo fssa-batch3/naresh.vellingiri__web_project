@@ -495,7 +495,7 @@ raise_fund.addEventListener("submit", function (e) {
     let get_bio = show_bio.value;
 
 
-    fundraiser_list.find(function (obj) {
+    fundraiser.find(function (obj) {
 
         if (obj.emerging_player_id == get_copy.emerging_player_id) {
 
@@ -507,7 +507,7 @@ raise_fund.addEventListener("submit", function (e) {
 
             alert("updated");
 
-            localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
+            localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser));
 
             // detail_fund_raisers.innerHTML = ""
 
@@ -517,7 +517,7 @@ raise_fund.addEventListener("submit", function (e) {
 
             localStorage.removeItem("copy_player");
 
-            show_list();  //question to ask
+            // show_list();  //question to ask
         }
     })
 
