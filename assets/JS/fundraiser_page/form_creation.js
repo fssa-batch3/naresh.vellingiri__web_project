@@ -190,7 +190,8 @@ raise_fund.addEventListener("submit", e => {
         "days_left": days_left.value.trim(),
         "total_raised_value":0,
         "certificate_arr": certificate_list,
-        "update_bio": update_bio.value
+        "update_bio": update_bio.value,
+        "status":false
 
     }
 

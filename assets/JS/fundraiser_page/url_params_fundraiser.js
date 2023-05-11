@@ -344,7 +344,6 @@ fundraiser_list.find(function (obj) {
 })
 
 function amount_calc(){
-  console.log(get_obj,"uyf");
 
 
   let number = Number(get_obj.minimum_amount);
@@ -356,9 +355,7 @@ function amount_calc(){
   let progressBar = document.querySelector(".progress-bar")
   progressBar.style.width = `${divided_value}%`;
   progressBar.style.backgroundColor = '#01bfbd';
-  console.log(progressBar,"lll");
 
-  console.log(divided_value,"pppp");
 
 }
 
@@ -491,6 +488,8 @@ array.find(function (obj){
 
   }
 })
+
+console.log(mail_details)
 
 
 

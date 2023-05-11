@@ -7,17 +7,17 @@ let array = []
 
 
 
-function days_calculation(new_date,current_date){
+function days_calculation(new_date, current_date) {
     current_date = new Date();
 
- let next_date = new Date(new_date);
-   
-   diff = Math.abs(((next_date.getTime()))-(current_date.getTime()))
-   d=(diff/(1000*3600*24).toFixed(2))
-   let a =d.toFixed(0)
-   console.log(a);
+    let next_date = new Date(new_date);
 
-   return a
+    diff = Math.abs(((next_date.getTime())) - (current_date.getTime()))
+    d = (diff / (1000 * 3600 * 24).toFixed(2))
+    let a = d.toFixed(0)
+    console.log(a);
+
+    return a
 }
 
 // days_calculation(fundraiser_list[3]["days_left"]);
@@ -34,6 +34,8 @@ function list_raiser(array) {
     document.querySelector(".details-fund-raiser").innerHTML = "";
 
     array.forEach((item) => {
+
+        if(item.status==true){
 
 
         // create the main container element   
@@ -86,7 +88,7 @@ function list_raiser(array) {
         // function for minimum raised value calculation
         let number = Number(item.minimum_amount);
         let total_raised_amount = Number(item.total_raised_value);
-        let divided_value= (total_raised_amount/number)*100
+        let divided_value = (total_raised_amount / number) * 100
 
         const fundAmount = document.createElement('span');
         fundAmount.innerHTML = fundAmount.innerHTML + `<b style="color:#8a8a92";> 
@@ -129,19 +131,19 @@ function list_raiser(array) {
 
         const rangeValue = document.createElement('div');
         rangeValue.classList.add('range_value');
-        rangeValue.style.width=divided_value+"%"
+        rangeValue.style.width = divided_value + "%"
         rangeDiv.appendChild(rangeValue);
 
         // create the last donation date element
         const lastDateOfFund = document.createElement('p');
-        lastDateOfFund.textContent = 'Last Donation 10 days ago';
+        lastDateOfFund.textContent = `Last Donation ${Math.floor(Math.random() * 99)} days ago`;
         lastDateOfFund.classList.add('last-date-of-fund');
 
         // create the supporters and days left element
         const supportsLastDateOfFund = document.createElement('div');
         supportsLastDateOfFund.classList.add('supports-last-date-of-fund');
 
-      
+
 
         const daysLeft = document.createElement('p');
         const daysLeftSpan = document.createElement('span');
@@ -152,7 +154,7 @@ function list_raiser(array) {
 
         const supporters = document.createElement('p');
         const supportersSpan = document.createElement('span');
-        supportersSpan.textContent = '112';
+        supportersSpan.textContent = Math.floor(Math.random() * 99);
         supporters.appendChild(supportersSpan);
         supporters.appendChild(document.createTextNode(' Supporters'));
         supportsLastDateOfFund.appendChild(supporters);
@@ -180,6 +182,9 @@ function list_raiser(array) {
         // add the main container element to the document body
         detail_fund_raisers.appendChild(cardAnchor)
 
+
+
+        }
 
     });
 
@@ -294,23 +299,33 @@ searchBar.addEventListener("input", (e) => {
 
     if ((filter_array.length) === 0) {
 
-        total_array = fundraiser_list.filter((item) => {
-            return item.player_name.toLowerCase().includes(searchQuery)
-        });
-
-        list_raiser(total_array);
+        james(searchQuery);
     }
 
     else if ((filter_array.length) > 0) {
 
-        after_checked_arr = filter_array.filter((item) => {
-            return item.player_name.toLowerCase().includes(searchQuery)
-        })
-
-        list_raiser(after_checked_arr);;
+        bond(searchQuery);
     }
 
 
 });
 
+function james() {
+
+    total_array = fundraiser_list.filter((item) => {
+        return item.player_name.toLowerCase().includes(searchQuery)
+    });
+
+    list_raiser(total_array);
+}
+
+function bond() {
+
+
+    after_checked_arr = filter_array.filter((item) => {
+        return item.player_name.toLowerCase().includes(searchQuery)
+    })
+
+    list_raiser(after_checked_arr);;
+}
 
