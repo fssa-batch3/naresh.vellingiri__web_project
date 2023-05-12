@@ -575,4 +575,5 @@ show_list();
 //        localStorage.setItem("fundraiser_list",JSON.stringify(fund))
         
 //     })
-// }
+// }npm install --save-dev eslint
+// Eslint installation commands:
