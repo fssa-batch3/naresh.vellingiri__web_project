@@ -15,11 +15,12 @@
     <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="side-header">
-            <h3>S<span>2R</span></h3>
+            <h3>
+S<span>2R</span>
+</h3>
         </div>
 
         <div class="side-content">
-
 
             <div class="side-menu">
                 <ul>
@@ -36,7 +37,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../players/districts.html" >
+                        <a href="../players/districts.html">
                             <span class="las la-envelope"></span>
                             <small>DISTRICTS</small>
                         </a>
@@ -98,33 +99,27 @@
             </div>
         </header>
 
-
         <main>
 
             <div class="page-header">
                 <h1>Sponser_list</h1>
             </div>
 
-
             <div class="page_content">
 
             </div>
-
 
         </main>
     </div>
 
     <script>
+const check = JSON.parse(localStorage.getItem("sponsers"))
 
-let check = JSON.parse(localStorage.getItem("sponsers"))
-
-
-let main= document.getElementsByTagName("main")[0]
-let page_content= document.getElementsByClassName("page_content")[0]
+const main= document.getElementsByTagName("main")[0]
+const page_content= document.getElementsByClassName("page_content")[0]
 console.log(page_content)
 
 for (let i = 0; i < check.length; i++) {
-    
 
         // create the card element
         const card = document.createElement("div");
@@ -146,13 +141,11 @@ for (let i = 0; i < check.length; i++) {
         const nameDiv = document.createElement("div");
         nameDiv.classList.add("name");
 
-
         const nameH2 = document.createElement("h2");
-        nameH2.textContent = check[i]["name"];
+        nameH2.textContent = check[i].name;
 
         const nameH4 = document.createElement("h4");
         nameH4.textContent = "@dharun";
-
 
         nameDiv.appendChild(nameH2);
         nameDiv.appendChild(nameH4);
@@ -223,6 +216,5 @@ for (let i = 0; i < check.length; i++) {
         main.append(card);
 
 }
-
     </script>
 </body>

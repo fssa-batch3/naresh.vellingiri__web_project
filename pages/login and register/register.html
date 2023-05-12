@@ -14,11 +14,9 @@
 
     <div class="title">Registration</div>
 
-
     <div class="content">
 
       <form id="form">
-
 
         <div class="user-details">
           <div class="input-box">
@@ -26,25 +24,21 @@
             <input type="text" id="first_name" placeholder="Enter your name" pattern="[A-Za-z]{0,32}" title="Enter only alphabet characters." required>
           </div>
 
-
           <div class="input-box">
             <span class="details">Last Name</span>
             <input type="text" id="last_name" placeholder="Enter your username" pattern="[A-Za-z]{0,32}" title="Enter only alphabet characters." required>
           </div>
-
 
           <div class="input-box">
             <span class="details">Email</span>
             <input type="email" id="email" placeholder="Enter your email" title="Please input a valid email" required>
           </div>
 
-
           <div class="input-box">
             <span class="details">Phone Number</span>
             <input type="tel" id="phone_number" placeholder="Enter your number"
               title="please enter a valid phone number" required minlength="10" maxlength="10">
           </div>
-
 
           <div class="input-box">
             <span class="details">Password</span>
@@ -54,7 +48,6 @@
             . Special: !@#$%^&*()" required>
           </div>
 
-
           <div class="input-box">
             <span class="details">Confirm Password</span>
             <input type="password" id="confirm_password" placeholder="Confirm your password"
@@ -62,24 +55,19 @@
               required>
           </div>
 
-
         </div>
 
         <div class="button">
           <button type="submit" id="btn_register">Register</button>
         </div>
-        <p class="text-center">Already Have an account?<a href="login.html">login</a> </p>
+        <p class="text-center">
+Already Have an account?<a href="login.html">login</a> 
+</p>
       </form>
     </div>
   </div>
 
-
-
-  <script>
-
-    const form = document.getElementById("form");
-
-
+  <script>    const form = document.getElementById("form");
 
     form.addEventListener("submit", e => {
 
@@ -88,7 +76,6 @@
       register()
 
     })
-
 
     function register() {
 
@@ -101,7 +88,6 @@
       const password = document.getElementById("password").value
       const confirm_password = document.getElementById("confirm_password").value
 
-
       const user_id = Math.floor(Math.random() * 300)
 
       console.log(user_id)
@@ -111,23 +97,20 @@
       let user;
       let res;
 
-
       user = JSON.parse(localStorage.getItem("array")) ?? [];
-
 
       if (password == confirm_password) {
 
         if (user == "") {
 
-          let user_data = {
-            "user_id": user_id,
-            "first_name": first_name,
-            "last_name": last_name,
-            "email": email,
-            "phone_number":phone_number,
-            "password": password
-          }
-
+          const user_data = {
+        user_id,
+        first_name,
+        last_name,
+        email,
+        phone_number,
+        password
+      }
 
           user.push(user_data);
 
@@ -135,32 +118,30 @@
 
           window.location.href = "login.html";
 
-
         }
 
         else {
-          let check = JSON.parse(localStorage.getItem("array"))
+          const check = JSON.parse(localStorage.getItem("array"))
 
           check.find(e => {
-            if (e["email"] == email) {
+            if (e.email == email) {
               return res = 1
             }
           })
-
 
           if (res == 1) {
             alert("email already taken")
           }
 
           else {
-            let user_data = {
-              "user_id": user_id,
-              "first_name": first_name,
-              "last_name": last_name,
-              "email": email,
-              "phone_number":phone_number,
-              "password": password
-            }
+            const user_data = {
+          user_id,
+          first_name,
+          last_name,
+          email,
+          phone_number,
+          password
+        }
 
             user.push(user_data)
 
@@ -175,11 +156,6 @@
       }
 
     }
-
-
-
-
-
   </script>
 
 </body>

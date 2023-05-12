@@ -1,28 +1,19 @@
-
-
 // let fundraiser = JSON.parse(localStorage.getItem("fundraiser_list"))
 // let login_status = JSON.parse(localStorage.getItem("login_status"))
 // let array = JSON.parse(localStorage.getItem("array"))
 
-
 // window.onload = removeitem();
-
-
 
 // function removeitem() {
 
 //     localStorage.removeItem("copy_player");
 // }
 
-
-
 // array.find(function (obj) {
 //     if (login_status[0]["user_id"] == obj["user_id"]) {
 //         name_obj = obj
 //     }
 // })
-
-
 
 // let fundraiser_list = fundraiser.filter(function (obj) {
 //     if (login_status[0]["user_id"] === obj["raiser_user_id"]) {
@@ -34,14 +25,10 @@
 //     }
 // })
 
-
-
-
 // let detail_fund_raisers = document.getElementById("detail_fund_raisers")
 // let detail_fund_raisers_flex = document.getElementById("detail_fund_raisers_flex")
 
 // // create the main container element
-
 
 // function show_list() {
 
@@ -56,12 +43,8 @@
 //         card_main_div.style.border = "2px solid black"
 //         detailsFundRaiserFlex.append(card_main_div)
 
-
-
 //         const card = document.createElement('div');
 //         card.className = 'card';
-
-
 
 //         const imagePlayers = document.createElement('div');
 //         imagePlayers.className = 'image-splayers';
@@ -103,12 +86,9 @@
 //             currency: 'INR'
 //         });
 
-
 //         const fundRaised = document.createElement('span');
 //         fundRaised.textContent = 'raised of';
 //         fundRs.appendChild(fundRaised);
-
-
 
 //         const initial_fundRaised = document.createElement('div');
 //         initial_fundRaised.innerHTML = `<b class="initial_fundRaised" style="color:black";>
@@ -119,7 +99,6 @@
 //                                                 })
 //                                                     }
 //                                         </b>`;
-
 
 //                                         console.log(number);
 // console.log(initial_fundRaised);
@@ -137,15 +116,12 @@
 //         const supportsLastDateOfFund = document.createElement('div');
 //         supportsLastDateOfFund.className = 'supports-last-date-of-fund';
 
-
 //         const p2 = document.createElement('p');
-
 
 //         const span1 = document.createElement('span');
 //         span1.textContent = '20';
 //         p2.appendChild(span1);
 //         p2.innerHTML += ' Days left';
-
 
 //         const p3 = document.createElement('p');
 
@@ -180,8 +156,6 @@
 //         delete_btn.innerText = "Delete"
 //         card_main_div.append(delete_btn)
 
-
-
 //         const notificationShow = document.createElement('div');
 //         notificationShow.className = 'notification_show';
 //         notificationShow.id = 'notification_show';
@@ -197,18 +171,14 @@
 //         notifyContainingDiv.className = 'notify_containing_div';
 //         notifyContainingDiv.id = 'notify_containing_div';
 
-
 //         let donar_list = item.donar_list;
 
-
 //         if (donar_list != null) {
-
 
 //             donar_list.forEach((item) => {
 
 //                 console.log(item)
 //                 array.find(function (arr_data) {
-
 
 //                     if (arr_data.user_id == item.user_id) {
 
@@ -240,7 +210,6 @@
 
 //                         notifyContainingDiv.appendChild(main)
 
-
 //                     }
 //                 })
 
@@ -253,32 +222,23 @@
 //             notifyContainingDiv.innerHTML = `<h1>Wait For Your Donars</h1>`
 //         }
 
-
-
 //         notificationShow.appendChild(message)
 //         notificationShow.appendChild(hr)
 //         notificationShow.appendChild(notifyContainingDiv)
 
-
-
 //         // detailsFundRaiserFlex.appendChild(card)
 //         detailsFundRaiserFlex.appendChild(notificationShow)
 
-
 //         detail_fund_raisers.append(detailsFundRaiserFlex)
-
 
 //         btn.addEventListener('click', function (e) {
 
 //             form_creation_fundraiser.style.display = "block"
 //         })
 
-
 //     })
 
 // }
-
-
 
 // let form_creation_fundraiser1 = document.getElementById("form_creation_fundraiser1")
 // let cross_mark = document.getElementById("cross_mark")
@@ -286,7 +246,6 @@
 // cross_mark.addEventListener("click", e => {
 //     form_creation_fundraiser.style.display = "none"
 // })
-
 
 // let raise_fund = document.getElementById("raise_fund");
 // let form_creation_fundraiser = document.getElementById("form_creation_fundraiser")
@@ -302,14 +261,9 @@
 // let certificate_image_url = document.getElementById("certificate_image_url")
 // let cerficate_number = document.getElementById("certificate_number")
 
-
-
-
 // let cer_append_div = document.querySelector(".display_cer_list");
 
 // let cer_output = "";
-
-
 
 // function deleteemerplayer(index) {
 
@@ -331,7 +285,6 @@
 
 //         if (id == obj.emerging_player_id) {
 
-
 //             let copy_player = obj;
 
 //             localStorage.setItem("copy_player", JSON.stringify(copy_player));
@@ -340,9 +293,7 @@
 //             days_left.value = copy_player.days_left;
 //             show_bio.value = copy_player.player_title;
 
-
 //             displaycer();
-
 
 //         }
 //     })
@@ -372,13 +323,11 @@
 
 // }
 
-
 // function deletecer(index) {
 
 //     let get_copy = JSON.parse(localStorage.getItem("copy_player"));
 
 //     let get_cer = get_copy.certificate_arr;
-
 
 //     get_cer.splice(index, 1);
 
@@ -389,7 +338,6 @@
 //     displaycer();
 
 // }
-
 
 // cert_form.addEventListener("submit", function (e) {
 
@@ -409,7 +357,6 @@
 //             "cer_num": cer_num,
 //             "cer_id": get_cer.length * 2 + 2 + 1
 //         }
-
 
 //         get_cer.push(cer_obj);
 
@@ -433,7 +380,6 @@
 
 // })
 
-
 // raise_fund.addEventListener("submit", function (e) {
 
 //     e.preventDefault();
@@ -443,7 +389,6 @@
 //     let get_amount = minimum_amount.value;
 //     let get_days = days_left.value;
 //     let get_bio = show_bio.value;
-
 
 //     fundraiser_list.find(function (obj) {
 
@@ -471,13 +416,9 @@
 //         }
 //     })
 
-
 // })
 
 // //--------------------------------- function for add certificate button----------------------------------------
-
-
-
 
 // certificate_button.addEventListener("click", e => {
 //     certificate_whole_div.style.display = "block"
@@ -493,9 +434,7 @@
 //     $("#form_creation_fundraiser").removeClass("background_blur")
 // })
 
-
 // show_list();
-
 
 // const url = 'https://odds.p.rapidapi.com/v4/sports?all=true';
 // const options = {

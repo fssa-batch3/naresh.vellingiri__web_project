@@ -1,336 +1,259 @@
-let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list"))
+const fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list"));
 console.log(fundraiser_list);
 
-let detail_fund_raisers = document.getElementById("detail_fund_raisers");
+const detail_fund_raisers = document.getElementById("detail_fund_raisers");
 
-let array = []
-
-
+const array = [];
 
 function days_calculation(new_date, current_date) {
-    current_date = new Date();
+  current_date = new Date();
 
-    let next_date = new Date(new_date);
+  const next_date = new Date(new_date);
 
-    diff = Math.abs(((next_date.getTime())) - (current_date.getTime()))
-    d = (diff / (1000 * 3600 * 24).toFixed(2))
-    let a = d.toFixed(0)
-    console.log(a);
+  diff = Math.abs(next_date.getTime() - current_date.getTime());
+  d = diff / (1000 * 3600 * 24).toFixed(2);
+  const a = d.toFixed(0);
+  console.log(a);
 
-    return a
+  return a;
 }
 
 // days_calculation(fundraiser_list[3]["days_left"]);
 
-
-
-
-
-
-
-
 function list_raiser(array) {
+  document.querySelector(".details-fund-raiser").innerHTML = "";
 
-    document.querySelector(".details-fund-raiser").innerHTML = "";
+  array.forEach((item) => {
+    // if(item.status==true){
 
-    array.forEach((item) => {
+    // create the main container element
+    const cardDiv = document.createElement("div");
+    cardDiv.classList.add("card");
 
-        // if(item.status==true){
+    // create the image element
+    const imageDiv = document.createElement("div");
+    imageDiv.classList.add("image-splayers");
 
+    const image = document.createElement("img");
+    image.setAttribute("src", item.player_image_url);
+    image.classList.add("player-img");
 
-        // create the main container element   
-        const cardDiv = document.createElement('div');
-        cardDiv.classList.add('card');
+    imageDiv.appendChild(image);
 
-        // create the image element
-        const imageDiv = document.createElement('div');
-        imageDiv.classList.add('image-splayers');
+    // create the description element
+    const description = document.createElement("p");
+    description.textContent = item.player_title;
+    description.classList.add("description");
 
-        const image = document.createElement('img');
-        image.setAttribute('src', item.player_image_url);
-        image.classList.add('player-img');
+    // create the name element
+    const nameDiv = document.createElement("div");
+    nameDiv.classList.add("name");
 
-        imageDiv.appendChild(image);
+    const publisherImgDiv = document.createElement("div");
+    publisherImgDiv.classList.add("publisher-img");
 
-        // create the description element
-        const description = document.createElement('p');
-        description.textContent = item.player_title;
-        description.classList.add('description');
+    const publisherImg = document.createElement("img");
+    publisherImg.setAttribute("src", item.player_image_url);
 
-        // create the name element
-        const nameDiv = document.createElement('div');
-        nameDiv.classList.add('name');
+    publisherImgDiv.appendChild(publisherImg);
 
-        const publisherImgDiv = document.createElement('div');
-        publisherImgDiv.classList.add('publisher-img');
+    const name = document.createElement("p");
+    name.classList.add("beneficiary_name");
+    name.textContent = item.player_name;
 
-        const publisherImg = document.createElement('img');
-        publisherImg.setAttribute('src', item.player_image_url);
+    nameDiv.appendChild(publisherImgDiv);
+    nameDiv.appendChild(name);
 
-        publisherImgDiv.appendChild(publisherImg);
+    // create the fund amount element
+    const fundRs = document.createElement("p");
+    fundRs.classList.add("fund-rs");
 
-        const name = document.createElement('p');
-        name.classList.add('beneficiary_name')
-        name.textContent = item.player_name
+    const fundIcon = document.createElement("i");
+    fundIcon.classList.add("fa-solid", "fa-indian-rupee-sign");
 
-        nameDiv.appendChild(publisherImgDiv);
-        nameDiv.appendChild(name);
+    fundRs.appendChild(fundIcon);
 
-        // create the fund amount element
-        const fundRs = document.createElement('p');
-        fundRs.classList.add('fund-rs');
+    // function for minimum raised value calculation
+    const number = Number(item.minimum_amount);
+    const total_raised_amount = Number(item.total_raised_value);
+    const divided_value = (total_raised_amount / number) * 100;
 
-        const fundIcon = document.createElement('i');
-        fundIcon.classList.add('fa-solid', 'fa-indian-rupee-sign');
+    const fundAmount = document.createElement("span");
+    fundAmount.innerHTML += `<b style="color:#8a8a92";> 
+           ${total_raised_amount.toLocaleString("en-IN", {
+             maximumFractionDigits: 0,
+             style: "currency",
+             currency: "INR",
+           })}</b>`;
+    fundAmount.style.fontSize = "20px";
+    fundAmount.style.marginRight = "10px";
 
-        fundRs.appendChild(fundIcon);
+    fundRs.appendChild(fundAmount);
 
-        // function for minimum raised value calculation
-        let number = Number(item.minimum_amount);
-        let total_raised_amount = Number(item.total_raised_value);
-        let divided_value = (total_raised_amount / number) * 100
+    const fundRaised = document.createElement("span");
+    fundRaised.textContent = "raised of";
+    fundRs.appendChild(fundRaised);
 
-        const fundAmount = document.createElement('span');
-        fundAmount.innerHTML = fundAmount.innerHTML + `<b style="color:#8a8a92";> 
-           ${total_raised_amount.toLocaleString('en-IN', {
-            maximumFractionDigits: 0,
-            style: 'currency',
-            currency: 'INR'
-        })
-            }</b>`;
-        fundAmount.style.fontSize = "20px"
-        fundAmount.style.marginRight = "10px"
-
-        fundRs.appendChild(fundAmount);
-
-        const fundRaised = document.createElement('span');
-        fundRaised.textContent = 'raised of';
-        fundRs.appendChild(fundRaised);
-
-
-
-        const initial_fundRaised = document.createElement('div');
-        initial_fundRaised.innerHTML = `<b style="color:black";>
-        ${number.toLocaleString('en-IN', {
-            maximumFractionDigits: 0,
-            style: 'currency',
-            currency: 'INR'
-        })
-            }
+    const initial_fundRaised = document.createElement("div");
+    initial_fundRaised.innerHTML = `<b style="color:black";>
+        ${number.toLocaleString("en-IN", {
+          maximumFractionDigits: 0,
+          style: "currency",
+          currency: "INR",
+        })}
         </b>`;
-        initial_fundRaised.style.fontSize = "20px"
-        initial_fundRaised.style.marginLeft = "5px"
+    initial_fundRaised.style.fontSize = "20px";
+    initial_fundRaised.style.marginLeft = "5px";
 
-        fundRs.appendChild(initial_fundRaised);
+    fundRs.appendChild(initial_fundRaised);
 
-        // create the range element
-        const rangeDiv = document.createElement('div');
-        rangeDiv.classList.add('range');
+    // create the range element
+    const rangeDiv = document.createElement("div");
+    rangeDiv.classList.add("range");
 
+    const rangeValue = document.createElement("div");
+    rangeValue.classList.add("range_value");
+    rangeValue.style.width = `${divided_value}%`;
+    rangeDiv.appendChild(rangeValue);
 
+    // create the last donation date element
+    const lastDateOfFund = document.createElement("p");
+    lastDateOfFund.textContent = `Last Donation ${Math.floor(
+      Math.random() * 99
+    )} days ago`;
+    lastDateOfFund.classList.add("last-date-of-fund");
 
-        const rangeValue = document.createElement('div');
-        rangeValue.classList.add('range_value');
-        rangeValue.style.width = divided_value + "%"
-        rangeDiv.appendChild(rangeValue);
+    // create the supporters and days left element
+    const supportsLastDateOfFund = document.createElement("div");
+    supportsLastDateOfFund.classList.add("supports-last-date-of-fund");
 
-        // create the last donation date element
-        const lastDateOfFund = document.createElement('p');
-        lastDateOfFund.textContent = `Last Donation ${Math.floor(Math.random() * 99)} days ago`;
-        lastDateOfFund.classList.add('last-date-of-fund');
+    const daysLeft = document.createElement("p");
+    const daysLeftSpan = document.createElement("span");
+    daysLeftSpan.textContent = days_calculation(item.days_left);
+    daysLeft.appendChild(daysLeftSpan);
+    daysLeft.appendChild(document.createTextNode(" Days left"));
+    supportsLastDateOfFund.appendChild(daysLeft);
 
-        // create the supporters and days left element
-        const supportsLastDateOfFund = document.createElement('div');
-        supportsLastDateOfFund.classList.add('supports-last-date-of-fund');
+    const supporters = document.createElement("p");
+    const supportersSpan = document.createElement("span");
+    supportersSpan.textContent = Math.floor(Math.random() * 99);
+    supporters.appendChild(supportersSpan);
+    supporters.appendChild(document.createTextNode(" Supporters"));
+    supportsLastDateOfFund.appendChild(supporters);
 
+    // add all elements to the main container element
+    cardDiv.appendChild(imageDiv);
+    cardDiv.appendChild(description);
+    cardDiv.appendChild(nameDiv);
+    cardDiv.appendChild(fundRs);
+    cardDiv.appendChild(rangeDiv);
+    cardDiv.appendChild(lastDateOfFund);
+    cardDiv.appendChild(supportsLastDateOfFund);
 
+    const href_link = `../fundraiser_page/url_params_fundraiser_page.html?emer_id=${item.emerging_player_id}`;
 
-        const daysLeft = document.createElement('p');
-        const daysLeftSpan = document.createElement('span');
-        daysLeftSpan.textContent = days_calculation(item.days_left);
-        daysLeft.appendChild(daysLeftSpan);
-        daysLeft.appendChild(document.createTextNode(' Days left'));
-        supportsLastDateOfFund.appendChild(daysLeft);
+    // console.log(href_link);
 
-        const supporters = document.createElement('p');
-        const supportersSpan = document.createElement('span');
-        supportersSpan.textContent = Math.floor(Math.random() * 99);
-        supporters.appendChild(supportersSpan);
-        supporters.appendChild(document.createTextNode(' Supporters'));
-        supportsLastDateOfFund.appendChild(supporters);
+    const cardAnchor = document.createElement("a");
+    cardAnchor.href = href_link;
+    cardAnchor.appendChild(cardDiv);
 
-        // add all elements to the main container element
-        cardDiv.appendChild(imageDiv);
-        cardDiv.appendChild(description);
-        cardDiv.appendChild(nameDiv);
-        cardDiv.appendChild(fundRs);
-        cardDiv.appendChild(rangeDiv);
-        cardDiv.appendChild(lastDateOfFund);
-        cardDiv.appendChild(supportsLastDateOfFund);
+    // add the main container element to the document body
+    detail_fund_raisers.appendChild(cardAnchor);
 
-        let href_link = "../fundraiser_page/url_params_fundraiser_page.html?emer_id=" + item["emerging_player_id"];
-
-
-        // console.log(href_link);
-
-        const cardAnchor = document.createElement('a');
-        cardAnchor.href = href_link;
-        cardAnchor.appendChild(cardDiv);
-
-
-
-        // add the main container element to the document body
-        detail_fund_raisers.appendChild(cardAnchor)
-
-
-
-        // }
-
-    });
-
-
-
+    // }
+  });
 }
-
-
 
 let filter_array = [];
 let data;
 
-
-
-let checkboxes = document.querySelectorAll("input[type=checkbox][name=filter_by_cat]");
+const checkboxes = document.querySelectorAll(
+  "input[type=checkbox][name=filter_by_cat]"
+);
 
 list_raiser(fundraiser_list);
 
 checkboxes.forEach((checkbox, index) => {
-    checkbox.addEventListener('click', function (e) {
+  checkbox.addEventListener("click", (e) => {
+    console.log(e.target);
 
-        console.log(e.target);
+    let map_input;
 
-        let map_input;
+    // list_raiser(fundraiser_list);
 
+    if (checkbox.checked) {
+      filter_array = [];
 
-        // list_raiser(fundraiser_list);
+      const convert_array = Array.from(checkboxes);
 
-        if (checkbox.checked) {
+      const checked_input = convert_array.filter((i) => i.checked);
 
-            filter_array = [];
+      map_input = checked_input.map((i) => i.value);
 
+      map_input.forEach((item) => {
+        fundraiser_list.filter((obj) => {
+          sports_type = obj.sports_type.toLowerCase();
 
-            let convert_array = Array.from(checkboxes);
+          if (item === sports_type) {
+            filter_array.push(obj);
 
-            let checked_input = convert_array.filter(i => i.checked);
-
-            map_input = checked_input.map(i => i.value);
-
-            map_input.forEach(item => {
-
-
-                fundraiser_list.filter(function (obj) {
-
-
-                    sports_type = obj.sports_type.toLowerCase();
-
-                    if (item === sports_type) {
-                        filter_array.push(obj);
-
-                        list_raiser(filter_array);
-
-                    }
-
-                });
-
-
-            });
-
-
+            list_raiser(filter_array);
+          }
+        });
+      });
+    } else if (filter_array == null) {
+      list_raiser(fundraiser_list);
+    } else {
+      let uncheck;
+      filter_array.find((el) => {
+        if (el.sports_type == e.target.value) {
+          return (uncheck = el);
         }
-        else {
-            if (filter_array == null) {
-                list_raiser(fundraiser_list)
-            }
-            else {
-
-                let uncheck;
-                filter_array.find((el) => {
-                    if (el["sports_type"] == e.target.value) {
-                        return uncheck = el
-                    }
-                })
-                let curr = filter_array.indexOf(uncheck)
-                filter_array.splice(curr, 1)
-                if (filter_array.length > 0) {
-                    list_raiser(filter_array)
-                }
-                else {
-                    // location.reload()
-                    list_raiser(fundraiser_list)
-
-                }
-
-
-            }
-
-
-        }
-
-    });
-
-
-
-
-
+      });
+      const curr = filter_array.indexOf(uncheck);
+      filter_array.splice(curr, 1);
+      if (filter_array.length > 0) {
+        list_raiser(filter_array);
+      } else {
+        // location.reload()
+        list_raiser(fundraiser_list);
+      }
+    }
+  });
 });
-
-
-
 
 let total_array = [];
 let after_checked_arr = [];
-console.log(filter_array)
+console.log(filter_array);
 
-//search
+// search
 const searchBar = document.getElementById("searchbar");
 
-
-
 searchBar.addEventListener("input", (e) => {
+  const searchQuery = searchBar.value.toLowerCase();
 
-    let searchQuery = searchBar.value.toLowerCase();
+  if (filter_array.length == 0) {
+    james(searchQuery);
+  } else if (filter_array.length > 0) {
+    alert("where");
 
-    if  (filter_array.length == 0) {
-
-        james(searchQuery);
-      
-    }
-
-    else if ((filter_array.length) > 0) {
-
-        alert("where");
-
-        bond(searchQuery);
-    }
-
-
+    bond(searchQuery);
+  }
 });
 
 function james(searchQuery) {
+  total_array = fundraiser_list.filter((item) =>
+    item.player_name.toLowerCase().includes(searchQuery)
+  );
 
-    total_array = fundraiser_list.filter((item) => {
-        return item.player_name.toLowerCase().includes(searchQuery)
-    });
-
-    list_raiser(total_array);
+  list_raiser(total_array);
 }
 
 function bond(searchQuery) {
+  after_checked_arr = filter_array.filter((item) =>
+    item.player_name.toLowerCase().includes(searchQuery)
+  );
 
-
-    after_checked_arr = filter_array.filter((item) => {
-        return item.player_name.toLowerCase().includes(searchQuery)
-    })
-
-    list_raiser(after_checked_arr);;
+  list_raiser(after_checked_arr);
 }
-
