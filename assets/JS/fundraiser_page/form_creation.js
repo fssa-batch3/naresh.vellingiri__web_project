@@ -26,9 +26,9 @@ function removeitems() {
 
 
 
-let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list")) ?? []
+let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list")) ?? [];
 
-let certificate_list = JSON.parse(localStorage.getItem("certificate_list")) ?? []
+let certificate_list = JSON.parse(localStorage.getItem("certificate_list")) ?? [];
 
 
 // --------------------------------inputs for next_button_1------------------------------------------------------
@@ -56,7 +56,8 @@ let update_bio = document.getElementById("Add_bio")
 // function for next button
 let raise_fund = document.getElementById("raise_fund");
 let form_creation_fundraiser = document.getElementById("form_creation_fundraiser")
-let form_creation_fundraiser_specific_details = document.getElementById("form_creation_fundraiser_specific_details")
+let 
+ = document.getElementById("form_creation_fundraiser_specific_details")
 
 
 
@@ -64,11 +65,12 @@ let form_creation_fundraiser_specific_details = document.getElementById("form_cr
 
 let certificate_button = document.getElementById("Add_certificates")
 let certificate_whole_div = document.getElementById("certificate_whole_div")
-
+let background = document.querySelector(".background");
 
 certificate_button.addEventListener("click", e => {
     certificate_whole_div.style.display = "block"
-    $("#form_creation_fundraiser").addClass("background_blur")
+    background.style.display = "block"
+    // $(".background").add("background")
 })
 
 //--------------------------------- function for cross mark----------------------------------------
@@ -77,7 +79,8 @@ let cross_mark = document.getElementById("cross_mark")
 
 cross_mark.addEventListener("click", e => {
     certificate_whole_div.style.display = "none"
-    $("#form_creation_fundraiser").removeClass("background_blur")
+    background.style.display = "none"
+    // $(".background").removeClass("background")
 })
 //--------------------------------- function for cross mark----------------------------------------
 
@@ -114,9 +117,11 @@ cer_form.addEventListener("submit", e => {
         localStorage.setItem("certificate_list", JSON.stringify(certificate_list));
 
         certificate_whole_div.style.display = "none";
+        background.style.display = "none"
 
-        $("#form_creation_fundraiser").removeClass("background_blur");
+        // $("#form_creation_fundraiser").removeClass("background");
 
+        window.scrollTo(-100,0)
         cer_form.reset();
 
         displaycer();

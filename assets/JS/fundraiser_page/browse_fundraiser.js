@@ -1,5 +1,5 @@
 let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list"))
-
+console.log(fundraiser_list);
 
 let detail_fund_raisers = document.getElementById("detail_fund_raisers");
 
@@ -35,7 +35,7 @@ function list_raiser(array) {
 
     array.forEach((item) => {
 
-        if(item.status==true){
+        // if(item.status==true){
 
 
         // create the main container element   
@@ -184,7 +184,7 @@ function list_raiser(array) {
 
 
 
-        }
+        // }
 
     });
 
@@ -194,7 +194,7 @@ function list_raiser(array) {
 
 
 
-let filter_array;
+let filter_array = [];
 let data;
 
 
@@ -288,21 +288,26 @@ checkboxes.forEach((checkbox, index) => {
 
 let total_array = [];
 let after_checked_arr = [];
+console.log(filter_array)
 
 //search
 const searchBar = document.getElementById("searchbar");
+
 
 
 searchBar.addEventListener("input", (e) => {
 
     let searchQuery = searchBar.value.toLowerCase();
 
-    if ((filter_array.length) === 0) {
+    if  (filter_array.length == 0) {
 
         james(searchQuery);
+      
     }
 
     else if ((filter_array.length) > 0) {
+
+        alert("where");
 
         bond(searchQuery);
     }
@@ -310,7 +315,7 @@ searchBar.addEventListener("input", (e) => {
 
 });
 
-function james() {
+function james(searchQuery) {
 
     total_array = fundraiser_list.filter((item) => {
         return item.player_name.toLowerCase().includes(searchQuery)
@@ -319,7 +324,7 @@ function james() {
     list_raiser(total_array);
 }
 
-function bond() {
+function bond(searchQuery) {
 
 
     after_checked_arr = filter_array.filter((item) => {
