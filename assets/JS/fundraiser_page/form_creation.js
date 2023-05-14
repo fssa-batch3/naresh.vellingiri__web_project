@@ -121,7 +121,6 @@ cer_form.addEventListener("submit", e => {
 
         // $("#form_creation_fundraiser").removeClass("background");
 
-        window.scrollTo(-100,0)
         cer_form.reset();
 
         displaycer();

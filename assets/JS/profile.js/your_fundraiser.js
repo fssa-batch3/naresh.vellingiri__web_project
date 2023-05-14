@@ -256,6 +256,8 @@ ${minimum_amount.toLocaleString("en-IN", {
 
     btn.addEventListener("click", (e) => {
       form_creation_fundraiser.style.display = "block";
+      background.style.display="block"
+
     });
   });
 }
@@ -267,6 +269,8 @@ const cross_mark = document.getElementById("cross_mark");
 
 cross_mark.addEventListener("click", (e) => {
   form_creation_fundraiser.style.display = "none";
+  background.style.display="none"
+
 });
 
 const raise_fund = document.getElementById("raise_fund");
@@ -387,7 +391,13 @@ cert_form.addEventListener("submit", (e) => {
 
     certificate_whole_div.style.display = "none";
 
-    $("#form_creation_fundraiser").removeClass("background_blur");
+    form_creation_fundraiser.style.opacity="1"
+
+
+    background.style.display="none"
+
+
+    // $("#form_creation_fundraiser").removeClass("background_blur");
 
     cert_form.reset();
 
@@ -433,9 +443,13 @@ raise_fund.addEventListener("submit", (e) => {
 
 // --------------------------------- function for add certificate button----------------------------------------
 
+
+let background = document.querySelector(".background")
+
 certificate_button.addEventListener("click", (e) => {
   certificate_whole_div.style.display = "block";
-  $("#form_creation_fundraiser").addClass("background_blur");
+  background.style.display="block"
+  form_creation_fundraiser.style.opacity="0.5"
 });
 
 // --------------------------------- function for cross mark----------------------------------------
@@ -444,38 +458,12 @@ const cross_mark_1 = document.getElementById("cross_mark_1");
 
 cross_mark_1.addEventListener("click", (e) => {
   certificate_whole_div.style.display = "none";
-  $("#form_creation_fundraiser").removeClass("background_blur");
+  form_creation_fundraiser.style.opacity="1"
+  background.style.display="none"
+
+//   $("#form_creation_fundraiser").removeClass("background_blur");
 });
 
 show_list();
 
-// let raised_value = document.querySelectorAll(".fund-rs")
-// console.log(raised_value);
-// for(let i = 0; i < raised_value.length;i++){
 
-// }
-
-// let delete_btn = document.querySelectorAll(".edit_btn_form_creation_fundraiser")
-// let whole_div = document.querySelectorAll(".details-fund-raiser_flex")
-// console.log(whole_div);
-// let images = document.querySelectorAll(".player-img")
-// let fund_arr = JSON.parse(localStorage.getItem("fundraiser_list"))
-// for(let i = 0; i < delete_btn.length;i++){
-//     delete_btn[i].addEventListener("click",function () {
-
-//        let id = images[i].dataset.keyword
-//        whole_div[i].remove();
-//        let fund = fund_arr.filter(function (obj) {
-//         if (id === obj["emerging_player_id"]+"") {
-//             return false
-//         }
-//         else{
-//             return true
-//         }
-//        })
-
-//        localStorage.setItem("fundraiser_list",JSON.stringify(fund))
-
-//     })
-// }npm install --save-dev eslint
-// Eslint installation commands:
