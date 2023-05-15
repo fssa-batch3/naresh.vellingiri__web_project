@@ -11,32 +11,35 @@
 
   <link rel="stylesheet" href="../../assets/css/index.css">
   <link rel="stylesheet" href="../../assets/css/profile/profile_all_style.css">
-  <link rel="stylesheet" href="../../assets/css/profile/profile_detail.css">
-  <link rel="stylesheet" href="../../assets/css/notify.css">
+  <link rel="stylesheet" href="../../assets/css/profile/livescore.css">
 
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet"
     href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+  <style>
+    
+  </style>
 </head>
 
 <body>
 
   <header class="header_main">
     <a class="logo" href="/">
-<img src="../../assets/images/index_images/logo_main.png" alt="logo">
-</a>
+      <img src="../../assets/images/index_images/logo_main.png" alt="logo">
+    </a>
     <nav>
       <ul class="nav__links">
         <li>
-<a href="../../index.html">Home</a>
-</li>
+          <a href="../../index.html">Home</a>
+        </li>
         <li>
-<a href="#">About</a>
-</li>
+          <a href="../profile/chat.html">Live score</a>
+        </li>
         <li>
-<a href="../fundraiser_page/browse_fundraiser.html">Fundraiser</a>
-</li>
+          <a href="../fundraiser_page/browse_fundraiser.html">Fundraiser</a>
+        </li>
       </ul>
     </nav>
     <a class="cta" href="../login and register/register.html" id="register">Register</a>
@@ -46,12 +49,12 @@
   </header>
 
   <!-- <input type="checkbox" id="menu-toggle"> -->
-  
+
   <div class="sidebar">
     <div class="side-header">
       <h3>
-S<span>2R</span>
-</h3>
+        S<span>2R</span>
+      </h3>
     </div>
 
     <div class="side-content">
@@ -100,17 +103,158 @@ S<span>2R</span>
     <main>
 
       <div class="page-header">
-        <h1>Profile</h1>
+        <!-- <h1>Profile</h1> -->
       </div>
 
       <div class="page-content" id="page_content">
+
+
 
       </div>
     </main>
   </div>
 
+  <script>
+
+
+    let page_content = document.querySelector(".page-content")
+
+
+
+
+
+    // fetch("https://api.cricapi.com/v1/currentMatches?apikey=078e53f4-3093-41f4-9d6e-7bb1075d7304&offset=0")
+    //         .then((response) => { return response.json() })
+    //         .then((data) => { 
+    //             // console.log(data)
+    //             data.data.find((e)=>{
+    //                 // console.log(data.data[0])
+
+    //                 if(e.matchType=="t20" ){
+    //                   console.log(e.id)
+    //                     let check_img=e.teamInfo[1].img
+    //                     let check1_img=e.teamInfo[0].img
+
+
+
+
+
+    var request = new XMLHttpRequest();
+
+    request.open('GET', 'https://api.cricapi.com/v1/currentMatches?apikey=078e53f4-3093-41f4-9d6e-7bb1075d7304&offset=0', true);
+
+    request.onload = function () {
+
+      if (request.status >= 200 && request.status < 400) {
+        var data = JSON.parse(request.responseText);
+        data.data.find((e) => {
+          if (e.matchType == "t20") {
+            // console.log(e)
+            let check_img = e.teamInfo[1].img
+            let check1_img = e.teamInfo[0].img
+            // implement remaining logic
+            let div = ` <div class="container score_main_container">
+          <div class="row">
+            <ul class="resultsMatches list-unstyled">
+              <li>
+                <div class="panel panel-primary score_primary">
+                  <div class="panel-heading match-header">
+                    <h3 class="panel-title text-uppercase white-color"><span class="pull-right">${e.name}</span></h3>
+                  </div>
+
+
+
+
+
+
+
+
+
+                  <div class="panel-body">
+
+
+                    <div class=" match-list">
+                      <div class=" team-left team_992">
+                     
+                        <div class=" col-xs-6 col-md-6 img_992">
+                          <a href="#" class="winner"><img
+                              src=${check_img} class="img-rounded"
+                              alt=""></a>
+                        </div>
+                        <div class="score col-xs-6 col-md-6">
+                          <div class="runs">${e.score[1].r}/${e.score[1].w}</div>
+                          <div class="runRate"></div>
+                          <div class="over">${e.score[1].o}/20</div>
+                        </div>
+                      </div>
+                      <div class="col-xs-2 col-md-2">
+                        <div class="vs">vs</div>
+                      </div>
+                      <div class=" col-xs-5 col-md-5 team-right last team_992">
+                        <div class=" col-xs-6 col-md-6 img_992">
+                          <a href="#" class="loser"><img
+                              src=${check1_img} 
+                              class="img-rounded" alt=""></a>
+                        </div>
+                        <div class="score col-xs-6 col-md-6">
+                          <div class="runs">${e.score[0].r}/${e.score[0].w}</div>
+                          <div class="runRate"></div>
+                          <div class="over">${e.score[0].o}/20</div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class=" match-content">
+
+                      <div class="col-xs-9 col-md-12">
+                        <h3 class="summary">${e.status}</h3>
+                        <div class="stadium">${e.venue}</div>
+                      </div>
+
+                    
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              
+             
+            </ul>
+          </div>
+        </div>
+`
+
+
+    page_content.innerHTML += div
+          }
+        })
+      } else {
+        console.log('Error fetching data');
+      }
+    };
+    request.onerror = function () {
+
+      console.log('Error fetching data');
+    };
+    request.send();
+
+    // e.score.forEach(element => {
+    // let image=document.querySelector(".winner img");
+    // console.log(image)
+    // image.setAttribute("src",check_img)
+    // console.log(element)
+   
+
+
+                    // });
+        //         }
+        //     })
+        //  })
+  </script>
+
   <script src="../../assets/JS/profile.js/header.js"></script>
- 
+
 </body>
 
 </html>

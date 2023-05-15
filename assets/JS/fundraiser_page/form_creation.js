@@ -204,7 +204,6 @@ raise_fund.addEventListener("submit", e => {
     localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
 
     
-
     Email.send({
         Host : "smtp.elasticemail.com",
         Username : "nareshfreshworks@gmail.com",
