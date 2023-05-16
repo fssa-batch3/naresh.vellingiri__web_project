@@ -27,15 +27,18 @@ user_data.find(
 first_name.value = res["first_name"]
 last_name.value = res["last_name"]
 email.value = res["email"]
+phone_number.value=res["phone_number"]
 
 if ((res["address"] != null) && (res["phone_number"] != null) && (res["dob"] != null) && (res["url1"] != null)) {
 
   address.value = res["address"];
   phone_number.value = res["phone_number"];
-  profile_image.value= res["profile_image"];
+  profile_image.value= res["proile_image"];
   dob.value = res["dob"];
   url1.value = res["url1"];
 
+  
+  console.log(res["email"]);
 }
 
 

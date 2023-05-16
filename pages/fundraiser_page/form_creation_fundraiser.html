@@ -116,7 +116,7 @@ S<span>2R</span>
 
                 <input type="text" class="form-control" id="minimum_amount"
                     placeholder="How much do you want to raise fund ?..." pattern="[0-9]{4,10}" required
-                    title="You can raise minimum Rs.2000" minlength="4" maxlength="10">
+                    title="You can raise minimum Rs.2000 and this input field only contains numbers" minlength="4" maxlength="10">
 
             </div>
 
@@ -162,7 +162,7 @@ S<span>2R</span>
                 <small  class="form-text text-muted">Current work</small>
 
                 <input type="text" class="form-control" id="Employment_status" placeholder="Employment status..."
-                    title="" required>
+                    title="It should contain only alphabets" required>
 
             </div>
             <div class="input-group">
@@ -188,7 +188,7 @@ S<span>2R</span>
                 <label for=""></label>
                 <small  class="form-text text-muted">Enter Your City Name</small>
 
-                <input type="text" class="form-control" id="city_name" placeholder="City" required>
+                <input type="text" class="form-control" id="city_name" placeholder="City" pattern="[a-zA-Z]"  required>
 
             </div>
             <!-- --------------------------------------------------PLAYER DETAILS------------------------------------------------------------- -->
@@ -198,7 +198,7 @@ S<span>2R</span>
                 <label for=""></label>
                 <small  class="form-text text-muted">Enter player Name</small>
 
-                <input type="text" class="form-control" id="player_name" required>
+                <input type="text" class="form-control" id="player_name" pattern="[a-zA-Z]"  required>
 
             </div>
 
@@ -207,7 +207,7 @@ S<span>2R</span>
                 <label for=""></label>
                 <small  class="form-text text-muted">Enter player Age</small>
 
-                <input type="number" class="form-control" id="player_age" required>
+                <input type="text" class="form-control" id="player_age" pattern="[0-9]" maxlength="2" required>
 
             </div>
 
@@ -224,7 +224,7 @@ S<span>2R</span>
                 <label for=""></label>
                 <small  class="form-text text-muted">Enter player title</small>
 
-                <input type="text" class="form-control" id="player_title" required>
+                <input type="text" class="form-control" pattern="[a-zA-Z]" id="player_title" required>
 
             </div>
             <div class="form-group">
@@ -232,7 +232,7 @@ S<span>2R</span>
                 <label for=""></label>
                 <small  class="form-text text-muted">Minimum days to get the amount you need.</small>
 
-                <input type="date" class="form-control" id="days_left" required>
+                <input type="date" class="form-control" min="2023-05-16"   id="days_left" required>
 
             </div>
 
@@ -241,7 +241,7 @@ S<span>2R</span>
                 <label for=""></label>
                 <small  class="form-text text-muted">Add Bio</small>
 
-                <input type="text" class="form-control" id="Add_bio">
+                <input type="text" class="form-control" pattern="[a-zA-Z]"  id="Add_bio">
 
             </div>
 
