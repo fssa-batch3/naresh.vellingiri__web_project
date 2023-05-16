@@ -6,13 +6,25 @@ const array = JSON.parse(localStorage.getItem("array"));
 // console.log(array)
 
 const login_status = JSON.parse(localStorage.getItem("login_status"));
-console.log(login_status[0].login_email);
 
-const { user_id } = login_status[0];
+// console.log(login_status[0].login_email);
+
+if (login_status !== false) {
+
+  let user_id = login_status[0]["user_id"];
+
+}
 
 const url = window.location.search;
 const urlparams = new URLSearchParams(url);
 const emer_id = urlparams.get("emer_id");
+
+
+if (login_status === false) {
+}
+else {
+
+}
 
 function days_calculation(new_date, current_date) {
   current_date = new Date();
@@ -337,9 +349,20 @@ amount_calc();
 const contribute_form = document.getElementById("contribute_form");
 
 const contribute_btn = document.getElementById("contribute");
+let send_phone_number_div = document.querySelector(".step4");
+
+
 
 contribute_btn.addEventListener("click", (e) => {
   contribute_form.style.display = "block";
+  if (login_status === false) {
+    send_phone_number_div.style.display = "block";
+
+  }
+  else {
+    send_phone_number_div.style.display = "none";
+  }
+
 });
 
 // --------------------------------- function for cross mark----------------------------------------
@@ -353,31 +376,42 @@ cross_mark.addEventListener("click", (e) => {
 
 // function for donation
 
-const send_btn = document.getElementById("send_request");
+const send_btn = document.getElementById("contribute_form");
 // let form_submit=document.getElementById("contribute_form");
 
-send_btn.addEventListener("click", (e) => {
-  const donation_amount = Number(
-    document.getElementById("deposit_amount").value.trim()
-  );
 
-  get_obj.total_raised_value = Number(get_obj.total_raised_value);
 
-  get_obj.total_raised_value += donation_amount;
 
-  console.log(get_obj.total_raised_value);
+send_btn.addEventListener("submit", (e) => {
 
-  if (user_id == get_obj.raiser_user_id) {
-    alert("you can't fund raise yourself");
-  } else {
+  e.preventDefault()
+  let send_phone_number = document.getElementById("anonymous_phone_num").value
+
+
+  if (login_status === false) {
+    console.log("1")
+    let count = 0;
+
+
+    const donation_amount = Number(
+      document.getElementById("deposit_amount").value.trim()
+    );
+    
+    get_obj.total_raised_value = Number(get_obj.total_raised_value);
+
+    get_obj.total_raised_value += donation_amount;
+
+    console.log(send_phone_number);
+
     fundraiser_list.find((obj) => {
       if (emer_id == obj.emerging_player_id) {
         const donar_array = obj.donar_list ?? [];
 
         const donation_obj = {
+          "anonymous_id": count++,
           donation_amount,
-          user_id,
-          raiser_user_id: get_obj.raiser_user_id,
+          "send_phone_number": send_phone_number,
+          "raiser_user_id": get_obj.raiser_user_id,
         };
         // "total_raised_amount";donation_amount,
 
@@ -391,12 +425,10 @@ send_btn.addEventListener("click", (e) => {
         );
 
         contribute_form.style.display = "none";
-        console.log(get_obj.donar_list);
       }
-      // setInterval(function () {
-      //   location.reload()
-      // }, 100)
+
     });
+
 
     const amt = document.getElementById("amt");
     amt.innerHTML = `<b style="color:black";>${get_obj.total_raised_value.toLocaleString(
@@ -411,6 +443,71 @@ send_btn.addEventListener("click", (e) => {
     amount_calc();
 
     swal("Thanks for your donation");
+
+
+
+  }
+  else {
+    let user_id = login_status[0]["user_id"];
+
+
+    const donation_amount = Number(
+      document.getElementById("deposit_amount").value.trim()
+    );
+
+    get_obj.total_raised_value = Number(get_obj.total_raised_value);
+
+    get_obj.total_raised_value += donation_amount;
+
+    fundraiser_list.find((obj) => {
+      if (emer_id == obj.emerging_player_id) {
+        const donar_array = obj.donar_list ?? [];
+
+        const donation_obj = {
+          donation_amount,
+          user_id,
+          "raiser_user_id": get_obj.raiser_user_id,
+        };
+        // "total_raised_amount";donation_amount,
+
+        obj.donar_list = donar_array;
+
+        donar_array.push(donation_obj);
+
+        localStorage.setItem(
+          "fundraiser_list",
+          JSON.stringify(fundraiser_list)
+        );
+
+        contribute_form.style.display = "none";
+      }
+
+    });
+
+  
+
+    const amt = document.getElementById("amt");
+    amt.innerHTML = `<b style="color:black";>${get_obj.total_raised_value.toLocaleString(
+      "en-IN",
+      {
+        maximumFractionDigits: 0,
+        style: "currency",
+        currency: "INR",
+      }
+    )}</b>`;
+
+    amount_calc();
+
+    swal("Thanks for your donation");
+
+  }
+  let user_id = login_status[0]["user_id"];
+
+
+  if (user_id == get_obj.raiser_user_id) {
+    alert("you can't fund raise yourself");
+  } else {
+
   }
 });
 
@@ -428,21 +525,17 @@ fundraiser_list.find((obj) => {
   }
 });
 
-console.log(get_obj.raiser_user_id);
 
 let mail_details;
 
 array.find((obj) => {
   if (obj.user_id == get_obj.raiser_user_id) {
-    console.log("1");
 
     mail_details = obj;
   }
 });
 
-console.log(mail_details);
 
-console.log(mail_details.email);
 
 // console.log(login_status["login_email"]);
 

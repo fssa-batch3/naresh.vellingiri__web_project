@@ -147,9 +147,12 @@
 
       if (request.status >= 200 && request.status < 400) {
         var data = JSON.parse(request.responseText);
-        data.data.find((e) => {
+        console.log(data)
+
+        data.find((e) => {
+
           if (e.matchType == "t20") {
-            // console.log(e)
+            console.log(e)
             let check_img = e.teamInfo[1].img
             let check1_img = e.teamInfo[0].img
             // implement remaining logic

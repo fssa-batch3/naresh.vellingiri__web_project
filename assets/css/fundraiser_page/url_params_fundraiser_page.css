@@ -15,8 +15,10 @@
     text-align: center;
 }
 #kidsimg{
-    width: 800px;
+    width: 500px;
+    height: 600px;
     border-radius: 5px;
+    margin-left: 100px;
 }
 #ask_for_update{
     border: none;

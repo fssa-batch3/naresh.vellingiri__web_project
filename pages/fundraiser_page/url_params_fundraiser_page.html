@@ -14,7 +14,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css"></link>  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css">
+    </link>
 
     <script src="https://smtpjs.com/v3/smtp.js"></script>
 
@@ -49,22 +50,28 @@
 
     <form class="deposit_form" id="contribute_form">
         <h2>Donate Money
-             <img src="../../assets/images/fundraiser_images/payment_images/donate_image.png" alt="img"> 
-             <span id="cross_mark"> &#10060;</span>
+            <img src="../../assets/images/fundraiser_images/payment_images/donate_image.png" alt="img">
+            <span id="cross_mark"> &#10060;</span>
         </h2>
         <hr class="hr">
+
+        <div class="anonymous">
+
+        </div>
         <div class="step1">
             <p>
-<span>1</span>Enter the amount
-</p>
+                <span>1</span>Enter the amount
+            </p>
             <input type="number" id="deposit_amount" placeholder="0" required>
         </div>
+
+       
         <div class="step2">
             <p>
-<span>2</span>Select the payment method
-</p>
+                <span>2</span>Select the payment method
+            </p>
             <div class="step2_list">
-             
+
                 <div class="gpay">
                     <img src="../../assets/images/fundraiser_images/payment_images/gpay.png" alt="img">
                     Gpay
@@ -79,10 +86,12 @@
                 </div>
             </div>
         </div>
+
+       
         <div class="step3">
             <p>
-<span>3</span>Enter your Upi ID
-</p>
+                <span>3</span>Enter your Upi ID
+            </p>
             <input type="email" placeholder="ex.name@okhdfcbank" required id="upiid">
         </div>
         <div class="send_request not_view">
@@ -91,18 +100,29 @@
                 <!-- <img src="../images/icons/tick_icon.jpg" alt="img"> -->
             </div>
         </div>
+
+
         <div class="step4">
             <p>
-<span>4</span>Accept the payment request sent to the Upi Id
-</p>
+                <span>4</span>Phone Number
+            </p>
+            <input type="number" id="anonymous_phone_num" placeholder="Enter your phone number" required>
         </div>
-        <div class="buttons">
-            <!-- <button type="submit" id="done">Done &#10003;</button> -->
-            <span id="send_request">Send</span>
+
+        <div class="step5">
+            <p>
+                <span>5</span>Accept the payment request sent to the Upi Id
+            </p>
         </div>
+
+        <button type="submit"  id="send_request">send</button>
+        <!-- <div type="submit" class="buttons">
+             <button type="submit" id="done">Done &#10003;</button> -->
+            <!-- <span id="send_request">Send</span> -->
+        <!-- </div> --> 
     </form>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 
     <script src="../../assets/JS/profile.js/header.js"></script>
 
@@ -111,7 +131,7 @@
 
 </html>
 
-    <!-- <div class="left_container">
+<!-- <div class="left_container">
             <img src="../../assets/images/fundraiser_images/fundraiser_running.jpg" alt="Kids Images" id="kidsimg">
             <button id="share"><i class="fa fa-share-alt"></i> Share This Fundraisers</button>
 
@@ -162,7 +182,7 @@
 
         </div> -->
 
-        <!-- <div class="right_container">
+<!-- <div class="right_container">
             <button id="contribute"><i class="fa fa-heart"></i> CONTRIBUTE NOW</button>
             <div class="banking">
                 <button>All Credit & <br> Debit Cards</button>

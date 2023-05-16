@@ -9,10 +9,15 @@ const login_status1 = JSON.parse(localStorage.getItem("login_status"));
 
 let header_name_obj;
 
+
   array1.find((obj) => {
-    if (obj.user_id == login_status1[0].user_id) {
+    if(login_status1==false){
+    }
+    // (obj.user_id == login_status1[0].user_id || login_status1==false) 
+    else if((obj.user_id == login_status1[0].user_id)){
       header_name_obj = obj;
     }
+
   });
   
   if (login_status1 == null) {
