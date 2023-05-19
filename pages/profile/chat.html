@@ -149,7 +149,7 @@
         var data = JSON.parse(request.responseText);
         console.log(data)
 
-        data.find((e) => {
+        data.data.find((e) => {
 
           if (e.matchType == "t20") {
             console.log(e)

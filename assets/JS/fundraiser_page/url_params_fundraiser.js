@@ -9,9 +9,11 @@ const login_status = JSON.parse(localStorage.getItem("login_status"));
 
 // console.log(login_status[0].login_email);
 
+let user_id;
+
 if (login_status !== false) {
 
-  let user_id = login_status[0]["user_id"];
+  user_id = login_status[0]["user_id"];
 
 }
 
@@ -21,10 +23,24 @@ const emer_id = urlparams.get("emer_id");
 
 
 if (login_status === false) {
-}
-else {
+  let step_4 = document.querySelector(".step4")
+
+  let send_phone_number_div = `   <p>
+  <span>4</span>Phone Number
+</p>
+<input type="number" id="anonymous_phone_num" placeholder="Enter your phone number" >
+`
+
+  step_4.innerHTML = send_phone_number_div;
 
 }
+ 
+else {
+    let span_5 = document.querySelectorAll("span")
+    span_5.innerText="4"
+    console.log(span_5[2])
+  }
+
 
 function days_calculation(new_date, current_date) {
   current_date = new Date();
@@ -41,6 +57,9 @@ function days_calculation(new_date, current_date) {
 days_calculation("05/20/2023");
 
 let get_obj;
+const main_title = document.getElementById("main_title");
+
+const main_container = document.getElementById("main_container");
 
 fundraiser_list.find((obj) => {
   if (obj.emerging_player_id == emer_id) {
@@ -49,10 +68,8 @@ fundraiser_list.find((obj) => {
     headline.id = "headline";
 
     // Then you can append the element to its parent container
-    const main_title = document.getElementById("main_title");
     main_title.append(headline);
 
-    const main_container = document.getElementById("main_container");
 
     // Create left container div
     const leftContainer = document.createElement("div");
@@ -351,16 +368,22 @@ const contribute_form = document.getElementById("contribute_form");
 const contribute_btn = document.getElementById("contribute");
 let send_phone_number_div = document.querySelector(".step4");
 
-
+// console.log(send_phone_number_div.children[1].setAttribute("required","true"));
 
 contribute_btn.addEventListener("click", (e) => {
   contribute_form.style.display = "block";
   if (login_status === false) {
-    send_phone_number_div.style.display = "block";
+    // send_phone_number_div.style.visibility = "visible";
+    // main_title.style.backgroundColor="red"
+    // main_container.style.backgroundColor="red"
+
+      document.body.style.backgroundColor=" rgba(0, 0, 0, 0.5)"
+      document.querySelector(".anonymous").innerText="Anonymous"
+
 
   }
   else {
-    send_phone_number_div.style.display = "none";
+    // send_phone_number_div.style.visibility = "hidden";
   }
 
 });
@@ -371,6 +394,8 @@ const cross_mark = document.getElementById("cross_mark");
 
 cross_mark.addEventListener("click", (e) => {
   contribute_form.style.display = "none";
+  document.body.style.backgroundColor="#fff"
+
   // $("#form_creation_fundraiser").removeClass("background_blur")
 });
 
@@ -385,32 +410,37 @@ const send_btn = document.getElementById("contribute_form");
 send_btn.addEventListener("submit", (e) => {
 
   e.preventDefault()
-  let send_phone_number = document.getElementById("anonymous_phone_num").value
+  // let send_phone_number = document.getElementById("anonymous_phone_num").value
 
+  console.log("hlo");
 
   if (login_status === false) {
     console.log("1")
-    let count = 0;
+    // let count = 0;
 
 
     const donation_amount = Number(
       document.getElementById("deposit_amount").value.trim()
     );
-    
+
     get_obj.total_raised_value = Number(get_obj.total_raised_value);
 
     get_obj.total_raised_value += donation_amount;
 
-    console.log(send_phone_number);
+
+
+
+
+    // console.log(send_phone_number);
 
     fundraiser_list.find((obj) => {
       if (emer_id == obj.emerging_player_id) {
         const donar_array = obj.donar_list ?? [];
 
         const donation_obj = {
-          "anonymous_id": count++,
+          "anonymous_id": Math.floor(Math.random() * 1000),
           donation_amount,
-          "send_phone_number": send_phone_number,
+          // "send_phone_number": send_phone_number,
           "raiser_user_id": get_obj.raiser_user_id,
         };
         // "total_raised_amount";donation_amount,
@@ -448,9 +478,8 @@ send_btn.addEventListener("submit", (e) => {
 
   }
   else {
-    let user_id = login_status[0]["user_id"];
 
-
+    console.log(user_id);
     const donation_amount = Number(
       document.getElementById("deposit_amount").value.trim()
     );
@@ -484,7 +513,7 @@ send_btn.addEventListener("submit", (e) => {
 
     });
 
-  
+
 
     const amt = document.getElementById("amt");
     amt.innerHTML = `<b style="color:black";>${get_obj.total_raised_value.toLocaleString(
@@ -501,7 +530,6 @@ send_btn.addEventListener("submit", (e) => {
     swal("Thanks for your donation");
 
   }
-  let user_id = login_status[0]["user_id"];
 
 
   if (user_id == get_obj.raiser_user_id) {

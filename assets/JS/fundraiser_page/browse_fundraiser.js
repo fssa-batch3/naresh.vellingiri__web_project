@@ -184,7 +184,7 @@ list_raiser(fundraiser_list);
 checkboxes.forEach((checkbox, index) => {
   checkbox.addEventListener("click", (e) => {
     console.log(e.target);
-
+    
     let map_input;
 
     // list_raiser(fundraiser_list);

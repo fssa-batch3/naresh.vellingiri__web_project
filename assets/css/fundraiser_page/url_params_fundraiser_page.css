@@ -58,12 +58,12 @@
 }
 
 .contain_players_certificate_image, .contain_players_achievements_image{
-
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 30px;
 }
+
 .contain_players_certificate_image img,.contain_players_achievements_image img{
     width: 300px;
     border: 1px solid black;
@@ -146,11 +146,11 @@
     margin-top: -10px;
 }
 
-.deposit_form, .withdraw_form{
-    width: 43%;
+.deposit_form{
+    width: 40%;
     /* height: 65vh; */
     position: fixed;
-    top: 170px;
+    top: 130px;
     left: 480px;
     background-color: white;
     border-radius: 10px;
@@ -173,7 +173,8 @@
 }
 
 #cross_mark{
-    margin-left: 200px;
+    margin-left: 280px;
+    cursor: pointer;
 }
 .hr{
     margin: 15px 0px 20px 0px;
@@ -211,11 +212,11 @@
     width: 230px;
     font-size: 18px;
 }
-input::-webkit-outer-spin-button,
+/* input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
+} */
 .step2_list{
     margin: 30px 0px 0px 0px ;
     display: flex;
@@ -302,7 +303,24 @@ input::-webkit-inner-spin-button {
     display: flex;
     align-items: center;
 }
-.withdraw_form p:nth-of-type(1){
+
+.anonymous{
+    font-weight: bold;
+    font-size: 50px;
+    color:rgb(191, 28, 123)
+}
+#send_request{
+    border: none;
+    padding:12px;
+    width: 70px;
+    font-size: 14px;
+    color: white;
+    font-weight: 600;
+    background-color: #01bfbd;
+    border-radius: 6px;
+    margin-left: 490px;
+}
+/* .withdraw_form p:nth-of-type(1){
     display: inline;
 }
 #withdraw_wallet_balance{
@@ -310,7 +328,7 @@ input::-webkit-inner-spin-button {
     font-weight: 600;
     font-size: 18px;
     color: #42464A;
-}
+} */
 .view {
     display:block;
     transition: 1s;
