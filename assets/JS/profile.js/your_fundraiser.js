@@ -284,6 +284,13 @@ const form_creation_fundraiser_specific_details = document.getElementById(
 const minimum_amount = document.getElementById("minimum_amount");
 const days_left = document.getElementById("days_left");
 const show_bio = document.getElementById("Add_bio");
+const images_feature = document.getElementById("images_feature");
+const videos_feature = document.getElementById("videos_feature");
+
+console.log(images_feature);
+console.log(videos_feature);
+
+
 const certificate_button = document.getElementById("Add_certificates");
 const certificate_whole_div = document.getElementById("certificate_whole_div");
 
@@ -317,6 +324,7 @@ function editemerginplayer(id) {
   fundraiser_list.find((obj) => {
     if (id == obj.emerging_player_id) {
       const copy_player = obj;
+      console.log(copy_player)
 
       localStorage.setItem("copy_player", JSON.stringify(copy_player));
 
@@ -408,6 +416,8 @@ cert_form.addEventListener("submit", (e) => {
 });
 
 raise_fund.addEventListener("submit", (e) => {
+
+  
   e.preventDefault();
 
   const get_copy = JSON.parse(localStorage.getItem("copy_player"));
@@ -420,7 +430,11 @@ raise_fund.addEventListener("submit", (e) => {
     if (obj.emerging_player_id == get_copy.emerging_player_id) {
       obj.minimum_amount = get_amount;
       obj.days_left = get_days;
-      obj.update_bio = get_bio;
+      obj.update_bio += `<br>${get_bio}`;
+
+      obj.img_list.push(images_feature.value);
+
+      obj.video_list.push(videos_feature.value)
 
       obj.certificate_arr = get_copy.certificate_arr;
 
@@ -434,7 +448,7 @@ raise_fund.addEventListener("submit", (e) => {
 
       raise_fund.reset();
 
-      localStorage.removeItem("copy_player");
+      // localStorage.removeItem("copy_player");
 
       // show_list();  //question to ask
     }

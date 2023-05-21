@@ -31,6 +31,10 @@ let fundraiser_list = JSON.parse(localStorage.getItem("fundraiser_list")) ?? [];
 
 let certificate_list = JSON.parse(localStorage.getItem("certificate_list")) ?? [];
 
+let img_list = JSON.parse(localStorage.getItem("img_list")) ?? [];
+let video_list = JSON.parse(localStorage.getItem("video_list")) ?? [];
+
+
 
 // --------------------------------inputs for next_button_1------------------------------------------------------
 
@@ -57,8 +61,7 @@ let update_bio = document.getElementById("Add_bio")
 // function for next button
 let raise_fund = document.getElementById("raise_fund");
 let form_creation_fundraiser = document.getElementById("form_creation_fundraiser")
-let 
- = document.getElementById("form_creation_fundraiser_specific_details")
+let = document.getElementById("form_creation_fundraiser_specific_details")
 
 
 
@@ -110,7 +113,7 @@ cer_form.addEventListener("submit", e => {
         let cer_obj = {
             "cer_img": cer_img_url,
             "cer_num": cer_num,
-            "cer_id": certificate_list.length*2+2+1
+            "cer_id": certificate_list.length * 2 + 2 + 1
         }
 
         certificate_list.push(cer_obj);
@@ -181,22 +184,24 @@ raise_fund.addEventListener("submit", e => {
     let fundraiser_form = {
 
         "emerging_player_id": fundraiser_list.length,
-        "raiser_user_id" : user_id,
+        "raiser_user_id": user_id,
         "minimum_amount": minimum_amount.value.trim(),
         "selected_option": selected_option.value,
         "selected_option1": selected_option1.value,
         "Employment_status": Employment_status.value.trim(),
-        "sports_type":sports_type.value.trim(),
+        "sports_type": sports_type.value.trim(),
         "city_name": city_name.value.trim(),
         "player_name": player_name.value.trim(),
         "player_age": player_age.value.trim(),
         "player_image_url": player_image_url.value.trim(),
         "player_title": player_title.value.trim(),
         "days_left": days_left.value.trim(),
-        "total_raised_value":0,
+        "total_raised_value": 0,
         "certificate_arr": certificate_list,
         "update_bio": update_bio.value,
-        "status":false
+        "status": false,
+        "img_list":img_list,
+        "video_list":video_list
 
     }
 
@@ -204,18 +209,18 @@ raise_fund.addEventListener("submit", e => {
 
     localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
 
-    
+
     Email.send({
-        Host : "smtp.elasticemail.com",
-        Username : "nareshfreshworks@gmail.com",
-        Password : "FE0DC2C5150B25AA5C7CE8D41EB366B451DB",
-        To : 'nareshdev03@gmail.com',
-        From : "nareshfreshworks@gmail.com",
-        Subject : "sucess",
-        Body : "Its working"
+        Host: "smtp.elasticemail.com",
+        Username: "nareshfreshworks@gmail.com",
+        Password: "FE0DC2C5150B25AA5C7CE8D41EB366B451DB",
+        To: 'nareshdev03@gmail.com',
+        From: "nareshfreshworks@gmail.com",
+        Subject: "sucess",
+        Body: "Its working"
     }).then(
-      message => alert(message)
-    );    
+        message => alert(message)
+    );
 
     // location.reload();
 

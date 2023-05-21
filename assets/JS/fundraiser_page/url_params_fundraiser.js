@@ -170,28 +170,64 @@ fundraiser_list.find((obj) => {
 
     leftContainer.appendChild(certificatesDiv);
 
-    // // Create achievemnts images div
-    // const imagesDiv = document.createElement("div");
-    // imagesDiv.classList.add("images");
+    // Create achievemnts images div
+    const imagesDiv = document.createElement("div");
+    imagesDiv.classList.add("images");
 
-    // const imagesPlayingHeading = document.createElement("h3");
-    // imagesPlayingHeading.id = "images_playing";
-    // imagesPlayingHeading.innerHTML = "Achievement Images";
-    // imagesDiv.appendChild(imagesPlayingHeading);
+    const imagesPlayingHeading = document.createElement("h3");
+    imagesPlayingHeading.id = "images_playing";
+    imagesPlayingHeading.innerHTML = "Achievement Images";
+    imagesDiv.appendChild(imagesPlayingHeading);
 
-    // const containPlayersAchievementsImageDiv = document.createElement("div");
-    // containPlayersAchievementsImageDiv.classList.add("contain_players_achievements_image")
+    const containPlayersAchievementsImageDiv = document.createElement("div");
+    containPlayersAchievementsImageDiv.classList.add("contain_players_achievements_image")
 
-    // for (let i = 0; i < 5; i++) {
-    //   const achievementImg = document.createElement("img");
-    //   achievementImg.src = "../../assets/images/Certificate/running_medal_images.jfif";
-    //   achievementImg.alt = "";
-    //   containPlayersAchievementsImageDiv.appendChild(achievementImg);
-    // }
+    for (let i = 0; i < 5; i++) {
+      const achievementImg = document.createElement("img");
+      achievementImg.src = "../../assets/images/Certificate/certificate_1.jfif";
+      achievementImg.alt = "";
+      containPlayersAchievementsImageDiv.appendChild(achievementImg);
+    }
 
-    // imagesDiv.appendChild(containPlayersAchievementsImageDiv)
+    imagesDiv.appendChild(containPlayersAchievementsImageDiv)
 
-    // leftContainer.appendChild(imagesDiv)
+    leftContainer.appendChild(imagesDiv)
+
+
+    // -------------videos-----------
+
+    let video_div;
+    // let div_video = document.querySelector(".videos_containing_div") ;
+
+    console.log(obj);
+
+    for(let i=0; i<obj.video_list.length; i++){
+
+       video_div=` <div class="videos">
+      <h3 id="achieved_videos">Achieved_videos</h3>
+      <div class="videos_containing_div">
+       <iframe  src="${obj.video_list[i]}" frameborder="0"></iframe>
+
+  </div>`
+    }
+
+  
+    leftContainer.innerHTML+=video_div
+
+    
+// let video_arr = fundraiser_list[0].videolist
+// console.log(cert_arr1);
+//   div_video.innerHTML+=` <iframe  src="https://www.youtube.com/embed/ZRRuVWlC3yA" frameborder="0"></iframe>`
+
+// }
+
+   
+
+
+ leftContainer.appendChild +=video_div
+
+ 
+
 
     // add the whole container to the main_container
     main_container.appendChild(leftContainer);
@@ -348,6 +384,9 @@ fundraiser_list.find((obj) => {
     return (get_obj = obj);
   }
 });
+
+ 
+//  console.log(div_video);
 
 function amount_calc() {
   const number = Number(get_obj.minimum_amount);
