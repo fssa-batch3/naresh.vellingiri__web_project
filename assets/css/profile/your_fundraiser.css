@@ -189,7 +189,12 @@ select{
     justify-content: space-between;
 }
 
-
+#cross_mark{
+    position: relative;
+    left: 500px;
+    bottom: 30px;
+    cursor: pointer;
+}
 .container .display_cer_list {
     display: flex;
     flex-direction: row;

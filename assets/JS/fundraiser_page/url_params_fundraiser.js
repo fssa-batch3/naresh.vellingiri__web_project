@@ -10,6 +10,7 @@ const login_status = JSON.parse(localStorage.getItem("login_status"));
 // console.log(login_status[0].login_email);
 
 let user_id;
+let video_div;
 
 if (login_status !== false) {
 
@@ -182,9 +183,9 @@ fundraiser_list.find((obj) => {
     const containPlayersAchievementsImageDiv = document.createElement("div");
     containPlayersAchievementsImageDiv.classList.add("contain_players_achievements_image")
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < obj.img_list.length; i++) {
       const achievementImg = document.createElement("img");
-      achievementImg.src = "../../assets/images/Certificate/certificate_1.jfif";
+      achievementImg.src = obj.img_list[i];
       achievementImg.alt = "";
       containPlayersAchievementsImageDiv.appendChild(achievementImg);
     }
@@ -192,27 +193,22 @@ fundraiser_list.find((obj) => {
     imagesDiv.appendChild(containPlayersAchievementsImageDiv)
 
     leftContainer.appendChild(imagesDiv)
+    let video=`<div class="videos">
+    <h3 id="achieved_videos">Achieved_videos</h3>
+    <div class="videos_containing_div"></div>`
+    leftContainer.insertAdjacentHTML("beforeend",video)
 
 
     // -------------videos-----------
 
-    let video_div;
+
     // let div_video = document.querySelector(".videos_containing_div") ;
 
     console.log(obj);
 
-    for(let i=0; i<obj.video_list.length; i++){
 
-       video_div=` <div class="videos">
-      <h3 id="achieved_videos">Achieved_videos</h3>
-      <div class="videos_containing_div">
-       <iframe  src="${obj.video_list[i]}" frameborder="0"></iframe>
 
-  </div>`
-    }
-
-  
-    leftContainer.innerHTML+=video_div
+    
 
     
 // let video_arr = fundraiser_list[0].videolist
@@ -224,7 +220,7 @@ fundraiser_list.find((obj) => {
    
 
 
- leftContainer.appendChild +=video_div
+//  leftContainer.appendChild +=video_div
 
  
 
@@ -384,6 +380,23 @@ fundraiser_list.find((obj) => {
     return (get_obj = obj);
   }
 });
+for(let i=0; i<get_obj.video_list.length; i++){
+
+  if(get_obj.video_list[i]==undefined){
+    leftContainer.innerHTML+="video_div"
+
+  }
+  else{
+    video_div=`
+     <iframe  src="${get_obj.video_list[i]}" frameborder="0"></iframe>`
+     document.querySelector(".videos").insertAdjacentHTML("beforeend",video_div)
+
+  }
+
+
+  
+  }
+
 
  
 //  console.log(div_video);

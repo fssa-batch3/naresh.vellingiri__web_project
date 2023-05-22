@@ -89,6 +89,8 @@
 }
 iframe{
     border-radius: 5%;
+    width: 700px;
+    height: 600px;
 }
 #contribute:hover{
     box-shadow: 0 4px 8px rgba(1,191,189,.3);

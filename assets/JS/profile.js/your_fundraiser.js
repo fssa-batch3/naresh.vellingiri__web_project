@@ -448,6 +448,8 @@ raise_fund.addEventListener("submit", (e) => {
 
       raise_fund.reset();
 
+      location.reload()
+
       // localStorage.removeItem("copy_player");
 
       // show_list();  //question to ask

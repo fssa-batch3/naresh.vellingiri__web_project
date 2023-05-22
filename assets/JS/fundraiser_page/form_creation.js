@@ -214,7 +214,7 @@ raise_fund.addEventListener("submit", e => {
         Host: "smtp.elasticemail.com",
         Username: "nareshfreshworks@gmail.com",
         Password: "FE0DC2C5150B25AA5C7CE8D41EB366B451DB",
-        To: 'nareshdev03@gmail.com',
+        To: user_email[0]["login_email"],
         From: "nareshfreshworks@gmail.com",
         Subject: "sucess",
         Body: "Its working"
@@ -222,7 +222,11 @@ raise_fund.addEventListener("submit", e => {
         message => alert(message)
     );
 
-    // location.reload();
+    alert("Your fundraiser has been added")
+    location.reload();
+
+    console.log(user_email[0]["login_email"]);
+
 
 });
 
