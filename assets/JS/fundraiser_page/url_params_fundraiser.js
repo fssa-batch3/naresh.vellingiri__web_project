@@ -620,20 +620,20 @@ array.find((obj) => {
 
 
 
-// const ask_for_update = document.getElementById("ask_for_update");
+const ask_for_update = document.getElementById("ask_for_update");
 
-// ask_for_update.addEventListener("click", (e) => {
-//   Email.send({
-//     Host: "smtp.elasticemail.com",
-//     Username: "nareshfreshworks@gmail.com",
-//     Password: "FE0DC2C5150B25AA5C7CE8D41EB366B451DB",
-//     To: mail_details.email,
-//     From: "nareshfreshworks@gmail.com",
-//     Subject: "sucess",
-//     Body: `you are requested for your update from ${login_status[0].login_email}.<br>
-//              Thank you.`,
-//   }).then((message) => swal("Your request has been sent"));
-// });
+ask_for_update.addEventListener("click", (e) => {
+  Email.send({
+    Host: "smtp.elasticemail.com",
+    Username: "nareshfreshworks@gmail.com",
+    Password: "FE0DC2C5150B25AA5C7CE8D41EB366B451DB",
+    To: mail_details.email,
+    From: "nareshfreshworks@gmail.com",
+    Subject: "sucess",
+    Body: `you are requested for your update from ${login_status[0].login_email}.<br>
+             Thank you.`,
+  }).then((message) => swal("Your request has been sent"));
+});
 
 
 
