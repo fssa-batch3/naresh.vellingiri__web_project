@@ -35,12 +35,12 @@ if (login_status === false) {
   step_4.innerHTML = send_phone_number_div;
 
 }
- 
+
 else {
-    let span_5 = document.querySelectorAll("span")
-    span_5.innerText="4"
-    console.log(span_5[2])
-  }
+  let span_5 = document.querySelectorAll("span")
+  span_5.innerText = "4"
+  console.log(span_5[2])
+}
 
 
 function days_calculation(new_date, current_date) {
@@ -193,10 +193,10 @@ fundraiser_list.find((obj) => {
     imagesDiv.appendChild(containPlayersAchievementsImageDiv)
 
     leftContainer.appendChild(imagesDiv)
-    let video=`<div class="videos">
+    let video = `<div class="videos">
     <h3 id="achieved_videos">Achieved_videos</h3>
     <div class="videos_containing_div"></div>`
-    leftContainer.insertAdjacentHTML("beforeend",video)
+    leftContainer.insertAdjacentHTML("beforeend", video)
 
 
     // -------------videos-----------
@@ -208,21 +208,21 @@ fundraiser_list.find((obj) => {
 
 
 
-    
-
-    
-// let video_arr = fundraiser_list[0].videolist
-// console.log(cert_arr1);
-//   div_video.innerHTML+=` <iframe  src="https://www.youtube.com/embed/ZRRuVWlC3yA" frameborder="0"></iframe>`
-
-// }
-
-   
 
 
-//  leftContainer.appendChild +=video_div
 
- 
+    // let video_arr = fundraiser_list[0].videolist
+    // console.log(cert_arr1);
+    //   div_video.innerHTML+=` <iframe  src="https://www.youtube.com/embed/ZRRuVWlC3yA" frameborder="0"></iframe>`
+
+    // }
+
+
+
+
+    //  leftContainer.appendChild +=video_div
+
+
 
 
     // add the whole container to the main_container
@@ -368,7 +368,7 @@ fundraiser_list.find((obj) => {
 
     const sponserName = document.createElement("p");
     sponserName.setAttribute("id", "sponsername");
-    sponserName.textContent =obj.player_name;
+    sponserName.textContent = obj.player_name;
     campaignerDiv.appendChild(sponserName);
 
     sponsorCardDiv.appendChild(campaignerDiv);
@@ -380,25 +380,25 @@ fundraiser_list.find((obj) => {
     return (get_obj = obj);
   }
 });
-for(let i=0; i<get_obj.video_list.length; i++){
+for (let i = 0; i < get_obj.video_list.length; i++) {
 
-  if(get_obj.video_list[i]==undefined){
-    leftContainer.innerHTML+="video_div"
+  if (get_obj.video_list[i] == undefined) {
+    leftContainer.innerHTML += "video_div"
 
   }
-  else{
-    video_div=`
+  else {
+    video_div = `
      <iframe  src="${get_obj.video_list[i]}" frameborder="0"></iframe>`
-     document.querySelector(".videos").insertAdjacentHTML("beforeend",video_div)
+    document.querySelector(".videos").insertAdjacentHTML("beforeend", video_div)
 
   }
 
 
-  
-  }
+
+}
 
 
- 
+
 //  console.log(div_video);
 
 function amount_calc() {
@@ -429,8 +429,8 @@ contribute_btn.addEventListener("click", (e) => {
     // main_title.style.backgroundColor="red"
     // main_container.style.backgroundColor="red"
 
-      document.body.style.backgroundColor=" rgba(0, 0, 0, 0.5)"
-      document.querySelector(".anonymous").innerText="Anonymous"
+    document.body.style.backgroundColor = " rgba(0, 0, 0, 0.5)"
+    document.querySelector(".anonymous").innerText = "Anonymous"
 
 
   }
@@ -446,7 +446,7 @@ const cross_mark = document.getElementById("cross_mark");
 
 cross_mark.addEventListener("click", (e) => {
   contribute_form.style.display = "none";
-  document.body.style.backgroundColor="#fff"
+  document.body.style.backgroundColor = "#fff"
 
   // $("#form_creation_fundraiser").removeClass("background_blur")
 });
@@ -525,6 +525,8 @@ send_btn.addEventListener("submit", (e) => {
     amount_calc();
 
     swal("Thanks for your donation");
+
+    document.body.style.backgroundColor = "#fff"
 
 
 
@@ -617,22 +619,27 @@ array.find((obj) => {
 
 
 
-// console.log(login_status["login_email"]);
 
-const ask_for_update = document.getElementById("ask_for_update");
+// const ask_for_update = document.getElementById("ask_for_update");
 
-ask_for_update.addEventListener("click", (e) => {
-  Email.send({
-    Host: "smtp.elasticemail.com",
-    Username: "nareshfreshworks@gmail.com",
-    Password: "FE0DC2C5150B25AA5C7CE8D41EB366B451DB",
-    To: mail_details.email,
-    From: "nareshfreshworks@gmail.com",
-    Subject: "sucess",
-    Body: `you are requested for your update from ${login_status[0].login_email}.<br>
-             Thank you.`,
-  }).then((message) => swal("Your request has been sent"));
-});
+// ask_for_update.addEventListener("click", (e) => {
+//   Email.send({
+//     Host: "smtp.elasticemail.com",
+//     Username: "nareshfreshworks@gmail.com",
+//     Password: "FE0DC2C5150B25AA5C7CE8D41EB366B451DB",
+//     To: mail_details.email,
+//     From: "nareshfreshworks@gmail.com",
+//     Subject: "sucess",
+//     Body: `you are requested for your update from ${login_status[0].login_email}.<br>
+//              Thank you.`,
+//   }).then((message) => swal("Your request has been sent"));
+// });
+
+
+
+
+
+
 
 // // scroll function for about section
 
