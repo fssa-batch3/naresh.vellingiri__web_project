@@ -354,7 +354,7 @@ fundraiser_list.find((obj) => {
     sponsorCardDiv.classList.add("sponsercard");
 
     const profileIcon = document.createElement("img");
-    profileIcon.setAttribute("src", "");
+    profileIcon.setAttribute("src", obj.player_image_url);
     profileIcon.setAttribute("alt", "image_broken");
     profileIcon.setAttribute("id", "profileicon");
     sponsorCardDiv.appendChild(profileIcon);
@@ -368,7 +368,7 @@ fundraiser_list.find((obj) => {
 
     const sponserName = document.createElement("p");
     sponserName.setAttribute("id", "sponsername");
-    sponserName.textContent = "NARESH";
+    sponserName.textContent =obj.player_name;
     campaignerDiv.appendChild(sponserName);
 
     sponsorCardDiv.appendChild(campaignerDiv);
