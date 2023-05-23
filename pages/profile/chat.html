@@ -119,50 +119,17 @@
 
     let page_content = document.querySelector(".page-content")
 
+let cric_store=JSON.parse(localStorage.getItem("cric_api"));
+console.log(cric_store)
 
-
-
-
-    // fetch("https://api.cricapi.com/v1/currentMatches?apikey=078e53f4-3093-41f4-9d6e-7bb1075d7304&offset=0")
-    //         .then((response) => { return response.json() })
-    //         .then((data) => { 
-    //             // console.log(data)
-    //             data.data.find((e)=>{
-    //                 // console.log(data.data[0])
-
-    //                 if(e.matchType=="t20" ){
-    //                   console.log(e.id)
-    //                     let check_img=e.teamInfo[1].img
-    //                     let check1_img=e.teamInfo[0].img
-
-
-
-
-
-    var request = new XMLHttpRequest();
-
-    request.open('GET', 'https://api.cricapi.com/v1/currentMatches?apikey=078e53f4-3093-41f4-9d6e-7bb1075d7304&offset=0', true);
-
-    request.onload = function () {
-
-      if (request.status >= 200 && request.status < 400) {
-        var data = JSON.parse(request.responseText);
-        console.log(data)
-
-        data.data.find((e) => {
-
-          if (e.matchType == "t20") {
-            console.log(e)
-            let check_img = e.teamInfo[1].img
-            let check1_img = e.teamInfo[0].img
-            // implement remaining logic
-            let div = ` <div class="container score_main_container">
+ cric_store.forEach(element => {
+  let div = ` <div class="container score_main_container">
           <div class="row">
             <ul class="resultsMatches list-unstyled">
               <li>
                 <div class="panel panel-primary score_primary">
                   <div class="panel-heading match-header">
-                    <h3 class="panel-title text-uppercase white-color"><span class="pull-right">${e.name}</span></h3>
+                    <h3 class="panel-title text-uppercase white-color"><span class="pull-right">${element.name}</span></h3>
                   </div>
 
 
@@ -185,13 +152,13 @@
 
                         <div class=" col-xs-6 col-md-6 img_992">
                           <a href="#" class="loser"><img
-                              src=${check_img} 
+                              src=${element.teamInfo[1].img} 
                               class="img-rounded" alt=""></a>
                         </div>
                         <div class="score col-xs-6 col-md-6">
-                          <div class="runs">${e.score[0].r}/${e.score[0].w}</div>
+                          <div class="runs">${element.score[0].r}/${element.score[0].w}</div>
                           <div class="runRate"></div>
-                          <div class="over">${e.score[0].o}/20</div>
+                          <div class="over">${element.score[0].o}/20</div>
                         </div>
                       </div>
 
@@ -210,13 +177,13 @@
 
                         <div class=" col-xs-6 col-md-6 img_992">
                           <a href="#" class="winner"><img
-                              src=${check1_img} class="img-rounded"
+                              src=${element.teamInfo[0].img} class="img-rounded"
                               alt=""></a>
                         </div>
                         <div class="score col-xs-6 col-md-6">
-                          <div class="runs">${e.score[1].r}/${e.score[1].w}</div>
+                          <div class="runs">${element.score[1].r}/${element.score[1].w}</div>
                           <div class="runRate"></div>
-                          <div class="over">${e.score[1].o}/20</div>
+                          <div class="over">${element.score[1].o}/20</div>
                         </div>
                       </div>
                        
@@ -226,8 +193,8 @@
                     <div class=" match-content">
 
                       <div class="col-xs-9 col-md-12">
-                        <h3 class="summary">${e.status}</h3>
-                        <div class="stadium">${e.venue}</div>
+                        <h3 class="summary">${element.status}</h3>
+                        <div class="stadium">${element.venue}</div>
                       </div>
 
                     
@@ -245,17 +212,152 @@
 
 
     page_content.innerHTML += div
-          }
-        })
-      } else {
-        console.log('Error fetching data');
-      }
-    };
-    request.onerror = function () {
 
-      console.log('Error fetching data');
-    };
-    request.send();
+  
+ });
+
+
+
+
+
+    // fetch("https://api.cricapi.com/v1/currentMatches?apikey=078e53f4-3093-41f4-9d6e-7bb1075d7304&offset=0")
+    //         .then((response) => { return response.json() })
+    //         .then((data) => { 
+    //             // console.log(data)
+    //             data.data.find((e)=>{
+    //                 // console.log(data.data[0])
+
+    //                 if(e.matchType=="t20" ){
+    //                   console.log(e.id)
+    //                     let check_img=e.teamInfo[1].img
+    //                     let check1_img=e.teamInfo[0].img
+
+
+
+//     let cric_arr=[];
+
+//     var request = new XMLHttpRequest();
+
+//     request.open('GET', 'https://api.cricapi.com/v1/currentMatches?apikey=078e53f4-3093-41f4-9d6e-7bb1075d7304&offset=0', true);
+
+//     request.onload = function () {
+
+//       if (request.status >= 200 && request.status < 400) {
+//         var data = JSON.parse(request.responseText);
+//         console.log(data)
+
+//         data.data.find((e) => {
+//           // console.log(e)
+//           if (e.matchType == "t20" && e.series_id=="c75f8952-74d4-416f-b7b4-7da4b4e3ae6e") {
+//             console.log(e)
+//             let check_img = e.teamInfo[1].img
+//             let check1_img = e.teamInfo[0].img
+//             // implement remaining logic
+//             let div = ` <div class="container score_main_container">
+//           <div class="row">
+//             <ul class="resultsMatches list-unstyled">
+//               <li>
+//                 <div class="panel panel-primary score_primary">
+//                   <div class="panel-heading match-header">
+//                     <h3 class="panel-title text-uppercase white-color"><span class="pull-right">${e.name}</span></h3>
+//                   </div>
+
+
+
+
+
+
+
+
+
+//                   <div class="panel-body">
+
+
+//                     <div class=" match-list">
+//                       <div class=" team-left team_992">
+                     
+                  
+
+
+
+//                         <div class=" col-xs-6 col-md-6 img_992">
+//                           <a href="#" class="loser"><img
+//                               src=${check_img} 
+//                               class="img-rounded" alt=""></a>
+//                         </div>
+//                         <div class="score col-xs-6 col-md-6">
+//                           <div class="runs">${e.score[0].r}/${e.score[0].w}</div>
+//                           <div class="runRate"></div>
+//                           <div class="over">${e.score[0].o}/20</div>
+//                         </div>
+//                       </div>
+
+
+//                       <div class="col-xs-2 col-md-2">
+//                         <div class="vs">vs</div>
+//                       </div>
+
+
+
+
+
+
+//                       <div class=" col-xs-5 col-md-5 team-right last team_992">
+
+
+//                         <div class=" col-xs-6 col-md-6 img_992">
+//                           <a href="#" class="winner"><img
+//                               src=${check1_img} class="img-rounded"
+//                               alt=""></a>
+//                         </div>
+//                         <div class="score col-xs-6 col-md-6">
+//                           <div class="runs">${e.score[1].r}/${e.score[1].w}</div>
+//                           <div class="runRate"></div>
+//                           <div class="over">${e.score[1].o}/20</div>
+//                         </div>
+//                       </div>
+                       
+//                     </div>
+
+
+//                     <div class=" match-content">
+
+//                       <div class="col-xs-9 col-md-12">
+//                         <h3 class="summary">${e.status}</h3>
+//                         <div class="stadium">${e.venue}</div>
+//                       </div>
+
+                    
+//                     </div>
+//                   </div>
+//                 </div>
+//               </li>
+
+              
+             
+//             </ul>
+//           </div>
+//         </div>
+// `
+
+
+//     page_content.innerHTML += div
+ 
+//     cric_arr.push(e);
+//     console.log(cric_arr)
+//     localStorage.setItem("cric_api",JSON.stringify(cric_arr))
+
+//          }
+//         })
+//       } else {
+//         console.log('Error fetching data');
+//       }
+//     };
+//     request.onerror = function () {
+
+//       console.log('Error fetching data');
+//     };
+//     request.send();
 
     // e.score.forEach(element => {
     // let image=document.querySelector(".winner img");

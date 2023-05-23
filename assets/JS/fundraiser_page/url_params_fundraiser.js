@@ -150,7 +150,7 @@ fundraiser_list.find((obj) => {
 
     const certificatesHeading = document.createElement("h3");
     certificatesHeading.id = "certificates_heading";
-    certificatesHeading.innerHTML = "Certificates";
+    certificatesHeading.innerHTML = "Achievements";
     certificatesDiv.appendChild(certificatesHeading);
 
     const containPlayersCertificateImageDiv = document.createElement("div");
@@ -632,13 +632,20 @@ ask_for_update.addEventListener("click", (e) => {
     Subject: "sucess",
     Body: `you are requested for your update from ${login_status[0].login_email}.<br>
              Thank you.`,
-  }).then((message) => swal("Your request has been sent"));
+  }).then((message) => swal("Your request has been sent. We will notify you once they respond to your request."));
 });
 
 
 
+// let hover= document.querySelectorAll(".gpay,.phonepe,.paytm")
 
+// hover.forEach(e=>{
+//   e.addEventListener("click",el=>{
+//     el.target.classList.add("step2_list")
+//   })
+// })
 
+// console.log(hover)
 
 
 // // scroll function for about section
