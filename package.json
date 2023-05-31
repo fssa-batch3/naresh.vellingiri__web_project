@@ -1,0 +1,48 @@
+{
+  "name": "naresh.vellingiri__web_project",
+  "version": "1.0.0",
+  "description": "My project is about to support the rural sports players to move forward and make them sponsered in their respective fields.\r Problem statement: https://docs.google.com/document/d/1XoiQFivpBtAY0hvU_6xjGZW9y2UKpK8S8LtXQ7_jJJQ/edit",
+  "main": "checking.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fssa-batch3/naresh.vellingiri__web_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fssa-batch3/naresh.vellingiri__web_project/issues"
+  },
+  "homepage": "https://github.com/fssa-batch3/naresh.vellingiri__web_project#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@html-eslint/eslint-plugin": "^0.18.0",
+    "@html-eslint/parser": "^0.18.0",
+    "eslint": "^8.39.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-code-complexity": "^1.1.1",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-prettier-standard": "^4.0.1",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-html": "^7.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-vue": "^9.11.0",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.8",
+    "prettier-config-standard": "^5.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "mysql": "^2.18.1"
+  }
+}

@@ -1,0 +1,78 @@
+table thead th{
+    text-align: center;
+}
+
+.table__body {
+    width: 80%;
+    max-height: calc(89% - 1.6rem);
+    background-color: white;
+    margin: 3em auto;
+    border-radius: .6rem;
+    overflow: auto;
+    overflow: overlay;
+}
+
+.table__body::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.table__body::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background-color: #0004;
+    /* visibility: hidden; */
+}
+
+.table__body:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+table {
+    width: 100%;
+}
+
+table tbody td {
+    font-weight: 600;
+    text-align: center;
+}
+
+
+
+tr  img {
+    width: 100px;
+    height: 100px;
+    margin-right: .5rem;
+    position: relative;
+    left: 50px;
+    margin: 20px;
+    vertical-align: middle;
+    border-radius: 10px;
+
+}
+
+table,
+th,
+td {
+    padding: 1rem;
+    text-align: left;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #01bfbd;
+    color: white;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+
+
+.body_table{
+    margin-top: 100px;
+    border: 2px solid rgb(220, 213, 213);
+}
+
+
+

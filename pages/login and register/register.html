@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../assets/css/login and register/register.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="title">Registration</div>
+
+    <div class="content">
+
+      <form id="form">
+
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" id="first_name" placeholder="Enter your name" pattern="[A-Za-z]{0,32}" title="Enter only alphabet characters." required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" id="last_name" placeholder="Enter your username" pattern="[A-Za-z]{0,32}" title="Enter only alphabet characters." required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" id="email" placeholder="Enter your email" title="Please input a valid email" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="tel" id="phone_number" placeholder="Enter your number"
+              title="please enter a valid phone number" required minlength="10" maxlength="10">
+          </div>
+
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" id="password" placeholder="Enter your password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+              title="Uppercase letters: A-Z.
+            Lowercase letters: a-z.
+            . Special: !@#$%^&*()" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" id="confirm_password" placeholder="Confirm your password"
+              title="please correct the match password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+              required>
+          </div>
+
+        </div>
+
+        <div class="button">
+          <button type="submit" id="btn_register">Register</button>
+        </div>
+        <p class="text-center">
+Already Have an account?<a href="login.html">login</a> 
+</p>
+      </form>
+    </div>
+  </div>
+
+  <script>    const form = document.getElementById("form");
+
+    form.addEventListener("submit", e => {
+
+      e.preventDefault();
+
+      register()
+
+    })
+
+    function register() {
+
+      // getting values from user
+
+      const first_name = document.getElementById("first_name").value
+      const last_name = document.getElementById("last_name").value
+      const email = document.getElementById("email").value
+      const phone_number = document.getElementById("phone_number").value
+      const password = document.getElementById("password").value
+      const confirm_password = document.getElementById("confirm_password").value
+
+      const user_id = Math.floor(Math.random() * 300)
+
+      console.log(user_id)
+
+      //  initiating arr and objects
+
+      let user;
+      let res;
+
+      user = JSON.parse(localStorage.getItem("array")) ?? [];
+
+      if (password == confirm_password) {
+
+        if (user == "") {
+
+          const user_data = {
+        user_id,
+        first_name,
+        last_name,
+        email,
+        phone_number,
+        password,
+        "proile_image":" "
+      }
+
+          user.push(user_data);
+
+          localStorage.setItem("array", JSON.stringify(user));
+
+          window.location.href = "login.html";
+
+        }
+
+        else {
+          const check = JSON.parse(localStorage.getItem("array"))
+
+          check.find(e => {
+            if (e.email == email) {
+              return res = 1
+            }
+          })
+
+          if (res == 1) {
+            alert("email already taken")
+          }
+
+          else {
+            const user_data = {
+          user_id,
+          first_name,
+          last_name,
+          email,
+          phone_number,
+          password, 
+           "proile_image":" "
+
+        }
+
+            user.push(user_data)
+
+            localStorage.setItem("array", JSON.stringify(user))
+            window.location.href = "login.html"
+          }
+        }
+      }
+
+      else {
+        alert("password is not matched")
+      }
+
+    }
+  </script>
+
+</body>
+
+</html>

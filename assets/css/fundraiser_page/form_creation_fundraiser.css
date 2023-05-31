@@ -1,0 +1,134 @@
+
+.header_main{
+    position: fixed;
+    z-index: 1000;
+    top: 0px;
+    width: 100%;
+}
+
+.container[form_creation_fundraiser]{
+    border: 2px solid rgb(207, 203, 203);
+    width: 40%;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 130px;
+    display: block;
+}
+
+.add_fundraiser_btn{
+    background-color: #0ea8a8;
+    color: white;
+    border: none;
+    border-radius:10px ;
+    padding: 10px;
+    margin-left: 220px;
+    margin-top: 20px;
+    font-size: 20px;
+    width: 100px;
+
+}
+
+.text-muted{
+    position: relative;
+    /* top: 5px; */
+    font-weight: bold;
+    color: #2c2b2b;
+
+}
+#add_certificates{
+    width: 200px;
+    margin-right: 240px;
+    display: block;
+}
+
+.form-control{
+    border-bottom:1px solid #d0d6d6
+}
+
+input::placeholder{
+    margin-left: 100px;
+}
+
+select{
+    display: block;
+    width: 530px;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+#certificate_whole_div{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+
+
+ }
+
+
+.background{
+    border: 2px solid red;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.certificate_heading_div{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.container .display_cer_list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    border: 1px solid rgb(122, 118, 118);
+}
+
+.container .display_cer_list .cer_item{
+    border: 2px solid blue;
+    border-radius: 5px;
+    margin: 1em;
+}
+
+.container .display_cer_list .cer_item .items_cert{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container .display_cer_list .cer_item .items_cert {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.container .display_cer_list .cer_item .items_cert span{
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: red;
+}
+.container .display_cer_list .cer_item img {
+    width: 175px;
+}
+
+

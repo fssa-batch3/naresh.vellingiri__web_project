@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Browse fundraiser</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../../assets/css/index.css">
+    <link rel="stylesheet" href="../../assets/css/fundraiser_page/browse_fundraiser.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+    <!------------------------- Header Section---------------------------------------->
+    <header class="header_main" id="header_main">
+        <a class="logo" href="/"><img src="../../assets/images/index_images/logo_main.png" alt="logo"></a>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Fundraiser</a></li>
+
+            </ul>
+        </nav>
+        <a class="cta" href="../login and register/register.html" id="register">Register</a>
+
+        <a class="cta" href="../login and register/login.html" id="login">Login</a>
+
+    </header>
+
+    <!------------------------- Fundraiser Section---------------------------------------->
+
+    <div class="Whole-content">
+
+        <div class="sidebar-categories">
+            <div class="sidebar-categories-position">
+                <h3>categories </h3>
+
+                <!-- <hr>
+                <p>Foot ball</p>
+                <p>Hockey</p>
+                <p>Cricket</p>
+                <p>Volley Ball</p>
+                <p>Kabadi</p>
+                <p>Hand Ball</p>
+                <p>Tennis</p>
+                <p>Badmiton</p>
+                <p>Athletics</p>
+                <p>Others</p>
+                <hr> -->
+
+              <div class="filter_by_cat">
+                <input type="checkbox" id="football" value="football" name="filter_by_cat">
+                <label for="football">Football</label>
+                <br>
+
+                <input type="checkbox" id="hockey" value="hockey" name="filter_by_cat">
+                <label for="hockey">hockey</label>
+                <br>
+
+                <input type="checkbox" id="cricket" value="cricket" name="filter_by_cat">
+                <label for="cricket">cricket</label>
+                <br>
+<!-- 
+                <input type="checkbox" id="Volley" value="volley" name="filter_by_cat">
+                <label for="Volley" >Volley</label>
+                <br> -->
+
+                <input type="checkbox" id="Kabadi" value="kabadi" name="filter_by_cat">
+                <label for="Kabadi">Kabadi</label>
+                <br>
+
+                <input type="checkbox" id="Badminton" value="badminton" name="filter_by_cat">
+                <label for="Badminton">Badminton</label>
+              </div>
+                
+            </div>          
+
+            <button id="btn"> Start a fund raiser </button>
+        </div>
+
+        <div class="card-fundraisers">
+
+            <div class="seacrh-funraisers">
+                <input type="search" id="searchbar" placeholder="Search for fundraisers">
+                <p>
+<i class="fa-solid fa-magnifying-glass"></i>
+</p>
+            </div>
+            <div class="options-for-fund">
+                <p>
+                   <span class="showing">Showing fundraisers for</span> 
+                    <span>
+<select>
+                            <option>Childrens</option>
+                        </select></span>
+                    under
+                    <span>
+<select>
+                            <option>All types</option>
+                            <option>Football</option>
+                            <option>Cricket</option>
+                            <option>Volley</option>
+                            <option>Kabadi</option>
+                            <option>Cricket</option>
+
+                        </select></span>
+                    From
+                    <span>
+<select>
+                            <option>Sort by</option>
+                            <option>A to Z</option>
+                            <option>Date</option>
+
+                        </select></span>
+                </p>
+            </div>
+
+            <div class="details-fund-raiser" id="detail_fund_raisers">
+               
+                 <!-- <div class="card">
+                    <div class="image-splayers">
+                        <img src="../../assets/images/fundraiser_images/fundraiser_running.jpg" class="player-img">
+                    </div>
+                    <p class="description">Help them for their upcoming carear</p>
+                    <div class="name">
+                        <div class="publisher-img">
+                            <img src="">
+                        </div>
+                        <p>by karthik vishnu</p>
+                    </div>
+                    <p class="fund-rs"><i class="fa-solid fa-indian-rupee-sign"></i> 16,0000 <span>raised</span></p>
+                    <div class="range">
+                        <div class="range_value"></div>
+                    </div>
+                    <p class="last-date-of-fund">Last Donation 10 days ago</p>
+                    <div class="supports-last-date-of-fund">
+                        <p><span>20</span> Days left</p>
+                        <p><span>112</span> Supporters</p>
+                    </div>
+                </div> -->
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../../assets/JS/profile.js/header.js"></script>
+    <script src="../../assets/JS/fundraiser_page/browse_fundraiser.js"></script>
+
+</body>
+
+</html>

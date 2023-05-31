@@ -1,0 +1,346 @@
+
+.main_title{
+    margin: 30px;
+}
+
+
+#headline{
+    font-weight: 600;
+}
+.container{
+    display: flex;
+    margin-top: 30px;
+}
+#headline{
+    text-align: center;
+}
+#kidsimg{
+    width: 500px;
+    height: 600px;
+    border-radius: 5px;
+    margin-left: 100px;
+}
+#ask_for_update{
+    border: none;
+    padding: 10px;
+    color: #01bfbd;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 6px rgba(0,0,0,.2);
+    margin-top: 30px;
+    margin-left: 550px;
+}
+.details button{
+    border: none;
+    padding: 10px;
+    background-color: white;
+    margin-left: 20px;
+    font-size: 18px;
+}
+.details button:hover{
+    color: #01bfbd;
+    border-bottom: solid #01bfbd;
+}
+
+.about_content, .certificates, .images,.videos{
+    border: 1px solid rgb(217, 210, 210);
+    padding: 10px;
+    margin: 30px;
+    border-radius: 5px;
+}
+#aboutheading, #certificates_heading, #images_playing,#achieved_videos{
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+}
+#aboutpara,  #certificates_heading,#images_playing,#achieved_videos{
+    margin-top: 20px;
+}
+
+.contain_players_certificate_image, .contain_players_achievements_image,.videos_containing_div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.contain_players_certificate_image img,.contain_players_achievements_image img{
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+
+}
+
+
+.right_container{
+    margin-left: 40px;
+}
+#contribute,#fbshare{
+    border: none;
+    padding:12px;
+    height: 50px;
+    width: 300px;
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    background-color: #01bfbd;
+    border-radius: 6px;
+    
+}
+iframe{
+    border-radius: 5%;
+    width: 700px;
+    height: 600px;
+}
+#contribute:hover{
+    box-shadow: 0 4px 8px rgba(1,191,189,.3);
+}
+
+.banking{
+    display: flex;
+    gap: 10px;
+}
+.banking button{
+    font-size: 12px;
+    background-color: white;
+    color: #B3B3B3;
+    border: thin #B3B3B3;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-top: 30px;
+    padding: 8px;
+    
+}
+#fbshare{
+    margin-top: 50px;
+    background-color: rgb(59, 89, 152);
+}
+#fbsharetext{
+    margin-top: 10px;
+    color: rgb(59, 89, 152);
+}
+#amt{
+    font-size: 28px;
+}
+.suporters{
+    display: flex;
+    font-size: 20px;
+}
+#suporters1{
+    margin-right: 40px;
+}
+.sponsercard{
+    background-color: white;
+    box-shadow: 0 6px 40px 0 rgba(0,0,0,.1);
+    border-radius: 10px;
+    margin-top: 30px;
+    display: flex;
+    padding: 20px;
+}
+#profileicon{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: 0 6px 40px 0 rgba(0,0,0,.1);
+}
+.campaigner{
+    margin-left: 40px;
+}
+#sponsername{
+    color: #007de1;
+    font-weight: 600;
+    margin-top: -10px;
+}
+
+.deposit_form{
+    width: 40%;
+    /* height: 65vh; */
+    position: fixed;
+    top: 100px;
+    left: 480px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    font-weight: 450;
+    font-size: 15px;
+}
+.deposit_form h2,.withdraw_form h2{
+    font-weight: 550;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.deposit_form h2 img,.withdraw_form h2 img{
+    width: 50px;
+    margin: 0px 10px;
+}
+
+#cross_mark{
+    margin-left: 280px;
+    cursor: pointer;
+}
+.hr{
+    margin: 15px 0px 20px 0px;
+}
+.deposit_form input,.withdraw_form input{
+    border: solid grey;
+    border-width:  0px 0px 1px 0px;
+    margin: 20px 30px;
+}
+.deposit_form input:focus,.withdraw_form input:focus{
+    outline: none;
+}
+.step1,.step3{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.deposit_form p{
+    font-weight: 500;
+    color: #42464A;
+}
+.deposit_form p span,.withdraw_form p span{
+    padding: 7px 15px;
+    font-weight: 800;
+    background-color: #01bfbd;
+    border-radius: 50%;
+    color: white;
+    margin:0px 15px 0px 15px ;
+}
+.step2 p span{
+    padding: 7px 15px;
+}
+.step1 input, .step3 input {
+    padding:5px 10px;
+    width: 230px;
+    font-size: 18px;
+}
+/* input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+} */
+.step2_list{
+    margin: 30px 0px 0px 0px ;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.step2_list div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 5px;
+    color: rgb(73, 73, 73);
+    font-weight: 500;
+}
+.step2_list div:hover{
+    background-color:rgb(244, 244, 244);
+    cursor: pointer;
+}
+.step2_list div img{
+    width: 50px;
+}
+.buttons span{
+    padding: 7px 15px ;
+    border: none;
+    background-color: #01bfbd;
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.send_request .sent{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.send_request .sent h3{
+    font-size: 12px;
+    font-weight: 300;
+    color: #2FA042;
+    margin-left: 15px;
+}
+.send_request img{
+    width: 30px;
+    height: 30px;
+}
+.send_request_otp{
+    font-weight: 500;
+    color: #42464A;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.send_request_otp input{
+    padding: 5px 10px;
+    font-size: 16px;
+}
+.send_request_otp img{
+    width: 30px;
+    margin-right: 10px;
+}
+.buttons{
+    margin: 25px 0px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.buttons a,.buttons button{
+    padding: 7px 20px;
+    margin: 0px 5px;
+    font-weight: 600;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+#back{
+    background-color: #01bfbd;
+}
+#done,#withdraw_money{
+    background-color:#2db644;
+    display: flex;
+    align-items: center;
+}
+
+.anonymous{
+    font-weight: bold;
+    font-size: 50px;
+    color:rgb(191, 28, 123)
+}
+#send_request{
+    border: none;
+    padding:12px;
+    width: 70px;
+    font-size: 14px;
+    color: white;
+    font-weight: 600;
+    background-color: #01bfbd;
+    border-radius: 6px;
+    margin-left: 490px;
+}
+/* .withdraw_form p:nth-of-type(1){
+    display: inline;
+}
+#withdraw_wallet_balance{
+    display: inline;
+    font-weight: 600;
+    font-size: 18px;
+    color: #42464A;
+} */
+.view {
+    display:block;
+    transition: 1s;
+}.view {
+    display:block !important;
+    transition: 1s;
+}
+.not_view{
+    display: none;
+}

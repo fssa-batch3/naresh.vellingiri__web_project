@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-color: #01bfbd;
+    --primary-hover-color: #039b9a;
+    --green-color: #039695;
+    --primary-color-rgb: 1, 191, 189;
+    --primary-font-family: "Source Sans Pro", sans-serif;
+    --rboto-font-family: "Roboto", sans-serif;
+    --payment-sip-color: #039695;
+  }
+  
+
+header{
+    /* border: 2px solid black; */
+    position: fixed;
+    top: 0px;
+    height: 75px;
+    width:100%;
+    z-index: 999;
+}
+
+.button_form{
+    background-color: #15c4c4;
+    color: white;
+    border: none;
+    border-radius:10px ;
+    padding: 10px;
+    /* margin-left: 370px; */
+}
+.Whole-content{
+    height: 700px;
+    /* border: 2px solid black; */
+    margin-top: 200px;
+    width:85%;
+    margin-left: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+.sidebar-categories{
+    height: 700px;
+    width:25%;
+    /* border: 2px solid black; */
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 40px;
+    left: 95px;
+
+}
+.sidebar-categories-position{
+    margin-left: 100px;
+}
+.card-fundraisers{
+
+    height: 700px;
+    position: relative;
+    left: 400px;
+    /* border: 2px solid black; */
+    width:70%;
+}
+.sidebar-categories p,h3{
+    margin-left: 15px;
+    margin-top:20px;
+    font-size: 18px;
+    color:#5b5b5e;
+}
+.sidebar-categories h3{
+    color:black;
+    font-weight:900;
+    text-transform: uppercase;
+}
+.sidebar-categories p:hover{
+    
+    color:#01bfbd;
+    font-weight: bold;
+    cursor: pointer;
+}
+.sidebar-categories p:active{
+    color: #bfaf01;
+}
+#btn{
+    margin: 20px;
+    width:85%;
+    height: 40px;
+    background-color: #01bfbd;
+    color:white;
+   border: none;
+    border-radius: 5px;
+font-size: 18px;
+    
+}
+hr{
+    width: 290px;
+}
+.seacrh-funraisers{
+    height: 80px;
+    /* border: 2px solid black; */
+}
+#searchbar{
+    height: 60px;
+    border: 1px solid grey;
+    width: 100%;
+    text-indent: 20px;
+    font-size:18px;
+    color: #8a8a92;
+    border-radius: 7px;
+}
+
+.showing{
+    font-weight: bold;
+    font-size: 20px;
+    font-family: var(--rboto-font-family);
+}
+.fa-magnifying-glass{
+
+    position: relative;
+    bottom:60px;
+    left:810px;
+    font-size: 20px;
+   color: #8a8a92;
+    
+}
+select{
+    height: 35px;
+    width: 110px;
+    border-radius: 20px;
+    margin-left: 10px;
+    color:#01bfbd;
+    font-weight: bolder;
+    border:1px solid #01bfbd;
+}
+.details-fund-raiser{
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+ justify-content:flex-start;
+ column-gap: 155px;
+ row-gap: 20px;
+ margin-bottom: 100px;
+ margin-left: 10px;
+ padding-bottom: 50px;
+}
+
+.details-fund-raiser a{
+    text-decoration: none;
+}
+.card{
+    height:500px;
+    width: 325px;
+    border: 1px solid rgb(185, 181, 181);
+  border-radius: 13px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(123, 123, 123, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+.card:hover{
+    box-shadow:rgba(225, 31, 31, 0.07) 0px 1px 1px;
+    cursor: pointer;
+}
+.image-splayers img{
+    height:200px;
+    width: 325px;
+    border-radius:  13px  13px 0px 0px;
+}
+.name {
+    /* border: 2px solid black; */
+    height: 40px;
+ width: 90%;
+ margin: 5%;
+ display: flex;
+}
+.publisher-img{
+    height: 40px;
+    width:40px;
+    border-radius: 50%;
+    background-color: #e9e9f6;
+}
+.publisher-img img{
+    height: 40px;
+    width:40px;
+    border-radius: 50%;
+}
+
+
+.name p{
+    font-size: 13px;
+    margin-left: 10px;
+}
+.name .beneficiary_name{
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+.description{
+    font-weight: bolder;
+    margin-left: 15px;
+    margin: 10px;
+    color: black;
+}
+.fund-rs{
+    margin-left: 20px;
+    font-weight: bolder;
+}
+.fund-rs span{
+    color:#8a8a92;
+    font-weight: 500;
+}
+i{
+    margin-right: 5px;
+}
+.range{
+    height: 12px;
+     background-color: rgba(1,191,189,.3);
+    border: none;
+    width:200px;
+    margin-left: 20px;
+    border-radius: 1rem;
+}
+.range_value{
+    position: relative;
+    right: 20px;
+    height: 12px;
+    background-color:var(--primary-color);
+   border: none;
+   width:100px;
+   margin-left: 20px;
+   border-radius: 1rem;
+   margin-bottom: 5px;
+}
+.last-date-of-fund{
+    color:#8a8a92;
+    margin-left: 20px;
+}
+.supports-last-date-of-fund{
+
+    height: 40px;
+      /* border: 2px solid black; */
+      display: flex;
+      justify-content: space-around;
+
+}
+.supports-last-date-of-fund p{
+
+    color: #4c4c4f;
+    font-size: 14px;
+}
+.supports-last-date-of-fund span{
+    color:#0d0d0e;
+    font-weight: bolder; 
+}

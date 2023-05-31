@@ -1,0 +1,39 @@
+
+
+
+.request_div{
+    /* border: 12px solid red; */
+    margin-top: 90px;
+    margin-left: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 1400px;
+    gap: 80px;
+}
+
+
+
+#accept_btn_form_creation_fundraiser,
+ #reject_btn_form_creation_fundraiser{
+    background-color: #6FE76F;
+    color: white;
+    border: none;
+    border-radius:10px ;
+    padding: 10px;
+    margin-left: 40px;
+    margin-top: 20px;
+    font-size: 20px;
+    width: 100px;
+
+ }
+ #reject_btn_form_creation_fundraiser{
+    background-color:  #dc3434;
+
+ }
+
+ .card_main_div a{
+    text-decoration: none;
+ }
+
+
+
