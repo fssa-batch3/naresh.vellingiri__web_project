@@ -236,6 +236,14 @@ if (JSON.parse(localStorage.getItem("fundraiser_list"))) {
   localStorage.setItem("fundraiser_list", JSON.stringify(fundraiser_list));
 }
 
+if(JSON.parse(localStorage.getItem("login_status"))){
+
+}
+
+else{
+  localStorage.setItem("login_status",false);
+}
+
 
 
 
